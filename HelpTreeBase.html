@@ -1,0 +1,1013 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tree Maker Base Class &mdash; xAODAnaHelpers 01-00-00-46-g45a2bda documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="xAODAnaHelpers 01-00-00-46-g45a2bda documentation" href="index.html"/>
+        <link rel="up" title="Producing Outputs" href="Outputs.html"/>
+        <link rel="next" title="Tree Maker Algorithm" href="TreeAlgo.html"/>
+        <link rel="prev" title="Producing Outputs" href="Outputs.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> xAODAnaHelpers
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                01.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UsingUs.html">xAH_run.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Algorithms.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQs.html">xAH FAQ</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="API.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Getters.html">Getting Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Calibrators.html">Calibrating Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Correctors.html">Efficiency Correcting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Selectors.html">Selecting Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Histograms.html">Histograms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ToolsUsed.html">Tools Used</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="Outputs.html">Producing Outputs</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="Outputs.html#ttree-outputs">TTree Outputs</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Tree Maker Base Class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TreeAlgo.html">Tree Maker Algorithm</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Outputs.html#xaod-outputs">xAOD Outputs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Utilities.html">Utilities</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">xAODAnaHelpers</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="API.html">API Reference</a> &raquo;</li>
+      
+          <li><a href="Outputs.html">Producing Outputs</a> &raquo;</li>
+      
+    <li>Tree Maker Base Class</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/HelpTreeBase.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tree-maker-base-class">
+<h1>Tree Maker Base Class<a class="headerlink" href="#tree-maker-base-class" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="_CPPv212HelpTreeBase">
+<span id="HelpTreeBase"></span><span class="target" id="xAHclass_help_tree_base"></span><em class="property">class </em><code class="descclassname"></code><code class="descname">HelpTreeBase</code><a class="headerlink" href="#_CPPv212HelpTreeBase" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase12HelpTreeBaseEPN4xAOD6TEventEP5TTreeP5TFileKfbPN4xAOD6TStoreE">
+<span id="HelpTreeBase::HelpTreeBase__xAOD::TEventP.TTreeP.TFileP.floatC.b.xAOD::TStoreP"></span><span class="target" id="xAHclass_help_tree_base_1af8391a1902c177bfd55d57efe8119708"></span><code class="descname">HelpTreeBase</code><span class="sig-paren">(</span>xAOD::TEvent *<em>event</em>, TTree *<em>tree</em>, TFile *<em>file</em>, <em class="property">const</em> float <em>units</em> = 1e3, bool <em>debug</em> = false, xAOD::TStore *<em>store</em> = nullptr<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase12HelpTreeBaseEPN4xAOD6TEventEP5TTreeP5TFileKfbPN4xAOD6TStoreE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase12HelpTreeBaseEP5TTreeP5TFilePN4xAOD6TEventEPN4xAOD6TStoreEKfb">
+<span id="HelpTreeBase::HelpTreeBase__TTreeP.TFileP.xAOD::TEventP.xAOD::TStoreP.floatC.b"></span><span class="target" id="xAHclass_help_tree_base_1a149831ea6e7f19a01ff36d56b27cf482"></span><code class="descname">HelpTreeBase</code><span class="sig-paren">(</span>TTree *<em>tree</em>, TFile *<em>file</em>, xAOD::TEvent *<em>event</em> = nullptr, xAOD::TStore *<em>store</em> = nullptr, <em class="property">const</em> float <em>units</em> = 1e3, bool <em>debug</em> = false<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase12HelpTreeBaseEP5TTreeP5TFilePN4xAOD6TEventEPN4xAOD6TStoreEKfb" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBaseD0Ev">
+<span id="HelpTreeBase::~HelpTreeBase"></span><span class="target" id="xAHclass_help_tree_base_1a27ad93c836fd1443d0d71710a7bab9da"></span><code class="descname">~HelpTreeBase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBaseD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase8AddEventEKNSt6stringE">
+<span id="HelpTreeBase::AddEvent__ssC"></span><span class="target" id="xAHclass_help_tree_base_1afc7449435d1ce0efdec422034a535142"></span>void <code class="descname">AddEvent</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>detailStr</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase8AddEventEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase10AddTriggerEKNSt6stringE">
+<span id="HelpTreeBase::AddTrigger__ssC"></span><span class="target" id="xAHclass_help_tree_base_1a4688c175b073cd58968b4813403c5c02"></span>void <code class="descname">AddTrigger</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>detailStr</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase10AddTriggerEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase13AddJetTriggerEKNSt6stringE">
+<span id="HelpTreeBase::AddJetTrigger__ssC"></span><span class="target" id="xAHclass_help_tree_base_1a90d43beb4d245677f98bd93bfe25b910"></span>void <code class="descname">AddJetTrigger</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>detailStr</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase13AddJetTriggerEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase8AddMuonsEKNSt6stringEKNSt6stringE">
+<span id="HelpTreeBase::AddMuons__ssC.ssC"></span><span class="target" id="xAHclass_help_tree_base_1acf7c6275d1c5b0cbb105fcd99badc426"></span>void <code class="descname">AddMuons</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>detailStr</em> = &quot;&quot;, <em class="property">const</em> std::string <em>muonName</em> = &quot;muon&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase8AddMuonsEKNSt6stringEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase12AddElectronsEKNSt6stringEKNSt6stringE">
+<span id="HelpTreeBase::AddElectrons__ssC.ssC"></span><span class="target" id="xAHclass_help_tree_base_1a176e8f70f41d89cca8fd256607d528e8"></span>void <code class="descname">AddElectrons</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>detailStr</em> = &quot;&quot;, <em class="property">const</em> std::string <em>elecName</em> = &quot;el&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase12AddElectronsEKNSt6stringEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase10AddPhotonsEKNSt6stringEKNSt6stringE">
+<span id="HelpTreeBase::AddPhotons__ssC.ssC"></span><span class="target" id="xAHclass_help_tree_base_1a8784963ec0298dbb037f6820cbb9f4a3"></span>void <code class="descname">AddPhotons</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>detailStr</em> = &quot;&quot;, <em class="property">const</em> std::string <em>photonName</em> = &quot;ph&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase10AddPhotonsEKNSt6stringEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase7AddJetsEKNSt6stringEKNSt6stringE">
+<span id="HelpTreeBase::AddJets__ssC.ssC"></span><span class="target" id="xAHclass_help_tree_base_1a947b08359ddae95e6c44a2f8446cae6a"></span>void <code class="descname">AddJets</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>detailStr</em> = &quot;&quot;, <em class="property">const</em> std::string <em>jetName</em> = &quot;jet&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase7AddJetsEKNSt6stringEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase9AddL1JetsEv">
+<span id="HelpTreeBase::AddL1Jets"></span><span class="target" id="xAHclass_help_tree_base_1a5b6ce2247c8b650feb9e7a658be629da"></span>void <code class="descname">AddL1Jets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase9AddL1JetsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase13AddTruthPartsEKNSt6stringEKNSt6stringE">
+<span id="HelpTreeBase::AddTruthParts__ssC.ssC"></span><span class="target" id="xAHclass_help_tree_base_1ad4b3a2986b31f07411b737fffec30bf9"></span>void <code class="descname">AddTruthParts</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>truthName</em>, <em class="property">const</em> std::string <em>detailStr</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase13AddTruthPartsEKNSt6stringEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase13AddTrackPartsEKNSt6stringEKNSt6stringE">
+<span id="HelpTreeBase::AddTrackParts__ssC.ssC"></span><span class="target" id="xAHclass_help_tree_base_1a5f7bcd1fdda089317204d8fce2b9ee72"></span>void <code class="descname">AddTrackParts</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>trackName</em>, <em class="property">const</em> std::string <em>detailStr</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase13AddTrackPartsEKNSt6stringEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase10AddFatJetsEKNSt6stringEKNSt6stringEKNSt6stringEKNSt6stringE">
+<span id="HelpTreeBase::AddFatJets__ssC.ssC.ssC.ssC"></span><span class="target" id="xAHclass_help_tree_base_1af6c650dd3e21a4fe2540296b3ee5acfb"></span>void <code class="descname">AddFatJets</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>detailStr</em> = &quot;&quot;, <em class="property">const</em> std::string <em>fatjetName</em> = &quot;fatjet&quot;, <em class="property">const</em> std::string <em>subjetDetailStr</em> = &quot;&quot;, <em class="property">const</em> std::string <em>suffix</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase10AddFatJetsEKNSt6stringEKNSt6stringEKNSt6stringEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Declare a new collection of fatjets to be written to the output tree. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">detailStr</span></code>: A (space-separated) list of detail options. These keywords specify exactly which information about each jet is written out. Current influential options are: <code class="docutils literal"><span class="pre">kinematic</span></code> <code class="docutils literal"><span class="pre">substructure</span></code> <code class="docutils literal"><span class="pre">constituent</span></code> <code class="docutils literal"><span class="pre">constituentAll</span></code> </li>
+<li><code class="docutils literal"><span class="pre">fatjetName</span></code>: The (prefix) name of the container. Default: <code class="docutils literal"><span class="pre">fatjet</span></code>. </li>
+<li><code class="docutils literal"><span class="pre">subjetDetailStr</span></code>: List of detail options to pass to the subjet container. See :cpp:member:<code class="docutils literal"><span class="pre">HelpTreeBase::AddJets</span></code> for list of supported values. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase15AddTruthFatJetsEKNSt6stringEKNSt6stringE">
+<span id="HelpTreeBase::AddTruthFatJets__ssC.ssC"></span><span class="target" id="xAHclass_help_tree_base_1a422484cccebb209621e2c6c526306d11"></span>void <code class="descname">AddTruthFatJets</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>detailStr</em> = &quot;&quot;, <em class="property">const</em> std::string <em>truthFatJetName</em> = &quot;truth_fatjet&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase15AddTruthFatJetsEKNSt6stringEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase7AddTausEKNSt6stringEKNSt6stringE">
+<span id="HelpTreeBase::AddTaus__ssC.ssC"></span><span class="target" id="xAHclass_help_tree_base_1ae67bbe8bdf19e46c03932d2ac707367c"></span>void <code class="descname">AddTaus</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>detailStr</em> = &quot;&quot;, <em class="property">const</em> std::string <em>tauName</em> = &quot;tau&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase7AddTausEKNSt6stringEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase6AddMETEKNSt6stringEKNSt6stringE">
+<span id="HelpTreeBase::AddMET__ssC.ssC"></span><span class="target" id="xAHclass_help_tree_base_1a2529e0b0ec6874dfaf76ca9fc80bfd3e"></span>void <code class="descname">AddMET</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>detailStr</em> = &quot;&quot;, <em class="property">const</em> std::string <em>metName</em> = &quot;met&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase6AddMETEKNSt6stringEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase9FillEventEPKN4xAOD9EventInfoEPN4xAOD6TEventE">
+<span id="HelpTreeBase::FillEvent__xAOD::EventInfoCP.xAOD::TEventP"></span><span class="target" id="xAHclass_help_tree_base_1abd601eb5f01a1973324173a0918165f0"></span>void <code class="descname">FillEvent</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::EventInfo *<em>eventInfo</em>, xAOD::TEvent *<em>event</em> = nullptr<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase9FillEventEPKN4xAOD9EventInfoEPN4xAOD6TEventE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase11FillTriggerEPKN4xAOD9EventInfoE">
+<span id="HelpTreeBase::FillTrigger__xAOD::EventInfoCP"></span><span class="target" id="xAHclass_help_tree_base_1af85a50f483b80320ad54cfcc96728506"></span>void <code class="descname">FillTrigger</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::EventInfo *<em>eventInfo</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase11FillTriggerEPKN4xAOD9EventInfoE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase14FillJetTriggerEv">
+<span id="HelpTreeBase::FillJetTrigger"></span><span class="target" id="xAHclass_help_tree_base_1a7f4e900485261241502454f692afa79e"></span>void <code class="descname">FillJetTrigger</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase14FillJetTriggerEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase9FillMuonsEPKN4xAOD13MuonContainerEPKN4xAOD6VertexEKNSt6stringE">
+<span id="HelpTreeBase::FillMuons__xAOD::MuonContainerCP.xAOD::VertexCP.ssC"></span><span class="target" id="xAHclass_help_tree_base_1a222f33fad9c23f36598f09097b578a19"></span>void <code class="descname">FillMuons</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::MuonContainer *<em>muons</em>, <em class="property">const</em> xAOD::Vertex *<em>primaryVertex</em>, <em class="property">const</em> std::string <em>muonName</em> = &quot;muon&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase9FillMuonsEPKN4xAOD13MuonContainerEPKN4xAOD6VertexEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase8FillMuonEPKN4xAOD4MuonEPKN4xAOD6VertexEKNSt6stringE">
+<span id="HelpTreeBase::FillMuon__xAOD::MuonCP.xAOD::VertexCP.ssC"></span><span class="target" id="xAHclass_help_tree_base_1a39bccdb4f70155eb6fa1033f2eb5ca57"></span>void <code class="descname">FillMuon</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::Muon *<em>muon</em>, <em class="property">const</em> xAOD::Vertex *<em>primaryVertex</em>, <em class="property">const</em> std::string <em>muonName</em> = &quot;muon&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase8FillMuonEPKN4xAOD4MuonEPKN4xAOD6VertexEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase13FillElectronsEPKN4xAOD17ElectronContainerEPKN4xAOD6VertexEKNSt6stringE">
+<span id="HelpTreeBase::FillElectrons__xAOD::ElectronContainerCP.xAOD::VertexCP.ssC"></span><span class="target" id="xAHclass_help_tree_base_1afbbc8559e479431a9bf07bb0211ab854"></span>void <code class="descname">FillElectrons</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::ElectronContainer *<em>electrons</em>, <em class="property">const</em> xAOD::Vertex *<em>primaryVertex</em>, <em class="property">const</em> std::string <em>elecName</em> = &quot;el&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase13FillElectronsEPKN4xAOD17ElectronContainerEPKN4xAOD6VertexEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase12FillElectronEPKN4xAOD8ElectronEPKN4xAOD6VertexEKNSt6stringE">
+<span id="HelpTreeBase::FillElectron__xAOD::ElectronCP.xAOD::VertexCP.ssC"></span><span class="target" id="xAHclass_help_tree_base_1a9e783727ef247ec669eb04626c783988"></span>void <code class="descname">FillElectron</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::Electron *<em>elec</em>, <em class="property">const</em> xAOD::Vertex *<em>primaryVertex</em>, <em class="property">const</em> std::string <em>elecName</em> = &quot;el&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase12FillElectronEPKN4xAOD8ElectronEPKN4xAOD6VertexEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase11FillPhotonsEPKN4xAOD15PhotonContainerEKNSt6stringE">
+<span id="HelpTreeBase::FillPhotons__xAOD::PhotonContainerCP.ssC"></span><span class="target" id="xAHclass_help_tree_base_1af7b92ac3274c2761a962949dd5e29e45"></span>void <code class="descname">FillPhotons</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::PhotonContainer *<em>photons</em>, <em class="property">const</em> std::string <em>photonName</em> = &quot;ph&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase11FillPhotonsEPKN4xAOD15PhotonContainerEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase10FillPhotonEPKN4xAOD6PhotonEKNSt6stringE">
+<span id="HelpTreeBase::FillPhoton__xAOD::PhotonCP.ssC"></span><span class="target" id="xAHclass_help_tree_base_1a725548f441bf8f12c06081aeed21064f"></span>void <code class="descname">FillPhoton</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::Photon *<em>photon</em>, <em class="property">const</em> std::string <em>photonName</em> = &quot;ph&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase10FillPhotonEPKN4xAOD6PhotonEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase8FillJetsEPKN4xAOD12JetContainerEiKNSt6stringE">
+<span id="HelpTreeBase::FillJets__xAOD::JetContainerCP.i.ssC"></span><span class="target" id="xAHclass_help_tree_base_1a91d1ba2b979f6dad3f6324ce839d3ee4"></span>void <code class="descname">FillJets</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::JetContainer *<em>jets</em>, int <em>pvLocation</em> = -1, <em class="property">const</em> std::string <em>jetName</em> = &quot;jet&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase8FillJetsEPKN4xAOD12JetContainerEiKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase7FillJetEPKN4xAOD3JetEPKN4xAOD6VertexEiKNSt6stringE">
+<span id="HelpTreeBase::FillJet__xAOD::JetCP.xAOD::VertexCP.i.ssC"></span><span class="target" id="xAHclass_help_tree_base_1aa3a57449e96170a423aaa68d95a467a3"></span>void <code class="descname">FillJet</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::Jet *<em>jet_itr</em>, <em class="property">const</em> xAOD::Vertex *<em>pv</em>, int <em>pvLocation</em>, <em class="property">const</em> std::string <em>jetName</em> = &quot;jet&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase7FillJetEPKN4xAOD3JetEPKN4xAOD6VertexEiKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase10FillL1JetsEPKN4xAOD15JetRoIContainerEb">
+<span id="HelpTreeBase::FillL1Jets__xAOD::JetRoIContainerCP.b"></span><span class="target" id="xAHclass_help_tree_base_1a0a1d8c5eee177673d7c906796c4268db"></span>void <code class="descname">FillL1Jets</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::JetRoIContainer *<em>jets</em>, bool <em>sortL1Jets</em> = false<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase10FillL1JetsEPKN4xAOD15JetRoIContainerEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase9FillTruthEKNSt6stringEPKN4xAOD22TruthParticleContainerE">
+<span id="HelpTreeBase::FillTruth__ssC.xAOD::TruthParticleContainerCP"></span><span class="target" id="xAHclass_help_tree_base_1a142f169b753f4b1b0b80a478a15b7408"></span>void <code class="descname">FillTruth</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>truthName</em>, <em class="property">const</em> xAOD::TruthParticleContainer *<em>truth</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase9FillTruthEKNSt6stringEPKN4xAOD22TruthParticleContainerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase9FillTruthEPKN4xAOD13TruthParticleEKNSt6stringE">
+<span id="HelpTreeBase::FillTruth__xAOD::TruthParticleCP.ssC"></span><span class="target" id="xAHclass_help_tree_base_1a6941e90a42c41c0f48751c039e09089c"></span>void <code class="descname">FillTruth</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::TruthParticle *<em>truthPart</em>, <em class="property">const</em> std::string <em>truthName</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase9FillTruthEPKN4xAOD13TruthParticleEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase10FillTracksEKNSt6stringEPKN4xAOD22TrackParticleContainerE">
+<span id="HelpTreeBase::FillTracks__ssC.xAOD::TrackParticleContainerCP"></span><span class="target" id="xAHclass_help_tree_base_1af3bc8d6da34dc3bea4d083784507a45a"></span>void <code class="descname">FillTracks</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>trackName</em>, <em class="property">const</em> xAOD::TrackParticleContainer *<em>tracks</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase10FillTracksEKNSt6stringEPKN4xAOD22TrackParticleContainerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase9FillTrackEPKN4xAOD13TrackParticleEKNSt6stringE">
+<span id="HelpTreeBase::FillTrack__xAOD::TrackParticleCP.ssC"></span><span class="target" id="xAHclass_help_tree_base_1a9e6eb8e173c2810ca3ff1a21edd8cc6e"></span>void <code class="descname">FillTrack</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::TrackParticle *<em>trackPart</em>, <em class="property">const</em> std::string <em>trackName</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase9FillTrackEPKN4xAOD13TrackParticleEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase11FillFatJetsEPKN4xAOD12JetContainerEKNSt6stringEKNSt6stringE">
+<span id="HelpTreeBase::FillFatJets__xAOD::JetContainerCP.ssC.ssC"></span><span class="target" id="xAHclass_help_tree_base_1a033ab5afdc28c1b6c5e27c503aad04b1"></span>void <code class="descname">FillFatJets</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::JetContainer *<em>fatJets</em>, <em class="property">const</em> std::string <em>fatjetName</em> = &quot;fatjet&quot;, <em class="property">const</em> std::string <em>suffix</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase11FillFatJetsEPKN4xAOD12JetContainerEKNSt6stringEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write a container of jets to the specified container name (and optionally suffix). The container name and suffix should be declared beforehand using <code class="docutils literal"><a class="reference internal" href="#xAHclass_help_tree_base_1af6c650dd3e21a4fe2540296b3ee5acfb"><span class="std std-ref"><span class="pre">AddFatJets()</span></span></a></code>. This clears the current branch state for the collection so it only makes sense to call once per call to <code class="docutils literal"><span class="pre">Fill()</span></code>. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">fatJets</span></code>: A container of jets to be written out. </li>
+<li><code class="docutils literal"><span class="pre">fatjetName</span></code>: The name of the output collection to write to. </li>
+<li><code class="docutils literal"><span class="pre">suffix</span></code>: The suffix of the output collection to write to. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase10FillFatJetEPKN4xAOD3JetEKNSt6stringEKNSt6stringE">
+<span id="HelpTreeBase::FillFatJet__xAOD::JetCP.ssC.ssC"></span><span class="target" id="xAHclass_help_tree_base_1ab2249ef2641f70dbf39943847b1705b5"></span>void <code class="descname">FillFatJet</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::Jet *<em>fatjet_itr</em>, <em class="property">const</em> std::string <em>fatjetName</em> = &quot;fatjet&quot;, <em class="property">const</em> std::string <em>suffix</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase10FillFatJetEPKN4xAOD3JetEKNSt6stringEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase16FillTruthFatJetsEPKN4xAOD12JetContainerEKNSt6stringE">
+<span id="HelpTreeBase::FillTruthFatJets__xAOD::JetContainerCP.ssC"></span><span class="target" id="xAHclass_help_tree_base_1ab15dd2ad8e04e452dd8816da10c71232"></span>void <code class="descname">FillTruthFatJets</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::JetContainer *<em>truthFatJets</em>, <em class="property">const</em> std::string <em>truthFatJetName</em> = &quot;truth_fatjet&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase16FillTruthFatJetsEPKN4xAOD12JetContainerEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase15FillTruthFatJetEPKN4xAOD3JetEKNSt6stringE">
+<span id="HelpTreeBase::FillTruthFatJet__xAOD::JetCP.ssC"></span><span class="target" id="xAHclass_help_tree_base_1a49a989095a59419ca52604093db5e9f9"></span>void <code class="descname">FillTruthFatJet</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::Jet *<em>truth_fatjet_itr</em>, <em class="property">const</em> std::string <em>truthFatJetName</em> = &quot;truth_fatjet&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase15FillTruthFatJetEPKN4xAOD3JetEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase8FillTausEPKN4xAOD15TauJetContainerEKNSt6stringE">
+<span id="HelpTreeBase::FillTaus__xAOD::TauJetContainerCP.ssC"></span><span class="target" id="xAHclass_help_tree_base_1afa7c049d45606fccaa4113532c3623a8"></span>void <code class="descname">FillTaus</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::TauJetContainer *<em>taus</em>, <em class="property">const</em> std::string <em>tauName</em> = &quot;tau&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase8FillTausEPKN4xAOD15TauJetContainerEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase7FillTauEPKN4xAOD6TauJetEKNSt6stringE">
+<span id="HelpTreeBase::FillTau__xAOD::TauJetCP.ssC"></span><span class="target" id="xAHclass_help_tree_base_1a2b9854741f2d2c61a5b39de0b8ed1fd2"></span>void <code class="descname">FillTau</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::TauJet *<em>tau</em>, <em class="property">const</em> std::string <em>tauName</em> = &quot;tau&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase7FillTauEPKN4xAOD6TauJetEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase7FillMETEPKN4xAOD18MissingETContainerEKNSt6stringE">
+<span id="HelpTreeBase::FillMET__xAOD::MissingETContainerCP.ssC"></span><span class="target" id="xAHclass_help_tree_base_1af0886ff211ccec5e9c64ffe0f8ec3d52"></span>void <code class="descname">FillMET</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::MissingETContainer *<em>met</em>, <em class="property">const</em> std::string <em>metName</em> = &quot;met&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase7FillMETEPKN4xAOD18MissingETContainerEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase4FillEv">
+<span id="HelpTreeBase::Fill"></span><span class="target" id="xAHclass_help_tree_base_1aeeecab638adaea1f88c41ea9ffbc5d52"></span>void <code class="descname">Fill</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase4FillEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase10ClearEventEv">
+<span id="HelpTreeBase::ClearEvent"></span><span class="target" id="xAHclass_help_tree_base_1aecb896f41866d65ff57eeb3748182687"></span>void <code class="descname">ClearEvent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase10ClearEventEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase12ClearTriggerEv">
+<span id="HelpTreeBase::ClearTrigger"></span><span class="target" id="xAHclass_help_tree_base_1aeddb43373e93ce5c9762f82bc062db6c"></span>void <code class="descname">ClearTrigger</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase12ClearTriggerEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase15ClearJetTriggerEv">
+<span id="HelpTreeBase::ClearJetTrigger"></span><span class="target" id="xAHclass_help_tree_base_1ae1ac59f23e5d3aadc884f891fb1d766a"></span>void <code class="descname">ClearJetTrigger</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase15ClearJetTriggerEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase10ClearMuonsEKNSt6stringE">
+<span id="HelpTreeBase::ClearMuons__ssC"></span><span class="target" id="xAHclass_help_tree_base_1a4e056920895febd1552e9edfd4bddcf3"></span>void <code class="descname">ClearMuons</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>jetName</em> = &quot;muon&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase10ClearMuonsEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase14ClearElectronsEKNSt6stringE">
+<span id="HelpTreeBase::ClearElectrons__ssC"></span><span class="target" id="xAHclass_help_tree_base_1ab90ed47246ed9068cc2719035e6623c8"></span>void <code class="descname">ClearElectrons</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>elecName</em> = &quot;el&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase14ClearElectronsEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase12ClearPhotonsEKNSt6stringE">
+<span id="HelpTreeBase::ClearPhotons__ssC"></span><span class="target" id="xAHclass_help_tree_base_1af6dc043df68e79d86cd78ad02f6377ba"></span>void <code class="descname">ClearPhotons</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>photonName</em> = &quot;ph&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase12ClearPhotonsEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase9ClearJetsEKNSt6stringE">
+<span id="HelpTreeBase::ClearJets__ssC"></span><span class="target" id="xAHclass_help_tree_base_1a5050008a2895160d1f82174144bc0226"></span>void <code class="descname">ClearJets</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>jetName</em> = &quot;jet&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase9ClearJetsEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase11ClearL1JetsEv">
+<span id="HelpTreeBase::ClearL1Jets"></span><span class="target" id="xAHclass_help_tree_base_1a0c07f77c227a1bc16426038b6580d3ae"></span>void <code class="descname">ClearL1Jets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase11ClearL1JetsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase10ClearTruthEKNSt6stringE">
+<span id="HelpTreeBase::ClearTruth__ssC"></span><span class="target" id="xAHclass_help_tree_base_1a5db5692315ded4a404f4871466779bd4"></span>void <code class="descname">ClearTruth</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>truthName</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase10ClearTruthEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase11ClearTracksEKNSt6stringE">
+<span id="HelpTreeBase::ClearTracks__ssC"></span><span class="target" id="xAHclass_help_tree_base_1adadc18e9666d604fc230bfa54a8d99c1"></span>void <code class="descname">ClearTracks</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>trackName</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase11ClearTracksEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase12ClearFatJetsEKNSt6stringEKNSt6stringE">
+<span id="HelpTreeBase::ClearFatJets__ssC.ssC"></span><span class="target" id="xAHclass_help_tree_base_1a95608cd5e8dd2198dd9c3a7eda4b1e94"></span>void <code class="descname">ClearFatJets</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>fatjetName</em>, <em class="property">const</em> std::string <em>suffix</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase12ClearFatJetsEKNSt6stringEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase17ClearTruthFatJetsEKNSt6stringE">
+<span id="HelpTreeBase::ClearTruthFatJets__ssC"></span><span class="target" id="xAHclass_help_tree_base_1ad9718c0d3778d1b70057184bc8273914"></span>void <code class="descname">ClearTruthFatJets</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>truthFatJetName</em> = &quot;truth_fatjet&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase17ClearTruthFatJetsEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase9ClearTausEKNSt6stringE">
+<span id="HelpTreeBase::ClearTaus__ssC"></span><span class="target" id="xAHclass_help_tree_base_1a61b1a94f8a81a3c4b0c5d27ee5b9516f"></span>void <code class="descname">ClearTaus</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>tauName</em> = &quot;tau&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase9ClearTausEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase8ClearMETEKNSt6stringE">
+<span id="HelpTreeBase::ClearMET__ssC"></span><span class="target" id="xAHclass_help_tree_base_1aff4dcb9f14a3fdb86762d07dcb9922e1"></span>void <code class="descname">ClearMET</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>metName</em> = &quot;met&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase8ClearMETEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase7writeToEP5TFile">
+<span id="HelpTreeBase::writeTo__TFileP"></span><span class="target" id="xAHclass_help_tree_base_1a2a34dbadab9946ecfafb0b7a0f8d6a5a"></span>bool <code class="descname">writeTo</code><span class="sig-paren">(</span>TFile *<em>file</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase7writeToEP5TFile" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase12AddEventUserEKNSt6stringE">
+<span id="HelpTreeBase::AddEventUser__ssC"></span><span class="target" id="xAHclass_help_tree_base_1a6508e719a7ba076c5c8e03e1eb448826"></span><em class="property">virtual</em> void <code class="descname">AddEventUser</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>detailStr</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase12AddEventUserEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase14AddTriggerUserEKNSt6stringE">
+<span id="HelpTreeBase::AddTriggerUser__ssC"></span><span class="target" id="xAHclass_help_tree_base_1a2d9d8088159a96bf2a3ba7b92028c12d"></span><em class="property">virtual</em> void <code class="descname">AddTriggerUser</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>detailStr</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase14AddTriggerUserEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase17AddJetTriggerUserEKNSt6stringE">
+<span id="HelpTreeBase::AddJetTriggerUser__ssC"></span><span class="target" id="xAHclass_help_tree_base_1af19f596ffc44c6576c6b04a239fd6d9a"></span><em class="property">virtual</em> void <code class="descname">AddJetTriggerUser</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>detailStr</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase17AddJetTriggerUserEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase12AddMuonsUserEKNSt6stringE">
+<span id="HelpTreeBase::AddMuonsUser__ssC"></span><span class="target" id="xAHclass_help_tree_base_1a13a9d19197ecfc907a90fa894be46b6f"></span><em class="property">virtual</em> void <code class="descname">AddMuonsUser</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>detailStr</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase12AddMuonsUserEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase16AddElectronsUserEKNSt6stringE">
+<span id="HelpTreeBase::AddElectronsUser__ssC"></span><span class="target" id="xAHclass_help_tree_base_1a8f978e25b8dba70dd49865a133df00b0"></span><em class="property">virtual</em> void <code class="descname">AddElectronsUser</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>detailStr</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase16AddElectronsUserEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase14AddPhotonsUserEKNSt6stringE">
+<span id="HelpTreeBase::AddPhotonsUser__ssC"></span><span class="target" id="xAHclass_help_tree_base_1a2eefb56485945635a1718ea46f0dfe6e"></span><em class="property">virtual</em> void <code class="descname">AddPhotonsUser</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>detailStr</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase14AddPhotonsUserEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase11AddJetsUserEKNSt6stringEKNSt6stringE">
+<span id="HelpTreeBase::AddJetsUser__ssC.ssC"></span><span class="target" id="xAHclass_help_tree_base_1ad2655545b0d67365474d980b4557f917"></span><em class="property">virtual</em> void <code class="descname">AddJetsUser</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>detailStr</em> = &quot;&quot;, <em class="property">const</em> std::string <em>jetName</em> = &quot;jet&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase11AddJetsUserEKNSt6stringEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase12AddTruthUserEKNSt6stringEKNSt6stringE">
+<span id="HelpTreeBase::AddTruthUser__ssC.ssC"></span><span class="target" id="xAHclass_help_tree_base_1aff04d8c502ca19bb60425b3ed092cff8"></span><em class="property">virtual</em> void <code class="descname">AddTruthUser</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>truthName</em>, <em class="property">const</em> std::string <em>detailStr</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase12AddTruthUserEKNSt6stringEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase13AddTracksUserEKNSt6stringEKNSt6stringE">
+<span id="HelpTreeBase::AddTracksUser__ssC.ssC"></span><span class="target" id="xAHclass_help_tree_base_1a8272fb18d6e569c193c3d1f35d609ce2"></span><em class="property">virtual</em> void <code class="descname">AddTracksUser</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>trackName</em>, <em class="property">const</em> std::string <em>detailStr</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase13AddTracksUserEKNSt6stringEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase14AddFatJetsUserEKNSt6stringEKNSt6stringEKNSt6stringE">
+<span id="HelpTreeBase::AddFatJetsUser__ssC.ssC.ssC"></span><span class="target" id="xAHclass_help_tree_base_1ab6e5cfdc2fd2c17a630442e41d5b182f"></span><em class="property">virtual</em> void <code class="descname">AddFatJetsUser</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>detailStr</em> = &quot;&quot;, <em class="property">const</em> std::string <em>fatjetName</em> = &quot;&quot;, <em class="property">const</em> std::string <em>suffix</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase14AddFatJetsUserEKNSt6stringEKNSt6stringEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Declare a new fat jet collection. Automatically called once per call to <code class="docutils literal"><a class="reference internal" href="#xAHclass_help_tree_base_1af6c650dd3e21a4fe2540296b3ee5acfb"><span class="std std-ref"><span class="pre">AddFatJets()</span></span></a></code>; override this if you want to provide your own additional branches for fatjets. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">detailStr</span></code>: The space-separated list of detail requested by the called. </li>
+<li><code class="docutils literal"><span class="pre">fatjetName</span></code>: The (prefix) name of the output collection. </li>
+<li><code class="docutils literal"><span class="pre">suffix</span></code>: A suffix to be appeneded to the end of the output branch name(s). </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase19AddTruthFatJetsUserEKNSt6stringEKNSt6stringE">
+<span id="HelpTreeBase::AddTruthFatJetsUser__ssC.ssC"></span><span class="target" id="xAHclass_help_tree_base_1a8d1415b6b7ff8b5f430b9cb9d8595789"></span><em class="property">virtual</em> void <code class="descname">AddTruthFatJetsUser</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>detailStr</em> = &quot;&quot;, <em class="property">const</em> std::string <em>truthFatJetName</em> = &quot;truth_fatjet&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase19AddTruthFatJetsUserEKNSt6stringEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase11AddTausUserEKNSt6stringE">
+<span id="HelpTreeBase::AddTausUser__ssC"></span><span class="target" id="xAHclass_help_tree_base_1a8d3ee33236179b287ab1e984fd1b73ca"></span><em class="property">virtual</em> void <code class="descname">AddTausUser</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>detailStr</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase11AddTausUserEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase10AddMETUserEKNSt6stringEKNSt6stringE">
+<span id="HelpTreeBase::AddMETUser__ssC.ssC"></span><span class="target" id="xAHclass_help_tree_base_1a836c3da8f771033edcd31439284402a8"></span><em class="property">virtual</em> void <code class="descname">AddMETUser</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>detailStr</em> = &quot;&quot;, <em class="property">const</em> std::string <em>metName</em> = &quot;met&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase10AddMETUserEKNSt6stringEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase14ClearEventUserEv">
+<span id="HelpTreeBase::ClearEventUser"></span><span class="target" id="xAHclass_help_tree_base_1a1d610d835dd8930f793add54d407aac1"></span><em class="property">virtual</em> void <code class="descname">ClearEventUser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase14ClearEventUserEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase16ClearTriggerUserEv">
+<span id="HelpTreeBase::ClearTriggerUser"></span><span class="target" id="xAHclass_help_tree_base_1a00c05c9ec251b3fdb01dd98f929b1583"></span><em class="property">virtual</em> void <code class="descname">ClearTriggerUser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase16ClearTriggerUserEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase14ClearMuonsUserEKNSt6stringE">
+<span id="HelpTreeBase::ClearMuonsUser__ssC"></span><span class="target" id="xAHclass_help_tree_base_1a51d4f9410eb0dbaeb8e7c20ab85fa998"></span><em class="property">virtual</em> void <code class="descname">ClearMuonsUser</code><span class="sig-paren">(</span><em class="property">const</em> std::string<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase14ClearMuonsUserEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase18ClearElectronsUserEKNSt6stringE">
+<span id="HelpTreeBase::ClearElectronsUser__ssC"></span><span class="target" id="xAHclass_help_tree_base_1a9721cea4516b1e24d09c5f8162142bf1"></span><em class="property">virtual</em> void <code class="descname">ClearElectronsUser</code><span class="sig-paren">(</span><em class="property">const</em> std::string<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase18ClearElectronsUserEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase16ClearPhotonsUserEKNSt6stringE">
+<span id="HelpTreeBase::ClearPhotonsUser__ssC"></span><span class="target" id="xAHclass_help_tree_base_1aea7cd05b8855837e627e05e29fda4d31"></span><em class="property">virtual</em> void <code class="descname">ClearPhotonsUser</code><span class="sig-paren">(</span><em class="property">const</em> std::string<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase16ClearPhotonsUserEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase14ClearTruthUserEKNSt6stringE">
+<span id="HelpTreeBase::ClearTruthUser__ssC"></span><span class="target" id="xAHclass_help_tree_base_1a485f1c1ded6c7eca487ec275f4425eff"></span><em class="property">virtual</em> void <code class="descname">ClearTruthUser</code><span class="sig-paren">(</span><em class="property">const</em> std::string<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase14ClearTruthUserEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase15ClearTracksUserEKNSt6stringE">
+<span id="HelpTreeBase::ClearTracksUser__ssC"></span><span class="target" id="xAHclass_help_tree_base_1aebab06fd1e645242f9f496df9b561bdd"></span><em class="property">virtual</em> void <code class="descname">ClearTracksUser</code><span class="sig-paren">(</span><em class="property">const</em> std::string<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase15ClearTracksUserEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase13ClearJetsUserEKNSt6stringE">
+<span id="HelpTreeBase::ClearJetsUser__ssC"></span><span class="target" id="xAHclass_help_tree_base_1afccbd6acccc780c75f275fe5bf1435a3"></span><em class="property">virtual</em> void <code class="descname">ClearJetsUser</code><span class="sig-paren">(</span><em class="property">const</em> std::string<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase13ClearJetsUserEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase16ClearFatJetsUserEKNSt6stringEKNSt6stringE">
+<span id="HelpTreeBase::ClearFatJetsUser__ssC.ssC"></span><span class="target" id="xAHclass_help_tree_base_1aba5239f4eb347f4dedf85295b54d6218"></span><em class="property">virtual</em> void <code class="descname">ClearFatJetsUser</code><span class="sig-paren">(</span><em class="property">const</em> std::string, <em class="property">const</em> std::string<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase16ClearFatJetsUserEKNSt6stringEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase21ClearTruthFatJetsUserEKNSt6stringE">
+<span id="HelpTreeBase::ClearTruthFatJetsUser__ssC"></span><span class="target" id="xAHclass_help_tree_base_1ab1d5cfa48eeeeab5a1520c850191d9d5"></span><em class="property">virtual</em> void <code class="descname">ClearTruthFatJetsUser</code><span class="sig-paren">(</span><em class="property">const</em> std::string<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase21ClearTruthFatJetsUserEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase13ClearTausUserEKNSt6stringE">
+<span id="HelpTreeBase::ClearTausUser__ssC"></span><span class="target" id="xAHclass_help_tree_base_1ab8179d9e14ea774b45e74ca42211531a"></span><em class="property">virtual</em> void <code class="descname">ClearTausUser</code><span class="sig-paren">(</span><em class="property">const</em> std::string<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase13ClearTausUserEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase12ClearMETUserEKNSt6stringE">
+<span id="HelpTreeBase::ClearMETUser__ssC"></span><span class="target" id="xAHclass_help_tree_base_1af2d1ed738c2629af1e847548e2ecc88d"></span><em class="property">virtual</em> void <code class="descname">ClearMETUser</code><span class="sig-paren">(</span><em class="property">const</em> std::string<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase12ClearMETUserEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase13FillEventUserEPKN4xAOD9EventInfoE">
+<span id="HelpTreeBase::FillEventUser__xAOD::EventInfoCP"></span><span class="target" id="xAHclass_help_tree_base_1a9958a814ad859b853d29fd194a74206c"></span><em class="property">virtual</em> void <code class="descname">FillEventUser</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::EventInfo *<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase13FillEventUserEPKN4xAOD9EventInfoE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase13FillMuonsUserEPKN4xAOD4MuonEKNSt6stringE">
+<span id="HelpTreeBase::FillMuonsUser__xAOD::MuonCP.ssC"></span><span class="target" id="xAHclass_help_tree_base_1a1af77dc6ecb39a1d6cf9d5218ba22d63"></span><em class="property">virtual</em> void <code class="descname">FillMuonsUser</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::Muon *, <em class="property">const</em> std::string<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase13FillMuonsUserEPKN4xAOD4MuonEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase17FillElectronsUserEPKN4xAOD8ElectronEKNSt6stringE">
+<span id="HelpTreeBase::FillElectronsUser__xAOD::ElectronCP.ssC"></span><span class="target" id="xAHclass_help_tree_base_1afa17ea59e5718588afdee873e6bf31fa"></span><em class="property">virtual</em> void <code class="descname">FillElectronsUser</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::Electron *, <em class="property">const</em> std::string<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase17FillElectronsUserEPKN4xAOD8ElectronEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase15FillPhotonsUserEPKN4xAOD6PhotonEKNSt6stringE">
+<span id="HelpTreeBase::FillPhotonsUser__xAOD::PhotonCP.ssC"></span><span class="target" id="xAHclass_help_tree_base_1a1c941a298e4502090ed30f6701975721"></span><em class="property">virtual</em> void <code class="descname">FillPhotonsUser</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::Photon *, <em class="property">const</em> std::string<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase15FillPhotonsUserEPKN4xAOD6PhotonEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase12FillJetsUserEPKN4xAOD3JetEKNSt6stringE">
+<span id="HelpTreeBase::FillJetsUser__xAOD::JetCP.ssC"></span><span class="target" id="xAHclass_help_tree_base_1a4c40c59b4a6bb70c4a58ca8907e863b9"></span><em class="property">virtual</em> void <code class="descname">FillJetsUser</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::Jet *, <em class="property">const</em> std::string<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase12FillJetsUserEPKN4xAOD3JetEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase13FillTruthUserEKNSt6stringEPKN4xAOD13TruthParticleE">
+<span id="HelpTreeBase::FillTruthUser__ssC.xAOD::TruthParticleCP"></span><span class="target" id="xAHclass_help_tree_base_1a4eff864752461625ab4fabeb6b39d335"></span><em class="property">virtual</em> void <code class="descname">FillTruthUser</code><span class="sig-paren">(</span><em class="property">const</em> std::string, <em class="property">const</em> xAOD::TruthParticle *<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase13FillTruthUserEKNSt6stringEPKN4xAOD13TruthParticleE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase14FillTracksUserEKNSt6stringEPKN4xAOD13TrackParticleE">
+<span id="HelpTreeBase::FillTracksUser__ssC.xAOD::TrackParticleCP"></span><span class="target" id="xAHclass_help_tree_base_1a68499dcb70ed33eb664fa5f76df1d07c"></span><em class="property">virtual</em> void <code class="descname">FillTracksUser</code><span class="sig-paren">(</span><em class="property">const</em> std::string, <em class="property">const</em> xAOD::TrackParticle *<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase14FillTracksUserEKNSt6stringEPKN4xAOD13TrackParticleE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase15FillFatJetsUserEPKN4xAOD3JetEKNSt6stringEKNSt6stringE">
+<span id="HelpTreeBase::FillFatJetsUser__xAOD::JetCP.ssC.ssC"></span><span class="target" id="xAHclass_help_tree_base_1a2efa417385b81f17c0fbff9e1b0b0600"></span><em class="property">virtual</em> void <code class="descname">FillFatJetsUser</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::Jet *, <em class="property">const</em> std::string, <em class="property">const</em> std::string<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase15FillFatJetsUserEPKN4xAOD3JetEKNSt6stringEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Called once per call to <code class="docutils literal"><a class="reference internal" href="#xAHclass_help_tree_base_1a033ab5afdc28c1b6c5e27c503aad04b1"><span class="std std-ref"><span class="pre">FillFatJets()</span></span></a></code>.Ooverride this if you want to any additional information to your jet collection. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">jet</span></code>: a pointer to the current xAOD::Jet object that should be written to the output branch(s). </li>
+<li><code class="docutils literal"><span class="pre">fatjetName</span></code>: the (prefix) name of the output collection </li>
+<li><code class="docutils literal"><span class="pre">suffix</span></code>: the suffix to append to output branches. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase20FillTruthFatJetsUserEPKN4xAOD3JetEKNSt6stringE">
+<span id="HelpTreeBase::FillTruthFatJetsUser__xAOD::JetCP.ssC"></span><span class="target" id="xAHclass_help_tree_base_1a785d20cdf12ee6e0c682653cb6184245"></span><em class="property">virtual</em> void <code class="descname">FillTruthFatJetsUser</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::Jet *, <em class="property">const</em> std::string<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase20FillTruthFatJetsUserEPKN4xAOD3JetEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase12FillTausUserEPKN4xAOD6TauJetEKNSt6stringE">
+<span id="HelpTreeBase::FillTausUser__xAOD::TauJetCP.ssC"></span><span class="target" id="xAHclass_help_tree_base_1a110727219412772ab677488678cba002"></span><em class="property">virtual</em> void <code class="descname">FillTausUser</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::TauJet *, <em class="property">const</em> std::string<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase12FillTausUserEPKN4xAOD6TauJetEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase11FillMETUserEPKN4xAOD18MissingETContainerEKNSt6stringE">
+<span id="HelpTreeBase::FillMETUser__xAOD::MissingETContainerCP.ssC"></span><span class="target" id="xAHclass_help_tree_base_1a4d534c22e47a9007824e58ce2772c587"></span><em class="property">virtual</em> void <code class="descname">FillMETUser</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::MissingETContainer *, <em class="property">const</em> std::string<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase11FillMETUserEPKN4xAOD18MissingETContainerEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase15FillTriggerUserEPKN4xAOD9EventInfoE">
+<span id="HelpTreeBase::FillTriggerUser__xAOD::EventInfoCP"></span><span class="target" id="xAHclass_help_tree_base_1a6d3eb3df97bef9dd3331070b883447bd"></span><em class="property">virtual</em> void <code class="descname">FillTriggerUser</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::EventInfo *<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase15FillTriggerUserEPKN4xAOD9EventInfoE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase18FillJetTriggerUserEv">
+<span id="HelpTreeBase::FillJetTriggerUser"></span><span class="target" id="xAHclass_help_tree_base_1a1bf7f56dd0d6e65c5b83cb755b7d3854"></span><em class="property">virtual</em> void <code class="descname">FillJetTriggerUser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase18FillJetTriggerUserEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase7m_eventE">
+<span id="HelpTreeBase::m_event__xAOD::TEventP"></span><span class="target" id="xAHclass_help_tree_base_1a5ead2596ca90b4822bca92958b553f33"></span>xAOD::TEvent *<code class="descname">m_event</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase7m_eventE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase7m_storeE">
+<span id="HelpTreeBase::m_store__xAOD::TStoreP"></span><span class="target" id="xAHclass_help_tree_base_1ad57d1c8d44b5094c4cbe43cdad76b0bd"></span>xAOD::TStore *<code class="descname">m_store</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase7m_storeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase16m_trigInfoSwitchE">
+<span id="HelpTreeBase::m_trigInfoSwitch__HelperClasses::TriggerInfoSwitchP"></span><span class="target" id="xAHclass_help_tree_base_1a94edf05c0048cc61b52c7a6b2dd1f791"></span><a class="reference internal" href="HelperClasses.html#_CPPv213HelperClasses" title="HelperClasses">HelperClasses</a>::<a class="reference internal" href="HelperClasses.html#_CPPv2N13HelperClasses17TriggerInfoSwitchE" title="HelperClasses::TriggerInfoSwitch">TriggerInfoSwitch</a> *<code class="descname">m_trigInfoSwitch</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase16m_trigInfoSwitchE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase18m_triggerSelectionE">
+<span id="HelpTreeBase::m_triggerSelection__ss"></span><span class="target" id="xAHclass_help_tree_base_1a38ad1bb0b1a6d48f30ef3876ba454ec7"></span>std::string <code class="descname">m_triggerSelection</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase18m_triggerSelectionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase14m_trigConfToolE">
+<span id="HelpTreeBase::m_trigConfTool__TrigConf::xAODConfigToolP"></span><span class="target" id="xAHclass_help_tree_base_1a2dc5347ad337d888a8dc22b35ac353c2"></span>TrigConf::xAODConfigTool *<code class="descname">m_trigConfTool</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase14m_trigConfToolE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase13m_trigDecToolE">
+<span id="HelpTreeBase::m_trigDecTool__Trig::TrigDecisionToolP"></span><span class="target" id="xAHclass_help_tree_base_1a46982f8c7c312622b58b2bcb5ede98f9"></span>Trig::TrigDecisionTool *<code class="descname">m_trigDecTool</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase13m_trigDecToolE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv2N12HelpTreeBase20FatJetCollectionNameEKNSt6stringEKNSt6stringE">
+<span id="HelpTreeBase::FatJetCollectionName__ssC.ssC"></span><span class="target" id="xAHclass_help_tree_base_1a86ac6a7682173d2400b404ac50e7c022"></span>std::string <code class="descname">FatJetCollectionName</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>fatjetName</em> = &quot;fatjet&quot;, <em class="property">const</em> std::string <em>suffix</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase20FatJetCollectionNameEKNSt6stringEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Helper function to lookup each fatjet container name/suffix combo in the internal map of vectors for vectors. You probably don&#8217;t need this but it might be useful if you&#8217;re implementing <code class="docutils literal"><span class="pre">[Add/Fill/Clear]FatJetsUser()</span></code>. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>a string that uniquely identifies the collection name/suffix in the lookup map. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">fatjetName</span></code>: The (prefix) name of the container. </li>
+<li><code class="docutils literal"><span class="pre">suffix</span></code>: The container branch suffix.</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T, <em class="property">typename</em> U, <em class="property">typename</em> V&gt;</dt>
+<dt id="_CPPv2N12HelpTreeBase8safeFillEPK1VRN2SG10AuxElement13ConstAccessorI1TEERNSt6vectorI1UEE1Ui">
+<span id="HelpTreeBase::safeFill__VCP.SG::AuxElement::ConstAccessor:T:R.std::vector:U:R.U.i"></span><span class="target" id="xAHclass_help_tree_base_1a96bb0e5db5067c7833525dd7085d7e11"></span>void <code class="descname">safeFill</code><span class="sig-paren">(</span><em class="property">const</em> V *<em>xAODObj</em>, SG::AuxElement::ConstAccessor&lt;T&gt; &amp;<em>accessor</em>, std::vector&lt;U&gt; &amp;<em>destination</em>, U <em>defaultValue</em>, int <em>m_units</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase8safeFillEPK1VRN2SG10AuxElement13ConstAccessorI1TEERNSt6vectorI1UEE1Ui" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T, <em class="property">typename</em> U, <em class="property">typename</em> V&gt;</dt>
+<dt id="_CPPv2N12HelpTreeBase11safeVecFillEPK1VRN2SG10AuxElement13ConstAccessorINSt6vectorI1TEEEERNSt6vectorINSt6vectorI1UEEEEi">
+<span id="HelpTreeBase::safeVecFill__VCP.SG::AuxElement::ConstAccessor:std::vector:T::R.std::vector:std::vector:U::R.i"></span><span class="target" id="xAHclass_help_tree_base_1a758ce71de896a65324e3906ce8fde4af"></span>void <code class="descname">safeVecFill</code><span class="sig-paren">(</span><em class="property">const</em> V *<em>xAODObj</em>, SG::AuxElement::ConstAccessor&lt;std::vector&lt;T&gt;&gt; &amp;<em>accessor</em>, std::vector&lt;std::vector&lt;U&gt;&gt; &amp;<em>destination</em>, int <em>m_units</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase11safeVecFillEPK1VRN2SG10AuxElement13ConstAccessorINSt6vectorI1TEEEERNSt6vectorINSt6vectorI1UEEEEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T&gt;</dt>
+<dt id="_CPPv2N12HelpTreeBase9setBranchENSt6stringENSt6stringEPNSt6vectorI1TEE">
+<span id="HelpTreeBase::setBranch__ss.ss.std::vector:T:P"></span><span class="target" id="xAHclass_help_tree_base_1a81352d4edfb2f2c5a5f7076f38394734"></span>void <code class="descname">setBranch</code><span class="sig-paren">(</span>std::string <em>prefix</em>, std::string <em>varName</em>, std::vector&lt;T&gt; *<em>localVectorPtr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N12HelpTreeBase9setBranchENSt6stringENSt6stringEPNSt6vectorI1TEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase6m_treeE">
+<span id="HelpTreeBase::m_tree__TTreeP"></span><span class="target" id="xAHclass_help_tree_base_1a57a3639b3990875424fc7c72c862e71e"></span>TTree *<code class="descname">m_tree</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase6m_treeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase7m_unitsE">
+<span id="HelpTreeBase::m_units__i"></span><span class="target" id="xAHclass_help_tree_base_1a640022f6fbc93a102427be845e84eaaf"></span>int <code class="descname">m_units</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase7m_unitsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase7m_debugE">
+<span id="HelpTreeBase::m_debug__b"></span><span class="target" id="xAHclass_help_tree_base_1a353f074a8f4d182271efd937544ad0e4"></span>bool <code class="descname">m_debug</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase7m_debugE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase6m_isMCE">
+<span id="HelpTreeBase::m_isMC__b"></span><span class="target" id="xAHclass_help_tree_base_1a5264b88909366962e64248297299ec0d"></span>bool <code class="descname">m_isMC</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase6m_isMCE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase13m_nominalTreeE">
+<span id="HelpTreeBase::m_nominalTree__b"></span><span class="target" id="xAHclass_help_tree_base_1a495b1d7c66ca2c516237deb5852d1edd"></span>bool <code class="descname">m_nominalTree</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase13m_nominalTreeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase11m_eventInfoE">
+<span id="HelpTreeBase::m_eventInfo__xAH::EventInfoP"></span><span class="target" id="xAHclass_help_tree_base_1aaeea7b1876496b868e599e97e4fa2afc"></span>xAH::EventInfo *<code class="descname">m_eventInfo</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase11m_eventInfoE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase8m_passL1E">
+<span id="HelpTreeBase::m_passL1__i"></span><span class="target" id="xAHclass_help_tree_base_1acc7ac2c59a510ecf518668615977b7e1"></span>int <code class="descname">m_passL1</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase8m_passL1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase9m_passHLTE">
+<span id="HelpTreeBase::m_passHLT__i"></span><span class="target" id="xAHclass_help_tree_base_1a56a7db0fda28a4c7df48c2696e461eac"></span>int <code class="descname">m_passHLT</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase9m_passHLTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase11m_masterKeyE">
+<span id="HelpTreeBase::m_masterKey__unsigned-i"></span><span class="target" id="xAHclass_help_tree_base_1a759969669845a7ef949bba630c862192"></span>unsigned int <code class="descname">m_masterKey</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase11m_masterKeyE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase9m_L1PSKeyE">
+<span id="HelpTreeBase::m_L1PSKey__unsigned-i"></span><span class="target" id="xAHclass_help_tree_base_1a5e81beff75b5d520073fd8cfb2f2ec5c"></span>unsigned int <code class="descname">m_L1PSKey</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase9m_L1PSKeyE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase10m_HLTPSKeyE">
+<span id="HelpTreeBase::m_HLTPSKey__unsigned-i"></span><span class="target" id="xAHclass_help_tree_base_1ae2481e36cba58beba6903c091cf8ce9f"></span>unsigned int <code class="descname">m_HLTPSKey</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase10m_HLTPSKeyE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase19m_elTrigForMatchingE">
+<span id="HelpTreeBase::m_elTrigForMatching__std::vector:ss:"></span><span class="target" id="xAHclass_help_tree_base_1a13f2d09dfd3ac1a9fdf15781410fc4f1"></span>std::vector&lt;std::string&gt; <code class="descname">m_elTrigForMatching</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase19m_elTrigForMatchingE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase14m_passTriggersE">
+<span id="HelpTreeBase::m_passTriggers__std::vector:ss:"></span><span class="target" id="xAHclass_help_tree_base_1a0271c6b46d7be7104d5a858a195e68c3"></span>std::vector&lt;std::string&gt; <code class="descname">m_passTriggers</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase14m_passTriggersE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase18m_triggerPrescalesE">
+<span id="HelpTreeBase::m_triggerPrescales__std::vector:float:"></span><span class="target" id="xAHclass_help_tree_base_1a8b503735a448737d6c3a195ff789552c"></span>std::vector&lt;float&gt; <code class="descname">m_triggerPrescales</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase18m_triggerPrescalesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase22m_triggerPrescalesLumiE">
+<span id="HelpTreeBase::m_triggerPrescalesLumi__std::vector:float:"></span><span class="target" id="xAHclass_help_tree_base_1a284d426fb39af3e99970a1a515842253"></span>std::vector&lt;float&gt; <code class="descname">m_triggerPrescalesLumi</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase22m_triggerPrescalesLumiE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase17m_isPassBitsNamesE">
+<span id="HelpTreeBase::m_isPassBitsNames__std::vector:ss:"></span><span class="target" id="xAHclass_help_tree_base_1a4d0d269dc1818dd68e8517b54db15b9b"></span>std::vector&lt;std::string&gt; <code class="descname">m_isPassBitsNames</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase17m_isPassBitsNamesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase12m_isPassBitsE">
+<span id="HelpTreeBase::m_isPassBits__std::vector:unsigned-i:"></span><span class="target" id="xAHclass_help_tree_base_1a1a3e77095d6d14552237009eed2ed131"></span>std::vector&lt;unsigned int&gt; <code class="descname">m_isPassBits</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase12m_isPassBitsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase6m_jetsE">
+<span id="HelpTreeBase::m_jets__std::map:ss.xAH::JetContainerP:"></span><span class="target" id="xAHclass_help_tree_base_1a529c4b08204fe7fab0f22293165301f3"></span>std::map&lt;std::string, xAH::JetContainer *&gt; <code class="descname">m_jets</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase6m_jetsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase8m_nL1JetE">
+<span id="HelpTreeBase::m_nL1Jet__i"></span><span class="target" id="xAHclass_help_tree_base_1aa8047326047af6c17c11b6ba56da1b52"></span>int <code class="descname">m_nL1Jet</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase8m_nL1JetE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase13m_l1Jet_et8x8E">
+<span id="HelpTreeBase::m_l1Jet_et8x8__std::vector:float:"></span><span class="target" id="xAHclass_help_tree_base_1a9a930d98ca20aa6b2cfbbde685253dde"></span>std::vector&lt;float&gt; <code class="descname">m_l1Jet_et8x8</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase13m_l1Jet_et8x8E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase11m_l1Jet_etaE">
+<span id="HelpTreeBase::m_l1Jet_eta__std::vector:float:"></span><span class="target" id="xAHclass_help_tree_base_1a2290b94d9476c2315b2eaf1ec3f5c017"></span>std::vector&lt;float&gt; <code class="descname">m_l1Jet_eta</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase11m_l1Jet_etaE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase11m_l1Jet_phiE">
+<span id="HelpTreeBase::m_l1Jet_phi__std::vector:float:"></span><span class="target" id="xAHclass_help_tree_base_1a599983b6955dcab9ebb16b1529c2ee4a"></span>std::vector&lt;float&gt; <code class="descname">m_l1Jet_phi</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase11m_l1Jet_phiE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase7m_truthE">
+<span id="HelpTreeBase::m_truth__std::map:ss.xAH::TruthContainerP:"></span><span class="target" id="xAHclass_help_tree_base_1a96d552525d5891d35a0e57f583d24c80"></span>std::map&lt;std::string, xAH::TruthContainer *&gt; <code class="descname">m_truth</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase7m_truthE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase8m_tracksE">
+<span id="HelpTreeBase::m_tracks__std::map:ss.xAH::TrackContainerP:"></span><span class="target" id="xAHclass_help_tree_base_1a369c9965826b127d4d2516e374f1b05d"></span>std::map&lt;std::string, xAH::TrackContainer *&gt; <code class="descname">m_tracks</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase8m_tracksE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase9m_fatjetsE">
+<span id="HelpTreeBase::m_fatjets__std::map:ss.xAH::FatJetContainerP:"></span><span class="target" id="xAHclass_help_tree_base_1abc6cb12bcf269253b79ce2257cb83809"></span>std::map&lt;std::string, xAH::FatJetContainer *&gt; <code class="descname">m_fatjets</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase9m_fatjetsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase15m_truth_fatjetsE">
+<span id="HelpTreeBase::m_truth_fatjets__std::map:ss.xAH::FatJetContainerP:"></span><span class="target" id="xAHclass_help_tree_base_1ad5bc6795a1c8d7c4bc30d1e85c2bbaa1"></span>std::map&lt;std::string, xAH::FatJetContainer *&gt; <code class="descname">m_truth_fatjets</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase15m_truth_fatjetsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase7m_muonsE">
+<span id="HelpTreeBase::m_muons__std::map:ss.xAH::MuonContainerP:"></span><span class="target" id="xAHclass_help_tree_base_1a252a727337f83a2b0aab55d809e5e5c9"></span>std::map&lt;std::string, xAH::MuonContainer *&gt; <code class="descname">m_muons</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase7m_muonsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase21m_RecoEff_SF_sysNamesE">
+<span id="HelpTreeBase::m_RecoEff_SF_sysNames__std::map:ss.std::vector:ss::"></span><span class="target" id="xAHclass_help_tree_base_1a8e93573dd031258ab4750b1bb04e9f74"></span>std::map&lt;std::string, std::vector&lt;std::string&gt;&gt; <code class="descname">m_RecoEff_SF_sysNames</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase21m_RecoEff_SF_sysNamesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase20m_IsoEff_SF_sysNamesE">
+<span id="HelpTreeBase::m_IsoEff_SF_sysNames__std::map:ss.std::vector:ss::"></span><span class="target" id="xAHclass_help_tree_base_1a048060ed17bbf5a2e933c64f85af5910"></span>std::map&lt;std::string, std::vector&lt;std::string&gt;&gt; <code class="descname">m_IsoEff_SF_sysNames</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase20m_IsoEff_SF_sysNamesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase21m_TrigEff_SF_sysNamesE">
+<span id="HelpTreeBase::m_TrigEff_SF_sysNames__std::map:ss.std::vector:ss::"></span><span class="target" id="xAHclass_help_tree_base_1a305e0480006f16fd71068a1f00ebf7fd"></span>std::map&lt;std::string, std::vector&lt;std::string&gt;&gt; <code class="descname">m_TrigEff_SF_sysNames</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase21m_TrigEff_SF_sysNamesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase21m_TTVAEff_SF_sysNamesE">
+<span id="HelpTreeBase::m_TTVAEff_SF_sysNames__std::vector:ss:"></span><span class="target" id="xAHclass_help_tree_base_1aa1ce5da1e114be3bd9db0eb9983b5800"></span>std::vector&lt;std::string&gt; <code class="descname">m_TTVAEff_SF_sysNames</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase21m_TTVAEff_SF_sysNamesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase7m_elecsE">
+<span id="HelpTreeBase::m_elecs__std::map:ss.xAH::ElectronContainerP:"></span><span class="target" id="xAHclass_help_tree_base_1a8a1f1619be4043153ae6a9b1690f47b5"></span>std::map&lt;std::string, xAH::ElectronContainer *&gt; <code class="descname">m_elecs</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase7m_elecsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase9m_photonsE">
+<span id="HelpTreeBase::m_photons__std::map:ss.xAH::PhotonContainerP:"></span><span class="target" id="xAHclass_help_tree_base_1a2b7821cd31b0093d9c34ffe1cc61b1c9"></span>std::map&lt;std::string, xAH::PhotonContainer *&gt; <code class="descname">m_photons</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase9m_photonsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase6m_tausE">
+<span id="HelpTreeBase::m_taus__std::map:ss.xAH::TauContainerP:"></span><span class="target" id="xAHclass_help_tree_base_1a3e6651395386e19b8effc684c7ad4728"></span>std::map&lt;std::string, xAH::TauContainer *&gt; <code class="descname">m_taus</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase6m_tausE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12HelpTreeBase5m_metE">
+<span id="HelpTreeBase::m_met__std::map:ss.xAH::MetContainerP:"></span><span class="target" id="xAHclass_help_tree_base_1a6b76e7004274f3e5ae218027c1ad44ee"></span>std::map&lt;std::string, xAH::MetContainer *&gt; <code class="descname">m_met</code><a class="headerlink" href="#_CPPv2N12HelpTreeBase5m_metE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="TreeAlgo.html" class="btn btn-neutral float-right" title="Tree Maker Algorithm" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Outputs.html" class="btn btn-neutral" title="Producing Outputs" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015-2017, ATLAS Collaboration.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'01-00-00-46-g45a2bda',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

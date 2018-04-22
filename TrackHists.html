@@ -1,0 +1,860 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>TrackHists &mdash; xAODAnaHelpers 01-00-00-46-g45a2bda documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="xAODAnaHelpers 01-00-00-46-g45a2bda documentation" href="index.html"/>
+        <link rel="up" title="Histograms" href="Histograms.html"/>
+        <link rel="next" title="VtxHists" href="VtxHists.html"/>
+        <link rel="prev" title="MuonHists" href="MuonHists.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> xAODAnaHelpers
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                01.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UsingUs.html">xAH_run.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Algorithms.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQs.html">xAH FAQ</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="API.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Getters.html">Getting Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Calibrators.html">Calibrating Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Correctors.html">Efficiency Correcting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Selectors.html">Selecting Objects</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="Histograms.html">Histograms</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Histograms.html#histogrammanager">HistogramManager</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="Histograms.html#classes">Classes</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ClusterHists.html">ClusterHists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="JetHists.html">JetHists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MetHists.html">MetHists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MuonHists.html">MuonHists</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">TrackHists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="VtxHists.html">VtxHists</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Histograms.html#algorithms">Algorithms</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ToolsUsed.html">Tools Used</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Outputs.html">Producing Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Utilities.html">Utilities</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">xAODAnaHelpers</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="API.html">API Reference</a> &raquo;</li>
+      
+          <li><a href="Histograms.html">Histograms</a> &raquo;</li>
+      
+    <li>TrackHists</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/TrackHists.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="trackhists">
+<h1>TrackHists<a class="headerlink" href="#trackhists" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="_CPPv210TrackHists">
+<span id="TrackHists"></span><span class="target" id="xAHclass_track_hists"></span><em class="property">class </em><code class="descclassname"></code><code class="descname">TrackHists</code><a class="headerlink" href="#_CPPv210TrackHists" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Inherits from <a class="reference internal" href="Histograms.html#xAHclass_histogram_manager"><span class="std std-ref">HistogramManager</span></a></p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N10TrackHists10TrackHistsENSt6stringENSt6stringE">
+<span id="TrackHists::TrackHists__ss.ss"></span><span class="target" id="xAHclass_track_hists_1ad23f4b22016a127c1add6b727f3e0ad0"></span><code class="descname">TrackHists</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>detailStr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N10TrackHists10TrackHistsENSt6stringENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N10TrackHistsD0Ev">
+<span id="TrackHists::~TrackHists"></span><span class="target" id="xAHclass_track_hists_1aa699b8f0bae3ddd9cbf9cf8e3d9ec725"></span><code class="descname">~TrackHists</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N10TrackHistsD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N10TrackHists10initializeEv">
+<span id="TrackHists::initialize"></span><span class="target" id="xAHclass_track_hists_1af648593f07a64463439caf5caffdb823"></span>StatusCode <code class="descname">initialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N10TrackHists10initializeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initialize and book all histograms. </p>
+<p><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This should call the overloaded functions <a class="reference internal" href="ClusterHists.html#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEidd" title="HistogramManager::book"><code class="xref cpp cpp-func docutils literal"><span class="pre">HistogramManager::book()</span></code></a> to create the histograms so that the user can call <cite>hists-&gt;record(wk())</cite> to record all histograms to the EventLoop worker.</p>
+</div>
+<p>Example implementation:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">StatusCode</span> <span class="n">JetHists</span><span class="o">::</span><span class="n">initialize</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">m_jetPt</span>          <span class="o">=</span> <span class="n">book</span><span class="p">(</span><span class="n">m_name</span><span class="p">,</span> <span class="s">&quot;jetPt&quot;</span><span class="p">,</span>  <span class="s">&quot;jet p_{T} [GeV]&quot;</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">3000.</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">StatusCode</span><span class="o">::</span><span class="n">SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N10TrackHists7executeEPKN4xAOD22TrackParticleContainerEPKN4xAOD6VertexEfPKN4xAOD9EventInfoE">
+<span id="TrackHists::execute__xAOD::TrackParticleContainerCP.xAOD::VertexCP.float.xAOD::EventInfoCP"></span><span class="target" id="xAHclass_track_hists_1a82aca31a70c9e72fee61769666f59fa6"></span>StatusCode <code class="descname">execute</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::TrackParticleContainer *<em>tracks</em>, <em class="property">const</em> xAOD::Vertex *<em>pvx</em>, float <em>eventWeight</em>, <em class="property">const</em> xAOD::EventInfo *<em>eventInfo</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N10TrackHists7executeEPKN4xAOD22TrackParticleContainerEPKN4xAOD6VertexEfPKN4xAOD9EventInfoE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N10TrackHists7executeEPKN4xAOD13TrackParticleEPKN4xAOD6VertexEfPKN4xAOD9EventInfoE">
+<span id="TrackHists::execute__xAOD::TrackParticleCP.xAOD::VertexCP.float.xAOD::EventInfoCP"></span><span class="target" id="xAHclass_track_hists_1a9ed17fe07f3676f90d6db6c596fccb33"></span>StatusCode <code class="descname">execute</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::TrackParticle *<em>track</em>, <em class="property">const</em> xAOD::Vertex *<em>pvx</em>, float <em>eventWeight</em>, <em class="property">const</em> xAOD::EventInfo *<em>eventInfo</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N10TrackHists7executeEPKN4xAOD13TrackParticleEPKN4xAOD6VertexEfPKN4xAOD9EventInfoE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager7executeEv">
+<span id="HistogramManager::execute"></span><span class="target" id="xAHclass_histogram_manager_1a16aae08500a74ab0adc8decf8f08b87a"></span><em class="property">virtual</em> StatusCode <code class="descname">execute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager7executeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Execute by filling in the histograms. </p>
+<p><p>Example implementation:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">StatusCode</span> <span class="n">JetHists</span><span class="o">::</span><span class="n">execute</span><span class="p">(</span> <span class="k">const</span> <span class="n">xAOD</span><span class="o">::</span><span class="n">JetContainer</span><span class="o">*</span> <span class="n">jets</span><span class="p">,</span> <span class="kt">float</span> <span class="n">eventWeight</span> <span class="p">){</span>
+  <span class="k">for</span><span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">jet</span><span class="p">:</span> <span class="o">*</span><span class="n">jets</span><span class="p">)</span>
+    <span class="n">m_jetPt</span><span class="o">-&gt;</span><span class="n">Fill</span><span class="p">(</span> <span class="n">jet</span><span class="o">-&gt;</span><span class="n">pt</span><span class="p">()</span><span class="o">/</span><span class="mf">1.e3</span><span class="p">,</span> <span class="n">eventWeight</span> <span class="p">);</span>
+  <span class="k">return</span> <span class="n">StatusCode</span><span class="o">::</span><span class="n">SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager8finalizeEv">
+<span id="HistogramManager::finalize"></span><span class="target" id="xAHclass_histogram_manager_1a145c2c9d90da364be2db03218f2c8de0"></span><em class="property">virtual</em> StatusCode <code class="descname">finalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager8finalizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Finalize anything that needs to be finalized. </p>
+<p><div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This should rarely be used. There is not a good use case for this functionality but it needs to exist in the off-chance that a user comes along and needs it for their histogram class.</p>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEidd">
+<span id="HistogramManager::book__ss.ss.ss.i.double.double"></span><span class="target" id="xAHclass_histogram_manager_1a8a575b6ba72efa0ae63d6ad9c79c8e9f"></span>TH1F *<code class="descname">book</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>title</em>, std::string <em>xlabel</em>, int <em>xbins</em>, double <em>xlow</em>, double <em>xhigh</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEidd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>record a histogram and call various functions </p>
+<p><dl class="docutils">
+<dt><strong>Note</strong></dt>
+<dd>This is an overloaded function. It will build the right histogram given the correct number of input arguments. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">name</span></code>: name of histogram, access it in ROOT file like <code class="docutils literal"><span class="pre">h_jetPt-&gt;Draw()</span></code> </li>
+<li><code class="docutils literal"><span class="pre">title</span></code>: usually pointless,put a description of the histogram in here </li>
+<li><code class="docutils literal"><span class="pre">xlabel</span></code>: label to put on the x-axis </li>
+<li><code class="docutils literal"><span class="pre">xbins</span></code>: number of xbins to use </li>
+<li><code class="docutils literal"><span class="pre">xlow</span></code>: lower bound on xbins </li>
+<li><code class="docutils literal"><span class="pre">xhigh</span></code>: upper bound on xbins </li>
+<li><code class="docutils literal"><span class="pre">xbinsArr</span></code>: variable xbins, test math <span class="math">\((x_1,y_1)\)</span> and <span class="math">\((x_2,y_2)\)</span> </li>
+<li><code class="docutils literal"><span class="pre">ylabel</span></code>: label to put on the y-axis </li>
+<li><code class="docutils literal"><span class="pre">ylow</span></code>: lower bound on ybins </li>
+<li><code class="docutils literal"><span class="pre">yhigh</span></code>: upper bound on ybins </li>
+<li><code class="docutils literal"><span class="pre">ybinsArr</span></code>: variable ybins </li>
+<li><code class="docutils literal"><span class="pre">zlabel</span></code>: label to put on the z-axix </li>
+<li><code class="docutils literal"><span class="pre">zlow</span></code>: lower bound on zbins </li>
+<li><code class="docutils literal"><span class="pre">zhigh</span></code>: upper bound on zbins </li>
+<li><code class="docutils literal"><span class="pre">zbinsArr</span></code>: variable zbins </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiddNSt6stringEidd">
+<span id="HistogramManager::book__ss.ss.ss.i.double.double.ss.i.double.double"></span><span class="target" id="xAHclass_histogram_manager_1a47b36830027708435451f9f2ba2259bf"></span>TH2F *<code class="descname">book</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>title</em>, std::string <em>xlabel</em>, int <em>xbins</em>, double <em>xlow</em>, double <em>xhigh</em>, std::string <em>xyabel</em>, int <em>ybins</em>, double <em>ylow</em>, double <em>yhigh</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiddNSt6stringEidd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiddNSt6stringEiddNSt6stringEidd">
+<span id="HistogramManager::book__ss.ss.ss.i.double.double.ss.i.double.double.ss.i.double.double"></span><span class="target" id="xAHclass_histogram_manager_1a5cef6f46702188b413decea34774d1f8"></span>TH3F *<code class="descname">book</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>title</em>, std::string <em>xlabel</em>, int <em>xbins</em>, double <em>xlow</em>, double <em>xhigh</em>, std::string <em>ylabel</em>, int <em>ybins</em>, double <em>ylow</em>, double <em>yhigh</em>, std::string <em>zlabel</em>, int <em>zbins</em>, double <em>zlow</em>, double <em>zhigh</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiddNSt6stringEiddNSt6stringEidd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiPK8Double_t">
+<span id="HistogramManager::book__ss.ss.ss.i.Double_tCP"></span><span class="target" id="xAHclass_histogram_manager_1ad068dacbb610f7a44b01b08d3bd195f5"></span>TH1F *<code class="descname">book</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>title</em>, std::string <em>xlabel</em>, int <em>xbins</em>, <em class="property">const</em> Double_t *<em>xbinsArr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiPK8Double_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiPK8Double_tNSt6stringEidd">
+<span id="HistogramManager::book__ss.ss.ss.i.Double_tCP.ss.i.double.double"></span><span class="target" id="xAHclass_histogram_manager_1ae6777f38110ecdfc13ce28076c689f03"></span>TH2F *<code class="descname">book</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>title</em>, std::string <em>xlabel</em>, int <em>xbins</em>, <em class="property">const</em> Double_t *<em>xbinsArr</em>, std::string <em>ylabel</em>, int <em>ybins</em>, double <em>ylow</em>, double <em>yhigh</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiPK8Double_tNSt6stringEidd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiddNSt6stringEiPK8Double_t">
+<span id="HistogramManager::book__ss.ss.ss.i.double.double.ss.i.Double_tCP"></span><span class="target" id="xAHclass_histogram_manager_1a029c5c5d8deb4a628ca92002903b0a97"></span>TH2F *<code class="descname">book</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>title</em>, std::string <em>xyabel</em>, int <em>xbins</em>, double <em>xlow</em>, double <em>xhigh</em>, std::string <em>ylabel</em>, int <em>ybins</em>, <em class="property">const</em> Double_t *<em>ybinsArr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiddNSt6stringEiPK8Double_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiPK8Double_tNSt6stringEiPK8Double_t">
+<span id="HistogramManager::book__ss.ss.ss.i.Double_tCP.ss.i.Double_tCP"></span><span class="target" id="xAHclass_histogram_manager_1a7d218dc5bfa0caa10d0bcd6494550d42"></span>TH2F *<code class="descname">book</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>title</em>, std::string <em>xyabel</em>, int <em>xbins</em>, <em class="property">const</em> Double_t *<em>xbinsArr</em>, std::string <em>ylabel</em>, int <em>ybins</em>, <em class="property">const</em> Double_t *<em>ybinsArr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiPK8Double_tNSt6stringEiPK8Double_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiPK8Double_tNSt6stringEiPK8Double_tNSt6stringEiPK8Double_t">
+<span id="HistogramManager::book__ss.ss.ss.i.Double_tCP.ss.i.Double_tCP.ss.i.Double_tCP"></span><span class="target" id="xAHclass_histogram_manager_1ab2e2e5024c1af849f53803e6e288d40a"></span>TH3F *<code class="descname">book</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>title</em>, std::string <em>xlabel</em>, int <em>xbins</em>, <em class="property">const</em> Double_t *<em>xbinsArr</em>, std::string <em>ylabel</em>, int <em>ybins</em>, <em class="property">const</em> Double_t *<em>ybinsArr</em>, std::string <em>zlabel</em>, int <em>zbins</em>, <em class="property">const</em> Double_t *<em>zbinsArr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiPK8Double_tNSt6stringEiPK8Double_tNSt6stringEiPK8Double_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiddNSt6stringEddNSt6stringE">
+<span id="HistogramManager::book__ss.ss.ss.i.double.double.ss.double.double.ss"></span><span class="target" id="xAHclass_histogram_manager_1a8d34a394c9addf69f502f30aba3db552"></span>TProfile *<code class="descname">book</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>title</em>, std::string <em>xlabel</em>, int <em>xbins</em>, double <em>xlow</em>, double <em>xhigh</em>, std::string <em>ylabel</em>, double <em>ylow</em>, double <em>yhigh</em>, std::string <em>option</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiddNSt6stringEddNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager6recordEPN2EL6WorkerE">
+<span id="HistogramManager::record__EL::WorkerP"></span><span class="target" id="xAHclass_histogram_manager_1a7577f8aa9cabd145f1254fac6e9677cb"></span>void <code class="descname">record</code><span class="sig-paren">(</span>EL::Worker *<em>wk</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager6recordEPN2EL6WorkerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>record all histograms from <a class="reference internal" href="VtxHists.html#xAHclass_histogram_manager_1add5ba646f0ef52925fab48bc1dda3106"><span class="std std-ref">HistogramManager::m_allHists</span></a> to the worker </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK16HistogramManager3msgEv">
+<span id="HistogramManager::msgC"></span><span class="target" id="xAHclass_histogram_manager_1a6db038d6f4595a41f0c1c966aa86e102"></span>MsgStream &amp;<code class="descname">msg</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK16HistogramManager3msgEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the standard message stream for this algorithm </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK16HistogramManager3msgEi">
+<span id="HistogramManager::msg__iC"></span><span class="target" id="xAHclass_histogram_manager_1a5f061ba66b96d55bd40f83a67a6646cb"></span>MsgStream &amp;<code class="descname">msg</code><span class="sig-paren">(</span>int <em>level</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK16HistogramManager3msgEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>allow ANA_MSG_XXXX macros to be used within algorithms for a given level </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv2N10TrackHists8m_fill2DE">
+<span id="TrackHists::m_fill2D__b"></span><span class="target" id="xAHclass_track_hists_1a7da20dae7c3dd95688f5b766e6999d5a"></span>bool <code class="descname">m_fill2D</code><a class="headerlink" href="#_CPPv2N10TrackHists8m_fill2DE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists15m_fillIPDetailsE">
+<span id="TrackHists::m_fillIPDetails__b"></span><span class="target" id="xAHclass_track_hists_1a22bc0f612c99f861f27f9cd899d50b83"></span>bool <code class="descname">m_fillIPDetails</code><a class="headerlink" href="#_CPPv2N10TrackHists15m_fillIPDetailsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists15m_fillHitCountsE">
+<span id="TrackHists::m_fillHitCounts__b"></span><span class="target" id="xAHclass_track_hists_1a1d8570e0381c95b1c67fe10aabae247a"></span>bool <code class="descname">m_fillHitCounts</code><a class="headerlink" href="#_CPPv2N10TrackHists15m_fillHitCountsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists17m_fillChi2DetailsE">
+<span id="TrackHists::m_fillChi2Details__b"></span><span class="target" id="xAHclass_track_hists_1a66c67a48f4adbfe9e49ed69a6204887f"></span>bool <code class="descname">m_fillChi2Details</code><a class="headerlink" href="#_CPPv2N10TrackHists17m_fillChi2DetailsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists14m_fillTPErrorsE">
+<span id="TrackHists::m_fillTPErrors__b"></span><span class="target" id="xAHclass_track_hists_1a46966b6df5b650595b856ed826006c2c"></span>bool <code class="descname">m_fillTPErrors</code><a class="headerlink" href="#_CPPv2N10TrackHists14m_fillTPErrorsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists15m_fillDebuggingE">
+<span id="TrackHists::m_fillDebugging__b"></span><span class="target" id="xAHclass_track_hists_1ab3e90af111d94879fb55a948e0a9b4d5"></span>bool <code class="descname">m_fillDebugging</code><a class="headerlink" href="#_CPPv2N10TrackHists15m_fillDebuggingE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists12m_fillVsLumiE">
+<span id="TrackHists::m_fillVsLumi__b"></span><span class="target" id="xAHclass_track_hists_1a0b1d9c2da18edb53b715c59ffa12f3f1"></span>bool <code class="descname">m_fillVsLumi</code><a class="headerlink" href="#_CPPv2N10TrackHists12m_fillVsLumiE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16HistogramManager6m_nameE">
+<span id="HistogramManager::m_name__ss"></span><span class="target" id="xAHclass_histogram_manager_1a835c2b444b08e5c81cd7382c8602adc5"></span>std::string <code class="descname">m_name</code><a class="headerlink" href="#_CPPv2N16HistogramManager6m_nameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>generically the main name assigned to all histograms </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16HistogramManager11m_detailStrE">
+<span id="HistogramManager::m_detailStr__ss"></span><span class="target" id="xAHclass_histogram_manager_1a92eb26b65e47978a7754144863f84d92"></span>std::string <code class="descname">m_detailStr</code><a class="headerlink" href="#_CPPv2N16HistogramManager11m_detailStrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>a detail level in the form of a string </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16HistogramManager10m_allHistsE">
+<span id="HistogramManager::m_allHists__std::vector:TH1P:"></span><span class="target" id="xAHclass_histogram_manager_1add5ba646f0ef52925fab48bc1dda3106"></span>std::vector&lt;TH1 *&gt; <code class="descname">m_allHists</code><a class="headerlink" href="#_CPPv2N16HistogramManager10m_allHistsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>a container holding all generated histograms </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16HistogramManager5m_msgE">
+<span id="HistogramManager::m_msg__MsgStream"></span><span class="target" id="xAHclass_histogram_manager_1ac775c3a482f6848f51583c548b8765cc"></span>MsgStream <code class="descname">m_msg</code><a class="headerlink" href="#_CPPv2N16HistogramManager5m_msgE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>hold the MsgStream object </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Private Members</p>
+<dl class="member">
+<dt id="_CPPv2N10TrackHists7m_trk_nE">
+<span id="TrackHists::m_trk_n__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a16412db519b8fd1de9c7d973a248f246"></span>TH1F *<code class="descname">m_trk_n</code><a class="headerlink" href="#_CPPv2N10TrackHists7m_trk_nE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists9m_trk_n_lE">
+<span id="TrackHists::m_trk_n_l__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a9e7697c2fbe4ce24b30138c5626e28d3"></span>TH1F *<code class="descname">m_trk_n_l</code><a class="headerlink" href="#_CPPv2N10TrackHists9m_trk_n_lE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists8m_trk_PtE">
+<span id="TrackHists::m_trk_Pt__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a7157f5893a249630cd23393ef4c904f3"></span>TH1F *<code class="descname">m_trk_Pt</code><a class="headerlink" href="#_CPPv2N10TrackHists8m_trk_PtE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists10m_trk_Pt_lE">
+<span id="TrackHists::m_trk_Pt_l__TH1FP"></span><span class="target" id="xAHclass_track_hists_1af212adf6ae132d733b837337cb01a0a0"></span>TH1F *<code class="descname">m_trk_Pt_l</code><a class="headerlink" href="#_CPPv2N10TrackHists10m_trk_Pt_lE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists7m_trk_PE">
+<span id="TrackHists::m_trk_P__TH1FP"></span><span class="target" id="xAHclass_track_hists_1ad57f774aa13b920e44b19df140873fdf"></span>TH1F *<code class="descname">m_trk_P</code><a class="headerlink" href="#_CPPv2N10TrackHists7m_trk_PE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists9m_trk_P_lE">
+<span id="TrackHists::m_trk_P_l__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a40f8dc4f1c424095680342076f45115e"></span>TH1F *<code class="descname">m_trk_P_l</code><a class="headerlink" href="#_CPPv2N10TrackHists9m_trk_P_lE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists9m_trk_EtaE">
+<span id="TrackHists::m_trk_Eta__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a000caca6c6e220dff3afbf5f057377b5"></span>TH1F *<code class="descname">m_trk_Eta</code><a class="headerlink" href="#_CPPv2N10TrackHists9m_trk_EtaE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists9m_trk_PhiE">
+<span id="TrackHists::m_trk_Phi__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a4cd82114760eac7155d069d74806ba97"></span>TH1F *<code class="descname">m_trk_Phi</code><a class="headerlink" href="#_CPPv2N10TrackHists9m_trk_PhiE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists8m_trk_d0E">
+<span id="TrackHists::m_trk_d0__TH1FP"></span><span class="target" id="xAHclass_track_hists_1ac3042bc44b35d5a7d8c089ac50e19dee"></span>TH1F *<code class="descname">m_trk_d0</code><a class="headerlink" href="#_CPPv2N10TrackHists8m_trk_d0E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists10m_trk_d0_sE">
+<span id="TrackHists::m_trk_d0_s__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a92107bf1e6877b1135cedc12eeb126c6"></span>TH1F *<code class="descname">m_trk_d0_s</code><a class="headerlink" href="#_CPPv2N10TrackHists10m_trk_d0_sE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists11m_trk_d0_ssE">
+<span id="TrackHists::m_trk_d0_ss__TH1FP"></span><span class="target" id="xAHclass_track_hists_1aadb46b83fd02c93eee55736237ef4d29"></span>TH1F *<code class="descname">m_trk_d0_ss</code><a class="headerlink" href="#_CPPv2N10TrackHists11m_trk_d0_ssE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists8m_trk_z0E">
+<span id="TrackHists::m_trk_z0__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a5e269ea8079929b5e0e64b8053b4eeca"></span>TH1F *<code class="descname">m_trk_z0</code><a class="headerlink" href="#_CPPv2N10TrackHists8m_trk_z0E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists10m_trk_z0_sE">
+<span id="TrackHists::m_trk_z0_s__TH1FP"></span><span class="target" id="xAHclass_track_hists_1ab46f5c265c7acd59c074297523d8a909"></span>TH1F *<code class="descname">m_trk_z0_s</code><a class="headerlink" href="#_CPPv2N10TrackHists10m_trk_z0_sE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists14m_trk_chi2ProbE">
+<span id="TrackHists::m_trk_chi2Prob__TH1FP"></span><span class="target" id="xAHclass_track_hists_1ab7a00092c27cc6f317b04ea91c16e566"></span>TH1F *<code class="descname">m_trk_chi2Prob</code><a class="headerlink" href="#_CPPv2N10TrackHists14m_trk_chi2ProbE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists12m_trk_chargeE">
+<span id="TrackHists::m_trk_charge__TH1FP"></span><span class="target" id="xAHclass_track_hists_1ac4f81fe6c0ff15284169b2d6fde91142"></span>TH1F *<code class="descname">m_trk_charge</code><a class="headerlink" href="#_CPPv2N10TrackHists12m_trk_chargeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists10m_trk_d0_lE">
+<span id="TrackHists::m_trk_d0_l__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a7a229cbab9a6c2385e5d398077bacf7a"></span>TH1F *<code class="descname">m_trk_d0_l</code><a class="headerlink" href="#_CPPv2N10TrackHists10m_trk_d0_lE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists11m_trk_d0ErrE">
+<span id="TrackHists::m_trk_d0Err__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a9c6aedc96606c9a8abc13217a0f16967"></span>TH1F *<code class="descname">m_trk_d0Err</code><a class="headerlink" href="#_CPPv2N10TrackHists11m_trk_d0ErrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists11m_trk_d0SigE">
+<span id="TrackHists::m_trk_d0Sig__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a3ceefc7bf72e6743f5d25f8c9edc7ce5"></span>TH1F *<code class="descname">m_trk_d0Sig</code><a class="headerlink" href="#_CPPv2N10TrackHists11m_trk_d0SigE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists11m_trk_z0ErrE">
+<span id="TrackHists::m_trk_z0Err__TH1FP"></span><span class="target" id="xAHclass_track_hists_1ac0cc164e23b26704186f737c9aa55768"></span>TH1F *<code class="descname">m_trk_z0Err</code><a class="headerlink" href="#_CPPv2N10TrackHists11m_trk_z0ErrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists10m_trk_z0_lE">
+<span id="TrackHists::m_trk_z0_l__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a0de9eabe74268af73dcdbe55bf3ab7c6"></span>TH1F *<code class="descname">m_trk_z0_l</code><a class="headerlink" href="#_CPPv2N10TrackHists10m_trk_z0_lE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists11m_trk_z0SigE">
+<span id="TrackHists::m_trk_z0Sig__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a8649f61e4ce8c4d3e461208417cdfa70"></span>TH1F *<code class="descname">m_trk_z0Sig</code><a class="headerlink" href="#_CPPv2N10TrackHists11m_trk_z0SigE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists12m_trk_z0sinTE">
+<span id="TrackHists::m_trk_z0sinT__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a9d2c2d9854e35df0360e60ca88ba4dbe"></span>TH1F *<code class="descname">m_trk_z0sinT</code><a class="headerlink" href="#_CPPv2N10TrackHists12m_trk_z0sinTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists14m_trk_z0sinT_lE">
+<span id="TrackHists::m_trk_z0sinT_l__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a6e3054217d56989e613d17accbd48622"></span>TH1F *<code class="descname">m_trk_z0sinT_l</code><a class="headerlink" href="#_CPPv2N10TrackHists14m_trk_z0sinT_lE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists15m_trk_z0SigsinTE">
+<span id="TrackHists::m_trk_z0SigsinT__TH1FP"></span><span class="target" id="xAHclass_track_hists_1ae124c56d922a09d28040cc0e4f92d130"></span>TH1F *<code class="descname">m_trk_z0SigsinT</code><a class="headerlink" href="#_CPPv2N10TrackHists15m_trk_z0SigsinTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists16m_trk_chi2Prob_lE">
+<span id="TrackHists::m_trk_chi2Prob_l__TH1FP"></span><span class="target" id="xAHclass_track_hists_1ab20929b0d0941760fb88b6c24c829b86"></span>TH1F *<code class="descname">m_trk_chi2Prob_l</code><a class="headerlink" href="#_CPPv2N10TrackHists16m_trk_chi2Prob_lE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists16m_trk_chi2Prob_sE">
+<span id="TrackHists::m_trk_chi2Prob_s__TH1FP"></span><span class="target" id="xAHclass_track_hists_1ab52c104792a385176ac641d837427111"></span>TH1F *<code class="descname">m_trk_chi2Prob_s</code><a class="headerlink" href="#_CPPv2N10TrackHists16m_trk_chi2Prob_sE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists17m_trk_chi2Prob_ssE">
+<span id="TrackHists::m_trk_chi2Prob_ss__TH1FP"></span><span class="target" id="xAHclass_track_hists_1aea10b5b78b57ca720cce5314a814642d"></span>TH1F *<code class="descname">m_trk_chi2Prob_ss</code><a class="headerlink" href="#_CPPv2N10TrackHists17m_trk_chi2Prob_ssE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists14m_trk_chi2ndofE">
+<span id="TrackHists::m_trk_chi2ndof__TH1FP"></span><span class="target" id="xAHclass_track_hists_1ad7c2a15df0c213e3b8f567f658cfdfcb"></span>TH1F *<code class="descname">m_trk_chi2ndof</code><a class="headerlink" href="#_CPPv2N10TrackHists14m_trk_chi2ndofE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists16m_trk_chi2ndof_lE">
+<span id="TrackHists::m_trk_chi2ndof_l__TH1FP"></span><span class="target" id="xAHclass_track_hists_1aa6afd1536411dfbb2e175ebaac0b7ea7"></span>TH1F *<code class="descname">m_trk_chi2ndof_l</code><a class="headerlink" href="#_CPPv2N10TrackHists16m_trk_chi2ndof_lE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists9m_trk_nSiE">
+<span id="TrackHists::m_trk_nSi__TH1FP"></span><span class="target" id="xAHclass_track_hists_1afd07a87ecadc5e7afd24b7f360d5815a"></span>TH1F *<code class="descname">m_trk_nSi</code><a class="headerlink" href="#_CPPv2N10TrackHists9m_trk_nSiE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists16m_trk_nSiAndDeadE">
+<span id="TrackHists::m_trk_nSiAndDead__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a0956b97d3fbbed26e6715221a9718537"></span>TH1F *<code class="descname">m_trk_nSiAndDead</code><a class="headerlink" href="#_CPPv2N10TrackHists16m_trk_nSiAndDeadE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists13m_trk_nSiDeadE">
+<span id="TrackHists::m_trk_nSiDead__TH1FP"></span><span class="target" id="xAHclass_track_hists_1ab4336cdb8349ca3f78173bc6da7b317f"></span>TH1F *<code class="descname">m_trk_nSiDead</code><a class="headerlink" href="#_CPPv2N10TrackHists13m_trk_nSiDeadE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists10m_trk_nSCTE">
+<span id="TrackHists::m_trk_nSCT__TH1FP"></span><span class="target" id="xAHclass_track_hists_1adc01c4244a114790274a29a6279b9036"></span>TH1F *<code class="descname">m_trk_nSCT</code><a class="headerlink" href="#_CPPv2N10TrackHists10m_trk_nSCTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists10m_trk_nPixE">
+<span id="TrackHists::m_trk_nPix__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a3df3929ba2770e1bfd2b3c67272e9e07"></span>TH1F *<code class="descname">m_trk_nPix</code><a class="headerlink" href="#_CPPv2N10TrackHists10m_trk_nPixE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists15m_trk_nPixHolesE">
+<span id="TrackHists::m_trk_nPixHoles__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a5615f6e077bcf8da4943c5b9d529099c"></span>TH1F *<code class="descname">m_trk_nPixHoles</code><a class="headerlink" href="#_CPPv2N10TrackHists15m_trk_nPixHolesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists14m_trk_nPixDeadE">
+<span id="TrackHists::m_trk_nPixDead__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a473c18fb5ec417b3db9d97b3f86ffe10"></span>TH1F *<code class="descname">m_trk_nPixDead</code><a class="headerlink" href="#_CPPv2N10TrackHists14m_trk_nPixDeadE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists10m_trk_nTRTE">
+<span id="TrackHists::m_trk_nTRT__TH1FP"></span><span class="target" id="xAHclass_track_hists_1ac358805fa4f203248a8e153f511d1919"></span>TH1F *<code class="descname">m_trk_nTRT</code><a class="headerlink" href="#_CPPv2N10TrackHists10m_trk_nTRTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists9m_trk_nBLE">
+<span id="TrackHists::m_trk_nBL__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a4441733c9454442ef3b20cda074a8315"></span>TH1F *<code class="descname">m_trk_nBL</code><a class="headerlink" href="#_CPPv2N10TrackHists9m_trk_nBLE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists12m_trk_phiErrE">
+<span id="TrackHists::m_trk_phiErr__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a04e46d63c8104fac0e70b0fd9136fc68"></span>TH1F *<code class="descname">m_trk_phiErr</code><a class="headerlink" href="#_CPPv2N10TrackHists12m_trk_phiErrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists14m_trk_thetaErrE">
+<span id="TrackHists::m_trk_thetaErr__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a18c079c5c1b35117ff2e44cc54d4736c"></span>TH1F *<code class="descname">m_trk_thetaErr</code><a class="headerlink" href="#_CPPv2N10TrackHists14m_trk_thetaErrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists12m_trk_qOpErrE">
+<span id="TrackHists::m_trk_qOpErr__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a64c959494c7119d378ad597462792d0a"></span>TH1F *<code class="descname">m_trk_qOpErr</code><a class="headerlink" href="#_CPPv2N10TrackHists12m_trk_qOpErrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists13m_trk_mc_probE">
+<span id="TrackHists::m_trk_mc_prob__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a8f5f19abcd12af073710a30eeca5abe3"></span>TH1F *<code class="descname">m_trk_mc_prob</code><a class="headerlink" href="#_CPPv2N10TrackHists13m_trk_mc_probE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists16m_trk_mc_barcodeE">
+<span id="TrackHists::m_trk_mc_barcode__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a1ba458e07797d4891ccb8a1c8f32e035"></span>TH1F *<code class="descname">m_trk_mc_barcode</code><a class="headerlink" href="#_CPPv2N10TrackHists16m_trk_mc_barcodeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists18m_trk_mc_barcode_sE">
+<span id="TrackHists::m_trk_mc_barcode_s__TH1FP"></span><span class="target" id="xAHclass_track_hists_1abdd7461cc89a4c892c22694a6461b7b4"></span>TH1F *<code class="descname">m_trk_mc_barcode_s</code><a class="headerlink" href="#_CPPv2N10TrackHists18m_trk_mc_barcode_sE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists12m_trk_eta_vlE">
+<span id="TrackHists::m_trk_eta_vl__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a0c6304bc276f5b297bead5be836d09fa"></span>TH1F *<code class="descname">m_trk_eta_vl</code><a class="headerlink" href="#_CPPv2N10TrackHists12m_trk_eta_vlE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists11m_trk_z0_vlE">
+<span id="TrackHists::m_trk_z0_vl__TH1FP"></span><span class="target" id="xAHclass_track_hists_1ae9990d6c59925a36f86bf2922e1acaa8"></span>TH1F *<code class="descname">m_trk_z0_vl</code><a class="headerlink" href="#_CPPv2N10TrackHists11m_trk_z0_vlE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists10m_trk_z0_mE">
+<span id="TrackHists::m_trk_z0_m__TH1FP"></span><span class="target" id="xAHclass_track_hists_1ab11cbc6ff00a7d27f46363fcdad27476"></span>TH1F *<code class="descname">m_trk_z0_m</code><a class="headerlink" href="#_CPPv2N10TrackHists10m_trk_z0_mE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists14m_trk_z0_raw_mE">
+<span id="TrackHists::m_trk_z0_raw_m__TH1FP"></span><span class="target" id="xAHclass_track_hists_1abfbf7951b09609a1de3b7420f8b6c063"></span>TH1F *<code class="descname">m_trk_z0_raw_m</code><a class="headerlink" href="#_CPPv2N10TrackHists14m_trk_z0_raw_mE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists8m_trk_vzE">
+<span id="TrackHists::m_trk_vz__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a0455c7f3f6ce930fb7919fc3e3550b65"></span>TH1F *<code class="descname">m_trk_vz</code><a class="headerlink" href="#_CPPv2N10TrackHists8m_trk_vzE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists16m_trk_z0_atlas_mE">
+<span id="TrackHists::m_trk_z0_atlas_m__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a1cf58f0c779485f9270e6155486feacf"></span>TH1F *<code class="descname">m_trk_z0_atlas_m</code><a class="headerlink" href="#_CPPv2N10TrackHists16m_trk_z0_atlas_mE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists11m_trk_d0_vlE">
+<span id="TrackHists::m_trk_d0_vl__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a0fa9f8f1f5bc8fcd76267e89e85c789a"></span>TH1F *<code class="descname">m_trk_d0_vl</code><a class="headerlink" href="#_CPPv2N10TrackHists11m_trk_d0_vlE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists11m_trk_pt_ssE">
+<span id="TrackHists::m_trk_pt_ss__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a998f814515c7ad830cdea94c3a252484"></span>TH1F *<code class="descname">m_trk_pt_ss</code><a class="headerlink" href="#_CPPv2N10TrackHists11m_trk_pt_ssE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists17m_trk_phiManyBinsE">
+<span id="TrackHists::m_trk_phiManyBins__TH1FP"></span><span class="target" id="xAHclass_track_hists_1ac80c6266e828623f724d634ef50a8b03"></span>TH1F *<code class="descname">m_trk_phiManyBins</code><a class="headerlink" href="#_CPPv2N10TrackHists17m_trk_phiManyBinsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists8m_lBlockE">
+<span id="TrackHists::m_lBlock__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a7922280188af901f3a2c29d585a1f819"></span>TH1F *<code class="descname">m_lBlock</code><a class="headerlink" href="#_CPPv2N10TrackHists8m_lBlockE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists18m_trk_z0_vs_lBlockE">
+<span id="TrackHists::m_trk_z0_vs_lBlock__TProfileP"></span><span class="target" id="xAHclass_track_hists_1a7f1e1a2335065cc00f523f71a05818be"></span>TProfile *<code class="descname">m_trk_z0_vs_lBlock</code><a class="headerlink" href="#_CPPv2N10TrackHists18m_trk_z0_vs_lBlockE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists22m_trk_z0_raw_vs_lBlockE">
+<span id="TrackHists::m_trk_z0_raw_vs_lBlock__TProfileP"></span><span class="target" id="xAHclass_track_hists_1a1f6c3a29ea9d8da5a5f792e8421bf070"></span>TProfile *<code class="descname">m_trk_z0_raw_vs_lBlock</code><a class="headerlink" href="#_CPPv2N10TrackHists22m_trk_z0_raw_vs_lBlockE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists24m_trk_z0_atlas_vs_lBlockE">
+<span id="TrackHists::m_trk_z0_atlas_vs_lBlock__TProfileP"></span><span class="target" id="xAHclass_track_hists_1a4ea06975b39b4ee10cb587ddd50b474f"></span>TProfile *<code class="descname">m_trk_z0_atlas_vs_lBlock</code><a class="headerlink" href="#_CPPv2N10TrackHists24m_trk_z0_atlas_vs_lBlockE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists18m_trk_vz_vs_lBlockE">
+<span id="TrackHists::m_trk_vz_vs_lBlock__TProfileP"></span><span class="target" id="xAHclass_track_hists_1a6dcb6bc67ec4ebf8d69da3dcc415cd00"></span>TProfile *<code class="descname">m_trk_vz_vs_lBlock</code><a class="headerlink" href="#_CPPv2N10TrackHists18m_trk_vz_vs_lBlockE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists15m_pvz_vs_lBlockE">
+<span id="TrackHists::m_pvz_vs_lBlock__TProfileP"></span><span class="target" id="xAHclass_track_hists_1ab3cf82b33f0a6f112f5e64a6f5e65088"></span>TProfile *<code class="descname">m_pvz_vs_lBlock</code><a class="headerlink" href="#_CPPv2N10TrackHists15m_pvz_vs_lBlockE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists20m_pv_valid_vs_lBlockE">
+<span id="TrackHists::m_pv_valid_vs_lBlock__TProfileP"></span><span class="target" id="xAHclass_track_hists_1a0d2a1508107bca5853ed02ac5965916d"></span>TProfile *<code class="descname">m_pv_valid_vs_lBlock</code><a class="headerlink" href="#_CPPv2N10TrackHists20m_pv_valid_vs_lBlockE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists15m_bsX_vs_lBlockE">
+<span id="TrackHists::m_bsX_vs_lBlock__TProfileP"></span><span class="target" id="xAHclass_track_hists_1a71154e430284ca4c3907855151b74686"></span>TProfile *<code class="descname">m_bsX_vs_lBlock</code><a class="headerlink" href="#_CPPv2N10TrackHists15m_bsX_vs_lBlockE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists15m_bsY_vs_lBlockE">
+<span id="TrackHists::m_bsY_vs_lBlock__TProfileP"></span><span class="target" id="xAHclass_track_hists_1a234f53cec8351471f428bc16cc2ff047"></span>TProfile *<code class="descname">m_bsY_vs_lBlock</code><a class="headerlink" href="#_CPPv2N10TrackHists15m_bsY_vs_lBlockE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists15m_bsZ_vs_lBlockE">
+<span id="TrackHists::m_bsZ_vs_lBlock__TProfileP"></span><span class="target" id="xAHclass_track_hists_1a9e68802ff75ef227a777ab8f78fa0fc9"></span>TProfile *<code class="descname">m_bsZ_vs_lBlock</code><a class="headerlink" href="#_CPPv2N10TrackHists15m_bsZ_vs_lBlockE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists5m_bsXE">
+<span id="TrackHists::m_bsX__TH1FP"></span><span class="target" id="xAHclass_track_hists_1aee409e39cab9c4ef062197edae8db8f3"></span>TH1F *<code class="descname">m_bsX</code><a class="headerlink" href="#_CPPv2N10TrackHists5m_bsXE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists5m_bsYE">
+<span id="TrackHists::m_bsY__TH1FP"></span><span class="target" id="xAHclass_track_hists_1a209abb9bcc07c116b98a13d4a92a460f"></span>TH1F *<code class="descname">m_bsY</code><a class="headerlink" href="#_CPPv2N10TrackHists5m_bsYE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists5m_bsZE">
+<span id="TrackHists::m_bsZ__TH1FP"></span><span class="target" id="xAHclass_track_hists_1aa40ca6b3440e9c2fdb87869515020d7f"></span>TH1F *<code class="descname">m_bsZ</code><a class="headerlink" href="#_CPPv2N10TrackHists5m_bsZE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists18m_trk_Eta_vs_trk_PE">
+<span id="TrackHists::m_trk_Eta_vs_trk_P__TH2FP"></span><span class="target" id="xAHclass_track_hists_1ab26876cfb90dbd0bc39ebdc3f27aeac3"></span>TH2F *<code class="descname">m_trk_Eta_vs_trk_P</code><a class="headerlink" href="#_CPPv2N10TrackHists18m_trk_Eta_vs_trk_PE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists20m_trk_Eta_vs_trk_P_lE">
+<span id="TrackHists::m_trk_Eta_vs_trk_P_l__TH2FP"></span><span class="target" id="xAHclass_track_hists_1a6ea6e51485f7a98a12244f5b9f5d1e9d"></span>TH2F *<code class="descname">m_trk_Eta_vs_trk_P_l</code><a class="headerlink" href="#_CPPv2N10TrackHists20m_trk_Eta_vs_trk_P_lE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists18m_trk_Phi_vs_trk_PE">
+<span id="TrackHists::m_trk_Phi_vs_trk_P__TH2FP"></span><span class="target" id="xAHclass_track_hists_1a9705c1a68347ee3e872d74c5decaddf5"></span>TH2F *<code class="descname">m_trk_Phi_vs_trk_P</code><a class="headerlink" href="#_CPPv2N10TrackHists18m_trk_Phi_vs_trk_PE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists20m_trk_Phi_vs_trk_P_lE">
+<span id="TrackHists::m_trk_Phi_vs_trk_P_l__TH2FP"></span><span class="target" id="xAHclass_track_hists_1a9a52c64ab3b0530179100e0c28eab7d0"></span>TH2F *<code class="descname">m_trk_Phi_vs_trk_P_l</code><a class="headerlink" href="#_CPPv2N10TrackHists20m_trk_Phi_vs_trk_P_lE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists20m_trk_Eta_vs_trk_PhiE">
+<span id="TrackHists::m_trk_Eta_vs_trk_Phi__TH2FP"></span><span class="target" id="xAHclass_track_hists_1a9b06fb4886f56d32b4f8e04e7b09abdc"></span>TH2F *<code class="descname">m_trk_Eta_vs_trk_Phi</code><a class="headerlink" href="#_CPPv2N10TrackHists20m_trk_Eta_vs_trk_PhiE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists17m_trk_d0_vs_trk_PE">
+<span id="TrackHists::m_trk_d0_vs_trk_P__TH2FP"></span><span class="target" id="xAHclass_track_hists_1aa5d0bc1990e1c2e36a50285b73094f0d"></span>TH2F *<code class="descname">m_trk_d0_vs_trk_P</code><a class="headerlink" href="#_CPPv2N10TrackHists17m_trk_d0_vs_trk_PE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists19m_trk_d0_vs_trk_P_lE">
+<span id="TrackHists::m_trk_d0_vs_trk_P_l__TH2FP"></span><span class="target" id="xAHclass_track_hists_1a4a8d29f4b0c15ce7d8f60c500c157e4f"></span>TH2F *<code class="descname">m_trk_d0_vs_trk_P_l</code><a class="headerlink" href="#_CPPv2N10TrackHists19m_trk_d0_vs_trk_P_lE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists17m_trk_z0_vs_trk_PE">
+<span id="TrackHists::m_trk_z0_vs_trk_P__TH2FP"></span><span class="target" id="xAHclass_track_hists_1a3823f9ddc9d0ba3158528aaff0218c99"></span>TH2F *<code class="descname">m_trk_z0_vs_trk_P</code><a class="headerlink" href="#_CPPv2N10TrackHists17m_trk_z0_vs_trk_PE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists19m_trk_z0_vs_trk_P_lE">
+<span id="TrackHists::m_trk_z0_vs_trk_P_l__TH2FP"></span><span class="target" id="xAHclass_track_hists_1a27374c69db750445cc4de3f27ce9f2cd"></span>TH2F *<code class="descname">m_trk_z0_vs_trk_P_l</code><a class="headerlink" href="#_CPPv2N10TrackHists19m_trk_z0_vs_trk_P_lE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists21m_trk_z0sinT_vs_trk_PE">
+<span id="TrackHists::m_trk_z0sinT_vs_trk_P__TH2FP"></span><span class="target" id="xAHclass_track_hists_1a42578652b3cdd163a067dcefaca7be05"></span>TH2F *<code class="descname">m_trk_z0sinT_vs_trk_P</code><a class="headerlink" href="#_CPPv2N10TrackHists21m_trk_z0sinT_vs_trk_PE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N10TrackHists23m_trk_z0sinT_vs_trk_P_lE">
+<span id="TrackHists::m_trk_z0sinT_vs_trk_P_l__TH2FP"></span><span class="target" id="xAHclass_track_hists_1a8cbaaffec16cbd444b0206b3143e77c4"></span>TH2F *<code class="descname">m_trk_z0sinT_vs_trk_P_l</code><a class="headerlink" href="#_CPPv2N10TrackHists23m_trk_z0sinT_vs_trk_P_lE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="VtxHists.html" class="btn btn-neutral float-right" title="VtxHists" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MuonHists.html" class="btn btn-neutral" title="MuonHists" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015-2017, ATLAS Collaboration.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'01-00-00-46-g45a2bda',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

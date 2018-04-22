@@ -1,0 +1,980 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>\(e\) &mdash; xAODAnaHelpers 01-00-00-46-g45a2bda documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="xAODAnaHelpers 01-00-00-46-g45a2bda documentation" href="index.html"/>
+        <link rel="up" title="Selecting Objects" href="Selectors.html"/>
+        <link rel="next" title="\(j\)" href="JetSelector.html"/>
+        <link rel="prev" title="Overlap Removal" href="OverlapRemover.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> xAODAnaHelpers
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                01.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UsingUs.html">xAH_run.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Algorithms.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQs.html">xAH FAQ</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="API.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Getters.html">Getting Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Calibrators.html">Calibrating Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Correctors.html">Efficiency Correcting</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="Selectors.html">Selecting Objects</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="BasicEventSelection.html">Event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OverlapRemover.html">Overlap Removal</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><span class="math">\(e\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="JetSelector.html"><span class="math">\(j\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="MuonSelector.html"><span class="math">\(\mu\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhotonSelector.html"><span class="math">\(\gamma\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="TauSelector.html"><span class="math">\(\tau\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="TrackSelector.html">Tracks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TruthSelector.html">Truth</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Histograms.html">Histograms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ToolsUsed.html">Tools Used</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Outputs.html">Producing Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Utilities.html">Utilities</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">xAODAnaHelpers</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="API.html">API Reference</a> &raquo;</li>
+      
+          <li><a href="Selectors.html">Selecting Objects</a> &raquo;</li>
+      
+    <li><span class="math">\(e\)</span></li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/ElectronSelector.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="math">\(e\)</span><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="_CPPv216ElectronSelector">
+<span id="ElectronSelector"></span><span class="target" id="xAHclass_electron_selector"></span><em class="property">class </em><code class="descclassname"></code><code class="descname">ElectronSelector</code><a class="headerlink" href="#_CPPv216ElectronSelector" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>This is the algorithm class that selects electrons according to user&#8217;s choice.</p>
+<p>In a nutshell, this algorithm performs the following actions:</p>
+<blockquote>
+<div><ul class="simple">
+<li>retrieves an <code class="docutils literal"><span class="pre">xAOD::ElectronContainer</span></code> from either <code class="docutils literal"><span class="pre">TEvent</span></code> or <code class="docutils literal"><span class="pre">TStore</span></code></li>
+<li>iterates over the input container, and if electron passes selection, copies it in a <code class="docutils literal"><span class="pre">ConstDataVector(SG::VIEW_ELEMENTS)</span></code> container. Otherwise, the electron is skipped</li>
+<li>saves the view container to <code class="docutils literal"><span class="pre">TStore</span></code>, from where it can be retrieved by algorithms downstream via a name lookup</li>
+</ul>
+</div></blockquote>
+ </p>
+<p>Inherits from <a class="reference internal" href="xAHAlgorithm.html#xAHclassx_a_h_1_1_algorithm"><span class="std std-ref">xAH::Algorithm</span></a></p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N16ElectronSelector16ElectronSelectorEv">
+<span id="ElectronSelector::ElectronSelector"></span><span class="target" id="xAHclass_electron_selector_1af059538f9f9005e84e446d32282693e7"></span><code class="descname">ElectronSelector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16ElectronSelector16ElectronSelectorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16ElectronSelectorD0Ev">
+<span id="ElectronSelector::~ElectronSelector"></span><span class="target" id="xAHclass_electron_selector_1a0902623af0890707f7afce9b264ccfdd"></span><code class="descname">~ElectronSelector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16ElectronSelectorD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16ElectronSelector8setupJobERN2EL3JobE">
+<span id="ElectronSelector::setupJob__EL::JobR"></span><span class="target" id="xAHclass_electron_selector_1a4add472e39624bf78f065a54e04be4d3"></span>EL::StatusCode <code class="descname">setupJob</code><span class="sig-paren">(</span>EL::Job &amp;<em>job</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16ElectronSelector8setupJobERN2EL3JobE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16ElectronSelector11fileExecuteEv">
+<span id="ElectronSelector::fileExecute"></span><span class="target" id="xAHclass_electron_selector_1a419af12e4687138795f5e8bea60e89e1"></span>EL::StatusCode <code class="descname">fileExecute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16ElectronSelector11fileExecuteEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16ElectronSelector14histInitializeEv">
+<span id="ElectronSelector::histInitialize"></span><span class="target" id="xAHclass_electron_selector_1a8156079cb0f393cf269d6f5beb415c0c"></span>EL::StatusCode <code class="descname">histInitialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16ElectronSelector14histInitializeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16ElectronSelector11changeInputEb">
+<span id="ElectronSelector::changeInput__b"></span><span class="target" id="xAHclass_electron_selector_1abaf6e9be57d08535ff44a68d3ec34834"></span>EL::StatusCode <code class="descname">changeInput</code><span class="sig-paren">(</span>bool <em>firstFile</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16ElectronSelector11changeInputEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16ElectronSelector10initializeEv">
+<span id="ElectronSelector::initialize"></span><span class="target" id="xAHclass_electron_selector_1ae8cb649c66c975a6933b10170123dc9d"></span>EL::StatusCode <code class="descname">initialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16ElectronSelector10initializeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16ElectronSelector7executeEv">
+<span id="ElectronSelector::execute"></span><span class="target" id="xAHclass_electron_selector_1a27ffe14bb61e5041eb43a50ed3f88b06"></span>EL::StatusCode <code class="descname">execute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16ElectronSelector7executeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16ElectronSelector11postExecuteEv">
+<span id="ElectronSelector::postExecute"></span><span class="target" id="xAHclass_electron_selector_1a9c04b81e22b7e7c282d5b34d315586cf"></span>EL::StatusCode <code class="descname">postExecute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16ElectronSelector11postExecuteEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16ElectronSelector8finalizeEv">
+<span id="ElectronSelector::finalize"></span><span class="target" id="xAHclass_electron_selector_1a6d622e3ef6014ed2d3e92a0ad4948ec5"></span>EL::StatusCode <code class="descname">finalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16ElectronSelector8finalizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16ElectronSelector12histFinalizeEv">
+<span id="ElectronSelector::histFinalize"></span><span class="target" id="xAHclass_electron_selector_1ad87f8eafd2a72f41f758ed94603ec009"></span>EL::StatusCode <code class="descname">histFinalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16ElectronSelector12histFinalizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16ElectronSelector16executeSelectionEPKN4xAOD17ElectronContainerEfbP15ConstDataVectorIN4xAOD17ElectronContainerEE">
+<span id="ElectronSelector::executeSelection__xAOD::ElectronContainerCP.float.b.ConstDataVector:xAOD::ElectronContainer:P"></span><span class="target" id="xAHclass_electron_selector_1af18d89ddd32e0e3b052d179c5d328108"></span>bool <code class="descname">executeSelection</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::ElectronContainer *<em>inElectrons</em>, float <em>mcEvtWeight</em>, bool <em>countPass</em>, ConstDataVector&lt;xAOD::ElectronContainer&gt; *<em>selectedElectrons</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16ElectronSelector16executeSelectionEPKN4xAOD17ElectronContainerEfbP15ConstDataVectorIN4xAOD17ElectronContainerEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16ElectronSelector8passCutsEPKN4xAOD8ElectronEPKN4xAOD6VertexE">
+<span id="ElectronSelector::passCuts__xAOD::ElectronCP.xAOD::VertexCP"></span><span class="target" id="xAHclass_electron_selector_1a73330e8f661b32fb1cb25ef83cdbd5b2"></span>int <code class="descname">passCuts</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::Electron *<em>electron</em>, <em class="property">const</em> xAOD::Vertex *<em>primaryVertex</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16ElectronSelector8passCutsEPKN4xAOD8ElectronEPKN4xAOD6VertexE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm13algInitializeEv">
+<span id="xAH::Algorithm::algInitialize"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ae8fd8541cf785803ec19d9c4f8cfe602"></span>StatusCode <code class="descname">algInitialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm13algInitializeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Run any initializations commmon to all xAH Algorithms (such as registerInstance). Call this inside <code class="docutils literal"><span class="pre">histInitialize</span></code> for best results. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm11algFinalizeEv">
+<span id="xAH::Algorithm::algFinalize"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ad953653631da2d160893153f0b30f919"></span>StatusCode <code class="descname">algFinalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm11algFinalizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Run any finalizations common to all xAH Algorithms (such as unregisterInstance). Call this inside <code class="docutils literal"><span class="pre">histFinalize</span></code> for best results. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm18parseSystValVectorEv">
+<span id="xAH::Algorithm::parseSystValVector"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a4859dee0ea827841c1adbbf56b159257"></span>StatusCode <code class="descname">parseSystValVector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm18parseSystValVectorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Parse string of systematic sigma levels in m_systValVectorString into m_systValVector. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector12m_useCutFlowE">
+<span id="ElectronSelector::m_useCutFlow__b"></span><span class="target" id="xAHclass_electron_selector_1a3e96e1fc3ad7e1e7fc239f7ac28fc791"></span>bool <code class="descname">m_useCutFlow</code> = true<a class="headerlink" href="#_CPPv2N16ElectronSelector12m_useCutFlowE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector17m_inContainerNameE">
+<span id="ElectronSelector::m_inContainerName__ss"></span><span class="target" id="xAHclass_electron_selector_1aaa779f3b540d25c518b58ff165f0f817"></span>std::string <code class="descname">m_inContainerName</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N16ElectronSelector17m_inContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The name of the input container for this algorithm read from <code class="docutils literal"><span class="pre">TEvent</span></code> or <code class="docutils literal"><span class="pre">TStore</span></code> </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector18m_outContainerNameE">
+<span id="ElectronSelector::m_outContainerName__ss"></span><span class="target" id="xAHclass_electron_selector_1acda630438389c9bcbc80e2db6057c2f6"></span>std::string <code class="descname">m_outContainerName</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N16ElectronSelector18m_outContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The name of the nominal output container written by the algorithm to <code class="docutils literal"><span class="pre">TStore</span></code> </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector20m_inputAlgoSystNamesE">
+<span id="ElectronSelector::m_inputAlgoSystNames__ss"></span><span class="target" id="xAHclass_electron_selector_1a875420746b95105e8ae78bf8854f6111"></span>std::string <code class="descname">m_inputAlgoSystNames</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N16ElectronSelector20m_inputAlgoSystNamesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The name of the vector containing the names of the systematically-varied containers from the upstream algorithm, which will be processed by this algorithm. </p>
+<p>This vector is retrieved from the <code class="docutils literal"><span class="pre">TStore</span></code>. If left blank, it means there is no upstream algorithm which applies systematics. This is the case when processing straight from the original <code class="docutils literal"><span class="pre">xAOD</span></code> or <code class="docutils literal"><span class="pre">DxAOD</span></code>. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector21m_outputAlgoSystNamesE">
+<span id="ElectronSelector::m_outputAlgoSystNames__ss"></span><span class="target" id="xAHclass_electron_selector_1ae43afa0917fdc716e3bfd94d8049e44c"></span>std::string <code class="descname">m_outputAlgoSystNames</code> = &quot;ElectronSelector_Syst&quot;<a class="headerlink" href="#_CPPv2N16ElectronSelector21m_outputAlgoSystNamesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The name of the vector containing the names of the systematically-varied containers created by by this algorithm. </p>
+<p><p>If <a class="reference internal" href="BasicEventSelection.html#_CPPv2N3xAH9Algorithm10m_systNameE" title="xAH::Algorithm::m_systName"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_systName</span></code></a> is empty, the vector will contain only an empty string. When running on systematics, this is the string a downstream algorithm needs to process electrons.</p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector25m_decorateSelectedObjectsE">
+<span id="ElectronSelector::m_decorateSelectedObjects__b"></span><span class="target" id="xAHclass_electron_selector_1a64bbd6da24dc9fd8242320ea936cdd5d"></span>bool <code class="descname">m_decorateSelectedObjects</code> = true<a class="headerlink" href="#_CPPv2N16ElectronSelector25m_decorateSelectedObjectsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Adds a <code class="docutils literal"><span class="pre">passSel</span></code> decoration for objects that pass selection. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector25m_createSelectedContainerE">
+<span id="ElectronSelector::m_createSelectedContainer__b"></span><span class="target" id="xAHclass_electron_selector_1a22c454da80e3db2b643682e7d1de3456"></span>bool <code class="descname">m_createSelectedContainer</code> = false<a class="headerlink" href="#_CPPv2N16ElectronSelector25m_createSelectedContainerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Fill using a read-only container (<code class="docutils literal"><span class="pre">SG::VIEW_ELEMENTS</span></code>) to <code class="docutils literal"><span class="pre">TStore</span></code> </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector12m_nToProcessE">
+<span id="ElectronSelector::m_nToProcess__i"></span><span class="target" id="xAHclass_electron_selector_1ab327875cb8669219d81f974cbe6833ab"></span>int <code class="descname">m_nToProcess</code> = -1<a class="headerlink" href="#_CPPv2N16ElectronSelector12m_nToProcessE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Number of objects to process, set <code class="docutils literal"><span class="pre">n=-1</span></code> to look at all. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector10m_pass_minE">
+<span id="ElectronSelector::m_pass_min__i"></span><span class="target" id="xAHclass_electron_selector_1aa59fa2a2ce7dfdb6288f70debae210e6"></span>int <code class="descname">m_pass_min</code> = -1<a class="headerlink" href="#_CPPv2N16ElectronSelector10m_pass_minE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Require event to have minimum number of objects passing selection. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector10m_pass_maxE">
+<span id="ElectronSelector::m_pass_max__i"></span><span class="target" id="xAHclass_electron_selector_1a3d8a2d78a5cfb4e3953587fd6c977617"></span>int <code class="descname">m_pass_max</code> = -1<a class="headerlink" href="#_CPPv2N16ElectronSelector10m_pass_maxE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Require event to have maximum number of objects passing selection. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector8m_pT_maxE">
+<span id="ElectronSelector::m_pT_max__float"></span><span class="target" id="xAHclass_electron_selector_1a538fa3d43c573177d0ffbede8e4e18d1"></span>float <code class="descname">m_pT_max</code> = 1e8<a class="headerlink" href="#_CPPv2N16ElectronSelector8m_pT_maxE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>[MeV] Require objects to have maximum transverse momentum threshold </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector8m_pT_minE">
+<span id="ElectronSelector::m_pT_min__float"></span><span class="target" id="xAHclass_electron_selector_1adaf1e180c018e5211f4ff427fca2c839"></span>float <code class="descname">m_pT_min</code> = 1e8<a class="headerlink" href="#_CPPv2N16ElectronSelector8m_pT_minE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>[MeV] Require objects to have minimum transverse momentum threshold </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector9m_eta_maxE">
+<span id="ElectronSelector::m_eta_max__float"></span><span class="target" id="xAHclass_electron_selector_1ad4fd0ab00d3352751609842626554398"></span>float <code class="descname">m_eta_max</code> = 1e8<a class="headerlink" href="#_CPPv2N16ElectronSelector9m_eta_maxE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Require objects to have maximum <span class="math">\(|\eta|\)</span> value</p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector11m_vetoCrackE">
+<span id="ElectronSelector::m_vetoCrack__b"></span><span class="target" id="xAHclass_electron_selector_1a276dc35689a8c1c096c5a6131e6d2810"></span>bool <code class="descname">m_vetoCrack</code> = true<a class="headerlink" href="#_CPPv2N16ElectronSelector11m_vetoCrackE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Require objects to have <span class="math">\(|\eta|\)</span> outside the crack region using <code class="docutils literal"><span class="pre">caloCluster-&gt;eta()</span></code></p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector8m_d0_maxE">
+<span id="ElectronSelector::m_d0_max__float"></span><span class="target" id="xAHclass_electron_selector_1a0193b3e980df042f9b3ad6f4a9ae924d"></span>float <code class="descname">m_d0_max</code> = 1e8<a class="headerlink" href="#_CPPv2N16ElectronSelector8m_d0_maxE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Require objects to have a maximum <span class="math">\(d_{0}\)</span> [mm] (transverse impact parameter)</p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector11m_d0sig_maxE">
+<span id="ElectronSelector::m_d0sig_max__float"></span><span class="target" id="xAHclass_electron_selector_1a03e8e038731234654d23149a9fac93fd"></span>float <code class="descname">m_d0sig_max</code> = 1e8<a class="headerlink" href="#_CPPv2N16ElectronSelector11m_d0sig_maxE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Require objects to have a maximum <span class="math">\(d_{0}\)</span> significance at BL</p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector16m_z0sintheta_maxE">
+<span id="ElectronSelector::m_z0sintheta_max__float"></span><span class="target" id="xAHclass_electron_selector_1ad7f4e6c19ac169c76873464d71705a65"></span>float <code class="descname">m_z0sintheta_max</code> = 1e8<a class="headerlink" href="#_CPPv2N16ElectronSelector16m_z0sintheta_maxE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Require objects to have maximum <span class="math">\(z_{0}\sin(\theta)\)</span> [mm] (longitudinal impact paramter) at BL - corrected with vertex info</p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector13m_doAuthorCutE">
+<span id="ElectronSelector::m_doAuthorCut__b"></span><span class="target" id="xAHclass_electron_selector_1aaf0a1147018ed7aa4a3218fb1dd1514b"></span>bool <code class="descname">m_doAuthorCut</code> = true<a class="headerlink" href="#_CPPv2N16ElectronSelector13m_doAuthorCutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Perform author kinematic cut. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector9m_doOQCutE">
+<span id="ElectronSelector::m_doOQCut__b"></span><span class="target" id="xAHclass_electron_selector_1a42dc3ef2c3fe7bbd285379df24bbc78d"></span>bool <code class="descname">m_doOQCut</code> = true<a class="headerlink" href="#_CPPv2N16ElectronSelector9m_doOQCutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Perform object quality cut. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector27m_readIDFlagsFromDerivationE">
+<span id="ElectronSelector::m_readIDFlagsFromDerivation__b"></span><span class="target" id="xAHclass_electron_selector_1a75937ef667b3e08309584310f16e8e47"></span>bool <code class="descname">m_readIDFlagsFromDerivation</code> = false<a class="headerlink" href="#_CPPv2N16ElectronSelector27m_readIDFlagsFromDerivationE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>To read electron PID decision from DAOD, rather than recalculate with tool. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector9m_doLHPIDE">
+<span id="ElectronSelector::m_doLHPID__b"></span><span class="target" id="xAHclass_electron_selector_1a6c414a3acb8b8fed85477dfbe6042e50"></span>bool <code class="descname">m_doLHPID</code> = true<a class="headerlink" href="#_CPPv2N16ElectronSelector9m_doLHPIDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Instantiate and perform the electron Likelihood PID. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector12m_doLHPIDcutE">
+<span id="ElectronSelector::m_doLHPIDcut__b"></span><span class="target" id="xAHclass_electron_selector_1adacedd6b630598c19d8cca50ece10506"></span>bool <code class="descname">m_doLHPIDcut</code> = false<a class="headerlink" href="#_CPPv2N16ElectronSelector12m_doLHPIDcutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Cut on electron Likelihood PID (recommended) </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector18m_LHOperatingPointE">
+<span id="ElectronSelector::m_LHOperatingPoint__ss"></span><span class="target" id="xAHclass_electron_selector_1a5c3f58b7f1cd7a2445ebdb8978f7a027"></span>std::string <code class="descname">m_LHOperatingPoint</code> = &quot;Loose&quot;<a class="headerlink" href="#_CPPv2N16ElectronSelector18m_LHOperatingPointE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Loosest Likelihood PID operating point to save. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector15m_doCutBasedPIDE">
+<span id="ElectronSelector::m_doCutBasedPID__b"></span><span class="target" id="xAHclass_electron_selector_1af667e71a9213072db8137dc3e99fd17d"></span>bool <code class="descname">m_doCutBasedPID</code> = false<a class="headerlink" href="#_CPPv2N16ElectronSelector15m_doCutBasedPIDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Instantiate and perform the electron cut-based PID. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector18m_doCutBasedPIDcutE">
+<span id="ElectronSelector::m_doCutBasedPIDcut__b"></span><span class="target" id="xAHclass_electron_selector_1a5940b8a5edb33ae82ffb5518ba4dc1ff"></span>bool <code class="descname">m_doCutBasedPIDcut</code> = false<a class="headerlink" href="#_CPPv2N16ElectronSelector18m_doCutBasedPIDcutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Cut on electron cut-based PID. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector24m_CutBasedOperatingPointE">
+<span id="ElectronSelector::m_CutBasedOperatingPoint__ss"></span><span class="target" id="xAHclass_electron_selector_1adbac4b967064ea0ac28bedaf568aaf34"></span>std::string <code class="descname">m_CutBasedOperatingPoint</code> = &quot;Loose&quot;<a class="headerlink" href="#_CPPv2N16ElectronSelector24m_CutBasedOperatingPointE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Loosest cut-based PID operating point to save. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector13m_MinIsoWPCutE">
+<span id="ElectronSelector::m_MinIsoWPCut__ss"></span><span class="target" id="xAHclass_electron_selector_1a7076e1343d4370af855a8083b945b1ef"></span>std::string <code class="descname">m_MinIsoWPCut</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N16ElectronSelector13m_MinIsoWPCutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>reject objects which do not pass this isolation cut - default = &#8220;&#8221; (no cut) </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector11m_IsoWPListE">
+<span id="ElectronSelector::m_IsoWPList__ss"></span><span class="target" id="xAHclass_electron_selector_1ac4e9ee7b9510d7cf478fbd8ca5a7194c"></span>std::string <code class="descname">m_IsoWPList</code> = &quot;LooseTrackOnly,Loose,Tight,Gradient,GradientLoose&quot;<a class="headerlink" href="#_CPPv2N16ElectronSelector11m_IsoWPListE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>decorate objects with <code class="docutils literal"><span class="pre">isIsolated_*</span></code> flag for each WP in this input list - default = all current ASG WPs </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector12m_CaloIsoEffE">
+<span id="ElectronSelector::m_CaloIsoEff__ss"></span><span class="target" id="xAHclass_electron_selector_1aa6299f029bd16d2cbe8bbea0254cd579"></span>std::string <code class="descname">m_CaloIsoEff</code> = &quot;0.1*x+90&quot;<a class="headerlink" href="#_CPPv2N16ElectronSelector12m_CaloIsoEffE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>to define a custom WP - make sure <code class="docutils literal"><span class="pre">&quot;UserDefined&quot;</span></code> is added in <a class="reference internal" href="#_CPPv2N16ElectronSelector11m_IsoWPListE" title="ElectronSelector::m_IsoWPList"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_IsoWPList</span></code></a></p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector13m_TrackIsoEffE">
+<span id="ElectronSelector::m_TrackIsoEff__ss"></span><span class="target" id="xAHclass_electron_selector_1a94322c524d208cfc54f85b7c77f994ab"></span>std::string <code class="descname">m_TrackIsoEff</code> = &quot;98&quot;<a class="headerlink" href="#_CPPv2N16ElectronSelector13m_TrackIsoEffE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>to define a custom WP - make sure <code class="docutils literal"><span class="pre">&quot;UserDefined&quot;</span></code> is added in <a class="reference internal" href="#_CPPv2N16ElectronSelector11m_IsoWPListE" title="ElectronSelector::m_IsoWPList"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_IsoWPList</span></code></a></p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector18m_CaloBasedIsoTypeE">
+<span id="ElectronSelector::m_CaloBasedIsoType__ss"></span><span class="target" id="xAHclass_electron_selector_1a280811a0a67ab93fb67e3682314c6393"></span>std::string <code class="descname">m_CaloBasedIsoType</code> = &quot;topoetcone20&quot;<a class="headerlink" href="#_CPPv2N16ElectronSelector18m_CaloBasedIsoTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>to define a custom WP - make sure <code class="docutils literal"><span class="pre">&quot;UserDefined&quot;</span></code> is added in <a class="reference internal" href="#_CPPv2N16ElectronSelector11m_IsoWPListE" title="ElectronSelector::m_IsoWPList"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_IsoWPList</span></code></a></p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector19m_TrackBasedIsoTypeE">
+<span id="ElectronSelector::m_TrackBasedIsoType__ss"></span><span class="target" id="xAHclass_electron_selector_1ad2a66f4964de2a80cccec2122ff9c366"></span>std::string <code class="descname">m_TrackBasedIsoType</code> = &quot;ptvarcone20&quot;<a class="headerlink" href="#_CPPv2N16ElectronSelector19m_TrackBasedIsoTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>to define a custom WP - make sure <code class="docutils literal"><span class="pre">&quot;UserDefined&quot;</span></code> is added in <a class="reference internal" href="#_CPPv2N16ElectronSelector11m_IsoWPListE" title="ElectronSelector::m_IsoWPList"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_IsoWPList</span></code></a></p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector20m_singleElTrigChainsE">
+<span id="ElectronSelector::m_singleElTrigChains__ss"></span><span class="target" id="xAHclass_electron_selector_1a82cc69a1280554e51eba253e2c42666b"></span>std::string <code class="descname">m_singleElTrigChains</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N16ElectronSelector20m_singleElTrigChainsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A comma-separated string w/ alll the HLT single electron trigger chains for which you want to perform the matching. This is passed by the user as input in configuration If left empty (as it is by default), no trigger matching will be attempted at all. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector16m_diElTrigChainsE">
+<span id="ElectronSelector::m_diElTrigChains__ss"></span><span class="target" id="xAHclass_electron_selector_1a03c6ac92991b9566eedbb60b57a5321b"></span>std::string <code class="descname">m_diElTrigChains</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N16ElectronSelector16m_diElTrigChainsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A comma-separated string w/ alll the HLT di-electron trigger chains for which you want to perform the matching. This is passed by the user as input in configuration If left empty (as it is by default), no trigger matching will be attempted at all. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector11m_minDeltaRE">
+<span id="ElectronSelector::m_minDeltaR__double"></span><span class="target" id="xAHclass_electron_selector_1a6c617d1283317b1fa644047aac13968d"></span>double <code class="descname">m_minDeltaR</code> = 0.07<a class="headerlink" href="#_CPPv2N16ElectronSelector11m_minDeltaRE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Recommended threshold for egamma triggers: see <a class="reference external" href="https://svnweb.cern.ch/trac/atlasoff/browser/Trigger/TrigAnalysis/TriggerMatchingTool/trunk/src/TestMatchingToolAlg.cxx">https://svnweb.cern.ch/trac/atlasoff/browser/Trigger/TrigAnalysis/TriggerMatchingTool/trunk/src/TestMatchingToolAlg.cxx</a>. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm6m_nameE">
+<span id="xAH::Algorithm::m_name__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a2fe89b9cfdbba9b2d5dbd77d78d017ba"></span>std::string <code class="descname">m_name</code> = &quot;UnnamedAlgorithm&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm6m_nameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>All algorithms initialized should have a unique name, to differentiate them at the TObject level. </p>
+<p>Note, <code class="docutils literal"><span class="pre">GetName()</span></code> returns a <code class="docutils literal"><span class="pre">char*</span></code> while this returns a <code class="docutils literal"><span class="pre">std::string</span></code>. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm7m_debugE">
+<span id="xAH::Algorithm::m_debug__b"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a536ad066b37192ae8234da9088ca37cb"></span>bool <code class="descname">m_debug</code> = false<a class="headerlink" href="#_CPPv2N3xAH9Algorithm7m_debugE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>m_debug is being deprecated </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm9m_verboseE">
+<span id="xAH::Algorithm::m_verbose__b"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1aa6f548d723aa93b42dd9915c36c7b9a4"></span>bool <code class="descname">m_verbose</code> = false<a class="headerlink" href="#_CPPv2N3xAH9Algorithm9m_verboseE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>m_verbose is being deprecated </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm10m_msgLevelE">
+<span id="xAH::Algorithm::m_msgLevel__MSG::Level"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a903600b01ce81ba57bd004e32a905254"></span>MSG::Level <code class="descname">m_msgLevel</code> = MSG::INFO<a class="headerlink" href="#_CPPv2N3xAH9Algorithm10m_msgLevelE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>debug level </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm10m_systNameE">
+<span id="xAH::Algorithm::m_systName__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a79e26ab76909dcaeec857fd683289f87"></span>std::string <code class="descname">m_systName</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm10m_systNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If running systematics, the name of the systematic </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm9m_systValE">
+<span id="xAH::Algorithm::m_systVal__float"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a7e34030fb2a71902b0d65797bb90366b"></span>float <code class="descname">m_systVal</code> = 0.0<a class="headerlink" href="#_CPPv2N3xAH9Algorithm9m_systValE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If running systematics, the value to set the systematic to <div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This will set the systematic to the value <span class="math">\(\pm x\)</span>.</p>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm21m_systValVectorStringE">
+<span id="xAH::Algorithm::m_systValVectorString__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ab1386db1ff9f8586e603924d23e3d9ea"></span>std::string <code class="descname">m_systValVectorString</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm21m_systValVectorStringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If running systematics, you can run multiple points and store them in here. A comma separated list of working points should be given to m_systValVectorString, and then parsed by calling parseSystValVector. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm15m_systValVectorE">
+<span id="xAH::Algorithm::m_systValVector__std::vector:float:"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ad033047e9456204a32165a5d3847661d"></span>std::vector&lt;float&gt; <code class="descname">m_systValVector</code><a class="headerlink" href="#_CPPv2N3xAH9Algorithm15m_systValVectorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm24m_eventInfoContainerNameE">
+<span id="xAH::Algorithm::m_eventInfoContainerName__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a3a28d57c78d08c235cbdbfb2db4d8ee0"></span>std::string <code class="descname">m_eventInfoContainerName</code> = &quot;EventInfo&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm24m_eventInfoContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If the xAOD has a different EventInfo container name, set it here </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm6m_isMCE">
+<span id="xAH::Algorithm::m_isMC__i"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a2fe08016f341df4f708872f6a43e70dd"></span>int <code class="descname">m_isMC</code> = -1<a class="headerlink" href="#_CPPv2N3xAH9Algorithm6m_isMCE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>This is an override at the algorithm level to force analyzing MC or not.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="92%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>-1</td>
+<td>Default, use eventInfo object to determine if data or mc</td>
+</tr>
+<tr class="row-odd"><td>0</td>
+<td>Treat the input as data</td>
+</tr>
+<tr class="row-even"><td>1</td>
+<td>Treat the input as MC</td>
+</tr>
+</tbody>
+</table>
+ </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm4isMCEv">
+<span id="xAH::Algorithm::isMC"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ac6974b849cbb6c3ca7f061dfbd79293d"></span>bool <code class="descname">isMC</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm4isMCEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><blockquote>
+<div>Try to determine if we are running over data or MC. The <a class="reference internal" href="BJetEfficiencyCorrector.html#_CPPv2N3xAH9Algorithm6m_isMCE" title="xAH::Algorithm::m_isMC"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_isMC</span></code></a> can be used</div></blockquote>
+<p>to fix the return value. Otherwise the <cite>EventInfo</cite> object is queried.</p>
+<p>An exception is thrown if the type cannot be determined.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="63%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Return Value</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>Data</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>MC</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm16registerInstanceEv">
+<span id="xAH::Algorithm::registerInstance"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ad985e6075dc2794ba53d92663c84da08"></span>void <code class="descname">registerInstance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm16registerInstanceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Register the given instance under the moniker <a class="reference internal" href="BJetEfficiencyCorrector.html#_CPPv2N3xAH9Algorithm11m_classNameE" title="xAH::Algorithm::m_className"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_className</span></code></a></p>
+<p>This will increase the reference count by 1.</p>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm12numInstancesEv">
+<span id="xAH::Algorithm::numInstances"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a668fbd5fb7180046a8a41b496cf5ccbd"></span>int <code class="descname">numInstances</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm12numInstancesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Return number of instances registered under the moniker <a class="reference internal" href="BJetEfficiencyCorrector.html#_CPPv2N3xAH9Algorithm11m_classNameE" title="xAH::Algorithm::m_className"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_className</span></code></a></p>
+<p>This will return the reference count.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If for some reason the instance wasn&#8217;t registered, we spit out a warning.</p>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm18unregisterInstanceEv">
+<span id="xAH::Algorithm::unregisterInstance"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a5db7105c8aba80421821c555bca6ca93"></span>void <code class="descname">unregisterInstance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm18unregisterInstanceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Unregister the given instance under the moniker <a class="reference internal" href="BJetEfficiencyCorrector.html#_CPPv2N3xAH9Algorithm11m_classNameE" title="xAH::Algorithm::m_className"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_className</span></code></a></p>
+<p>This will decrease the reference count by 1.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If for some reason the instance wasn&#8217;t registered, we spit out a warning.</p>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T&gt;</dt>
+<dt id="_CPPv2N3xAH9Algorithm14checkToolStoreERKNSt6stringE">
+<span id="xAH::Algorithm::checkToolStore__ssCR"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a064eba684de39e15a2368064dafee485"></span>StatusCode <code class="descname">checkToolStore</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>tool_name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm14checkToolStoreERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><blockquote>
+<div>Check whether the input CP tool already exists with <em>this</em> name in the asg::ToolStore</div></blockquote>
+<p>Depending on the outcome, the content of the map <a class="reference internal" href="xAHAlgorithm.html#_CPPv2N3xAH9Algorithm17m_toolAlreadyUsedE" title="xAH::Algorithm::m_toolAlreadyUsed"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_toolAlreadyUsed</span></code></a> wll be set accordingly.</p>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm17isToolAlreadyUsedERKNSt6stringE">
+<span id="xAH::Algorithm::isToolAlreadyUsed__ssCR"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1aba740002a03904fa58d6f3762965c733"></span>bool <code class="descname">isToolAlreadyUsed</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>tool_name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm17isToolAlreadyUsedERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Check whether the input CP tool has been already used by any <a class="reference internal" href="xAHAlgorithm.html#_CPPv2N3xAH9AlgorithmE" title="xAH::Algorithm"><code class="xref cpp cpp-class docutils literal"><span class="pre">xAH::Algorithm</span></code></a> in the current job by scanning <a class="reference internal" href="xAHAlgorithm.html#_CPPv2N3xAH9Algorithm17m_toolAlreadyUsedE" title="xAH::Algorithm::m_toolAlreadyUsed"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_toolAlreadyUsed</span></code></a>.</p>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T&gt;</dt>
+<dt id="_CPPv2NK3xAH9Algorithm11setToolNameERN3asg13AnaToolHandleI1TEERKNSt6stringE">
+<span id="xAH::Algorithm::setToolName__asg::AnaToolHandle:T:R.ssCRC"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a21105ba926b929179cd329528e17168a"></span>void <code class="descname">setToolName</code><span class="sig-paren">(</span>__attribute__((unused)) asg::AnaToolHandle&lt;T&gt; &amp;<em>handle</em>, __attribute__((unused)) <em class="property">const</em> std::string &amp;<em>name</em> = &quot;&quot;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK3xAH9Algorithm11setToolNameERN3asg13AnaToolHandleI1TEERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><blockquote>
+<div></div></blockquote>
+<p>Sets the name of a tool. If no name is needed, the tool will use the name of the algorithm plus a unique identifier (<a class="reference internal" href="BJetEfficiencyCorrector.html#_CPPv2NK3xAH9Algorithm10getAddressEv" title="xAH::Algorithm::getAddress"><code class="xref cpp cpp-func docutils literal"><span class="pre">xAH::Algorithm::getAddress()</span></code></a>) appended to ensure the tool is unique and effectively private.</p>
+<p>The tool will not be guaranteed unique if two tools of the same type are created without a name passed in. But this is, at this point, up to the user and a more complex scenario than what this function tries to simplify on its own.</p>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK3xAH9Algorithm10getAddressEv">
+<span id="xAH::Algorithm::getAddressC"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1aefeab6cf73ebfc67aa4e7cf74d762427"></span>std::string <code class="descname">getAddress</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK3xAH9Algorithm10getAddressEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Return a <code class="docutils literal"><span class="pre">std::string</span></code> representation of <code class="docutils literal"><span class="pre">this</span></code> </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm11m_classNameE">
+<span id="xAH::Algorithm::m_className__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1aff1b344c0be87d17890333bb65421c39"></span>std::string <code class="descname">m_className</code> = &quot;Algorithm&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm11m_classNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>The moniker by which all instances are tracked in <a class="reference internal" href="xAHAlgorithm.html#_CPPv2N3xAH9Algorithm18m_instanceRegistryE" title="xAH::Algorithm::m_instanceRegistry"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_instanceRegistry</span></code></a></p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm7m_eventE">
+<span id="xAH::Algorithm::m_event__xAOD::TEventP"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a6c1a280a55c7e0ff39c6f90e2ba9b05b"></span>xAOD::TEvent *<code class="descname">m_event</code> = nullptr<a class="headerlink" href="#_CPPv2N3xAH9Algorithm7m_eventE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The TEvent object </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm7m_storeE">
+<span id="xAH::Algorithm::m_store__xAOD::TStoreP"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a58d778d2d1351cbb863f30fadb1a727c"></span>xAOD::TStore *<code class="descname">m_store</code> = nullptr<a class="headerlink" href="#_CPPv2N3xAH9Algorithm7m_storeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The TStore object </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Private Members</p>
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector21m_doBLTrackQualityCutE">
+<span id="ElectronSelector::m_doBLTrackQualityCut__b"></span><span class="target" id="xAHclass_electron_selector_1a4b72327e99d32f0d3251033a8627472e"></span>bool <code class="descname">m_doBLTrackQualityCut</code><a class="headerlink" href="#_CPPv2N16ElectronSelector21m_doBLTrackQualityCutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Performs the Likelihood PID B-Layer cut locally. </p>
+<p><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Occurs automatically only if <a class="reference internal" href="#_CPPv2N16ElectronSelector18m_LHOperatingPointE" title="ElectronSelector::m_LHOperatingPoint"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_LHOperatingPoint</span></code></a> is <code class="docutils literal"><span class="pre">LooseBL</span></code> and <a class="reference internal" href="#_CPPv2N16ElectronSelector27m_readIDFlagsFromDerivationE" title="ElectronSelector::m_readIDFlagsFromDerivation"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_readIDFlagsFromDerivation</span></code></a> is <code class="docutils literal"><span class="pre">true</span></code></p>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector21m_outAuxContainerNameE">
+<span id="ElectronSelector::m_outAuxContainerName__ss"></span><span class="target" id="xAHclass_electron_selector_1a84ea16a8485ce48a19c9e42f7b9b3eaa"></span>std::string <code class="descname">m_outAuxContainerName</code><a class="headerlink" href="#_CPPv2N16ElectronSelector21m_outAuxContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the name of the auxiliary store for the output container </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector10m_numEventE">
+<span id="ElectronSelector::m_numEvent__i"></span><span class="target" id="xAHclass_electron_selector_1ad1f6f0cc1cc249647b9d5349d0617f1f"></span>int <code class="descname">m_numEvent</code><a class="headerlink" href="#_CPPv2N16ElectronSelector10m_numEventE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>keep track of the total number of events processed </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector11m_numObjectE">
+<span id="ElectronSelector::m_numObject__i"></span><span class="target" id="xAHclass_electron_selector_1a148a98201152452c28a63399f98c6244"></span>int <code class="descname">m_numObject</code><a class="headerlink" href="#_CPPv2N16ElectronSelector11m_numObjectE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>keep track of the total number of objects processed </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector14m_numEventPassE">
+<span id="ElectronSelector::m_numEventPass__i"></span><span class="target" id="xAHclass_electron_selector_1aec421ce1a7319ba5fbe0a34f595e6499"></span>int <code class="descname">m_numEventPass</code><a class="headerlink" href="#_CPPv2N16ElectronSelector14m_numEventPassE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>keep track of the number of passed events, and fill the cutflow (relevant only if using the algo to skim events: see <a class="reference internal" href="#_CPPv2N16ElectronSelector10m_pass_maxE" title="ElectronSelector::m_pass_max"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_pass_max</span></code></a> and <a class="reference internal" href="#_CPPv2N16ElectronSelector10m_pass_minE" title="ElectronSelector::m_pass_min"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_pass_min</span></code></a> above)</p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector20m_weightNumEventPassE">
+<span id="ElectronSelector::m_weightNumEventPass__i"></span><span class="target" id="xAHclass_electron_selector_1a2f06972f6ced818e712b9edd2f966f30"></span>int <code class="descname">m_weightNumEventPass</code><a class="headerlink" href="#_CPPv2N16ElectronSelector20m_weightNumEventPassE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>keep track of the number of weighted passed events, and fill the cutflow (relevant only if using the algo to skim events: see <a class="reference internal" href="#_CPPv2N16ElectronSelector10m_pass_maxE" title="ElectronSelector::m_pass_max"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_pass_max</span></code></a> and <a class="reference internal" href="#_CPPv2N16ElectronSelector10m_pass_minE" title="ElectronSelector::m_pass_min"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_pass_min</span></code></a> above)</p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector15m_numObjectPassE">
+<span id="ElectronSelector::m_numObjectPass__i"></span><span class="target" id="xAHclass_electron_selector_1a98fc8d39fdabb59d97937b21c507d4e5"></span>int <code class="descname">m_numObjectPass</code><a class="headerlink" href="#_CPPv2N16ElectronSelector15m_numObjectPassE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>keep track of the number of selected objects </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector13m_cutflowHistE">
+<span id="ElectronSelector::m_cutflowHist__TH1DP"></span><span class="target" id="xAHclass_electron_selector_1a400133813c51edcadbf14b130c0e8a18"></span>TH1D *<code class="descname">m_cutflowHist</code> = nullptr<a class="headerlink" href="#_CPPv2N16ElectronSelector13m_cutflowHistE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>histogram for event cutflow </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector14m_cutflowHistWE">
+<span id="ElectronSelector::m_cutflowHistW__TH1DP"></span><span class="target" id="xAHclass_electron_selector_1a08b9cad8e297c7fa0788ad072fb265d0"></span>TH1D *<code class="descname">m_cutflowHistW</code> = nullptr<a class="headerlink" href="#_CPPv2N16ElectronSelector14m_cutflowHistWE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>histgram for weighted event cutflow </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector13m_cutflow_binE">
+<span id="ElectronSelector::m_cutflow_bin__i"></span><span class="target" id="xAHclass_electron_selector_1a2e530b2c1c1bad5a124fecd52848b2f9"></span>int <code class="descname">m_cutflow_bin</code><a class="headerlink" href="#_CPPv2N16ElectronSelector13m_cutflow_binE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>index of bin corresponding to this step of the full cutflow </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector14m_isUsedBeforeE">
+<span id="ElectronSelector::m_isUsedBefore__b"></span><span class="target" id="xAHclass_electron_selector_1a96ecadea5f62807724c2102a58597a37"></span>bool <code class="descname">m_isUsedBefore</code> = false<a class="headerlink" href="#_CPPv2N16ElectronSelector14m_isUsedBeforeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>checks if the algorithm has been used already </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector18m_el_cutflowHist_1E">
+<span id="ElectronSelector::m_el_cutflowHist_1__TH1DP"></span><span class="target" id="xAHclass_electron_selector_1a49f45575fe97a18de3e3e7470e9626c6"></span>TH1D *<code class="descname">m_el_cutflowHist_1</code> = nullptr<a class="headerlink" href="#_CPPv2N16ElectronSelector18m_el_cutflowHist_1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector18m_el_cutflowHist_2E">
+<span id="ElectronSelector::m_el_cutflowHist_2__TH1DP"></span><span class="target" id="xAHclass_electron_selector_1a4795837b258422609a67737c49a9403b"></span>TH1D *<code class="descname">m_el_cutflowHist_2</code> = nullptr<a class="headerlink" href="#_CPPv2N16ElectronSelector18m_el_cutflowHist_2E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector16m_el_cutflow_allE">
+<span id="ElectronSelector::m_el_cutflow_all__i"></span><span class="target" id="xAHclass_electron_selector_1aed0b479ef692269e261e1e40629f3d32"></span>int <code class="descname">m_el_cutflow_all</code><a class="headerlink" href="#_CPPv2N16ElectronSelector16m_el_cutflow_allE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector23m_el_cutflow_author_cutE">
+<span id="ElectronSelector::m_el_cutflow_author_cut__i"></span><span class="target" id="xAHclass_electron_selector_1ab799f59430f7d5fd7d9115cdf437aed3"></span>int <code class="descname">m_el_cutflow_author_cut</code><a class="headerlink" href="#_CPPv2N16ElectronSelector23m_el_cutflow_author_cutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector19m_el_cutflow_OQ_cutE">
+<span id="ElectronSelector::m_el_cutflow_OQ_cut__i"></span><span class="target" id="xAHclass_electron_selector_1a6e0ee1a95f6f11f5c22625ab06fdac97"></span>int <code class="descname">m_el_cutflow_OQ_cut</code><a class="headerlink" href="#_CPPv2N16ElectronSelector19m_el_cutflow_OQ_cutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector22m_el_cutflow_ptmax_cutE">
+<span id="ElectronSelector::m_el_cutflow_ptmax_cut__i"></span><span class="target" id="xAHclass_electron_selector_1a96dfd70efc3431afb768c3746a450418"></span>int <code class="descname">m_el_cutflow_ptmax_cut</code><a class="headerlink" href="#_CPPv2N16ElectronSelector22m_el_cutflow_ptmax_cutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector22m_el_cutflow_ptmin_cutE">
+<span id="ElectronSelector::m_el_cutflow_ptmin_cut__i"></span><span class="target" id="xAHclass_electron_selector_1a8240913ffb672528a0269672e1150a33"></span>int <code class="descname">m_el_cutflow_ptmin_cut</code><a class="headerlink" href="#_CPPv2N16ElectronSelector22m_el_cutflow_ptmin_cutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector20m_el_cutflow_eta_cutE">
+<span id="ElectronSelector::m_el_cutflow_eta_cut__i"></span><span class="target" id="xAHclass_electron_selector_1ae2ad34567d43fa204df103b1a332b684"></span>int <code class="descname">m_el_cutflow_eta_cut</code><a class="headerlink" href="#_CPPv2N16ElectronSelector20m_el_cutflow_eta_cutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector27m_el_cutflow_z0sintheta_cutE">
+<span id="ElectronSelector::m_el_cutflow_z0sintheta_cut__i"></span><span class="target" id="xAHclass_electron_selector_1a27e0dfa52e805059eb8aade4fd1a7441"></span>int <code class="descname">m_el_cutflow_z0sintheta_cut</code><a class="headerlink" href="#_CPPv2N16ElectronSelector27m_el_cutflow_z0sintheta_cutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector19m_el_cutflow_d0_cutE">
+<span id="ElectronSelector::m_el_cutflow_d0_cut__i"></span><span class="target" id="xAHclass_electron_selector_1a193893b1bcd312b303596adebebe7e3c"></span>int <code class="descname">m_el_cutflow_d0_cut</code><a class="headerlink" href="#_CPPv2N16ElectronSelector19m_el_cutflow_d0_cutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector22m_el_cutflow_d0sig_cutE">
+<span id="ElectronSelector::m_el_cutflow_d0sig_cut__i"></span><span class="target" id="xAHclass_electron_selector_1a2e4488ebaf138471280d54619896b547"></span>int <code class="descname">m_el_cutflow_d0sig_cut</code><a class="headerlink" href="#_CPPv2N16ElectronSelector22m_el_cutflow_d0sig_cutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector19m_el_cutflow_BL_cutE">
+<span id="ElectronSelector::m_el_cutflow_BL_cut__i"></span><span class="target" id="xAHclass_electron_selector_1a7a1b876adf7ade3fe1ad51cd36a4951b"></span>int <code class="descname">m_el_cutflow_BL_cut</code><a class="headerlink" href="#_CPPv2N16ElectronSelector19m_el_cutflow_BL_cutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector20m_el_cutflow_PID_cutE">
+<span id="ElectronSelector::m_el_cutflow_PID_cut__i"></span><span class="target" id="xAHclass_electron_selector_1a1046ce33d38c767ce47ed8403ef92278"></span>int <code class="descname">m_el_cutflow_PID_cut</code><a class="headerlink" href="#_CPPv2N16ElectronSelector20m_el_cutflow_PID_cutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector20m_el_cutflow_iso_cutE">
+<span id="ElectronSelector::m_el_cutflow_iso_cut__i"></span><span class="target" id="xAHclass_electron_selector_1a6378dec3f6b4b69f3faa50a7d2c449ff"></span>int <code class="descname">m_el_cutflow_iso_cut</code><a class="headerlink" href="#_CPPv2N16ElectronSelector20m_el_cutflow_iso_cutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector9m_IsoKeysE">
+<span id="ElectronSelector::m_IsoKeys__std::vector:ss:"></span><span class="target" id="xAHclass_electron_selector_1a88c41b49fd9fb4788b21d05758abcdd7"></span>std::vector&lt;std::string&gt; <code class="descname">m_IsoKeys</code><a class="headerlink" href="#_CPPv2N16ElectronSelector9m_IsoKeysE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector31m_isolationSelectionTool_handleE">
+<span id="ElectronSelector::m_isolationSelectionTool_handle__asg::AnaToolHandle:CP::IIsolationSelectionTool:"></span><span class="target" id="xAHclass_electron_selector_1a95864ff3023455804ddcd87ef6d8df1f"></span>asg::AnaToolHandle&lt;CP::IIsolationSelectionTool&gt; <code class="descname">m_isolationSelectionTool_handle</code> = {&quot;CP::IsolationSelectionTool/IsolationSelectionTool&quot;, this}<a class="headerlink" href="#_CPPv2N16ElectronSelector31m_isolationSelectionTool_handleE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>MC15 ASG tool for isolation. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector24m_isolationSelectionToolE">
+<span id="ElectronSelector::m_isolationSelectionTool__CP::IsolationSelectionToolP"></span><span class="target" id="xAHclass_electron_selector_1a5945c51cbd36f05176f34bdf921958c6"></span>CP::IsolationSelectionTool *<code class="descname">m_isolationSelectionTool</code> = {nullptr}<a class="headerlink" href="#_CPPv2N16ElectronSelector24m_isolationSelectionToolE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector20m_trigDecTool_handleE">
+<span id="ElectronSelector::m_trigDecTool_handle__asg::AnaToolHandle:Trig::TrigDecisionTool:"></span><span class="target" id="xAHclass_electron_selector_1a2811795388179ff717ca2adec343a26c"></span>asg::AnaToolHandle&lt;Trig::TrigDecisionTool&gt; <code class="descname">m_trigDecTool_handle</code> = {&quot;Trig::TrigDecisionTool/TrigDecisionTool&quot;                       }<a class="headerlink" href="#_CPPv2N16ElectronSelector20m_trigDecTool_handleE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector30m_trigElectronMatchTool_handleE">
+<span id="ElectronSelector::m_trigElectronMatchTool_handle__asg::AnaToolHandle:Trig::IMatchingTool:"></span><span class="target" id="xAHclass_electron_selector_1aa0422870bb3d421eb5a3e23ae88c81c5"></span>asg::AnaToolHandle&lt;Trig::IMatchingTool&gt; <code class="descname">m_trigElectronMatchTool_handle</code> = {&quot;Trig::MatchingTool/MatchingTool&quot;                  , this}<a class="headerlink" href="#_CPPv2N16ElectronSelector30m_trigElectronMatchTool_handleE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector13m_doTrigMatchE">
+<span id="ElectronSelector::m_doTrigMatch__b"></span><span class="target" id="xAHclass_electron_selector_1a43b50d480fcdfcb32bcf772173eb4af1"></span>bool <code class="descname">m_doTrigMatch</code> = true<a class="headerlink" href="#_CPPv2N16ElectronSelector13m_doTrigMatchE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This internal variable gets set to false if no triggers are defined or if TrigDecisionTool is missing. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector18m_el_LH_PIDManagerE">
+<span id="ElectronSelector::m_el_LH_PIDManager__ElectronLHPIDManagerP"></span><span class="target" id="xAHclass_electron_selector_1a066b970e38f8530490b32170dab76596"></span><a class="reference internal" href="ParticlePIDManager.html#_CPPv220ElectronLHPIDManager" title="ElectronLHPIDManager">ElectronLHPIDManager</a> *<code class="descname">m_el_LH_PIDManager</code> = nullptr<a class="headerlink" href="#_CPPv2N16ElectronSelector18m_el_LH_PIDManagerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>class to manage LH PID selection/decorations - see ISSUE for explaination </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector24m_el_CutBased_PIDManagerE">
+<span id="ElectronSelector::m_el_CutBased_PIDManager__ElectronCutBasedPIDManagerP"></span><span class="target" id="xAHclass_electron_selector_1ab7bafb13b01332d5345be2d1c11596f2"></span><a class="reference internal" href="ParticlePIDManager.html#_CPPv226ElectronCutBasedPIDManager" title="ElectronCutBasedPIDManager">ElectronCutBasedPIDManager</a> *<code class="descname">m_el_CutBased_PIDManager</code> = nullptr<a class="headerlink" href="#_CPPv2N16ElectronSelector24m_el_CutBased_PIDManagerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>class to manage cut-based PID selection/decorations - see ISSUE for explaination </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector24m_singleElTrigChainsListE">
+<span id="ElectronSelector::m_singleElTrigChainsList__std::vector:ss:"></span><span class="target" id="xAHclass_electron_selector_1a86a0bce59dbacccedf8bd7a01caf112a"></span>std::vector&lt;std::string&gt; <code class="descname">m_singleElTrigChainsList</code><a class="headerlink" href="#_CPPv2N16ElectronSelector24m_singleElTrigChainsListE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>contains all the HLT trigger chains tokens extracted from <a class="reference internal" href="#_CPPv2N16ElectronSelector20m_singleElTrigChainsE" title="ElectronSelector::m_singleElTrigChains"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_singleElTrigChains</span></code></a></p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16ElectronSelector20m_diElTrigChainsListE">
+<span id="ElectronSelector::m_diElTrigChainsList__std::vector:ss:"></span><span class="target" id="xAHclass_electron_selector_1a31f4c3aa4df789f54e1081300aba7dc9"></span>std::vector&lt;std::string&gt; <code class="descname">m_diElTrigChainsList</code><a class="headerlink" href="#_CPPv2N16ElectronSelector20m_diElTrigChainsListE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>contains all the HLT trigger chains tokens extracted from <a class="reference internal" href="#_CPPv2N16ElectronSelector16m_diElTrigChainsE" title="ElectronSelector::m_diElTrigChains"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_diElTrigChains</span></code></a></p>
+ </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="JetSelector.html" class="btn btn-neutral float-right" title="\(j\)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="OverlapRemover.html" class="btn btn-neutral" title="Overlap Removal" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015-2017, ATLAS Collaboration.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'01-00-00-46-g45a2bda',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

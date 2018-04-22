@@ -1,0 +1,1737 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>JetHists &mdash; xAODAnaHelpers 01-00-00-46-g45a2bda documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="xAODAnaHelpers 01-00-00-46-g45a2bda documentation" href="index.html"/>
+        <link rel="up" title="Histograms" href="Histograms.html"/>
+        <link rel="next" title="MetHists" href="MetHists.html"/>
+        <link rel="prev" title="ClusterHists" href="ClusterHists.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> xAODAnaHelpers
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                01.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UsingUs.html">xAH_run.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Algorithms.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQs.html">xAH FAQ</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="API.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Getters.html">Getting Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Calibrators.html">Calibrating Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Correctors.html">Efficiency Correcting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Selectors.html">Selecting Objects</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="Histograms.html">Histograms</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Histograms.html#histogrammanager">HistogramManager</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="Histograms.html#classes">Classes</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ClusterHists.html">ClusterHists</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">JetHists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MetHists.html">MetHists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MuonHists.html">MuonHists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TrackHists.html">TrackHists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="VtxHists.html">VtxHists</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Histograms.html#algorithms">Algorithms</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ToolsUsed.html">Tools Used</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Outputs.html">Producing Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Utilities.html">Utilities</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">xAODAnaHelpers</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="API.html">API Reference</a> &raquo;</li>
+      
+          <li><a href="Histograms.html">Histograms</a> &raquo;</li>
+      
+    <li>JetHists</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/JetHists.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="jethists">
+<h1>JetHists<a class="headerlink" href="#jethists" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="_CPPv28JetHists">
+<span id="JetHists"></span><span class="target" id="xAHclass_jet_hists"></span><em class="property">class </em><code class="descclassname"></code><code class="descname">JetHists</code><a class="headerlink" href="#_CPPv28JetHists" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Inherits from IParticleHists</p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N8JetHists8JetHistsENSt6stringENSt6stringERKNSt6stringERKNSt6stringE">
+<span id="JetHists::JetHists__ss.ss.ssCR.ssCR"></span><span class="target" id="xAHclass_jet_hists_1abd4c6baf948e682b7569588686a95380"></span><code class="descname">JetHists</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>detailStr</em>, <em class="property">const</em> std::string &amp;<em>prefix</em> = &quot;jet&quot;, <em class="property">const</em> std::string &amp;<em>titleprefix</em> = &quot;jet&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8JetHists8JetHistsENSt6stringENSt6stringERKNSt6stringERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8JetHistsD0Ev">
+<span id="JetHists::~JetHists"></span><span class="target" id="xAHclass_jet_hists_1a9dd1cf2adef3084b1b7db4211eba008a"></span><code class="descname">~JetHists</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8JetHistsD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8JetHists10initializeEv">
+<span id="JetHists::initialize"></span><span class="target" id="xAHclass_jet_hists_1ac2820f1d67934e1759b3f8a1ae46889c"></span>StatusCode <code class="descname">initialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8JetHists10initializeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initialize and book all histograms. </p>
+<p><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This should call the overloaded functions <a class="reference internal" href="ClusterHists.html#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEidd" title="HistogramManager::book"><code class="xref cpp cpp-func docutils literal"><span class="pre">HistogramManager::book()</span></code></a> to create the histograms so that the user can call <cite>hists-&gt;record(wk())</cite> to record all histograms to the EventLoop worker.</p>
+</div>
+<p>Example implementation:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">StatusCode</span> <span class="n">JetHists</span><span class="o">::</span><span class="n">initialize</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">m_jetPt</span>          <span class="o">=</span> <span class="n">book</span><span class="p">(</span><span class="n">m_name</span><span class="p">,</span> <span class="s">&quot;jetPt&quot;</span><span class="p">,</span>  <span class="s">&quot;jet p_{T} [GeV]&quot;</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">3000.</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">StatusCode</span><span class="o">::</span><span class="n">SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8JetHists7executeEPKN4xAOD3JetEfPKN4xAOD9EventInfoE">
+<span id="JetHists::execute__xAOD::JetCP.float.xAOD::EventInfoCP"></span><span class="target" id="xAHclass_jet_hists_1a52d21573626d99383fa56405b717ed23"></span>StatusCode <code class="descname">execute</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::Jet *<em>jet</em>, float <em>eventWeight</em>, <em class="property">const</em> xAOD::EventInfo *<em>eventInfo</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8JetHists7executeEPKN4xAOD3JetEfPKN4xAOD9EventInfoE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8JetHists7executeEPKN3xAH3JetEfPKN3xAH9EventInfoE">
+<span id="JetHists::execute__xAH::JetCP.float.xAH::EventInfoCP"></span><span class="target" id="xAHclass_jet_hists_1a5d1eccc336d9fc6628b51c76f98e84b1"></span>StatusCode <code class="descname">execute</code><span class="sig-paren">(</span><em class="property">const</em> xAH::Jet *<em>jet</em>, float <em>eventWeight</em>, <em class="property">const</em> xAH::EventInfo *<em>eventInfo</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8JetHists7executeEPKN3xAH3JetEfPKN3xAH9EventInfoE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8JetHists8finalizeEv">
+<span id="JetHists::finalize"></span><span class="target" id="xAHclass_jet_hists_1a0ba986713af903354b4e225e5242b935"></span>StatusCode <code class="descname">finalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8JetHists8finalizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Finalize anything that needs to be finalized. </p>
+<p><div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This should rarely be used. There is not a good use case for this functionality but it needs to exist in the off-chance that a user comes along and needs it for their histogram class.</p>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8JetHists6recordEPN2EL6WorkerE">
+<span id="JetHists::record__EL::WorkerP"></span><span class="target" id="xAHclass_jet_hists_1a0c0b3c658e644eb6d4b59aa3d8565cc8"></span>void <code class="descname">record</code><span class="sig-paren">(</span>EL::Worker *<em>wk</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8JetHists6recordEPN2EL6WorkerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N14IParticleHists7executeEPKN4xAOD18IParticleContainerEfPKN4xAOD9EventInfoE">
+<span id="IParticleHists::execute__xAOD::IParticleContainerCP.float.xAOD::EventInfoCP"></span><span class="target" id="xAHclass_i_particle_hists_1a5e6dddd68e1ef7dcada03c68fb631530"></span>StatusCode <code class="descname">execute</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::IParticleContainer *<em>particles</em>, float <em>eventWeight</em>, <em class="property">const</em> xAOD::EventInfo *<em>eventInfo</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N14IParticleHists7executeEPKN4xAOD18IParticleContainerEfPKN4xAOD9EventInfoE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">class</em> T_PARTICLE, <em class="property">class</em> T_INFOSWITCH&gt;</dt>
+<dt id="_CPPv2N14IParticleHists7executeEPKN3xAH17ParticleContainerI10T_PARTICLE12T_INFOSWITCHEEfPKN3xAH9EventInfoE">
+<span id="IParticleHists::execute__xAH::ParticleContainer:T_PARTICLE.T_INFOSWITCH:CP.float.xAH::EventInfoCP"></span><span class="target" id="xAHclass_i_particle_hists_1a431ba9e6da38ddc69eba59d57f27b48b"></span>StatusCode <code class="descname">execute</code><span class="sig-paren">(</span><em class="property">const</em> xAH::ParticleContainer&lt;T_PARTICLE, T_INFOSWITCH&gt; *<em>particles</em>, float <em>eventWeight</em>, <em class="property">const</em> xAH::EventInfo *<em>eventInfo</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N14IParticleHists7executeEPKN3xAH17ParticleContainerI10T_PARTICLE12T_INFOSWITCHEEfPKN3xAH9EventInfoE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager7executeEv">
+<span id="HistogramManager::execute"></span><span class="target" id="xAHclass_histogram_manager_1a16aae08500a74ab0adc8decf8f08b87a"></span><em class="property">virtual</em> StatusCode <code class="descname">execute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager7executeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Execute by filling in the histograms. </p>
+<p><p>Example implementation:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">StatusCode</span> <span class="n">JetHists</span><span class="o">::</span><span class="n">execute</span><span class="p">(</span> <span class="k">const</span> <span class="n">xAOD</span><span class="o">::</span><span class="n">JetContainer</span><span class="o">*</span> <span class="n">jets</span><span class="p">,</span> <span class="kt">float</span> <span class="n">eventWeight</span> <span class="p">){</span>
+  <span class="k">for</span><span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">jet</span><span class="p">:</span> <span class="o">*</span><span class="n">jets</span><span class="p">)</span>
+    <span class="n">m_jetPt</span><span class="o">-&gt;</span><span class="n">Fill</span><span class="p">(</span> <span class="n">jet</span><span class="o">-&gt;</span><span class="n">pt</span><span class="p">()</span><span class="o">/</span><span class="mf">1.e3</span><span class="p">,</span> <span class="n">eventWeight</span> <span class="p">);</span>
+  <span class="k">return</span> <span class="n">StatusCode</span><span class="o">::</span><span class="n">SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEidd">
+<span id="HistogramManager::book__ss.ss.ss.i.double.double"></span><span class="target" id="xAHclass_histogram_manager_1a8a575b6ba72efa0ae63d6ad9c79c8e9f"></span>TH1F *<code class="descname">book</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>title</em>, std::string <em>xlabel</em>, int <em>xbins</em>, double <em>xlow</em>, double <em>xhigh</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEidd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>record a histogram and call various functions </p>
+<p><dl class="docutils">
+<dt><strong>Note</strong></dt>
+<dd>This is an overloaded function. It will build the right histogram given the correct number of input arguments. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">name</span></code>: name of histogram, access it in ROOT file like <code class="docutils literal"><span class="pre">h_jetPt-&gt;Draw()</span></code> </li>
+<li><code class="docutils literal"><span class="pre">title</span></code>: usually pointless,put a description of the histogram in here </li>
+<li><code class="docutils literal"><span class="pre">xlabel</span></code>: label to put on the x-axis </li>
+<li><code class="docutils literal"><span class="pre">xbins</span></code>: number of xbins to use </li>
+<li><code class="docutils literal"><span class="pre">xlow</span></code>: lower bound on xbins </li>
+<li><code class="docutils literal"><span class="pre">xhigh</span></code>: upper bound on xbins </li>
+<li><code class="docutils literal"><span class="pre">xbinsArr</span></code>: variable xbins, test math <span class="math">\((x_1,y_1)\)</span> and <span class="math">\((x_2,y_2)\)</span> </li>
+<li><code class="docutils literal"><span class="pre">ylabel</span></code>: label to put on the y-axis </li>
+<li><code class="docutils literal"><span class="pre">ylow</span></code>: lower bound on ybins </li>
+<li><code class="docutils literal"><span class="pre">yhigh</span></code>: upper bound on ybins </li>
+<li><code class="docutils literal"><span class="pre">ybinsArr</span></code>: variable ybins </li>
+<li><code class="docutils literal"><span class="pre">zlabel</span></code>: label to put on the z-axix </li>
+<li><code class="docutils literal"><span class="pre">zlow</span></code>: lower bound on zbins </li>
+<li><code class="docutils literal"><span class="pre">zhigh</span></code>: upper bound on zbins </li>
+<li><code class="docutils literal"><span class="pre">zbinsArr</span></code>: variable zbins </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiddNSt6stringEidd">
+<span id="HistogramManager::book__ss.ss.ss.i.double.double.ss.i.double.double"></span><span class="target" id="xAHclass_histogram_manager_1a47b36830027708435451f9f2ba2259bf"></span>TH2F *<code class="descname">book</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>title</em>, std::string <em>xlabel</em>, int <em>xbins</em>, double <em>xlow</em>, double <em>xhigh</em>, std::string <em>xyabel</em>, int <em>ybins</em>, double <em>ylow</em>, double <em>yhigh</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiddNSt6stringEidd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiddNSt6stringEiddNSt6stringEidd">
+<span id="HistogramManager::book__ss.ss.ss.i.double.double.ss.i.double.double.ss.i.double.double"></span><span class="target" id="xAHclass_histogram_manager_1a5cef6f46702188b413decea34774d1f8"></span>TH3F *<code class="descname">book</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>title</em>, std::string <em>xlabel</em>, int <em>xbins</em>, double <em>xlow</em>, double <em>xhigh</em>, std::string <em>ylabel</em>, int <em>ybins</em>, double <em>ylow</em>, double <em>yhigh</em>, std::string <em>zlabel</em>, int <em>zbins</em>, double <em>zlow</em>, double <em>zhigh</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiddNSt6stringEiddNSt6stringEidd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiPK8Double_t">
+<span id="HistogramManager::book__ss.ss.ss.i.Double_tCP"></span><span class="target" id="xAHclass_histogram_manager_1ad068dacbb610f7a44b01b08d3bd195f5"></span>TH1F *<code class="descname">book</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>title</em>, std::string <em>xlabel</em>, int <em>xbins</em>, <em class="property">const</em> Double_t *<em>xbinsArr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiPK8Double_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiPK8Double_tNSt6stringEidd">
+<span id="HistogramManager::book__ss.ss.ss.i.Double_tCP.ss.i.double.double"></span><span class="target" id="xAHclass_histogram_manager_1ae6777f38110ecdfc13ce28076c689f03"></span>TH2F *<code class="descname">book</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>title</em>, std::string <em>xlabel</em>, int <em>xbins</em>, <em class="property">const</em> Double_t *<em>xbinsArr</em>, std::string <em>ylabel</em>, int <em>ybins</em>, double <em>ylow</em>, double <em>yhigh</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiPK8Double_tNSt6stringEidd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiddNSt6stringEiPK8Double_t">
+<span id="HistogramManager::book__ss.ss.ss.i.double.double.ss.i.Double_tCP"></span><span class="target" id="xAHclass_histogram_manager_1a029c5c5d8deb4a628ca92002903b0a97"></span>TH2F *<code class="descname">book</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>title</em>, std::string <em>xyabel</em>, int <em>xbins</em>, double <em>xlow</em>, double <em>xhigh</em>, std::string <em>ylabel</em>, int <em>ybins</em>, <em class="property">const</em> Double_t *<em>ybinsArr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiddNSt6stringEiPK8Double_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiPK8Double_tNSt6stringEiPK8Double_t">
+<span id="HistogramManager::book__ss.ss.ss.i.Double_tCP.ss.i.Double_tCP"></span><span class="target" id="xAHclass_histogram_manager_1a7d218dc5bfa0caa10d0bcd6494550d42"></span>TH2F *<code class="descname">book</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>title</em>, std::string <em>xyabel</em>, int <em>xbins</em>, <em class="property">const</em> Double_t *<em>xbinsArr</em>, std::string <em>ylabel</em>, int <em>ybins</em>, <em class="property">const</em> Double_t *<em>ybinsArr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiPK8Double_tNSt6stringEiPK8Double_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiPK8Double_tNSt6stringEiPK8Double_tNSt6stringEiPK8Double_t">
+<span id="HistogramManager::book__ss.ss.ss.i.Double_tCP.ss.i.Double_tCP.ss.i.Double_tCP"></span><span class="target" id="xAHclass_histogram_manager_1ab2e2e5024c1af849f53803e6e288d40a"></span>TH3F *<code class="descname">book</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>title</em>, std::string <em>xlabel</em>, int <em>xbins</em>, <em class="property">const</em> Double_t *<em>xbinsArr</em>, std::string <em>ylabel</em>, int <em>ybins</em>, <em class="property">const</em> Double_t *<em>ybinsArr</em>, std::string <em>zlabel</em>, int <em>zbins</em>, <em class="property">const</em> Double_t *<em>zbinsArr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiPK8Double_tNSt6stringEiPK8Double_tNSt6stringEiPK8Double_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiddNSt6stringEddNSt6stringE">
+<span id="HistogramManager::book__ss.ss.ss.i.double.double.ss.double.double.ss"></span><span class="target" id="xAHclass_histogram_manager_1a8d34a394c9addf69f502f30aba3db552"></span>TProfile *<code class="descname">book</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>title</em>, std::string <em>xlabel</em>, int <em>xbins</em>, double <em>xlow</em>, double <em>xhigh</em>, std::string <em>ylabel</em>, double <em>ylow</em>, double <em>yhigh</em>, std::string <em>option</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiddNSt6stringEddNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK16HistogramManager3msgEv">
+<span id="HistogramManager::msgC"></span><span class="target" id="xAHclass_histogram_manager_1a6db038d6f4595a41f0c1c966aa86e102"></span>MsgStream &amp;<code class="descname">msg</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK16HistogramManager3msgEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the standard message stream for this algorithm </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK16HistogramManager3msgEi">
+<span id="HistogramManager::msg__iC"></span><span class="target" id="xAHclass_histogram_manager_1a5f061ba66b96d55bd40f83a67a6646cb"></span>MsgStream &amp;<code class="descname">msg</code><span class="sig-paren">(</span>int <em>level</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK16HistogramManager3msgEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>allow ANA_MSG_XXXX macros to be used within algorithms for a given level </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2N14IParticleHists7m_debugE">
+<span id="IParticleHists::m_debug__b"></span><span class="target" id="xAHclass_i_particle_hists_1ac989afd6c6a96036b6a261a2f54af704"></span>bool <code class="descname">m_debug</code><a class="headerlink" href="#_CPPv2N14IParticleHists7m_debugE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv2N8JetHists7executeEPKN4xAOD9IParticleEfPKN4xAOD9EventInfoE">
+<span id="JetHists::execute__xAOD::IParticleCP.float.xAOD::EventInfoCP"></span><span class="target" id="xAHclass_jet_hists_1adebf95e188ba92b78a9fb622573646f4"></span>StatusCode <code class="descname">execute</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::IParticle *<em>particle</em>, float <em>eventWeight</em>, <em class="property">const</em> xAOD::EventInfo *<em>eventInfo</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8JetHists7executeEPKN4xAOD9IParticleEfPKN4xAOD9EventInfoE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8JetHists7executeEPKN3xAH8ParticleEfPKN3xAH9EventInfoE">
+<span id="JetHists::execute__xAH::ParticleCP.float.xAH::EventInfoCP"></span><span class="target" id="xAHclass_jet_hists_1a204470f27f5cdbd7e88b322b15f65846"></span>StatusCode <code class="descname">execute</code><span class="sig-paren">(</span><em class="property">const</em> xAH::Particle *<em>particle</em>, float <em>eventWeight</em>, <em class="property">const</em> xAH::EventInfo *<em>eventInfo</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8JetHists7executeEPKN3xAH8ParticleEfPKN3xAH9EventInfoE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv2N8JetHists12m_infoSwitchE">
+<span id="JetHists::m_infoSwitch__HelperClasses::JetInfoSwitchP"></span><span class="target" id="xAHclass_jet_hists_1a426a9eb2e33b59abbca36773fe0d0c8e"></span><a class="reference internal" href="HelperClasses.html#_CPPv213HelperClasses" title="HelperClasses">HelperClasses</a>::<a class="reference internal" href="HelperClasses.html#_CPPv2N13HelperClasses13JetInfoSwitchE" title="HelperClasses::JetInfoSwitch">JetInfoSwitch</a> *<code class="descname">m_infoSwitch</code><a class="headerlink" href="#_CPPv2N8JetHists12m_infoSwitchE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16HistogramManager6m_nameE">
+<span id="HistogramManager::m_name__ss"></span><span class="target" id="xAHclass_histogram_manager_1a835c2b444b08e5c81cd7382c8602adc5"></span>std::string <code class="descname">m_name</code><a class="headerlink" href="#_CPPv2N16HistogramManager6m_nameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>generically the main name assigned to all histograms </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16HistogramManager11m_detailStrE">
+<span id="HistogramManager::m_detailStr__ss"></span><span class="target" id="xAHclass_histogram_manager_1a92eb26b65e47978a7754144863f84d92"></span>std::string <code class="descname">m_detailStr</code><a class="headerlink" href="#_CPPv2N16HistogramManager11m_detailStrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>a detail level in the form of a string </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16HistogramManager10m_allHistsE">
+<span id="HistogramManager::m_allHists__std::vector:TH1P:"></span><span class="target" id="xAHclass_histogram_manager_1add5ba646f0ef52925fab48bc1dda3106"></span>std::vector&lt;TH1 *&gt; <code class="descname">m_allHists</code><a class="headerlink" href="#_CPPv2N16HistogramManager10m_allHistsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>a container holding all generated histograms </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16HistogramManager5m_msgE">
+<span id="HistogramManager::m_msg__MsgStream"></span><span class="target" id="xAHclass_histogram_manager_1ac775c3a482f6848f51583c548b8765cc"></span>MsgStream <code class="descname">m_msg</code><a class="headerlink" href="#_CPPv2N16HistogramManager5m_msgE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>hold the MsgStream object </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Private Members</p>
+<dl class="member">
+<dt id="_CPPv2N8JetHists13m_titlePrefixE">
+<span id="JetHists::m_titlePrefix__ss"></span><span class="target" id="xAHclass_jet_hists_1a4aadfe4740a4e3217e40f722c6503ec7"></span>std::string <code class="descname">m_titlePrefix</code><a class="headerlink" href="#_CPPv2N8JetHists13m_titlePrefixE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists14m_onlineBSToolE">
+<span id="JetHists::m_onlineBSTool__xAH::OnlineBeamSpotTool"></span><span class="target" id="xAHclass_jet_hists_1a2483f8cac47d3c1ab9a3ef53afc784df"></span>xAH::OnlineBeamSpotTool <code class="descname">m_onlineBSTool</code><a class="headerlink" href="#_CPPv2N8JetHists14m_onlineBSToolE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists9m_jetTimeE">
+<span id="JetHists::m_jetTime__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1aacbf97e380457b2d079cf14daa3335cf"></span>TH1F *<code class="descname">m_jetTime</code><a class="headerlink" href="#_CPPv2N8JetHists9m_jetTimeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists12m_LArQualityE">
+<span id="JetHists::m_LArQuality__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1aec42f00e2faca72b71a135105a122c37"></span>TH1F *<code class="descname">m_LArQuality</code><a class="headerlink" href="#_CPPv2N8JetHists12m_LArQualityE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists6m_hecqE">
+<span id="JetHists::m_hecq__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a26db3e9f976a66d503bcb0d62bbee731"></span>TH1F *<code class="descname">m_hecq</code><a class="headerlink" href="#_CPPv2N8JetHists6m_hecqE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists6m_negEE">
+<span id="JetHists::m_negE__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1adc67b70cac0c13d679705c30f1e97d3d"></span>TH1F *<code class="descname">m_negE</code><a class="headerlink" href="#_CPPv2N8JetHists6m_negEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists9m_avLArQFE">
+<span id="JetHists::m_avLArQF__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ae5dd0b80d5bc11fb368c9dfc50320b8d"></span>TH1F *<code class="descname">m_avLArQF</code><a class="headerlink" href="#_CPPv2N8JetHists9m_avLArQFE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists13m_bchCorrCellE">
+<span id="JetHists::m_bchCorrCell__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a1369a2692de0650dd9f8c6a69b5a5937"></span>TH1F *<code class="descname">m_bchCorrCell</code><a class="headerlink" href="#_CPPv2N8JetHists13m_bchCorrCellE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists10m_N90ConstE">
+<span id="JetHists::m_N90Const__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a3e2feee7be3a8aa3b85123b2608abda2"></span>TH1F *<code class="descname">m_N90Const</code><a class="headerlink" href="#_CPPv2N8JetHists10m_N90ConstE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists13m_PreSamplerBE">
+<span id="JetHists::m_PreSamplerB__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a678f88dc7a5b3e09e2b4c1635ebc6f56"></span>TH1F *<code class="descname">m_PreSamplerB</code><a class="headerlink" href="#_CPPv2N8JetHists13m_PreSamplerBE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists6m_EMB1E">
+<span id="JetHists::m_EMB1__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a85c63b4d58706a09da0193a77767d006"></span>TH1F *<code class="descname">m_EMB1</code><a class="headerlink" href="#_CPPv2N8JetHists6m_EMB1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists6m_EMB2E">
+<span id="JetHists::m_EMB2__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a44e1c87aebda70781f8a1305477d15a3"></span>TH1F *<code class="descname">m_EMB2</code><a class="headerlink" href="#_CPPv2N8JetHists6m_EMB2E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists6m_EMB3E">
+<span id="JetHists::m_EMB3__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1aa2ad9d8b72f066c56b41192bb6d3ebf6"></span>TH1F *<code class="descname">m_EMB3</code><a class="headerlink" href="#_CPPv2N8JetHists6m_EMB3E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists13m_PreSamplerEE">
+<span id="JetHists::m_PreSamplerE__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1aa8c2fa699964e10c273c747649725855"></span>TH1F *<code class="descname">m_PreSamplerE</code><a class="headerlink" href="#_CPPv2N8JetHists13m_PreSamplerEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists6m_EME1E">
+<span id="JetHists::m_EME1__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a7b925ca5547f2261d2ddf2b3b70e34cc"></span>TH1F *<code class="descname">m_EME1</code><a class="headerlink" href="#_CPPv2N8JetHists6m_EME1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists6m_EME2E">
+<span id="JetHists::m_EME2__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1af2167d82e8d36d077b3518853b6003f5"></span>TH1F *<code class="descname">m_EME2</code><a class="headerlink" href="#_CPPv2N8JetHists6m_EME2E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists6m_EME3E">
+<span id="JetHists::m_EME3__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1abb6e2d0eef798d73c1d38ffa98119525"></span>TH1F *<code class="descname">m_EME3</code><a class="headerlink" href="#_CPPv2N8JetHists6m_EME3E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists6m_HEC0E">
+<span id="JetHists::m_HEC0__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a2e7923519ce4c8a693e6c636b32b8d9a"></span>TH1F *<code class="descname">m_HEC0</code><a class="headerlink" href="#_CPPv2N8JetHists6m_HEC0E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists6m_HEC1E">
+<span id="JetHists::m_HEC1__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a5e02138505d1332531bfdd1df1fe0a4e"></span>TH1F *<code class="descname">m_HEC1</code><a class="headerlink" href="#_CPPv2N8JetHists6m_HEC1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists6m_HEC2E">
+<span id="JetHists::m_HEC2__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a406f801b308bba68c3973b0d6835567b"></span>TH1F *<code class="descname">m_HEC2</code><a class="headerlink" href="#_CPPv2N8JetHists6m_HEC2E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists6m_HEC3E">
+<span id="JetHists::m_HEC3__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a6b83615603a96722ee4c52912a8f311a"></span>TH1F *<code class="descname">m_HEC3</code><a class="headerlink" href="#_CPPv2N8JetHists6m_HEC3E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists10m_TileBar0E">
+<span id="JetHists::m_TileBar0__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1abc3f7bd736d70c6732d35ee96c1ff8af"></span>TH1F *<code class="descname">m_TileBar0</code><a class="headerlink" href="#_CPPv2N8JetHists10m_TileBar0E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists10m_TileBar1E">
+<span id="JetHists::m_TileBar1__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1af815c4ddfd31a98741cec6c3f8f75d04"></span>TH1F *<code class="descname">m_TileBar1</code><a class="headerlink" href="#_CPPv2N8JetHists10m_TileBar1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists10m_TileBar2E">
+<span id="JetHists::m_TileBar2__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1afc3ce14340bb6826f159abcf164e7e5d"></span>TH1F *<code class="descname">m_TileBar2</code><a class="headerlink" href="#_CPPv2N8JetHists10m_TileBar2E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists10m_TileGap1E">
+<span id="JetHists::m_TileGap1__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a0fb51afe9eb0f2e28cb41b355bff61f9"></span>TH1F *<code class="descname">m_TileGap1</code><a class="headerlink" href="#_CPPv2N8JetHists10m_TileGap1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists10m_TileGap2E">
+<span id="JetHists::m_TileGap2__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1aba283be1bd7af990923b47e17f232d2d"></span>TH1F *<code class="descname">m_TileGap2</code><a class="headerlink" href="#_CPPv2N8JetHists10m_TileGap2E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists10m_TileGap3E">
+<span id="JetHists::m_TileGap3__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a6daa9ce155dac25dd2c12f0616252b1c"></span>TH1F *<code class="descname">m_TileGap3</code><a class="headerlink" href="#_CPPv2N8JetHists10m_TileGap3E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists10m_TileExt0E">
+<span id="JetHists::m_TileExt0__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ac79f568620e660273fbd3c2426d1c6a6"></span>TH1F *<code class="descname">m_TileExt0</code><a class="headerlink" href="#_CPPv2N8JetHists10m_TileExt0E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists10m_TileExt1E">
+<span id="JetHists::m_TileExt1__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a09ca26630da8eecf3c2ebd12984ecfab"></span>TH1F *<code class="descname">m_TileExt1</code><a class="headerlink" href="#_CPPv2N8JetHists10m_TileExt1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists10m_TileExt2E">
+<span id="JetHists::m_TileExt2__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1af6af0a52697cbc68a3b33ee926382f8e"></span>TH1F *<code class="descname">m_TileExt2</code><a class="headerlink" href="#_CPPv2N8JetHists10m_TileExt2E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists7m_FCAL0E">
+<span id="JetHists::m_FCAL0__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a8a4d477dc073ff5837c97b943ea7f91a"></span>TH1F *<code class="descname">m_FCAL0</code><a class="headerlink" href="#_CPPv2N8JetHists7m_FCAL0E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists7m_FCAL1E">
+<span id="JetHists::m_FCAL1__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a92f3d7432e8c61ab450cceb7acadc594"></span>TH1F *<code class="descname">m_FCAL1</code><a class="headerlink" href="#_CPPv2N8JetHists7m_FCAL1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists7m_FCAL2E">
+<span id="JetHists::m_FCAL2__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a4dcc3499b30c78e6ffb3444de4286499"></span>TH1F *<code class="descname">m_FCAL2</code><a class="headerlink" href="#_CPPv2N8JetHists7m_FCAL2E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists9m_actAreaE">
+<span id="JetHists::m_actArea__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1aafb215034f8d80d94e0ddf651a31c529"></span>TH1F *<code class="descname">m_actArea</code><a class="headerlink" href="#_CPPv2N8JetHists9m_actAreaE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists5m_chfE">
+<span id="JetHists::m_chf__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a41b2ab9a2cde0752bbff7c9afa2887c1"></span>TH1F *<code class="descname">m_chf</code><a class="headerlink" href="#_CPPv2N8JetHists5m_chfE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists6m_HECfE">
+<span id="JetHists::m_HECf__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1abdd10892505392ef30af543fb158f5a7"></span>TH1F *<code class="descname">m_HECf</code><a class="headerlink" href="#_CPPv2N8JetHists6m_HECfE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists5m_EMfE">
+<span id="JetHists::m_EMf__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a446e6fb4d704733ae9f450b0353077dc"></span>TH1F *<code class="descname">m_EMf</code><a class="headerlink" href="#_CPPv2N8JetHists5m_EMfE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists11m_centroidRE">
+<span id="JetHists::m_centroidR__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a547c0fe0c3ba49a8e11c0e7022570133"></span>TH1F *<code class="descname">m_centroidR</code><a class="headerlink" href="#_CPPv2N8JetHists11m_centroidRE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists13m_fracSampMaxE">
+<span id="JetHists::m_fracSampMax__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ab21b0eaa4d8b58b120cb69837ccb10ee"></span>TH1F *<code class="descname">m_fracSampMax</code><a class="headerlink" href="#_CPPv2N8JetHists13m_fracSampMaxE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists16m_fracSampMaxIdxE">
+<span id="JetHists::m_fracSampMaxIdx__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a53293170a507f4316d0285ae2e27535f"></span>TH1F *<code class="descname">m_fracSampMaxIdx</code><a class="headerlink" href="#_CPPv2N8JetHists16m_fracSampMaxIdxE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists11m_lowEtFracE">
+<span id="JetHists::m_lowEtFrac__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a0a6b2e3092cfc7ca1d3253fb36cfdc28"></span>TH1F *<code class="descname">m_lowEtFrac</code><a class="headerlink" href="#_CPPv2N8JetHists11m_lowEtFracE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists17m_jetGhostTruthPtE">
+<span id="JetHists::m_jetGhostTruthPt__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a7e0e215f9a982e81ef02808b94377eaf"></span>TH1F *<code class="descname">m_jetGhostTruthPt</code><a class="headerlink" href="#_CPPv2N8JetHists17m_jetGhostTruthPtE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists21m_jetPt_vs_resolutionE">
+<span id="JetHists::m_jetPt_vs_resolution__TH2FP"></span><span class="target" id="xAHclass_jet_hists_1af973cc965ba2ba9a388684a24efec6fd"></span>TH2F *<code class="descname">m_jetPt_vs_resolution</code><a class="headerlink" href="#_CPPv2N8JetHists21m_jetPt_vs_resolutionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists31m_jetGhostTruthPt_vs_resolutionE">
+<span id="JetHists::m_jetGhostTruthPt_vs_resolution__TH2FP"></span><span class="target" id="xAHclass_jet_hists_1ae54ab0eee04acd9af535670d53547547"></span>TH2F *<code class="descname">m_jetGhostTruthPt_vs_resolution</code><a class="headerlink" href="#_CPPv2N8JetHists31m_jetGhostTruthPt_vs_resolutionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists14m_truthLabelIDE">
+<span id="JetHists::m_truthLabelID__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a95e4d4e115fe30d40ad56edf1dfef634"></span>TH1F *<code class="descname">m_truthLabelID</code><a class="headerlink" href="#_CPPv2N8JetHists14m_truthLabelIDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists28m_hadronConeExclTruthLabelIDE">
+<span id="JetHists::m_hadronConeExclTruthLabelID__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ab18afba8655c55f3a64ae4d6e7e241ec"></span>TH1F *<code class="descname">m_hadronConeExclTruthLabelID</code><a class="headerlink" href="#_CPPv2N8JetHists28m_hadronConeExclTruthLabelIDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists20m_partonTruthLabelIDE">
+<span id="JetHists::m_partonTruthLabelID__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a1d700dcf204afd83389d6f315d9d2850"></span>TH1F *<code class="descname">m_partonTruthLabelID</code><a class="headerlink" href="#_CPPv2N8JetHists20m_partonTruthLabelIDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists12m_truthCountE">
+<span id="JetHists::m_truthCount__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a5bf0b93c9809b9fb1ca9338a09e5c6c1"></span>TH1F *<code class="descname">m_truthCount</code><a class="headerlink" href="#_CPPv2N8JetHists12m_truthCountE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists9m_truthPtE">
+<span id="JetHists::m_truthPt__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a157277acdd5c1d8aa711cc7960cf1554"></span>TH1F *<code class="descname">m_truthPt</code><a class="headerlink" href="#_CPPv2N8JetHists9m_truthPtE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists11m_truthPt_mE">
+<span id="JetHists::m_truthPt_m__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ac174879f4e2b5fe98b0e149fbd87f8c7"></span>TH1F *<code class="descname">m_truthPt_m</code><a class="headerlink" href="#_CPPv2N8JetHists11m_truthPt_mE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists11m_truthPt_lE">
+<span id="JetHists::m_truthPt_l__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1af941c0e54d52c7a06913b4d8cf7953d0"></span>TH1F *<code class="descname">m_truthPt_l</code><a class="headerlink" href="#_CPPv2N8JetHists11m_truthPt_lE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists10m_truthEtaE">
+<span id="JetHists::m_truthEta__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1af5cc091edc75ffec644a4e1dc8ebd4c9"></span>TH1F *<code class="descname">m_truthEta</code><a class="headerlink" href="#_CPPv2N8JetHists10m_truthEtaE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists10m_truthPhiE">
+<span id="JetHists::m_truthPhi__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1af4cd2ec551a1c64a10873af2cf823509"></span>TH1F *<code class="descname">m_truthPhi</code><a class="headerlink" href="#_CPPv2N8JetHists10m_truthPhiE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists11m_truthDr_BE">
+<span id="JetHists::m_truthDr_B__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1acab584545b628c501850da6140ac9d4e"></span>TH1F *<code class="descname">m_truthDr_B</code><a class="headerlink" href="#_CPPv2N8JetHists11m_truthDr_BE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists11m_truthDr_CE">
+<span id="JetHists::m_truthDr_C__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ae96aae895b2bd930d7a7c5340fa482bf"></span>TH1F *<code class="descname">m_truthDr_C</code><a class="headerlink" href="#_CPPv2N8JetHists11m_truthDr_CE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists11m_truthDr_TE">
+<span id="JetHists::m_truthDr_T__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a2dd2c44a6e1c5f25dce5693c5a8d41fc"></span>TH1F *<code class="descname">m_truthDr_T</code><a class="headerlink" href="#_CPPv2N8JetHists11m_truthDr_TE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists22m_truthCount_BhadFinalE">
+<span id="JetHists::m_truthCount_BhadFinal__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ad9e446855b05d47549d8f029ed3cd1e1"></span>TH1F *<code class="descname">m_truthCount_BhadFinal</code><a class="headerlink" href="#_CPPv2N8JetHists22m_truthCount_BhadFinalE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists21m_truthCount_BhadInitE">
+<span id="JetHists::m_truthCount_BhadInit__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a2bccb16da4f1bd0d1c166bcea8c789db"></span>TH1F *<code class="descname">m_truthCount_BhadInit</code><a class="headerlink" href="#_CPPv2N8JetHists21m_truthCount_BhadInitE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists20m_truthCount_BQFinalE">
+<span id="JetHists::m_truthCount_BQFinal__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a46ea391fc2177d4cfe497db69267abf5"></span>TH1F *<code class="descname">m_truthCount_BQFinal</code><a class="headerlink" href="#_CPPv2N8JetHists20m_truthCount_BQFinalE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists19m_truthPt_BhadFinalE">
+<span id="JetHists::m_truthPt_BhadFinal__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a30aa4aeb417a57cd1eb003a9a2dca8b5"></span>TH1F *<code class="descname">m_truthPt_BhadFinal</code><a class="headerlink" href="#_CPPv2N8JetHists19m_truthPt_BhadFinalE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists18m_truthPt_BhadInitE">
+<span id="JetHists::m_truthPt_BhadInit__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a1ccf1d2dc6854bad509efa01e094d33f"></span>TH1F *<code class="descname">m_truthPt_BhadInit</code><a class="headerlink" href="#_CPPv2N8JetHists18m_truthPt_BhadInitE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists17m_truthPt_BQFinalE">
+<span id="JetHists::m_truthPt_BQFinal__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1aea4550bc1cd69b6491147618d3627e2a"></span>TH1F *<code class="descname">m_truthPt_BQFinal</code><a class="headerlink" href="#_CPPv2N8JetHists17m_truthPt_BQFinalE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists22m_truthCount_ChadFinalE">
+<span id="JetHists::m_truthCount_ChadFinal__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a1327c6b1f7fb8aad58c40bc5170d37d0"></span>TH1F *<code class="descname">m_truthCount_ChadFinal</code><a class="headerlink" href="#_CPPv2N8JetHists22m_truthCount_ChadFinalE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists21m_truthCount_ChadInitE">
+<span id="JetHists::m_truthCount_ChadInit__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ac8b9930f51fa5cf35fc5c85195e6af3a"></span>TH1F *<code class="descname">m_truthCount_ChadInit</code><a class="headerlink" href="#_CPPv2N8JetHists21m_truthCount_ChadInitE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists20m_truthCount_CQFinalE">
+<span id="JetHists::m_truthCount_CQFinal__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a31d3f1d45ad5b1e2b15570c1ed39767b"></span>TH1F *<code class="descname">m_truthCount_CQFinal</code><a class="headerlink" href="#_CPPv2N8JetHists20m_truthCount_CQFinalE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists19m_truthPt_ChadFinalE">
+<span id="JetHists::m_truthPt_ChadFinal__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a7008f6de5059ae8b203428dca2f8ad81"></span>TH1F *<code class="descname">m_truthPt_ChadFinal</code><a class="headerlink" href="#_CPPv2N8JetHists19m_truthPt_ChadFinalE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists18m_truthPt_ChadInitE">
+<span id="JetHists::m_truthPt_ChadInit__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a5546ae14ffbd56dce84ffcbfbfec263a"></span>TH1F *<code class="descname">m_truthPt_ChadInit</code><a class="headerlink" href="#_CPPv2N8JetHists18m_truthPt_ChadInitE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists17m_truthPt_CQFinalE">
+<span id="JetHists::m_truthPt_CQFinal__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a444905abb9642bfc6656b90dbd7fc631"></span>TH1F *<code class="descname">m_truthPt_CQFinal</code><a class="headerlink" href="#_CPPv2N8JetHists17m_truthPt_CQFinalE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists22m_truthCount_TausFinalE">
+<span id="JetHists::m_truthCount_TausFinal__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a2a8ef49b64dc717ccd0b01aaa461fa1a"></span>TH1F *<code class="descname">m_truthCount_TausFinal</code><a class="headerlink" href="#_CPPv2N8JetHists22m_truthCount_TausFinalE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists19m_truthPt_TausFinalE">
+<span id="JetHists::m_truthPt_TausFinal__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1abe206c22e3d4caa25df9b063ca157794"></span>TH1F *<code class="descname">m_truthPt_TausFinal</code><a class="headerlink" href="#_CPPv2N8JetHists19m_truthPt_TausFinalE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists5m_JVCE">
+<span id="JetHists::m_JVC__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1abbe08660b8369afdb3c1ef9cbbef23c5"></span>TH1F *<code class="descname">m_JVC</code><a class="headerlink" href="#_CPPv2N8JetHists5m_JVCE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists5m_MV1E">
+<span id="JetHists::m_MV1__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a36ac9baaaa5102901e98c01fd015ca07"></span>TH1F *<code class="descname">m_MV1</code><a class="headerlink" href="#_CPPv2N8JetHists5m_MV1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists8m_MV2c00E">
+<span id="JetHists::m_MV2c00__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a711195a449ce43b1fe6b0c0cfc99846e"></span>TH1F *<code class="descname">m_MV2c00</code><a class="headerlink" href="#_CPPv2N8JetHists8m_MV2c00E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists8m_MV2c10E">
+<span id="JetHists::m_MV2c10__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1aef1df50fb6d6c22c74adad44f2ca4fc1"></span>TH1F *<code class="descname">m_MV2c10</code><a class="headerlink" href="#_CPPv2N8JetHists8m_MV2c10E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists10m_MV2c10_lE">
+<span id="JetHists::m_MV2c10_l__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a36dacc4dda223dfa153edbfcee41b51d"></span>TH1F *<code class="descname">m_MV2c10_l</code><a class="headerlink" href="#_CPPv2N8JetHists10m_MV2c10_lE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists8m_MV2c20E">
+<span id="JetHists::m_MV2c20__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1abd8dd1c8b0f8490e73e5ba1c9afe64ec"></span>TH1F *<code class="descname">m_MV2c20</code><a class="headerlink" href="#_CPPv2N8JetHists8m_MV2c20E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists6m_COMBE">
+<span id="JetHists::m_COMB__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1aa71c587c0d58ccbfa58aec0b4c06ac83"></span>TH1F *<code class="descname">m_COMB</code><a class="headerlink" href="#_CPPv2N8JetHists6m_COMBE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists5m_SV0E">
+<span id="JetHists::m_SV0__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1acfff65a0f1c35c258de3e1ece93f85d9"></span>TH1F *<code class="descname">m_SV0</code><a class="headerlink" href="#_CPPv2N8JetHists5m_SV0E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists11m_JetFitterE">
+<span id="JetHists::m_JetFitter__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a4691e4f9cfdff6ffcb5379ee56e9bdc2"></span>TH1F *<code class="descname">m_JetFitter</code><a class="headerlink" href="#_CPPv2N8JetHists11m_JetFitterE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists20m_vtxClass_vs_lBlockE">
+<span id="JetHists::m_vtxClass_vs_lBlock__TProfileP"></span><span class="target" id="xAHclass_jet_hists_1a2f73c81b6df275cea8d3f2a30becc08e"></span>TProfile *<code class="descname">m_vtxClass_vs_lBlock</code><a class="headerlink" href="#_CPPv2N8JetHists20m_vtxClass_vs_lBlockE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists20m_vtxEff10_vs_lBlockE">
+<span id="JetHists::m_vtxEff10_vs_lBlock__TProfileP"></span><span class="target" id="xAHclass_jet_hists_1a7e1da26ac7a45842389c370e7a7d107e"></span>TProfile *<code class="descname">m_vtxEff10_vs_lBlock</code><a class="headerlink" href="#_CPPv2N8JetHists20m_vtxEff10_vs_lBlockE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists19m_vtxEff1_vs_lBlockE">
+<span id="JetHists::m_vtxEff1_vs_lBlock__TProfileP"></span><span class="target" id="xAHclass_jet_hists_1a19d57afcfc8d0389a2888eeff00ecd4a"></span>TProfile *<code class="descname">m_vtxEff1_vs_lBlock</code><a class="headerlink" href="#_CPPv2N8JetHists19m_vtxEff1_vs_lBlockE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists24m_vtxEff10_raw_vs_lBlockE">
+<span id="JetHists::m_vtxEff10_raw_vs_lBlock__TProfileP"></span><span class="target" id="xAHclass_jet_hists_1afee9674b66ca2008fbd5e77b09163017"></span>TProfile *<code class="descname">m_vtxEff10_raw_vs_lBlock</code><a class="headerlink" href="#_CPPv2N8JetHists24m_vtxEff10_raw_vs_lBlockE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists23m_vtxEff1_raw_vs_lBlockE">
+<span id="JetHists::m_vtxEff1_raw_vs_lBlock__TProfileP"></span><span class="target" id="xAHclass_jet_hists_1a9b55d090e02835b5251389b720bf27b8"></span>TProfile *<code class="descname">m_vtxEff1_raw_vs_lBlock</code><a class="headerlink" href="#_CPPv2N8JetHists23m_vtxEff1_raw_vs_lBlockE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists28m_vtxEff10_noDummy_vs_lBlockE">
+<span id="JetHists::m_vtxEff10_noDummy_vs_lBlock__TProfileP"></span><span class="target" id="xAHclass_jet_hists_1a701cbd2bf77148192cea7be709c125fc"></span>TProfile *<code class="descname">m_vtxEff10_noDummy_vs_lBlock</code><a class="headerlink" href="#_CPPv2N8JetHists28m_vtxEff10_noDummy_vs_lBlockE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists27m_vtxEff1_noDummy_vs_lBlockE">
+<span id="JetHists::m_vtxEff1_noDummy_vs_lBlock__TProfileP"></span><span class="target" id="xAHclass_jet_hists_1a65295f2b463ea36191a685debd5dd615"></span>TProfile *<code class="descname">m_vtxEff1_noDummy_vs_lBlock</code><a class="headerlink" href="#_CPPv2N8JetHists27m_vtxEff1_noDummy_vs_lBlockE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists21m_frac_MV240_vs_actMuE">
+<span id="JetHists::m_frac_MV240_vs_actMu__TProfileP"></span><span class="target" id="xAHclass_jet_hists_1a20da6e12358d25bdc32f0a5f7644621e"></span>TProfile *<code class="descname">m_frac_MV240_vs_actMu</code><a class="headerlink" href="#_CPPv2N8JetHists21m_frac_MV240_vs_actMuE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists21m_frac_MV250_vs_actMuE">
+<span id="JetHists::m_frac_MV250_vs_actMu__TProfileP"></span><span class="target" id="xAHclass_jet_hists_1a0e0e20b48149a30a5cdf58eb11917541"></span>TProfile *<code class="descname">m_frac_MV250_vs_actMu</code><a class="headerlink" href="#_CPPv2N8JetHists21m_frac_MV250_vs_actMuE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists21m_frac_MV260_vs_actMuE">
+<span id="JetHists::m_frac_MV260_vs_actMu__TProfileP"></span><span class="target" id="xAHclass_jet_hists_1addf3a09ccfac158903cfa9862e7287b6"></span>TProfile *<code class="descname">m_frac_MV260_vs_actMu</code><a class="headerlink" href="#_CPPv2N8JetHists21m_frac_MV260_vs_actMuE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists21m_frac_MV270_vs_actMuE">
+<span id="JetHists::m_frac_MV270_vs_actMu__TProfileP"></span><span class="target" id="xAHclass_jet_hists_1a7f810f2e16369c32344e6a8d614951e2"></span>TProfile *<code class="descname">m_frac_MV270_vs_actMu</code><a class="headerlink" href="#_CPPv2N8JetHists21m_frac_MV270_vs_actMuE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists21m_frac_MV277_vs_actMuE">
+<span id="JetHists::m_frac_MV277_vs_actMu__TProfileP"></span><span class="target" id="xAHclass_jet_hists_1a7ddf8b44961a9139706a9f0af8bc760b"></span>TProfile *<code class="descname">m_frac_MV277_vs_actMu</code><a class="headerlink" href="#_CPPv2N8JetHists21m_frac_MV277_vs_actMuE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists21m_frac_MV285_vs_actMuE">
+<span id="JetHists::m_frac_MV285_vs_actMu__TProfileP"></span><span class="target" id="xAHclass_jet_hists_1acbaca1c03fdae21cb01353e229a9ed1e"></span>TProfile *<code class="descname">m_frac_MV285_vs_actMu</code><a class="headerlink" href="#_CPPv2N8JetHists21m_frac_MV285_vs_actMuE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists22m_frac_MV240_vs_lBlockE">
+<span id="JetHists::m_frac_MV240_vs_lBlock__TProfileP"></span><span class="target" id="xAHclass_jet_hists_1aa4ad4ad1f59a06847f876795d7b60267"></span>TProfile *<code class="descname">m_frac_MV240_vs_lBlock</code><a class="headerlink" href="#_CPPv2N8JetHists22m_frac_MV240_vs_lBlockE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists22m_frac_MV250_vs_lBlockE">
+<span id="JetHists::m_frac_MV250_vs_lBlock__TProfileP"></span><span class="target" id="xAHclass_jet_hists_1a3cd417144cfa3ab78055c121b2e35621"></span>TProfile *<code class="descname">m_frac_MV250_vs_lBlock</code><a class="headerlink" href="#_CPPv2N8JetHists22m_frac_MV250_vs_lBlockE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists22m_frac_MV260_vs_lBlockE">
+<span id="JetHists::m_frac_MV260_vs_lBlock__TProfileP"></span><span class="target" id="xAHclass_jet_hists_1a81173539e9c2e9ec5333567e6e33c732"></span>TProfile *<code class="descname">m_frac_MV260_vs_lBlock</code><a class="headerlink" href="#_CPPv2N8JetHists22m_frac_MV260_vs_lBlockE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists22m_frac_MV270_vs_lBlockE">
+<span id="JetHists::m_frac_MV270_vs_lBlock__TProfileP"></span><span class="target" id="xAHclass_jet_hists_1ae7908b8660de7cb36c55299afce20441"></span>TProfile *<code class="descname">m_frac_MV270_vs_lBlock</code><a class="headerlink" href="#_CPPv2N8JetHists22m_frac_MV270_vs_lBlockE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists22m_frac_MV277_vs_lBlockE">
+<span id="JetHists::m_frac_MV277_vs_lBlock__TProfileP"></span><span class="target" id="xAHclass_jet_hists_1abeec1ccfa66713d41fc2150db2a23382"></span>TProfile *<code class="descname">m_frac_MV277_vs_lBlock</code><a class="headerlink" href="#_CPPv2N8JetHists22m_frac_MV277_vs_lBlockE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists22m_frac_MV285_vs_lBlockE">
+<span id="JetHists::m_frac_MV285_vs_lBlock__TProfileP"></span><span class="target" id="xAHclass_jet_hists_1a044e60100d83ffe249ad55504a564c6b"></span>TProfile *<code class="descname">m_frac_MV285_vs_lBlock</code><a class="headerlink" href="#_CPPv2N8JetHists22m_frac_MV285_vs_lBlockE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists13m_trkSum_ntrkE">
+<span id="JetHists::m_trkSum_ntrk__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a35d3de0603c0d29ef1cdfea0f67f892a"></span>TH1F *<code class="descname">m_trkSum_ntrk</code><a class="headerlink" href="#_CPPv2N8JetHists13m_trkSum_ntrkE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists12m_trkSum_sPtE">
+<span id="JetHists::m_trkSum_sPt__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a34f0794de23daf905d0f1b5a95106190"></span>TH1F *<code class="descname">m_trkSum_sPt</code><a class="headerlink" href="#_CPPv2N8JetHists12m_trkSum_sPtE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists12m_trkSum_vPtE">
+<span id="JetHists::m_trkSum_vPt__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a6f08ff16c459a9bf3d9bec71253ae985"></span>TH1F *<code class="descname">m_trkSum_vPt</code><a class="headerlink" href="#_CPPv2N8JetHists12m_trkSum_vPtE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists16m_trkSum_vAbsEtaE">
+<span id="JetHists::m_trkSum_vAbsEta__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ae2fab24b179c0763a28ab76d500ea24a"></span>TH1F *<code class="descname">m_trkSum_vAbsEta</code><a class="headerlink" href="#_CPPv2N8JetHists16m_trkSum_vAbsEtaE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists7m_widthE">
+<span id="JetHists::m_width__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ac2f3fa29277cb9c1bbe7e28dbb253216"></span>TH1F *<code class="descname">m_width</code><a class="headerlink" href="#_CPPv2N8JetHists7m_widthE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists16m_n_trk_sigd0cutE">
+<span id="JetHists::m_n_trk_sigd0cut__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1aef255a404aaca27e67539fa91efe4276"></span>TH1F *<code class="descname">m_n_trk_sigd0cut</code><a class="headerlink" href="#_CPPv2N8JetHists16m_n_trk_sigd0cutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists12m_trk3_d0sigE">
+<span id="JetHists::m_trk3_d0sig__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ac83ffdfb0c3f0d7ee9bfab5e93d2510d"></span>TH1F *<code class="descname">m_trk3_d0sig</code><a class="headerlink" href="#_CPPv2N8JetHists12m_trk3_d0sigE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists12m_trk3_z0sigE">
+<span id="JetHists::m_trk3_z0sig__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a93096839ac6969d9424f9de09b3b8d24"></span>TH1F *<code class="descname">m_trk3_z0sig</code><a class="headerlink" href="#_CPPv2N8JetHists12m_trk3_z0sigE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists15m_sv_scaled_efcE">
+<span id="JetHists::m_sv_scaled_efc__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a19537d5dd23e4f098c061c4dd145fe11"></span>TH1F *<code class="descname">m_sv_scaled_efc</code><a class="headerlink" href="#_CPPv2N8JetHists15m_sv_scaled_efcE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists15m_jf_scaled_efcE">
+<span id="JetHists::m_jf_scaled_efc__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1aebe57940a5726101b66410db34094ed5"></span>TH1F *<code class="descname">m_jf_scaled_efc</code><a class="headerlink" href="#_CPPv2N8JetHists15m_jf_scaled_efcE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists9m_jf_nVTXE">
+<span id="JetHists::m_jf_nVTX__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1aa81c6eaa8e889e9c69e7126af1afd9c2"></span>TH1F *<code class="descname">m_jf_nVTX</code><a class="headerlink" href="#_CPPv2N8JetHists9m_jf_nVTXE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists18m_jf_nSingleTracksE">
+<span id="JetHists::m_jf_nSingleTracks__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a22b52650fd9c0bf0b4d2beb01dda53ab"></span>TH1F *<code class="descname">m_jf_nSingleTracks</code><a class="headerlink" href="#_CPPv2N8JetHists18m_jf_nSingleTracksE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists17m_jf_nTracksAtVtxE">
+<span id="JetHists::m_jf_nTracksAtVtx__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1aa0485811cb7ee5ea4d92d168673fd639"></span>TH1F *<code class="descname">m_jf_nTracksAtVtx</code><a class="headerlink" href="#_CPPv2N8JetHists17m_jf_nTracksAtVtxE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists9m_jf_massE">
+<span id="JetHists::m_jf_mass__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a31c44be8ea0dd6fc11775b6fece7cf7c"></span>TH1F *<code class="descname">m_jf_mass</code><a class="headerlink" href="#_CPPv2N8JetHists9m_jf_massE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists19m_jf_energyFractionE">
+<span id="JetHists::m_jf_energyFraction__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a242861fd971058e2f44210517966b82f"></span>TH1F *<code class="descname">m_jf_energyFraction</code><a class="headerlink" href="#_CPPv2N8JetHists19m_jf_energyFractionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists19m_jf_significance3dE">
+<span id="JetHists::m_jf_significance3d__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1aa8f2939d8b9c9f084113d6e6455874e5"></span>TH1F *<code class="descname">m_jf_significance3d</code><a class="headerlink" href="#_CPPv2N8JetHists19m_jf_significance3dE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists13m_jf_deltaetaE">
+<span id="JetHists::m_jf_deltaeta__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ab70a83861fe7a23362579935916c773f"></span>TH1F *<code class="descname">m_jf_deltaeta</code><a class="headerlink" href="#_CPPv2N8JetHists13m_jf_deltaetaE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists15m_jf_deltaeta_lE">
+<span id="JetHists::m_jf_deltaeta_l__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a7b0bed2938e6d61aa9d78a5a9b9ed2f5"></span>TH1F *<code class="descname">m_jf_deltaeta_l</code><a class="headerlink" href="#_CPPv2N8JetHists15m_jf_deltaeta_lE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists13m_jf_deltaphiE">
+<span id="JetHists::m_jf_deltaphi__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a00d73a585dc2ed876d1d8d2320b8e66a"></span>TH1F *<code class="descname">m_jf_deltaphi</code><a class="headerlink" href="#_CPPv2N8JetHists13m_jf_deltaphiE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists15m_jf_deltaphi_lE">
+<span id="JetHists::m_jf_deltaphi_l__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1aad1a56f31ddf5dadd62981d494dc905f"></span>TH1F *<code class="descname">m_jf_deltaphi_l</code><a class="headerlink" href="#_CPPv2N8JetHists15m_jf_deltaphi_lE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists11m_jf_deltaRE">
+<span id="JetHists::m_jf_deltaR__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a934374d6117fa6d2688e5a0aaf1758eb"></span>TH1F *<code class="descname">m_jf_deltaR</code><a class="headerlink" href="#_CPPv2N8JetHists11m_jf_deltaRE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists11m_jf_N2TparE">
+<span id="JetHists::m_jf_N2Tpar__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a7d9591bb29902fd76d154690285fd52e"></span>TH1F *<code class="descname">m_jf_N2Tpar</code><a class="headerlink" href="#_CPPv2N8JetHists11m_jf_N2TparE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists7m_jf_pbE">
+<span id="JetHists::m_jf_pb__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a45348de85fada48c40835cc5d98f2dda"></span>TH1F *<code class="descname">m_jf_pb</code><a class="headerlink" href="#_CPPv2N8JetHists7m_jf_pbE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists7m_jf_pcE">
+<span id="JetHists::m_jf_pc__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a6f450ad253843dc910d5c7bcda44c571"></span>TH1F *<code class="descname">m_jf_pc</code><a class="headerlink" href="#_CPPv2N8JetHists7m_jf_pcE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists7m_jf_puE">
+<span id="JetHists::m_jf_pu__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1abd71f2f3ef3633633b19c91c4bc7b20d"></span>TH1F *<code class="descname">m_jf_pu</code><a class="headerlink" href="#_CPPv2N8JetHists7m_jf_puE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists14m_jf_mass_uncoE">
+<span id="JetHists::m_jf_mass_unco__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1aeb5af086f74b46ccee5f7ccd57e63d1c"></span>TH1F *<code class="descname">m_jf_mass_unco</code><a class="headerlink" href="#_CPPv2N8JetHists14m_jf_mass_uncoE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists14m_jf_dR_flightE">
+<span id="JetHists::m_jf_dR_flight__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a32ded5310fcca12c104ed542218f2994"></span>TH1F *<code class="descname">m_jf_dR_flight</code><a class="headerlink" href="#_CPPv2N8JetHists14m_jf_dR_flightE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists14m_sv0_NGTinSvxE">
+<span id="JetHists::m_sv0_NGTinSvx__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1aa674a09f8d4b7b4e6a120c5c879b759f"></span>TH1F *<code class="descname">m_sv0_NGTinSvx</code><a class="headerlink" href="#_CPPv2N8JetHists14m_sv0_NGTinSvxE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists13m_sv0_N2TpairE">
+<span id="JetHists::m_sv0_N2Tpair__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ad10eda7eb6c54bb786a470a34acdad23"></span>TH1F *<code class="descname">m_sv0_N2Tpair</code><a class="headerlink" href="#_CPPv2N8JetHists13m_sv0_N2TpairE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists12m_sv0_massvxE">
+<span id="JetHists::m_sv0_massvx__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a27065b592e55c15a42fd748ba00a4925"></span>TH1F *<code class="descname">m_sv0_massvx</code><a class="headerlink" href="#_CPPv2N8JetHists12m_sv0_massvxE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists14m_sv0_efracsvxE">
+<span id="JetHists::m_sv0_efracsvx__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a4dd00d5247ebaf70aa25c82993083936"></span>TH1F *<code class="descname">m_sv0_efracsvx</code><a class="headerlink" href="#_CPPv2N8JetHists14m_sv0_efracsvxE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists14m_sv0_normdistE">
+<span id="JetHists::m_sv0_normdist__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a293e0441e1b5ca622e551ae7f5598f3b"></span>TH1F *<code class="descname">m_sv0_normdist</code><a class="headerlink" href="#_CPPv2N8JetHists14m_sv0_normdistE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists8m_SV1_puE">
+<span id="JetHists::m_SV1_pu__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a818433d504c788fef5609975ffc286ed"></span>TH1F *<code class="descname">m_SV1_pu</code><a class="headerlink" href="#_CPPv2N8JetHists8m_SV1_puE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists8m_SV1_pbE">
+<span id="JetHists::m_SV1_pb__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ab30742639f9ed86346f4ad23370b7a08"></span>TH1F *<code class="descname">m_SV1_pb</code><a class="headerlink" href="#_CPPv2N8JetHists8m_SV1_pbE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists8m_SV1_pcE">
+<span id="JetHists::m_SV1_pc__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1aebb1d82c14ea14c8d2a94c3b1b833c34"></span>TH1F *<code class="descname">m_SV1_pc</code><a class="headerlink" href="#_CPPv2N8JetHists8m_SV1_pcE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists5m_SV1E">
+<span id="JetHists::m_SV1__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a6de2f4b2422ae1dfdb796aa0ea116754"></span>TH1F *<code class="descname">m_SV1</code><a class="headerlink" href="#_CPPv2N8JetHists5m_SV1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists7m_SV1_cE">
+<span id="JetHists::m_SV1_c__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ad23a7a50fee80b966db01d6f2fb1d86a"></span>TH1F *<code class="descname">m_SV1_c</code><a class="headerlink" href="#_CPPv2N8JetHists7m_SV1_cE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists8m_SV1_cuE">
+<span id="JetHists::m_SV1_cu__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1afc97e25d17092e082e48549cc3e2733e"></span>TH1F *<code class="descname">m_SV1_cu</code><a class="headerlink" href="#_CPPv2N8JetHists8m_SV1_cuE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists14m_sv1_NGTinSvxE">
+<span id="JetHists::m_sv1_NGTinSvx__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ac5f8239e7a4c091066e3ab923baf9051"></span>TH1F *<code class="descname">m_sv1_NGTinSvx</code><a class="headerlink" href="#_CPPv2N8JetHists14m_sv1_NGTinSvxE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists13m_sv1_N2TpairE">
+<span id="JetHists::m_sv1_N2Tpair__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ad6f2fd1859787c8472a67b5400590ee4"></span>TH1F *<code class="descname">m_sv1_N2Tpair</code><a class="headerlink" href="#_CPPv2N8JetHists13m_sv1_N2TpairE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists12m_sv1_massvxE">
+<span id="JetHists::m_sv1_massvx__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a2d2c44c60ccf2dcba533f84c706a0529"></span>TH1F *<code class="descname">m_sv1_massvx</code><a class="headerlink" href="#_CPPv2N8JetHists12m_sv1_massvxE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists14m_sv1_efracsvxE">
+<span id="JetHists::m_sv1_efracsvx__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a25bcec5a78561b7c92bf600f94667502"></span>TH1F *<code class="descname">m_sv1_efracsvx</code><a class="headerlink" href="#_CPPv2N8JetHists14m_sv1_efracsvxE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists14m_sv1_normdistE">
+<span id="JetHists::m_sv1_normdist__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a4fe6365520a62f57e662eb6c095656d2"></span>TH1F *<code class="descname">m_sv1_normdist</code><a class="headerlink" href="#_CPPv2N8JetHists14m_sv1_normdistE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists9m_SV1_LxyE">
+<span id="JetHists::m_SV1_Lxy__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a2a33b94610d68584d257078c6ad78c1f"></span>TH1F *<code class="descname">m_SV1_Lxy</code><a class="headerlink" href="#_CPPv2N8JetHists9m_SV1_LxyE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists11m_SV1_sig3dE">
+<span id="JetHists::m_SV1_sig3d__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a4f361a6a75794db724cf61009988a0c2"></span>TH1F *<code class="descname">m_SV1_sig3d</code><a class="headerlink" href="#_CPPv2N8JetHists11m_SV1_sig3dE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists9m_SV1_L3dE">
+<span id="JetHists::m_SV1_L3d__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a31f0258c338786460d4fb35b4368b8ef"></span>TH1F *<code class="descname">m_SV1_L3d</code><a class="headerlink" href="#_CPPv2N8JetHists9m_SV1_L3dE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists16m_SV1_distmatlayE">
+<span id="JetHists::m_SV1_distmatlay__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a9ec5fba1e53694f9040eaa5f75e725f9"></span>TH1F *<code class="descname">m_SV1_distmatlay</code><a class="headerlink" href="#_CPPv2N8JetHists16m_SV1_distmatlayE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists8m_SV1_dRE">
+<span id="JetHists::m_SV1_dR__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a889cd463d37670930eb111c930d83bc9"></span>TH1F *<code class="descname">m_SV1_dR</code><a class="headerlink" href="#_CPPv2N8JetHists8m_SV1_dRE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists13m_nIP2DTracksE">
+<span id="JetHists::m_nIP2DTracks__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a80f8631feb5da549c6f6e49e4392679d"></span>TH1F *<code class="descname">m_nIP2DTracks</code><a class="headerlink" href="#_CPPv2N8JetHists13m_nIP2DTracksE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists20m_IP2D_gradeOfTracksE">
+<span id="JetHists::m_IP2D_gradeOfTracks__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ab4337382f51c943b1608742868fc8ecf"></span>TH1F *<code class="descname">m_IP2D_gradeOfTracks</code><a class="headerlink" href="#_CPPv2N8JetHists20m_IP2D_gradeOfTracksE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists25m_IP2D_flagFromV0ofTracksE">
+<span id="JetHists::m_IP2D_flagFromV0ofTracks__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a8ae0a466d4460f058302f594605c143c"></span>TH1F *<code class="descname">m_IP2D_flagFromV0ofTracks</code><a class="headerlink" href="#_CPPv2N8JetHists25m_IP2D_flagFromV0ofTracksE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists25m_IP2D_valD0wrtPVofTracksE">
+<span id="JetHists::m_IP2D_valD0wrtPVofTracks__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a361000f30bc5d9bdd1ac81c7d574111a"></span>TH1F *<code class="descname">m_IP2D_valD0wrtPVofTracks</code><a class="headerlink" href="#_CPPv2N8JetHists25m_IP2D_valD0wrtPVofTracksE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists25m_IP2D_sigD0wrtPVofTracksE">
+<span id="JetHists::m_IP2D_sigD0wrtPVofTracks__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a3190676ec8b7e7dd0382a1f7a70dc482"></span>TH1F *<code class="descname">m_IP2D_sigD0wrtPVofTracks</code><a class="headerlink" href="#_CPPv2N8JetHists25m_IP2D_sigD0wrtPVofTracksE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists27m_IP2D_sigD0wrtPVofTracks_lE">
+<span id="JetHists::m_IP2D_sigD0wrtPVofTracks_l__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a44fcda9dc09eabf631710440fe88ff0b"></span>TH1F *<code class="descname">m_IP2D_sigD0wrtPVofTracks_l</code><a class="headerlink" href="#_CPPv2N8JetHists27m_IP2D_sigD0wrtPVofTracks_lE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists25m_IP2D_errD0wrtPVofTracksE">
+<span id="JetHists::m_IP2D_errD0wrtPVofTracks__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a8c05676602d6f9098f3f9bc8ac25a5ad"></span>TH1F *<code class="descname">m_IP2D_errD0wrtPVofTracks</code><a class="headerlink" href="#_CPPv2N8JetHists25m_IP2D_errD0wrtPVofTracksE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists22m_IP2D_weightBofTracksE">
+<span id="JetHists::m_IP2D_weightBofTracks__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a2bcc5114631dc4e77a5a61b7c6c48e57"></span>TH1F *<code class="descname">m_IP2D_weightBofTracks</code><a class="headerlink" href="#_CPPv2N8JetHists22m_IP2D_weightBofTracksE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists22m_IP2D_weightCofTracksE">
+<span id="JetHists::m_IP2D_weightCofTracks__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a334dbf9f683bd96e8afa1d2f26d66806"></span>TH1F *<code class="descname">m_IP2D_weightCofTracks</code><a class="headerlink" href="#_CPPv2N8JetHists22m_IP2D_weightCofTracksE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists22m_IP2D_weightUofTracksE">
+<span id="JetHists::m_IP2D_weightUofTracks__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a94830aac5c903fbb48c64a3898b0d9ea"></span>TH1F *<code class="descname">m_IP2D_weightUofTracks</code><a class="headerlink" href="#_CPPv2N8JetHists22m_IP2D_weightUofTracksE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists9m_IP2D_puE">
+<span id="JetHists::m_IP2D_pu__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1abc82c3ac2cafa2a7ae74a2be2966d50f"></span>TH1F *<code class="descname">m_IP2D_pu</code><a class="headerlink" href="#_CPPv2N8JetHists9m_IP2D_puE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists9m_IP2D_pbE">
+<span id="JetHists::m_IP2D_pb__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a9ffa85a1523cb698ba4cb703a78f9973"></span>TH1F *<code class="descname">m_IP2D_pb</code><a class="headerlink" href="#_CPPv2N8JetHists9m_IP2D_pbE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists9m_IP2D_pcE">
+<span id="JetHists::m_IP2D_pc__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a60ca323c22c15d6c62ab0daa32dba547"></span>TH1F *<code class="descname">m_IP2D_pc</code><a class="headerlink" href="#_CPPv2N8JetHists9m_IP2D_pcE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists6m_IP2DE">
+<span id="JetHists::m_IP2D__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a43a249121927c4297d7cb8916178b43e"></span>TH1F *<code class="descname">m_IP2D</code><a class="headerlink" href="#_CPPv2N8JetHists6m_IP2DE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists8m_IP2D_cE">
+<span id="JetHists::m_IP2D_c__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1afc1f980a38b6519c43a0b9ffdd5ff4af"></span>TH1F *<code class="descname">m_IP2D_c</code><a class="headerlink" href="#_CPPv2N8JetHists8m_IP2D_cE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists9m_IP2D_cuE">
+<span id="JetHists::m_IP2D_cu__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1aedb3af550ee71c257768cb2a3696353d"></span>TH1F *<code class="descname">m_IP2D_cu</code><a class="headerlink" href="#_CPPv2N8JetHists9m_IP2D_cuE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists13m_nIP3DTracksE">
+<span id="JetHists::m_nIP3DTracks__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a9fad49a5bb0aa2d75885f615dd1966e7"></span>TH1F *<code class="descname">m_nIP3DTracks</code><a class="headerlink" href="#_CPPv2N8JetHists13m_nIP3DTracksE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists20m_IP3D_gradeOfTracksE">
+<span id="JetHists::m_IP3D_gradeOfTracks__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1affa1e43598fa65b909401ca63ae42176"></span>TH1F *<code class="descname">m_IP3D_gradeOfTracks</code><a class="headerlink" href="#_CPPv2N8JetHists20m_IP3D_gradeOfTracksE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists25m_IP3D_flagFromV0ofTracksE">
+<span id="JetHists::m_IP3D_flagFromV0ofTracks__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a90f377fdd892803c0adc9ff4f5d19258"></span>TH1F *<code class="descname">m_IP3D_flagFromV0ofTracks</code><a class="headerlink" href="#_CPPv2N8JetHists25m_IP3D_flagFromV0ofTracksE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists25m_IP3D_valD0wrtPVofTracksE">
+<span id="JetHists::m_IP3D_valD0wrtPVofTracks__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a57ca51dc5acdc023fd95995505e8a28e"></span>TH1F *<code class="descname">m_IP3D_valD0wrtPVofTracks</code><a class="headerlink" href="#_CPPv2N8JetHists25m_IP3D_valD0wrtPVofTracksE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists25m_IP3D_sigD0wrtPVofTracksE">
+<span id="JetHists::m_IP3D_sigD0wrtPVofTracks__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a3102e604bb3917509147c87781a575a8"></span>TH1F *<code class="descname">m_IP3D_sigD0wrtPVofTracks</code><a class="headerlink" href="#_CPPv2N8JetHists25m_IP3D_sigD0wrtPVofTracksE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists27m_IP3D_sigD0wrtPVofTracks_lE">
+<span id="JetHists::m_IP3D_sigD0wrtPVofTracks_l__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a56520d76dad4954c4115b3ee7372d5bb"></span>TH1F *<code class="descname">m_IP3D_sigD0wrtPVofTracks_l</code><a class="headerlink" href="#_CPPv2N8JetHists27m_IP3D_sigD0wrtPVofTracks_lE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists25m_IP3D_errD0wrtPVofTracksE">
+<span id="JetHists::m_IP3D_errD0wrtPVofTracks__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a44875a163c706d3706bd20f82bf1e223"></span>TH1F *<code class="descname">m_IP3D_errD0wrtPVofTracks</code><a class="headerlink" href="#_CPPv2N8JetHists25m_IP3D_errD0wrtPVofTracksE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists25m_IP3D_valZ0wrtPVofTracksE">
+<span id="JetHists::m_IP3D_valZ0wrtPVofTracks__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a038893c49d46cda0d5d581f8b9e5d60d"></span>TH1F *<code class="descname">m_IP3D_valZ0wrtPVofTracks</code><a class="headerlink" href="#_CPPv2N8JetHists25m_IP3D_valZ0wrtPVofTracksE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists25m_IP3D_sigZ0wrtPVofTracksE">
+<span id="JetHists::m_IP3D_sigZ0wrtPVofTracks__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ae03524991e6566ec52e22b35cb948107"></span>TH1F *<code class="descname">m_IP3D_sigZ0wrtPVofTracks</code><a class="headerlink" href="#_CPPv2N8JetHists25m_IP3D_sigZ0wrtPVofTracksE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists27m_IP3D_sigZ0wrtPVofTracks_lE">
+<span id="JetHists::m_IP3D_sigZ0wrtPVofTracks_l__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ae97ab6cdc61bc73e50130ccf4d425c2d"></span>TH1F *<code class="descname">m_IP3D_sigZ0wrtPVofTracks_l</code><a class="headerlink" href="#_CPPv2N8JetHists27m_IP3D_sigZ0wrtPVofTracks_lE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists25m_IP3D_errZ0wrtPVofTracksE">
+<span id="JetHists::m_IP3D_errZ0wrtPVofTracks__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a24d0a3769d16292c62ec795a5e1e5e94"></span>TH1F *<code class="descname">m_IP3D_errZ0wrtPVofTracks</code><a class="headerlink" href="#_CPPv2N8JetHists25m_IP3D_errZ0wrtPVofTracksE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists22m_IP3D_weightBofTracksE">
+<span id="JetHists::m_IP3D_weightBofTracks__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a12e4e452b433f925a617b3bb1833a9fe"></span>TH1F *<code class="descname">m_IP3D_weightBofTracks</code><a class="headerlink" href="#_CPPv2N8JetHists22m_IP3D_weightBofTracksE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists22m_IP3D_weightCofTracksE">
+<span id="JetHists::m_IP3D_weightCofTracks__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ac9caacf4aeba4dc32117a41a837853f3"></span>TH1F *<code class="descname">m_IP3D_weightCofTracks</code><a class="headerlink" href="#_CPPv2N8JetHists22m_IP3D_weightCofTracksE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists22m_IP3D_weightUofTracksE">
+<span id="JetHists::m_IP3D_weightUofTracks__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ab945c672c73381ec7a32acbedb4e4378"></span>TH1F *<code class="descname">m_IP3D_weightUofTracks</code><a class="headerlink" href="#_CPPv2N8JetHists22m_IP3D_weightUofTracksE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists9m_IP3D_puE">
+<span id="JetHists::m_IP3D_pu__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a323bb7d4e9f07a14f7182b05905b2fc5"></span>TH1F *<code class="descname">m_IP3D_pu</code><a class="headerlink" href="#_CPPv2N8JetHists9m_IP3D_puE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists9m_IP3D_pbE">
+<span id="JetHists::m_IP3D_pb__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1afb1ff8dd667ee3461e868cb5b7da8a95"></span>TH1F *<code class="descname">m_IP3D_pb</code><a class="headerlink" href="#_CPPv2N8JetHists9m_IP3D_pbE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists9m_IP3D_pcE">
+<span id="JetHists::m_IP3D_pc__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a4966ece00369f5d0457c56b23e207c2d"></span>TH1F *<code class="descname">m_IP3D_pc</code><a class="headerlink" href="#_CPPv2N8JetHists9m_IP3D_pcE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists6m_IP3DE">
+<span id="JetHists::m_IP3D__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1acf4bd0818a9b79ca2dd9359383cd21ba"></span>TH1F *<code class="descname">m_IP3D</code><a class="headerlink" href="#_CPPv2N8JetHists6m_IP3DE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists8m_IP3D_cE">
+<span id="JetHists::m_IP3D_c__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1aa9de3137738d4428bfd58b495413c611"></span>TH1F *<code class="descname">m_IP3D_c</code><a class="headerlink" href="#_CPPv2N8JetHists8m_IP3D_cE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists9m_IP3D_cuE">
+<span id="JetHists::m_IP3D_cu__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a59dbe3530cce44ebb76092093d3f7b0a"></span>TH1F *<code class="descname">m_IP3D_cu</code><a class="headerlink" href="#_CPPv2N8JetHists9m_IP3D_cuE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists6m_tau1E">
+<span id="JetHists::m_tau1__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a72e5e2e819f8d165c6dfe86f7b9d3966"></span>TH1F *<code class="descname">m_tau1</code><a class="headerlink" href="#_CPPv2N8JetHists6m_tau1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists6m_tau2E">
+<span id="JetHists::m_tau2__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ac98f10863fc291b075fdbd60857f12fc"></span>TH1F *<code class="descname">m_tau2</code><a class="headerlink" href="#_CPPv2N8JetHists6m_tau2E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists6m_tau3E">
+<span id="JetHists::m_tau3__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a573beaceb9869eb76e379aeac81b6ba8"></span>TH1F *<code class="descname">m_tau3</code><a class="headerlink" href="#_CPPv2N8JetHists6m_tau3E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists7m_tau21E">
+<span id="JetHists::m_tau21__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1afb40edaafe0bc60275219af5fd3a86cb"></span>TH1F *<code class="descname">m_tau21</code><a class="headerlink" href="#_CPPv2N8JetHists7m_tau21E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists7m_tau32E">
+<span id="JetHists::m_tau32__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a321f877802cd2b4905dba7ef9bd7d739"></span>TH1F *<code class="descname">m_tau32</code><a class="headerlink" href="#_CPPv2N8JetHists7m_tau32E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists10m_tau1_wtaE">
+<span id="JetHists::m_tau1_wta__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1abfafbcd4713abdc95cc38e8078d5e282"></span>TH1F *<code class="descname">m_tau1_wta</code><a class="headerlink" href="#_CPPv2N8JetHists10m_tau1_wtaE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists10m_tau2_wtaE">
+<span id="JetHists::m_tau2_wta__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a4aea74fc9ad57fd275c1d1fd14c84bf9"></span>TH1F *<code class="descname">m_tau2_wta</code><a class="headerlink" href="#_CPPv2N8JetHists10m_tau2_wtaE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists10m_tau3_wtaE">
+<span id="JetHists::m_tau3_wta__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a38f83d841ad2bb6a2284576e3f070164"></span>TH1F *<code class="descname">m_tau3_wta</code><a class="headerlink" href="#_CPPv2N8JetHists10m_tau3_wtaE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists11m_tau21_wtaE">
+<span id="JetHists::m_tau21_wta__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1acbe5346ef153ec83fe6de4a9750f53c5"></span>TH1F *<code class="descname">m_tau21_wta</code><a class="headerlink" href="#_CPPv2N8JetHists11m_tau21_wtaE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists11m_tau32_wtaE">
+<span id="JetHists::m_tau32_wta__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a9630081d17fe6ac3f5e7de6ae3e447a7"></span>TH1F *<code class="descname">m_tau32_wta</code><a class="headerlink" href="#_CPPv2N8JetHists11m_tau32_wtaE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists17m_numConstituentsE">
+<span id="JetHists::m_numConstituents__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a81386df6d0e626c04540a5c53234e91e"></span>TH1F *<code class="descname">m_numConstituents</code><a class="headerlink" href="#_CPPv2N8JetHists17m_numConstituentsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists6m_nTrkE">
+<span id="JetHists::m_nTrk__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ae1fd3c57b1f1bf21d8b892fc96162844"></span>TH1F *<code class="descname">m_nTrk</code><a class="headerlink" href="#_CPPv2N8JetHists6m_nTrkE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists13m_tracksInJetE">
+<span id="JetHists::m_tracksInJet__TracksInJetHistsP"></span><span class="target" id="xAHclass_jet_hists_1af0ee9c73d4d0441b6cd27401f61db81b"></span>TracksInJetHists *<code class="descname">m_tracksInJet</code><a class="headerlink" href="#_CPPv2N8JetHists13m_tracksInJetE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists15m_jetPt_eta_0_1E">
+<span id="JetHists::m_jetPt_eta_0_1__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a1ff72a9cd4f20ba479854439a4ca3da0"></span>TH1F *<code class="descname">m_jetPt_eta_0_1</code><a class="headerlink" href="#_CPPv2N8JetHists15m_jetPt_eta_0_1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists15m_jetPt_eta_1_2E">
+<span id="JetHists::m_jetPt_eta_1_2__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a2f8c407d586b212275857a7b99ed18c0"></span>TH1F *<code class="descname">m_jetPt_eta_1_2</code><a class="headerlink" href="#_CPPv2N8JetHists15m_jetPt_eta_1_2E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists17m_jetPt_eta_2_2p5E">
+<span id="JetHists::m_jetPt_eta_2_2p5__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a2d98790efcbf80a6e9f047b2231f96a9"></span>TH1F *<code class="descname">m_jetPt_eta_2_2p5</code><a class="headerlink" href="#_CPPv2N8JetHists17m_jetPt_eta_2_2p5E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists17m_jetPt_eta_1_2p5E">
+<span id="JetHists::m_jetPt_eta_1_2p5__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a1830b190dda0014ad4492bfdddf493ed"></span>TH1F *<code class="descname">m_jetPt_eta_1_2p5</code><a class="headerlink" href="#_CPPv2N8JetHists17m_jetPt_eta_1_2p5E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists14m_bs_online_vxE">
+<span id="JetHists::m_bs_online_vx__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ae84bb0a54b4b343586768bd284381a52"></span>TH1F *<code class="descname">m_bs_online_vx</code><a class="headerlink" href="#_CPPv2N8JetHists14m_bs_online_vxE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists14m_bs_online_vyE">
+<span id="JetHists::m_bs_online_vy__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a0cfee71da68ff51728e83c568fc3b078"></span>TH1F *<code class="descname">m_bs_online_vy</code><a class="headerlink" href="#_CPPv2N8JetHists14m_bs_online_vyE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists14m_bs_online_vzE">
+<span id="JetHists::m_bs_online_vz__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a6cca4c193209dcfecfef937758d214dd"></span>TH1F *<code class="descname">m_bs_online_vz</code><a class="headerlink" href="#_CPPv2N8JetHists14m_bs_online_vzE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists16m_bs_online_vz_lE">
+<span id="JetHists::m_bs_online_vz_l__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1aa35f7c03a0926e8ff391c272619e4ed8"></span>TH1F *<code class="descname">m_bs_online_vz_l</code><a class="headerlink" href="#_CPPv2N8JetHists16m_bs_online_vz_lE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists22m_eta_bs_online_vz_0_1E">
+<span id="JetHists::m_eta_bs_online_vz_0_1__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a6c8cc552cfa51230535419b2cfa896da"></span>TH1F *<code class="descname">m_eta_bs_online_vz_0_1</code><a class="headerlink" href="#_CPPv2N8JetHists22m_eta_bs_online_vz_0_1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists24m_eta_bs_online_vz_1_1p5E">
+<span id="JetHists::m_eta_bs_online_vz_1_1p5__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1af0d0232d576058c97a5bcd06e56f29ca"></span>TH1F *<code class="descname">m_eta_bs_online_vz_1_1p5</code><a class="headerlink" href="#_CPPv2N8JetHists24m_eta_bs_online_vz_1_1p5E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists24m_eta_bs_online_vz_1p5_2E">
+<span id="JetHists::m_eta_bs_online_vz_1p5_2__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1adeed7857bbfae310ca87a6d43a648037"></span>TH1F *<code class="descname">m_eta_bs_online_vz_1p5_2</code><a class="headerlink" href="#_CPPv2N8JetHists24m_eta_bs_online_vz_1p5_2E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists16m_vtx_offline_x0E">
+<span id="JetHists::m_vtx_offline_x0__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1aa1485e88b21ab6e8085e50d430eb3580"></span>TH1F *<code class="descname">m_vtx_offline_x0</code><a class="headerlink" href="#_CPPv2N8JetHists16m_vtx_offline_x0E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists16m_vtx_offline_y0E">
+<span id="JetHists::m_vtx_offline_y0__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a321997d5f2cfed6c4bee3e001f01900c"></span>TH1F *<code class="descname">m_vtx_offline_y0</code><a class="headerlink" href="#_CPPv2N8JetHists16m_vtx_offline_y0E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists16m_vtx_offline_z0E">
+<span id="JetHists::m_vtx_offline_z0__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ad898c017fa3fc21db340c263bdbd50ad"></span>TH1F *<code class="descname">m_vtx_offline_z0</code><a class="headerlink" href="#_CPPv2N8JetHists16m_vtx_offline_z0E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists18m_vtx_offline_z0_sE">
+<span id="JetHists::m_vtx_offline_z0_s__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ab9a48da575701c6aeecd94182de12528"></span>TH1F *<code class="descname">m_vtx_offline_z0_s</code><a class="headerlink" href="#_CPPv2N8JetHists18m_vtx_offline_z0_sE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists15m_vtx_online_x0E">
+<span id="JetHists::m_vtx_online_x0__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1adc497c830f5358700fff2a71b1ef8622"></span>TH1F *<code class="descname">m_vtx_online_x0</code><a class="headerlink" href="#_CPPv2N8JetHists15m_vtx_online_x0E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists15m_vtx_online_y0E">
+<span id="JetHists::m_vtx_online_y0__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a85bbb85d0470cfac4506d2c258c3c424"></span>TH1F *<code class="descname">m_vtx_online_y0</code><a class="headerlink" href="#_CPPv2N8JetHists15m_vtx_online_y0E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists15m_vtx_online_z0E">
+<span id="JetHists::m_vtx_online_z0__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1abe3ce6f802b5ef3e3a458583d6308f50"></span>TH1F *<code class="descname">m_vtx_online_z0</code><a class="headerlink" href="#_CPPv2N8JetHists15m_vtx_online_z0E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists17m_vtx_online_z0_sE">
+<span id="JetHists::m_vtx_online_z0_s__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a9ec23cfa9b4ade4cc1840d447f3ebdc6"></span>TH1F *<code class="descname">m_vtx_online_z0_s</code><a class="headerlink" href="#_CPPv2N8JetHists17m_vtx_online_z0_sE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists19m_vtx_online_x0_rawE">
+<span id="JetHists::m_vtx_online_x0_raw__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a79a93d917c952b721945ef50eb38bb6d"></span>TH1F *<code class="descname">m_vtx_online_x0_raw</code><a class="headerlink" href="#_CPPv2N8JetHists19m_vtx_online_x0_rawE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists19m_vtx_online_y0_rawE">
+<span id="JetHists::m_vtx_online_y0_raw__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ac9c65074a341fef593c948afcae7048b"></span>TH1F *<code class="descname">m_vtx_online_y0_raw</code><a class="headerlink" href="#_CPPv2N8JetHists19m_vtx_online_y0_rawE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists19m_vtx_online_z0_rawE">
+<span id="JetHists::m_vtx_online_z0_raw__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ab0f673431d42058a8ef87cc7d261bacd"></span>TH1F *<code class="descname">m_vtx_online_z0_raw</code><a class="headerlink" href="#_CPPv2N8JetHists19m_vtx_online_z0_rawE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists16m_vtxOnlineValidE">
+<span id="JetHists::m_vtxOnlineValid__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a0d3ea40ad4afda455c8440acf1a15b1e"></span>TH1F *<code class="descname">m_vtxOnlineValid</code><a class="headerlink" href="#_CPPv2N8JetHists16m_vtxOnlineValidE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists17m_vtxOfflineValidE">
+<span id="JetHists::m_vtxOfflineValid__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a32c021bc160ab513fa801855ee279895"></span>TH1F *<code class="descname">m_vtxOfflineValid</code><a class="headerlink" href="#_CPPv2N8JetHists17m_vtxOfflineValidE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists11m_vtxDiffz0E">
+<span id="JetHists::m_vtxDiffz0__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a0c892188a67f59ae1b176fe0f36a96d1"></span>TH1F *<code class="descname">m_vtxDiffz0</code><a class="headerlink" href="#_CPPv2N8JetHists11m_vtxDiffz0E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists13m_vtxDiffz0_mE">
+<span id="JetHists::m_vtxDiffz0_m__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ab92b4e4862cad6463113f646e134a303"></span>TH1F *<code class="descname">m_vtxDiffz0_m</code><a class="headerlink" href="#_CPPv2N8JetHists13m_vtxDiffz0_mE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists13m_vtxDiffz0_sE">
+<span id="JetHists::m_vtxDiffz0_s__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ab135491ee6feac0aad02624a5cfdb9c6"></span>TH1F *<code class="descname">m_vtxDiffz0_s</code><a class="headerlink" href="#_CPPv2N8JetHists13m_vtxDiffz0_sE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists14m_vtxBkgDiffz0E">
+<span id="JetHists::m_vtxBkgDiffz0__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a73e30e3c0e815994a828aef50b42e383"></span>TH1F *<code class="descname">m_vtxBkgDiffz0</code><a class="headerlink" href="#_CPPv2N8JetHists14m_vtxBkgDiffz0E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists16m_vtxBkgDiffz0_mE">
+<span id="JetHists::m_vtxBkgDiffz0_m__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a8b601fb900811f58461211f63bc3e916"></span>TH1F *<code class="descname">m_vtxBkgDiffz0_m</code><a class="headerlink" href="#_CPPv2N8JetHists16m_vtxBkgDiffz0_mE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists16m_vtxBkgDiffz0_sE">
+<span id="JetHists::m_vtxBkgDiffz0_s__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1ae92b58eb3953d339119711cf485164e7"></span>TH1F *<code class="descname">m_vtxBkgDiffz0_s</code><a class="headerlink" href="#_CPPv2N8JetHists16m_vtxBkgDiffz0_sE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists11m_vtxDiffx0E">
+<span id="JetHists::m_vtxDiffx0__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1af9f41b43a773623947133913be81b3e9"></span>TH1F *<code class="descname">m_vtxDiffx0</code><a class="headerlink" href="#_CPPv2N8JetHists11m_vtxDiffx0E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists13m_vtxDiffx0_lE">
+<span id="JetHists::m_vtxDiffx0_l__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a646bd10e0a30e85d327e4a076b9df7a5"></span>TH1F *<code class="descname">m_vtxDiffx0_l</code><a class="headerlink" href="#_CPPv2N8JetHists13m_vtxDiffx0_lE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists11m_vtxDiffy0E">
+<span id="JetHists::m_vtxDiffy0__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1accdfbba3ac02594e5e2036b8b59d74fa"></span>TH1F *<code class="descname">m_vtxDiffy0</code><a class="headerlink" href="#_CPPv2N8JetHists11m_vtxDiffy0E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists13m_vtxDiffy0_lE">
+<span id="JetHists::m_vtxDiffy0_l__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a068210cd534e941d3f7d1ebe2927379b"></span>TH1F *<code class="descname">m_vtxDiffy0_l</code><a class="headerlink" href="#_CPPv2N8JetHists13m_vtxDiffy0_lE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists10m_vtxClassE">
+<span id="JetHists::m_vtxClass__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a1be92ca62b2babdda606f8d837ccdfd8"></span>TH1F *<code class="descname">m_vtxClass</code><a class="headerlink" href="#_CPPv2N8JetHists10m_vtxClassE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists21m_vtxDiffx0_vs_lBlockE">
+<span id="JetHists::m_vtxDiffx0_vs_lBlock__TProfileP"></span><span class="target" id="xAHclass_jet_hists_1ae0e7bb0731a7e55fd9a2d513d41ca502"></span>TProfile *<code class="descname">m_vtxDiffx0_vs_lBlock</code><a class="headerlink" href="#_CPPv2N8JetHists21m_vtxDiffx0_vs_lBlockE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists21m_vtxDiffy0_vs_lBlockE">
+<span id="JetHists::m_vtxDiffy0_vs_lBlock__TProfileP"></span><span class="target" id="xAHclass_jet_hists_1a215b657ef4cdfc721e18c83befac2340"></span>TProfile *<code class="descname">m_vtxDiffy0_vs_lBlock</code><a class="headerlink" href="#_CPPv2N8JetHists21m_vtxDiffy0_vs_lBlockE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists21m_vtxDiffz0_vs_lBlockE">
+<span id="JetHists::m_vtxDiffz0_vs_lBlock__TProfileP"></span><span class="target" id="xAHclass_jet_hists_1aa99bb2862d0e49cb209bc842a0f5f67d"></span>TProfile *<code class="descname">m_vtxDiffz0_vs_lBlock</code><a class="headerlink" href="#_CPPv2N8JetHists21m_vtxDiffz0_vs_lBlockE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists12m_lumiB_runNE">
+<span id="JetHists::m_lumiB_runN__TH2FP"></span><span class="target" id="xAHclass_jet_hists_1a0aa592536df2bccb629f7558fca4800b"></span>TH2F *<code class="descname">m_lumiB_runN</code><a class="headerlink" href="#_CPPv2N8JetHists12m_lumiB_runNE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists21m_lumiB_runN_vtxClassE">
+<span id="JetHists::m_lumiB_runN_vtxClass__TH2FP"></span><span class="target" id="xAHclass_jet_hists_1a685cdf94271c7140f28569ade6aae9d1"></span>TH2F *<code class="descname">m_lumiB_runN_vtxClass</code><a class="headerlink" href="#_CPPv2N8JetHists21m_lumiB_runN_vtxClassE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists22m_lumiB_runN_vtxDiffz0E">
+<span id="JetHists::m_lumiB_runN_vtxDiffz0__TH2FP"></span><span class="target" id="xAHclass_jet_hists_1ad50aee413d4e8fb5c16c919f3b0fcbc1"></span>TH2F *<code class="descname">m_lumiB_runN_vtxDiffz0</code><a class="headerlink" href="#_CPPv2N8JetHists22m_lumiB_runN_vtxDiffz0E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists18m_lumiB_runN_lumiBE">
+<span id="JetHists::m_lumiB_runN_lumiB__TH2FP"></span><span class="target" id="xAHclass_jet_hists_1ad6ae580d891d3a3ae1623dd35d01315c"></span>TH2F *<code class="descname">m_lumiB_runN_lumiB</code><a class="headerlink" href="#_CPPv2N8JetHists18m_lumiB_runN_lumiBE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists25m_lumiB_runN_bs_online_vzE">
+<span id="JetHists::m_lumiB_runN_bs_online_vz__TH2FP"></span><span class="target" id="xAHclass_jet_hists_1a12a7f46fa2769651004f04136ce0b9c9"></span>TH2F *<code class="descname">m_lumiB_runN_bs_online_vz</code><a class="headerlink" href="#_CPPv2N8JetHists25m_lumiB_runN_bs_online_vzE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists19m_lumiB_runN_bs_denE">
+<span id="JetHists::m_lumiB_runN_bs_den__TH2FP"></span><span class="target" id="xAHclass_jet_hists_1a565e6c3789a4238d4b95a03e90072e1a"></span>TH2F *<code class="descname">m_lumiB_runN_bs_den</code><a class="headerlink" href="#_CPPv2N8JetHists19m_lumiB_runN_bs_denE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists32m_vtx_online_x0_vs_vtx_online_z0E">
+<span id="JetHists::m_vtx_online_x0_vs_vtx_online_z0__TProfileP"></span><span class="target" id="xAHclass_jet_hists_1a478820197bb9057447c6de576bbf0d5c"></span>TProfile *<code class="descname">m_vtx_online_x0_vs_vtx_online_z0</code><a class="headerlink" href="#_CPPv2N8JetHists32m_vtx_online_x0_vs_vtx_online_z0E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists32m_vtx_online_y0_vs_vtx_online_z0E">
+<span id="JetHists::m_vtx_online_y0_vs_vtx_online_z0__TProfileP"></span><span class="target" id="xAHclass_jet_hists_1a7f46ca7bbece90d6d62d669c4f43e80e"></span>TProfile *<code class="descname">m_vtx_online_y0_vs_vtx_online_z0</code><a class="headerlink" href="#_CPPv2N8JetHists32m_vtx_online_y0_vs_vtx_online_z0E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists7m_avgMuE">
+<span id="JetHists::m_avgMu__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a54d146c6328f0b53665fc6abb7cacc30"></span>TH1F *<code class="descname">m_avgMu</code><a class="headerlink" href="#_CPPv2N8JetHists7m_avgMuE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists19m_jetPt_avgMu_00_15E">
+<span id="JetHists::m_jetPt_avgMu_00_15__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1acbcf4a06ed5d208b57a861ca33b97629"></span>TH1F *<code class="descname">m_jetPt_avgMu_00_15</code><a class="headerlink" href="#_CPPv2N8JetHists19m_jetPt_avgMu_00_15E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists19m_jetPt_avgMu_15_25E">
+<span id="JetHists::m_jetPt_avgMu_15_25__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a2e4a1d650c25d5699eade4372a4eaa5c"></span>TH1F *<code class="descname">m_jetPt_avgMu_15_25</code><a class="headerlink" href="#_CPPv2N8JetHists19m_jetPt_avgMu_15_25E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists16m_jetPt_avgMu_25E">
+<span id="JetHists::m_jetPt_avgMu_25__TH1FP"></span><span class="target" id="xAHclass_jet_hists_1a4e8e6c52360f1c471ec32913fc6aad40"></span>TH1F *<code class="descname">m_jetPt_avgMu_25</code><a class="headerlink" href="#_CPPv2N8JetHists16m_jetPt_avgMu_25E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists16m_avgMu_vs_jetPtE">
+<span id="JetHists::m_avgMu_vs_jetPt__TH2FP"></span><span class="target" id="xAHclass_jet_hists_1abf232c52706eb57676a665340f630146"></span>TH2F *<code class="descname">m_avgMu_vs_jetPt</code><a class="headerlink" href="#_CPPv2N8JetHists16m_avgMu_vs_jetPtE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists8m_etaPhiE">
+<span id="JetHists::m_etaPhi__TH2FP"></span><span class="target" id="xAHclass_jet_hists_1afe835bbbeb6d64e65904c06fd31985ff"></span>TH2F *<code class="descname">m_etaPhi</code><a class="headerlink" href="#_CPPv2N8JetHists8m_etaPhiE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists29m_vtxDiffz0_vs_vtx_offline_z0E">
+<span id="JetHists::m_vtxDiffz0_vs_vtx_offline_z0__TH2FP"></span><span class="target" id="xAHclass_jet_hists_1ab5e2ba6d241c82c6cac2ceaef12edf63"></span>TH2F *<code class="descname">m_vtxDiffz0_vs_vtx_offline_z0</code><a class="headerlink" href="#_CPPv2N8JetHists29m_vtxDiffz0_vs_vtx_offline_z0E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists31m_vtxDiffz0_s_vs_vtx_offline_z0E">
+<span id="JetHists::m_vtxDiffz0_s_vs_vtx_offline_z0__TH2FP"></span><span class="target" id="xAHclass_jet_hists_1ab2de5388ee0558613ecb9bbbffd98fc5"></span>TH2F *<code class="descname">m_vtxDiffz0_s_vs_vtx_offline_z0</code><a class="headerlink" href="#_CPPv2N8JetHists31m_vtxDiffz0_s_vs_vtx_offline_z0E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists26m_vtxDiffz0_s_vs_vtxDiffx0E">
+<span id="JetHists::m_vtxDiffz0_s_vs_vtxDiffx0__TH2FP"></span><span class="target" id="xAHclass_jet_hists_1a193895bf8c9469778deab9ab9f8ea5d1"></span>TH2F *<code class="descname">m_vtxDiffz0_s_vs_vtxDiffx0</code><a class="headerlink" href="#_CPPv2N8JetHists26m_vtxDiffz0_s_vs_vtxDiffx0E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists26m_vtxDiffz0_s_vs_vtxDiffy0E">
+<span id="JetHists::m_vtxDiffz0_s_vs_vtxDiffy0__TH2FP"></span><span class="target" id="xAHclass_jet_hists_1a0c42c4731d8864581c5fcb2bfc2a3f3d"></span>TH2F *<code class="descname">m_vtxDiffz0_s_vs_vtxDiffy0</code><a class="headerlink" href="#_CPPv2N8JetHists26m_vtxDiffz0_s_vs_vtxDiffy0E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8JetHists19m_vtxClass_vs_jetPtE">
+<span id="JetHists::m_vtxClass_vs_jetPt__TH2FP"></span><span class="target" id="xAHclass_jet_hists_1ae4514d0c4b336723e1bd8960778a2b6a"></span>TH2F *<code class="descname">m_vtxClass_vs_jetPt</code><a class="headerlink" href="#_CPPv2N8JetHists19m_vtxClass_vs_jetPtE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MetHists.html" class="btn btn-neutral float-right" title="MetHists" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ClusterHists.html" class="btn btn-neutral" title="ClusterHists" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015-2017, ATLAS Collaboration.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'01-00-00-46-g45a2bda',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,638 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>b-jet &mdash; xAODAnaHelpers 01-00-00-46-g45a2bda documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="xAODAnaHelpers 01-00-00-46-g45a2bda documentation" href="index.html"/>
+        <link rel="up" title="Efficiency Correcting" href="Correctors.html"/>
+        <link rel="next" title="\(e\)" href="ElectronEfficiencyCorrector.html"/>
+        <link rel="prev" title="Efficiency Correcting" href="Correctors.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> xAODAnaHelpers
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                01.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UsingUs.html">xAH_run.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Algorithms.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQs.html">xAH FAQ</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="API.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Getters.html">Getting Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Calibrators.html">Calibrating Objects</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="Correctors.html">Efficiency Correcting</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><em>b</em>-jet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ElectronEfficiencyCorrector.html"><span class="math">\(e\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="MuonEfficiencyCorrector.html"><span class="math">\(\mu\)</span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Selectors.html">Selecting Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Histograms.html">Histograms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ToolsUsed.html">Tools Used</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Outputs.html">Producing Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Utilities.html">Utilities</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">xAODAnaHelpers</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="API.html">API Reference</a> &raquo;</li>
+      
+          <li><a href="Correctors.html">Efficiency Correcting</a> &raquo;</li>
+      
+    <li><em>b</em>-jet</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/BJetEfficiencyCorrector.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="b-jet">
+<h1><em>b</em>-jet<a class="headerlink" href="#b-jet" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="_CPPv223BJetEfficiencyCorrector">
+<span id="BJetEfficiencyCorrector"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector"></span><em class="property">class </em><code class="descclassname"></code><code class="descname">BJetEfficiencyCorrector</code><a class="headerlink" href="#_CPPv223BJetEfficiencyCorrector" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Inherits from <a class="reference internal" href="xAHAlgorithm.html#xAHclassx_a_h_1_1_algorithm"><span class="std std-ref">xAH::Algorithm</span></a></p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N23BJetEfficiencyCorrector23BJetEfficiencyCorrectorEv">
+<span id="BJetEfficiencyCorrector::BJetEfficiencyCorrector"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1af6754e57e5030a11e43212bc79a3dc03"></span><code class="descname">BJetEfficiencyCorrector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector23BJetEfficiencyCorrectorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N23BJetEfficiencyCorrector8setupJobERN2EL3JobE">
+<span id="BJetEfficiencyCorrector::setupJob__EL::JobR"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1a44de0e899fe5342c516308a9fbbca166"></span>EL::StatusCode <code class="descname">setupJob</code><span class="sig-paren">(</span>EL::Job &amp;<em>job</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector8setupJobERN2EL3JobE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N23BJetEfficiencyCorrector11fileExecuteEv">
+<span id="BJetEfficiencyCorrector::fileExecute"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1a2804b5cb253942390558ab6c7d2b1f7c"></span>EL::StatusCode <code class="descname">fileExecute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector11fileExecuteEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N23BJetEfficiencyCorrector14histInitializeEv">
+<span id="BJetEfficiencyCorrector::histInitialize"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1a5b2724dbf444f2bd41b88e1673470a4b"></span>EL::StatusCode <code class="descname">histInitialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector14histInitializeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N23BJetEfficiencyCorrector11changeInputEb">
+<span id="BJetEfficiencyCorrector::changeInput__b"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1a4f6e98605b01da94e2cdf0ad66491d87"></span>EL::StatusCode <code class="descname">changeInput</code><span class="sig-paren">(</span>bool <em>firstFile</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector11changeInputEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N23BJetEfficiencyCorrector10initializeEv">
+<span id="BJetEfficiencyCorrector::initialize"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1afcd909baa1800d60a8351c3a474afc6a"></span>EL::StatusCode <code class="descname">initialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector10initializeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N23BJetEfficiencyCorrector7executeEv">
+<span id="BJetEfficiencyCorrector::execute"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1a62e11e74282df2bdfcd81f9afda912d1"></span>EL::StatusCode <code class="descname">execute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector7executeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N23BJetEfficiencyCorrector27executeEfficiencyCorrectionEPKN4xAOD12JetContainerEPKN4xAOD9EventInfoEb">
+<span id="BJetEfficiencyCorrector::executeEfficiencyCorrection__xAOD::JetContainerCP.xAOD::EventInfoCP.b"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1ae085cb2b77a5d58dee2f41e94a877c59"></span>EL::StatusCode <code class="descname">executeEfficiencyCorrection</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::JetContainer *<em>inJets</em>, <em class="property">const</em> xAOD::EventInfo *<em>eventInfo</em>, bool <em>doNominal</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector27executeEfficiencyCorrectionEPKN4xAOD12JetContainerEPKN4xAOD9EventInfoEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N23BJetEfficiencyCorrector11postExecuteEv">
+<span id="BJetEfficiencyCorrector::postExecute"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1a9d7c42e3f56b9281c17d685fb9c514fb"></span>EL::StatusCode <code class="descname">postExecute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector11postExecuteEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N23BJetEfficiencyCorrector8finalizeEv">
+<span id="BJetEfficiencyCorrector::finalize"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1ae750911bdf85d5f1cf0e85d370c4fefa"></span>EL::StatusCode <code class="descname">finalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector8finalizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N23BJetEfficiencyCorrector12histFinalizeEv">
+<span id="BJetEfficiencyCorrector::histFinalize"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1ae1c1f150c0c906dc42ad0cf650c97fd0"></span>EL::StatusCode <code class="descname">histFinalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector12histFinalizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm13algInitializeEv">
+<span id="xAH::Algorithm::algInitialize"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ae8fd8541cf785803ec19d9c4f8cfe602"></span>StatusCode <code class="descname">algInitialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm13algInitializeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Run any initializations commmon to all xAH Algorithms (such as registerInstance). Call this inside <code class="docutils literal"><span class="pre">histInitialize</span></code> for best results. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm11algFinalizeEv">
+<span id="xAH::Algorithm::algFinalize"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ad953653631da2d160893153f0b30f919"></span>StatusCode <code class="descname">algFinalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm11algFinalizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Run any finalizations common to all xAH Algorithms (such as unregisterInstance). Call this inside <code class="docutils literal"><span class="pre">histFinalize</span></code> for best results. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm18parseSystValVectorEv">
+<span id="xAH::Algorithm::parseSystValVector"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a4859dee0ea827841c1adbbf56b159257"></span>StatusCode <code class="descname">parseSystValVector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm18parseSystValVectorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Parse string of systematic sigma levels in m_systValVectorString into m_systValVector. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2N23BJetEfficiencyCorrector17m_inContainerNameE">
+<span id="BJetEfficiencyCorrector::m_inContainerName__ss"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1a9393804d7d4c9d973f33848332c73b73"></span>std::string <code class="descname">m_inContainerName</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector17m_inContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N23BJetEfficiencyCorrector11m_inputAlgoE">
+<span id="BJetEfficiencyCorrector::m_inputAlgo__ss"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1a00443fe92ca50492d3a7f5fea0caa229"></span>std::string <code class="descname">m_inputAlgo</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector11m_inputAlgoE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The name of the vector containing the names of the systematically-varied jet-related containers from the upstream algorithm, which will be processed by this algorithm. </p>
+<p>Only jet calibration systematics or any other that create shallow copies of jet containers should be passed to this tool. It is advised to run this algorithm before running algorithms combining multiple calibration systematics (e.g. overlap removal). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N23BJetEfficiencyCorrector10m_systNameE">
+<span id="BJetEfficiencyCorrector::m_systName__ss"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1ae5954c09c4748cbff2829165ace0ba48"></span>std::string <code class="descname">m_systName</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector10m_systNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N23BJetEfficiencyCorrector16m_outputSystNameE">
+<span id="BJetEfficiencyCorrector::m_outputSystName__ss"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1aec362890568ad20e80f127ae9f602fb1"></span>std::string <code class="descname">m_outputSystName</code> = &quot;BJetEfficiency_Algo&quot;<a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector16m_outputSystNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N23BJetEfficiencyCorrector21m_writeSystToMetadataE">
+<span id="BJetEfficiencyCorrector::m_writeSystToMetadata__b"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1ac1016974150b937480229b116f8101c0"></span>bool <code class="descname">m_writeSystToMetadata</code> = false<a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector21m_writeSystToMetadataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N23BJetEfficiencyCorrector14m_corrFileNameE">
+<span id="BJetEfficiencyCorrector::m_corrFileName__ss"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1a2c0b569456b6159056231a2f458e5fed"></span>std::string <code class="descname">m_corrFileName</code> = &quot;xAODBTaggingEfficiency/13TeV/2016-20_7-13TeV-MC15-CDI-July12_v1.root&quot;<a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector14m_corrFileNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N23BJetEfficiencyCorrector11m_jetAuthorE">
+<span id="BJetEfficiencyCorrector::m_jetAuthor__ss"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1a9b6724353e8ff8c0e6c7268e795d588a"></span>std::string <code class="descname">m_jetAuthor</code> = &quot;AntiKt4EMTopoJets&quot;<a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector11m_jetAuthorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N23BJetEfficiencyCorrector12m_taggerNameE">
+<span id="BJetEfficiencyCorrector::m_taggerName__ss"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1a3ff3f06eaf254632f03ba1b066554230"></span>std::string <code class="descname">m_taggerName</code> = &quot;MV2c10&quot;<a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector12m_taggerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N23BJetEfficiencyCorrector20m_useDevelopmentFileE">
+<span id="BJetEfficiencyCorrector::m_useDevelopmentFile__b"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1a331f4787c0104b4cee0abe08d6543191"></span>bool <code class="descname">m_useDevelopmentFile</code> = true<a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector20m_useDevelopmentFileE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N23BJetEfficiencyCorrector18m_coneFlavourLabelE">
+<span id="BJetEfficiencyCorrector::m_coneFlavourLabel__b"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1a54349f08eb8e794dd02110ada3eea108"></span>bool <code class="descname">m_coneFlavourLabel</code> = true<a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector18m_coneFlavourLabelE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N23BJetEfficiencyCorrector21m_systematicsStrategyE">
+<span id="BJetEfficiencyCorrector::m_systematicsStrategy__ss"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1aa02ce63923a0056e6fb8fa71e61656fd"></span>std::string <code class="descname">m_systematicsStrategy</code> = &quot;SFEigen&quot;<a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector21m_systematicsStrategyE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N23BJetEfficiencyCorrector13m_operatingPtE">
+<span id="BJetEfficiencyCorrector::m_operatingPt__ss"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1a577bff05a758e6ef355b046ccde3b9c9"></span>std::string <code class="descname">m_operatingPt</code> = &quot;FixedCutBEff_70&quot;<a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector13m_operatingPtE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Operating point. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N23BJetEfficiencyCorrector16m_operatingPtCDIE">
+<span id="BJetEfficiencyCorrector::m_operatingPtCDI__ss"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1a1a8713a0ef5c95c4900311109ac0cc3a"></span>std::string <code class="descname">m_operatingPtCDI</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector16m_operatingPtCDIE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Operating point that CDI will understand. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N23BJetEfficiencyCorrector17m_getScaleFactorsE">
+<span id="BJetEfficiencyCorrector::m_getScaleFactors__b"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1ad53c95415c8e0f684393857455356015"></span>bool <code class="descname">m_getScaleFactors</code> = false<a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector17m_getScaleFactorsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>will only get scale factors for calibrated working points </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N23BJetEfficiencyCorrector7m_decorE">
+<span id="BJetEfficiencyCorrector::m_decor__ss"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1afda9b0f228605c0dbc22196acb55f27d"></span>std::string <code class="descname">m_decor</code> = &quot;BTag&quot;<a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector7m_decorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The decoration key written to passing objects. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm6m_nameE">
+<span id="xAH::Algorithm::m_name__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a2fe89b9cfdbba9b2d5dbd77d78d017ba"></span>std::string <code class="descname">m_name</code> = &quot;UnnamedAlgorithm&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm6m_nameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>All algorithms initialized should have a unique name, to differentiate them at the TObject level. </p>
+<p>Note, <code class="docutils literal"><span class="pre">GetName()</span></code> returns a <code class="docutils literal"><span class="pre">char*</span></code> while this returns a <code class="docutils literal"><span class="pre">std::string</span></code>. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm7m_debugE">
+<span id="xAH::Algorithm::m_debug__b"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a536ad066b37192ae8234da9088ca37cb"></span>bool <code class="descname">m_debug</code> = false<a class="headerlink" href="#_CPPv2N3xAH9Algorithm7m_debugE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>m_debug is being deprecated </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm9m_verboseE">
+<span id="xAH::Algorithm::m_verbose__b"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1aa6f548d723aa93b42dd9915c36c7b9a4"></span>bool <code class="descname">m_verbose</code> = false<a class="headerlink" href="#_CPPv2N3xAH9Algorithm9m_verboseE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>m_verbose is being deprecated </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm10m_msgLevelE">
+<span id="xAH::Algorithm::m_msgLevel__MSG::Level"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a903600b01ce81ba57bd004e32a905254"></span>MSG::Level <code class="descname">m_msgLevel</code> = MSG::INFO<a class="headerlink" href="#_CPPv2N3xAH9Algorithm10m_msgLevelE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>debug level </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm9m_systValE">
+<span id="xAH::Algorithm::m_systVal__float"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a7e34030fb2a71902b0d65797bb90366b"></span>float <code class="descname">m_systVal</code> = 0.0<a class="headerlink" href="#_CPPv2N3xAH9Algorithm9m_systValE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If running systematics, the value to set the systematic to <div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This will set the systematic to the value <span class="math">\(\pm x\)</span>.</p>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm21m_systValVectorStringE">
+<span id="xAH::Algorithm::m_systValVectorString__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ab1386db1ff9f8586e603924d23e3d9ea"></span>std::string <code class="descname">m_systValVectorString</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm21m_systValVectorStringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If running systematics, you can run multiple points and store them in here. A comma separated list of working points should be given to m_systValVectorString, and then parsed by calling parseSystValVector. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm15m_systValVectorE">
+<span id="xAH::Algorithm::m_systValVector__std::vector:float:"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ad033047e9456204a32165a5d3847661d"></span>std::vector&lt;float&gt; <code class="descname">m_systValVector</code><a class="headerlink" href="#_CPPv2N3xAH9Algorithm15m_systValVectorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm24m_eventInfoContainerNameE">
+<span id="xAH::Algorithm::m_eventInfoContainerName__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a3a28d57c78d08c235cbdbfb2db4d8ee0"></span>std::string <code class="descname">m_eventInfoContainerName</code> = &quot;EventInfo&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm24m_eventInfoContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If the xAOD has a different EventInfo container name, set it here </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm6m_isMCE">
+<span id="xAH::Algorithm::m_isMC__i"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a2fe08016f341df4f708872f6a43e70dd"></span>int <code class="descname">m_isMC</code> = -1<a class="headerlink" href="#_CPPv2N3xAH9Algorithm6m_isMCE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>This is an override at the algorithm level to force analyzing MC or not.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="92%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>-1</td>
+<td>Default, use eventInfo object to determine if data or mc</td>
+</tr>
+<tr class="row-odd"><td>0</td>
+<td>Treat the input as data</td>
+</tr>
+<tr class="row-even"><td>1</td>
+<td>Treat the input as MC</td>
+</tr>
+</tbody>
+</table>
+ </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm4isMCEv">
+<span id="xAH::Algorithm::isMC"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ac6974b849cbb6c3ca7f061dfbd79293d"></span>bool <code class="descname">isMC</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm4isMCEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><blockquote>
+<div>Try to determine if we are running over data or MC. The <a class="reference internal" href="#_CPPv2N3xAH9Algorithm6m_isMCE" title="xAH::Algorithm::m_isMC"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_isMC</span></code></a> can be used</div></blockquote>
+<p>to fix the return value. Otherwise the <cite>EventInfo</cite> object is queried.</p>
+<p>An exception is thrown if the type cannot be determined.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="63%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Return Value</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>Data</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>MC</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm16registerInstanceEv">
+<span id="xAH::Algorithm::registerInstance"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ad985e6075dc2794ba53d92663c84da08"></span>void <code class="descname">registerInstance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm16registerInstanceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Register the given instance under the moniker <a class="reference internal" href="#_CPPv2N3xAH9Algorithm11m_classNameE" title="xAH::Algorithm::m_className"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_className</span></code></a></p>
+<p>This will increase the reference count by 1.</p>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm12numInstancesEv">
+<span id="xAH::Algorithm::numInstances"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a668fbd5fb7180046a8a41b496cf5ccbd"></span>int <code class="descname">numInstances</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm12numInstancesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Return number of instances registered under the moniker <a class="reference internal" href="#_CPPv2N3xAH9Algorithm11m_classNameE" title="xAH::Algorithm::m_className"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_className</span></code></a></p>
+<p>This will return the reference count.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If for some reason the instance wasn&#8217;t registered, we spit out a warning.</p>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm18unregisterInstanceEv">
+<span id="xAH::Algorithm::unregisterInstance"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a5db7105c8aba80421821c555bca6ca93"></span>void <code class="descname">unregisterInstance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm18unregisterInstanceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Unregister the given instance under the moniker <a class="reference internal" href="#_CPPv2N3xAH9Algorithm11m_classNameE" title="xAH::Algorithm::m_className"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_className</span></code></a></p>
+<p>This will decrease the reference count by 1.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If for some reason the instance wasn&#8217;t registered, we spit out a warning.</p>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T&gt;</dt>
+<dt id="_CPPv2N3xAH9Algorithm14checkToolStoreERKNSt6stringE">
+<span id="xAH::Algorithm::checkToolStore__ssCR"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a064eba684de39e15a2368064dafee485"></span>StatusCode <code class="descname">checkToolStore</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>tool_name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm14checkToolStoreERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><blockquote>
+<div>Check whether the input CP tool already exists with <em>this</em> name in the asg::ToolStore</div></blockquote>
+<p>Depending on the outcome, the content of the map <a class="reference internal" href="xAHAlgorithm.html#_CPPv2N3xAH9Algorithm17m_toolAlreadyUsedE" title="xAH::Algorithm::m_toolAlreadyUsed"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_toolAlreadyUsed</span></code></a> wll be set accordingly.</p>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm17isToolAlreadyUsedERKNSt6stringE">
+<span id="xAH::Algorithm::isToolAlreadyUsed__ssCR"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1aba740002a03904fa58d6f3762965c733"></span>bool <code class="descname">isToolAlreadyUsed</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>tool_name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm17isToolAlreadyUsedERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Check whether the input CP tool has been already used by any <a class="reference internal" href="xAHAlgorithm.html#_CPPv2N3xAH9AlgorithmE" title="xAH::Algorithm"><code class="xref cpp cpp-class docutils literal"><span class="pre">xAH::Algorithm</span></code></a> in the current job by scanning <a class="reference internal" href="xAHAlgorithm.html#_CPPv2N3xAH9Algorithm17m_toolAlreadyUsedE" title="xAH::Algorithm::m_toolAlreadyUsed"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_toolAlreadyUsed</span></code></a>.</p>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T&gt;</dt>
+<dt id="_CPPv2NK3xAH9Algorithm11setToolNameERN3asg13AnaToolHandleI1TEERKNSt6stringE">
+<span id="xAH::Algorithm::setToolName__asg::AnaToolHandle:T:R.ssCRC"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a21105ba926b929179cd329528e17168a"></span>void <code class="descname">setToolName</code><span class="sig-paren">(</span>__attribute__((unused)) asg::AnaToolHandle&lt;T&gt; &amp;<em>handle</em>, __attribute__((unused)) <em class="property">const</em> std::string &amp;<em>name</em> = &quot;&quot;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK3xAH9Algorithm11setToolNameERN3asg13AnaToolHandleI1TEERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><blockquote>
+<div></div></blockquote>
+<p>Sets the name of a tool. If no name is needed, the tool will use the name of the algorithm plus a unique identifier (<a class="reference internal" href="#_CPPv2NK3xAH9Algorithm10getAddressEv" title="xAH::Algorithm::getAddress"><code class="xref cpp cpp-func docutils literal"><span class="pre">xAH::Algorithm::getAddress()</span></code></a>) appended to ensure the tool is unique and effectively private.</p>
+<p>The tool will not be guaranteed unique if two tools of the same type are created without a name passed in. But this is, at this point, up to the user and a more complex scenario than what this function tries to simplify on its own.</p>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK3xAH9Algorithm10getAddressEv">
+<span id="xAH::Algorithm::getAddressC"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1aefeab6cf73ebfc67aa4e7cf74d762427"></span>std::string <code class="descname">getAddress</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK3xAH9Algorithm10getAddressEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Return a <code class="docutils literal"><span class="pre">std::string</span></code> representation of <code class="docutils literal"><span class="pre">this</span></code> </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm11m_classNameE">
+<span id="xAH::Algorithm::m_className__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1aff1b344c0be87d17890333bb65421c39"></span>std::string <code class="descname">m_className</code> = &quot;Algorithm&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm11m_classNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>The moniker by which all instances are tracked in <a class="reference internal" href="xAHAlgorithm.html#_CPPv2N3xAH9Algorithm18m_instanceRegistryE" title="xAH::Algorithm::m_instanceRegistry"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_instanceRegistry</span></code></a></p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm7m_eventE">
+<span id="xAH::Algorithm::m_event__xAOD::TEventP"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a6c1a280a55c7e0ff39c6f90e2ba9b05b"></span>xAOD::TEvent *<code class="descname">m_event</code> = nullptr<a class="headerlink" href="#_CPPv2N3xAH9Algorithm7m_eventE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The TEvent object </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm7m_storeE">
+<span id="xAH::Algorithm::m_store__xAOD::TStoreP"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a58d778d2d1351cbb863f30fadb1a727c"></span>xAOD::TStore *<code class="descname">m_store</code> = nullptr<a class="headerlink" href="#_CPPv2N3xAH9Algorithm7m_storeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The TStore object </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Private Members</p>
+<dl class="member">
+<dt id="_CPPv2N23BJetEfficiencyCorrector9m_decorSFE">
+<span id="BJetEfficiencyCorrector::m_decorSF__ss"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1a62611f292b2607535f6db569d9cdd9ca"></span>std::string <code class="descname">m_decorSF</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector9m_decorSFE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The decoration key written to passing objects. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N23BJetEfficiencyCorrector15m_inputAlgoListE">
+<span id="BJetEfficiencyCorrector::m_inputAlgoList__std::vector:ss:"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1a090c4a573a053cb07c043cb11e35c7e6"></span>std::vector&lt;std::string&gt; <code class="descname">m_inputAlgoList</code><a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector15m_inputAlgoListE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N23BJetEfficiencyCorrector12m_runAllSystE">
+<span id="BJetEfficiencyCorrector::m_runAllSyst__b"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1ab3114f295a3444e4c6859150d52f8bf5"></span>bool <code class="descname">m_runAllSyst</code> = false<a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector12m_runAllSystE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N23BJetEfficiencyCorrector23m_BJetSelectTool_handleE">
+<span id="BJetEfficiencyCorrector::m_BJetSelectTool_handle__asg::AnaToolHandle:IBTaggingSelectionTool:"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1a19980bc6c894351ac92ddd197174c755"></span>asg::AnaToolHandle&lt;IBTaggingSelectionTool&gt; <code class="descname">m_BJetSelectTool_handle</code> = {&quot;BTaggingSelectionTool&quot; , this}<a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector23m_BJetSelectTool_handleE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N23BJetEfficiencyCorrector22m_BJetEffSFTool_handleE">
+<span id="BJetEfficiencyCorrector::m_BJetEffSFTool_handle__asg::AnaToolHandle:IBTaggingEfficiencyTool:"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1ac12cca2c7d1ba27193a169ae42fac763"></span>asg::AnaToolHandle&lt;IBTaggingEfficiencyTool&gt; <code class="descname">m_BJetEffSFTool_handle</code> = {&quot;BTaggingEfficiencyTool&quot;, this}<a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector22m_BJetEffSFTool_handleE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N23BJetEfficiencyCorrector10m_systListE">
+<span id="BJetEfficiencyCorrector::m_systList__std::vector:CP::SystematicSet:"></span><span class="target" id="xAHclass_b_jet_efficiency_corrector_1ae7eb78298ff571f5555d92c13338955e"></span>std::vector&lt;CP::SystematicSet&gt; <code class="descname">m_systList</code><a class="headerlink" href="#_CPPv2N23BJetEfficiencyCorrector10m_systListE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ElectronEfficiencyCorrector.html" class="btn btn-neutral float-right" title="\(e\)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Correctors.html" class="btn btn-neutral" title="Efficiency Correcting" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015-2017, ATLAS Collaboration.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'01-00-00-46-g45a2bda',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

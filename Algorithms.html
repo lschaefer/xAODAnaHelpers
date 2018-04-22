@@ -1,0 +1,450 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Algorithms &mdash; xAODAnaHelpers 01-00-00-46-g45a2bda documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="xAODAnaHelpers 01-00-00-46-g45a2bda documentation" href="index.html"/>
+        <link rel="next" title="Development" href="Development.html"/>
+        <link rel="prev" title="xAH_run.py" href="UsingUs.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> xAODAnaHelpers
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                01.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UsingUs.html">xAH_run.py</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Algorithms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#event-selection">Event Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jet-related">Jet Related</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hltjetgetter">HLTJetGetter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jetcalibrator">JetCalibrator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#calibration">Calibration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#jes-jer-uncertainties">JES/JER Uncertainties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cleaning">Cleaning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#jvt-recalculation">JVT Recalculation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#jetselector">JetSelector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jethists-and-jethistsalgo">JetHists and JetHistsAlgo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bjetefficiencycorrector">BJetEfficiencyCorrector</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#muon-related">Muon Related</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#muoncalibrator">MuonCalibrator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#muonefficiencycorrector">MuonEfficiencyCorrector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#muonselector">MuonSelector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#muonhists-and-muonhistsalgo">MuonHists and MuonHistsAlgo</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#electron-related">Electron Related</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#electroncalibrator">ElectronCalibrator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#electronefficiencycorrector">ElectronEfficiencyCorrector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#electronselector">ElectronSelector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#electronhists-and-electronhistsalgo">ElectronHists and ElectronHistsAlgo</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tau-related">Tau Related</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#taucalibrator">TauCalibrator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tauselector">TauSelector</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#helperfunctions">HelperFunctions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#helperclasses">HelperClasses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ntuple-creation">NTuple Creation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQs.html">xAH FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">xAODAnaHelpers</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Algorithms</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/Algorithms.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="algorithms">
+<h1>Algorithms<a class="headerlink" href="#algorithms" title="Permalink to this headline">¶</a></h1>
+<p>Each algorithm will retrieve a container from either TEvent or TStore
+and if an output container is specified, it is saved to the TStore
+object such that the following algorithms can access the container.
+TStore will manage the memory for the user.</p>
+<div class="section" id="event-selection">
+<h2>Event Selection<a class="headerlink" href="#event-selection" title="Permalink to this headline">¶</a></h2>
+<p>(moved to BasicEventSelection.h)</p>
+</div>
+<div class="section" id="jet-related">
+<h2>Jet Related<a class="headerlink" href="#jet-related" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="hltjetgetter">
+<h3>HLTJetGetter<a class="headerlink" href="#hltjetgetter" title="Permalink to this headline">¶</a></h3>
+<p>The HLTJetGetter Algorithm retrieves jets from the TrigDecisionTool.
+The output is a shallow copy of the trigger feature that is requested
+via the combination of the name of the jet collection (m_inContainerName) and
+the jet trigger that is selected m_triggerList. The name of the copy
+is chosen via the m_outContainerName.
+The input container name should be given without any HLT_xAOD__JetContainer prefix
+if the collection comes directly from the xAOD.
+The list of triggers must be given as a regular expression using an or (|) if
+more than a trigger is requested. To request all triggers, use *.</p>
+</div>
+<div class="section" id="jetcalibrator">
+<h3>JetCalibrator<a class="headerlink" href="#jetcalibrator" title="Permalink to this headline">¶</a></h3>
+<p>The JetCalibrator Algorithm handles the calibration, cleaning, and
+common uncertainties associated with Jets. It interfaces with many
+JetETMiss packages. The output is a shallow copy of the input jet
+container (i.e. a new xAOD::JetCollection). A separate shallow copy is
+made for each systematic variation requested, and the names of the
+containers are saved in a vector for downstream algorithms to use. The
+algorithm does not apply any selection to the jets.</p>
+<p>The parameters to control the Algorithm are described in the header
+documentation:
+<a class="reference external" href="https://github.com/UCATLAS/xAODAnaHelpers/wiki/xAH_JetCalibrator.h">https://github.com/UCATLAS/xAODAnaHelpers/wiki/xAH_JetCalibrator.h</a></p>
+<div class="section" id="calibration">
+<h4>Calibration<a class="headerlink" href="#calibration" title="Permalink to this headline">¶</a></h4>
+<p>Jets are calibrated using JetCalibTools. The option CalibSequence
+determines the calibration sequence to be applied. &#8220;Insitu&#8221; in
+automatically added to data samples if it is not provided, and MC jobs
+will fail if it is included. Config file options can be provided with
+CalibConfigData, CalibConfigAFII, and CalibConfigFullSim. The config
+variable to use is determined from metadata.</p>
+<ol class="arabic simple">
+<li>Sort - Sort the output jets by pT</li>
+<li>SetAFII - Force AFII configurations (in case metadata isn&#8217;t working)</li>
+<li>InputContainer - Jet Collection to use</li>
+<li>OutputContainer - Output Jet Collection for calibrated jets</li>
+<li>JetAlgorithm - Input Jet Algorithm</li>
+<li>OutputAlgo - Output Jet Algorithm</li>
+</ol>
+</div>
+<div class="section" id="jes-jer-uncertainties">
+<h4>JES/JER Uncertainties<a class="headerlink" href="#jes-jer-uncertainties" title="Permalink to this headline">¶</a></h4>
+<p>Outputs new containers for each systematic variation.</p>
+<p>For JES: Uses JetUncertaintiesTool. JES is different for AFII, so
+m_setAFII may be required if metadata isn&#8217;t working. 1. JESUncertConfig
+- Configuration file for JES 2. JESUncertMCType - Type of JES
+Uncertainty to use, MC15 or MC12</p>
+<p>For JER: Uses JERSmearingTool 1. JERUncertConfig - Configuration file
+for JER 2. JERFullSys - Run full list of systematics for data and MC.
+Not currently recommended by JER Group (10/08/2015). 3. JERApplyNominal
+- Apply a nominal JER Smearing.</p>
+</div>
+<div class="section" id="cleaning">
+<h4>Cleaning<a class="headerlink" href="#cleaning" title="Permalink to this headline">¶</a></h4>
+<p>Cleaning decisions are saved as auxiliary data; No selections are made
+to the container. The decision is saved as an auxdecor with names like
+clean_passLooseBadUgly clean_pass Settings: 1. JetCleanCutLevel - Cut
+Level, may be LooseBad or TightBad 2. JetCleanUgly - Clean Ugly Jets (in
+gap region) 3. SaveAllCleanDecisions - Save all four decisions
+(LooseBad, LooseBadUgly, TightBad, TightBadUgly) 4. CleanParent - Apply
+cleaning decision to the jet&#8217;s parent</p>
+</div>
+<div class="section" id="jvt-recalculation">
+<h4>JVT Recalculation<a class="headerlink" href="#jvt-recalculation" title="Permalink to this headline">¶</a></h4>
+<p>If RedoJVT is set, the JVT is recalculated.</p>
+</div>
+</div>
+<div class="section" id="jetselector">
+<h3>JetSelector<a class="headerlink" href="#jetselector" title="Permalink to this headline">¶</a></h3>
+<p>Applies cuts on the input jet collection(s). The jets can be decorated
+with the decision of the cuts. A new xAOD::JetCollection can be made
+from the ones passing the cuts.</p>
+</div>
+<div class="section" id="jethists-and-jethistsalgo">
+<h3>JetHists and JetHistsAlgo<a class="headerlink" href="#jethists-and-jethistsalgo" title="Permalink to this headline">¶</a></h3>
+<p>JetHists is a class of histograms for jet variables. In the constructor
+one gives a name which is used as the first half of the name of all the
+histograms in the class and the detail string which determines which
+plots are made. One can declare a JetHists object in the event selection
+algorithm and fill the hists with every jet in a collection or pick jets
+by hand to fill histograms.This is done in the example event selection
+described below. JetHistsAlgo is a algorithm that holds a JetHists
+object and fills it with every jet in the user specified container.</p>
+</div>
+<div class="section" id="bjetefficiencycorrector">
+<h3>BJetEfficiencyCorrector<a class="headerlink" href="#bjetefficiencycorrector" title="Permalink to this headline">¶</a></h3>
+<p>This Algo wraps two flavor tagging tools - one returns the decision on
+if the jet is tagged or not for the given operating point (OP) and the
+other returns the efficiency scale factors needed for MC only. Like
+other Algos, &#8220;All&#8221; gives all the systematic variations. Two decorations
+are added to the input jets: 1. The B-Tag decision. Decoration name
+(default)
+&#8220;BTag_:math:<cite>{OP}&#8221;  2. The B-Tag efficiency scale factor. If the jet fails the cut the inefficiency scale factor is saved. Decoration name (default) &#8220;BTAG_SF_</cite>{OP}&#8221;.
+This decoration is not added if the OP has not been calibrated.</p>
+<p>The available <strong>calibrated</strong> operating points in the <a class="reference external" href="https://twiki.cern.ch/twiki/bin/view/AtlasProtected/BTagCalib2015#Pre_Recommendation_August_2015">August 2015 CDI
+file</a>
+for <em>fixed</em> b-jet efficiencies: * FixedCutBEff_60 * FixedCutBEff_70
+* FixedCutBEff_77 * FixedCutBEff_85</p>
+<p>and the <em>fixed</em> cut <strong>un-calibrated</strong> operating points are: *
+FixedCutBEff_30 * FixedCutBEff_50 * FixedCutBEff_80 *
+FixedCutBEff_90</p>
+<p>Finally, the <em>flat</em> efficiency <strong>un-calibrated</strong> operating points are:
+* FlatBEff_30 * FlatBEff_40 * FlatBEff_50 * FlatBEff_60 *
+FlatBEff_70 * FlatBEff_77 * FlatBEff_85</p>
+<p>These decorations can be added to a TTree via HelpTreeBase. The info
+switch looks for &#8220;<em>sfFTagFix</em>&#8221; and &#8220;<em>sfFTagFlt</em>&#8221; for the fixed and
+flat efficiency OPs respectively. &#8220;<em>sfFTagFix607785</em>&#8221; will try to add
+the decision and efficiency/inefficiency scale factors for the fixed 60,
+70, and 85% b-jet efficiency OPs to the tree. The user must also create
+and run BJetEfficiencyCorrector for each OP.</p>
+<p>Note: To those paying attention. Currently the two flavor tagging tools
+use different names for the same operating point. This is handled
+internally in xAH until the flavor tagging group harmonizes the two.</p>
+</div>
+</div>
+<div class="section" id="muon-related">
+<h2>Muon Related<a class="headerlink" href="#muon-related" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="muoncalibrator">
+<h3>MuonCalibrator<a class="headerlink" href="#muoncalibrator" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="muonefficiencycorrector">
+<h3>MuonEfficiencyCorrector<a class="headerlink" href="#muonefficiencycorrector" title="Permalink to this headline">¶</a></h3>
+<p>Produces a container of muons decorated with efficiencies and scale factors.
+This container is not simply the one in input, but is a deepCopy of that.
+This allows flexibility in decorating muons of systematically altered containers.
+The output container has a configurable name and is only created for MC events.
+When working with systematic uncertainties, a list of systematics is passed
+to this algorithm <em>m_inputAlgoSystNames</em>. This algorithm supports comma
+separated lists as inputs, which will be considered as a unique list. The
+systematic names in this list will be looked for to retrieve the muon containers
+to decorate. Systematic variations on the decorations themselves might be
+unnecessary for all systematic muon containers and might only be considered
+for the nominal container (need of deepCopy). This is the default configuration.
+Otherwise the  option <em>m_decorateWithNomOnInputSys</em>can be set to false.
+The algorithm features the option <em>m_sysNamesForParCont</em>which is a list of systematic
+names. For each of them, a copy of the nominal muon container is put in the
+store carrying the name of the systematic. These containers are only decorated
+with the nominal efficiencies and scale factors. The use case of this are MET
+systematics for which one does not want systematic variations on efficiencies,
+but still wants to retrieve a nominal muon container in the tree algo. Retrieving
+the nominal would indeed carry all the unnecessary uncertainties.</p>
+</div>
+<div class="section" id="muonselector">
+<h3>MuonSelector<a class="headerlink" href="#muonselector" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="muonhists-and-muonhistsalgo">
+<h3>MuonHists and MuonHistsAlgo<a class="headerlink" href="#muonhists-and-muonhistsalgo" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="electron-related">
+<h2>Electron Related<a class="headerlink" href="#electron-related" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="electroncalibrator">
+<h3>ElectronCalibrator<a class="headerlink" href="#electroncalibrator" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="electronefficiencycorrector">
+<h3>ElectronEfficiencyCorrector<a class="headerlink" href="#electronefficiencycorrector" title="Permalink to this headline">¶</a></h3>
+<p>See the MuonEfficiencyCorrector</p>
+</div>
+<div class="section" id="electronselector">
+<h3>ElectronSelector<a class="headerlink" href="#electronselector" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="electronhists-and-electronhistsalgo">
+<h3>ElectronHists and ElectronHistsAlgo<a class="headerlink" href="#electronhists-and-electronhistsalgo" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="tau-related">
+<h2>Tau Related<a class="headerlink" href="#tau-related" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="taucalibrator">
+<h3>TauCalibrator<a class="headerlink" href="#taucalibrator" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="tauselector">
+<h3>TauSelector<a class="headerlink" href="#tauselector" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="helperfunctions">
+<h2>HelperFunctions<a class="headerlink" href="#helperfunctions" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="helperclasses">
+<h2>HelperClasses<a class="headerlink" href="#helperclasses" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="ntuple-creation">
+<h2>NTuple Creation<a class="headerlink" href="#ntuple-creation" title="Permalink to this headline">¶</a></h2>
+<p>HelpTreeBase is a class (not an algorithm) that creates and fills a
+TTree. When adding an object type i.e. jet, muon, or event level
+quantities, it can be easily configured with &#8220;info switches&#8221; ( See
+HelperClasses ) that take a space separated list of categories.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Development.html" class="btn btn-neutral float-right" title="Development" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="UsingUs.html" class="btn btn-neutral" title="xAH_run.py" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015-2017, ATLAS Collaboration.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'01-00-00-46-g45a2bda',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

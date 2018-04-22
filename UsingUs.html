@@ -1,0 +1,981 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>xAH_run.py &mdash; xAODAnaHelpers 01-00-00-46-g45a2bda documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="xAODAnaHelpers 01-00-00-46-g45a2bda documentation" href="index.html"/>
+        <link rel="next" title="Algorithms" href="Algorithms.html"/>
+        <link rel="prev" title="Installing" href="Installing.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> xAODAnaHelpers
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                01.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installing.html">Installing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">xAH_run.py</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#a-simple-plotting-example">A simple plotting example</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-algorithms-to-run">What algorithms to run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-script">Running the script</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-samples">Configuring Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-details">Configuration Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api-reference">API Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Algorithms.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQs.html">xAH FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">xAODAnaHelpers</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>xAH_run.py</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/UsingUs.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="xah-run-py">
+<h1>xAH_run.py<a class="headerlink" href="#xah-run-py" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal"><span class="pre">xAH_run.py</span></code> is the xAODAnaHelpers macro written fully in python. The
+goal is to make it easier for a user to spin up an analysis without
+(potentially) writing any C++ code at all!</p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>An analysis job is defined by a few key things:
+- the files to run over
+- where to run the code
+- what algorithms to run</p>
+<p>and a few other minor features such as submission directory or how many events to run. Primarily, these three things listed above are all you need to get started. <code class="docutils literal"><span class="pre">xAH_run.py</span></code> manages all of these for you.</p>
+<p>A configuration file, written in <a class="reference external" href="http://www.json.org/">json</a> or <a class="reference external" href="https://www.python.org/">python</a>, is used to specify what algorithms to run, and in what order. You pass in a list of files you want to run over to the script itself, as well as where to run the code. It will take care of the rest for you.</p>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>To get started, we assume you are little bit familiar with xAODAnaHelpers and AnalysisBase in general. Recall that when you compile a bunch of packages, you generate a namespace under <code class="docutils literal"><span class="pre">ROOT</span></code> that all your algorithms are loaded into so that one could create an algorithm by something like <code class="docutils literal"><span class="pre">ROOT.AlgorithmName()</span></code> and then start configuring it. In fact, this is how one normally does it within python. Namespaces are automatically linked up by something like <code class="docutils literal"><span class="pre">ROOT.Namespace.AlgorithmName()</span></code> in case you wrapped the entire algorithm in a namespace.</p>
+<div class="section" id="a-simple-plotting-example">
+<h3>A simple plotting example<a class="headerlink" href="#a-simple-plotting-example" title="Permalink to this headline">¶</a></h3>
+<p>To get started, let&#8217;s just ask a simple question: &#8220;How can I make plots of Anti-Kt, R=0.4, LC-calibrated jets?&#8221; Let&#8217;s assume <code class="docutils literal"><span class="pre">xAODAnaHelpers</span></code> has already been checked out and everything is compiled. We only need to know the three key things.</p>
+<div class="section" id="what-algorithms-to-run">
+<h4>What algorithms to run<a class="headerlink" href="#what-algorithms-to-run" title="Permalink to this headline">¶</a></h4>
+<p>We will run 2 algorithms. First is <code class="xref py py-class docutils literal"><span class="pre">BasicEventSelection</span></code> to filter/clean events. The second is <code class="xref py py-class docutils literal"><span class="pre">JetHistsAlgo</span></code> which will allow us to plot the jets we want. So start with the template JSON file:</p>
+<div class="code json highlight-c++"><div class="highlight"><pre><span class="p">[</span>
+  <span class="p">{</span> <span class="s">&quot;class&quot;</span><span class="o">:</span> <span class="s">&quot;BasicEventSelection&quot;</span><span class="p">,</span>
+    <span class="s">&quot;configs&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s">&quot;class&quot;</span><span class="o">:</span> <span class="s">&quot;JetHistsAlgo&quot;</span><span class="p">,</span>
+    <span class="s">&quot;configs&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>This gets us started. We make a list of algorithms that we want to run, this list is considered <em>sorted</em>. Each list contains a dictionary object, one which defines the <code class="docutils literal"><span class="pre">class</span></code> to run and another which defines a dictionary of configurations to pass into that algorithm. An equivalent script in python looks like</p>
+<div class="code python highlight-c++"><div class="highlight"><pre><span class="n">from</span> <span class="n">xAODAnaHelpers</span> <span class="n">import</span> <span class="n">Config</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+
+<span class="n">c</span><span class="p">.</span><span class="n">setalg</span><span class="p">(</span><span class="s">&quot;BasicEventSelection&quot;</span><span class="p">,</span> <span class="p">{})</span>
+<span class="n">c</span><span class="p">.</span><span class="n">setalg</span><span class="p">(</span><span class="s">&quot;JetHistsAlgo&quot;</span><span class="p">,</span> <span class="p">{})</span>
+</pre></div>
+</div>
+<p>Next, we should probably add some obvious configurations that work for us. I look up the header files of each and decide to flesh it out as below:</p>
+<div class="code json highlight-c++"><div class="highlight"><pre><span class="p">[</span>
+  <span class="p">{</span> <span class="s">&quot;class&quot;</span><span class="o">:</span> <span class="s">&quot;BasicEventSelection&quot;</span><span class="p">,</span>
+    <span class="s">&quot;configs&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s">&quot;m_truthLevelOnly&quot;</span><span class="o">:</span> <span class="nb">false</span><span class="p">,</span>
+      <span class="s">&quot;m_applyGRLCut&quot;</span><span class="o">:</span> <span class="nb">true</span><span class="p">,</span>
+      <span class="s">&quot;m_GRLxml&quot;</span><span class="o">:</span> <span class="s">&quot;$ROOTCOREBIN/data/xAODAnaHelpers/data12_8TeV.periodAllYear_DetStatus-v61-pro14-02_DQDefects-00-01-00_PHYS_StandardGRL_All_Good.xml&quot;</span><span class="p">,</span>
+      <span class="s">&quot;m_doPUreweighting&quot;</span><span class="o">:</span> <span class="nb">false</span><span class="p">,</span>
+      <span class="s">&quot;m_vertexContainerName&quot;</span><span class="o">:</span> <span class="s">&quot;PrimaryVertices&quot;</span><span class="p">,</span>
+      <span class="s">&quot;m_PVNTrack&quot;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="s">&quot;m_name&quot;</span><span class="o">:</span> <span class="s">&quot;myBaseEventSel&quot;</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s">&quot;class&quot;</span><span class="o">:</span> <span class="s">&quot;JetHistsAlgo&quot;</span><span class="p">,</span>
+    <span class="s">&quot;configs&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s">&quot;m_inContainerName&quot;</span><span class="o">:</span> <span class="s">&quot;AntiKt4EMTopoJets&quot;</span><span class="p">,</span>
+      <span class="s">&quot;m_detailStr&quot;</span><span class="o">:</span> <span class="s">&quot;kinematic&quot;</span><span class="p">,</span>
+      <span class="s">&quot;m_name&quot;</span><span class="o">:</span> <span class="s">&quot;NoPreSel&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>and I save this into <code class="docutils literal"><span class="pre">xah_run_example.json</span></code>. If you want more variables in your plots, add other possibilities in the detailStr field, separated by a space. Equivalently in python</p>
+<div class="code python highlight-c++"><div class="highlight"><pre><span class="n">from</span> <span class="n">xAODAnaHelpers</span> <span class="n">import</span> <span class="n">Config</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+
+<span class="n">c</span><span class="p">.</span><span class="n">setalg</span><span class="p">(</span><span class="s">&quot;BasicEventSelection&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s">&quot;m_truthLevelOnly&quot;</span><span class="o">:</span> <span class="nb">false</span><span class="p">,</span>
+                                 <span class="s">&quot;m_applyGRLCut&quot;</span><span class="o">:</span> <span class="nb">true</span><span class="p">,</span>
+                                 <span class="s">&quot;m_GRLxml&quot;</span><span class="o">:</span> <span class="s">&quot;$ROOTCOREBIN/data/xAODAnaHelpers/data12_8TeV.periodAllYear_DetStatus-v61-pro14-02_DQDefects-00-01-00_PHYS_StandardGRL_All_Good.xml&quot;</span><span class="p">,</span>
+                                 <span class="s">&quot;m_doPUreweighting&quot;</span><span class="o">:</span> <span class="nb">false</span><span class="p">,</span>
+                                 <span class="s">&quot;m_vertexContainerName&quot;</span><span class="o">:</span> <span class="s">&quot;PrimaryVertices&quot;</span><span class="p">,</span>
+                                 <span class="s">&quot;m_PVNTrack&quot;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+                                 <span class="s">&quot;m_name&quot;</span><span class="o">:</span> <span class="s">&quot;myBaseEventSel&quot;</span><span class="p">})</span>
+<span class="n">c</span><span class="p">.</span><span class="n">setalg</span><span class="p">(</span><span class="s">&quot;JetHistsAlgo&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s">&quot;m_inContainerName&quot;</span><span class="o">:</span> <span class="s">&quot;AntiKt4EMTopoJets&quot;</span><span class="p">,</span>
+                          <span class="s">&quot;m_detailStr&quot;</span><span class="o">:</span> <span class="s">&quot;kinematic&quot;</span><span class="p">,</span>
+                          <span class="s">&quot;m_name&quot;</span><span class="o">:</span> <span class="s">&quot;NoPreSel&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>The similarity is on purpose, to make it incredibly easy to switch back and forth between the two formats.</p>
+</div>
+<div class="section" id="running-the-script">
+<h4>Running the script<a class="headerlink" href="#running-the-script" title="Permalink to this headline">¶</a></h4>
+<p>I pretty much have everything I need to work with. So, I run the following command</p>
+<div class="code bash highlight-c++"><div class="highlight"><pre><span class="n">xAH_run</span><span class="p">.</span><span class="n">py</span> <span class="o">--</span><span class="n">files</span> <span class="n">file1</span><span class="p">.</span><span class="n">root</span> <span class="n">file2</span><span class="p">.</span><span class="n">root</span> <span class="o">--</span><span class="n">config</span> <span class="n">xah_run_example</span><span class="p">.</span><span class="n">json</span> <span class="n">direct</span>
+</pre></div>
+</div>
+<p>which will run over two ROOT files locally (<code class="docutils literal"><span class="pre">direct</span></code>), using the configuration we made. Running with the python form of the configuration is just as easy</p>
+<div class="code bash highlight-c++"><div class="highlight"><pre><span class="n">xAH_run</span><span class="p">.</span><span class="n">py</span> <span class="o">--</span><span class="n">files</span> <span class="n">file1</span><span class="p">.</span><span class="n">root</span> <span class="n">file2</span><span class="p">.</span><span class="n">root</span> <span class="o">--</span><span class="n">config</span> <span class="n">xah_run_example</span><span class="p">.</span><span class="n">py</span> <span class="n">direct</span>
+</pre></div>
+</div>
+<p>We&#8217;re all done! That was easy :beers: .</p>
+</div>
+</div>
+</div>
+<div class="section" id="configuring-samples">
+<h2>Configuring Samples<a class="headerlink" href="#configuring-samples" title="Permalink to this headline">¶</a></h2>
+<p>Sample configuration can be done with a python script like so</p>
+<div class="code python highlight-c++"><div class="highlight"><pre>from xAODAnaHelpers import Config
+c = Config()
+
+c.sample(410000, foo=&#39;bar&#39;, hello=&#39;world&#39;)
+c.sample(&quot;p9495&quot;, foo=&#39;bar&#39;, hello=&#39;world&#39;, b=1, c=2.0, d=True)
+</pre></div>
+</div>
+<p>where the pattern specified in <code class="docutils literal"><span class="pre">Config::sample</span></code> will be searched for inside the name of the dataset (not the name of the file!). Specifically, we just do something like <code class="docutils literal"><span class="pre">if</span> <span class="pre">pattern</span> <span class="pre">in</span> <span class="pre">sample.name()</span></code> in order to flag that sample. Given this, you can make this pattern generic enough to apply a configuration to a specific p-tag, or to a specific dataset ID (DSID) as well. The above will produce the following output when running</p>
+<div class="code bash highlight-c++"><div class="highlight"><pre><span class="p">[</span><span class="n">WARNING</span><span class="p">]</span>  <span class="n">No</span> <span class="n">matching</span> <span class="n">sample</span> <span class="n">found</span> <span class="k">for</span> <span class="n">pattern</span> <span class="mi">410000</span>
+<span class="p">[</span><span class="n">INFO</span>   <span class="p">]</span>  <span class="n">Setting</span> <span class="n">sample</span> <span class="n">metadata</span> <span class="k">for</span> <span class="n">example</span><span class="p">.</span><span class="n">sample</span><span class="p">.</span><span class="n">p9495</span><span class="p">.</span><span class="n">root</span>
+<span class="p">[</span><span class="n">INFO</span>   <span class="p">]</span>       <span class="o">-</span> <span class="n">sample</span><span class="p">.</span><span class="n">meta</span><span class="p">().</span><span class="n">setDouble</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+<span class="p">[</span><span class="n">INFO</span>   <span class="p">]</span>       <span class="o">-</span> <span class="n">sample</span><span class="p">.</span><span class="n">meta</span><span class="p">().</span><span class="n">setString</span><span class="p">(</span><span class="n">foo</span><span class="p">,</span> <span class="n">bar</span><span class="p">)</span>
+<span class="p">[</span><span class="n">INFO</span>   <span class="p">]</span>       <span class="o">-</span> <span class="n">sample</span><span class="p">.</span><span class="n">meta</span><span class="p">().</span><span class="n">setInteger</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">[</span><span class="n">INFO</span>   <span class="p">]</span>       <span class="o">-</span> <span class="n">sample</span><span class="p">.</span><span class="n">meta</span><span class="p">().</span><span class="n">setString</span><span class="p">(</span><span class="n">hello</span><span class="p">,</span> <span class="n">world</span><span class="p">)</span>
+<span class="p">[</span><span class="n">INFO</span>   <span class="p">]</span>       <span class="o">-</span> <span class="n">sample</span><span class="p">.</span><span class="n">meta</span><span class="p">().</span><span class="n">setBool</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>which should make it easy for you to understand what options are being set and for which sample.</p>
+</div>
+<div class="section" id="configuration-details">
+<h2>Configuration Details<a class="headerlink" href="#configuration-details" title="Permalink to this headline">¶</a></h2>
+<p>As mentioned previous, there are multiple facets to <code class="docutils literal"><span class="pre">xAH_run.py</span></code>. The below details the configurations that are possible for the script itself, not for the algorithms you use. For details on what can be configured, look up the header files of the algorithms themselves.</p>
+<p>For everything listed below, the script contains all this information and is self-documenting. Simply type</p>
+<div class="code bash highlight-c++"><div class="highlight"><pre><span class="n">xAH_run</span><span class="p">.</span><span class="n">py</span> <span class="o">-</span><span class="n">h</span>
+</pre></div>
+</div>
+<p>to see all the help information.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <code class="docutils literal"><span class="pre">{driver}</span></code> option tells the script where to run the code. There are lots of supported drivers and more can be added if you request it. For more information, you can type <code class="docutils literal"><span class="pre">xAH_run.py</span> <span class="pre">-h</span> <span class="pre">drivers</span></code> of available drivers.</p>
+</div>
+</div>
+<div class="section" id="api-reference">
+<span id="xahrunapi"></span><h2>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If you are using a CMake-based release, or you have <code class="docutils literal"><span class="pre">argcomplete</span></code> in your python environment, you can enable automatic completion of the options. For example, running something like this:</p>
+<p class="last">eval &#8220;$(register-python-argcomplete xAH_run.py)&#8221;</p>
+</div>
+<p>Spin up an analysis instantly!</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="nl">usage</span><span class="p">:</span> <span class="n">xAH_run</span><span class="p">.</span><span class="n">py</span> <span class="o">--</span><span class="n">files</span> <span class="p">...</span> <span class="n">file</span> <span class="p">[</span><span class="n">file</span> <span class="p">...]</span>
+                  <span class="o">--</span><span class="n">config</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file</span><span class="p">.</span><span class="n">json</span>
+                  <span class="p">[</span><span class="n">options</span><span class="p">]</span>
+                  <span class="n">driver</span> <span class="p">[</span><span class="n">driver</span> <span class="n">options</span><span class="p">]</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Options:</dt>
+<dd><table class="first last docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-h</span>, <span class="option">--help</span></kbd></td>
+<td>show this help message and exit. You can also pass in the name of a subsection.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--files</span></kbd></td>
+<td>input file(s) to read. This gives all the input files for the script to use. Depending on the other options specified, these could be rucio sample names, local paths, or text files containing a list of filenames/paths.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--config</span></kbd></td>
+<td>configuration for the algorithms. This tells the script which algorithms to load, configure, run, and in which order. Without it, it becomes a headless chicken.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--submitDir=submitDir</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>Output directory to store the output.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--nevents=0</span></kbd></td>
+<td>Number of events to process for all datasets. (0 = no limit)</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--skip=0</span></kbd></td>
+<td>Number of events to skip at start for all datasets. (0 = no limit)</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-f=False</span>, <span class="option">--force=False</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>Overwrite previous directory if it exists.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--version</span></kbd></td>
+<td>01-00-00-46-g45a2bda</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--mode=class</span></kbd></td>
+<td><p class="first">run using class access mode, branch access mode, or athena access mode</p>
+<p><a class="reference external" href="https://github.com/kratsg/TheAccountant/wiki/Access-Mode">class access</a> mode or <a class="reference external" href="https://github.com/kratsg/TheAccountant/wiki/Access-Mode">branch access</a> mode</p>
+<p class="last">Possible choices: class, branch, athena</p>
+</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--treeName=CollectionTree</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>Tree Name to run on</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--isMC=False</span></kbd></td>
+<td>Running MC</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--isAFII=False</span></kbd></td>
+<td>Running on AFII</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--extraOptions=</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>Pass in extra options straight into the python config file. These can be accessed by using argparse: `parser.parse_args(shlex.split(args.extra_options))`.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--inputList=False</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>If enabled, will read in a text file containing a list of paths/filenames.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--inputTag=</span></kbd></td>
+<td>A wildcarded name of input files to run on.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--inputRucio=False</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>If enabled, will search using Rucio. Can be combined with `&#8211;inputList`.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--inputEOS=False</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>If enabled, will search using EOS. Can be combined with `&#8211;inputList and inputTag`.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--inputSH=False</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>If enabled, will assume the input file is a directory of ROOT files of saved SH instances to use. Call SH::SampleHandler::load() on it.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--scanXRD=False</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>If enabled, will search the xrootd server for the given pattern</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-l=info</span>, <span class="option">--log-level=info</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>Logging level. See https://docs.python.org/3/howto/logging.html for more info.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--stats=False</span></kbd></td>
+<td>If enabled, will variable usage statistics.</td></tr>
+</tbody>
+</table>
+</dd>
+<dt>Sub-commands:</dt>
+<dd><dl class="first last docutils">
+<dt><strong>direct</strong></dt>
+<dd><p class="first">Run your jobs locally.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="nl">usage</span><span class="p">:</span> <span class="n">xAH_run</span><span class="p">.</span><span class="n">py</span> <span class="o">--</span><span class="n">files</span> <span class="p">...</span> <span class="n">file</span> <span class="p">[</span><span class="n">file</span> <span class="p">...]</span>
+                  <span class="o">--</span><span class="n">config</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file</span><span class="p">.</span><span class="n">json</span>
+                  <span class="p">[</span><span class="n">options</span><span class="p">]</span>
+                  <span class="n">direct</span> <span class="p">[</span><span class="n">direct</span> <span class="n">options</span><span class="p">]</span>
+</pre></div>
+</div>
+<dl class="last docutils">
+<dt>Options:</dt>
+<dd><table class="first last docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optSubmitFlags</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for supplying extra submit parameters to batch systems</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optEventsPerWorker</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for selecting the number of events per batch job.  (only BatchDriver and derived drivers). warning: this option will be ignored unless you have called SH::scanNEvents first.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optFilesPerWorker</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for selecting the number of files per batch job.  (only BatchDriver and derived drivers).</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optDisableMetrics</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the option to turn off collection of performance data</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optPrintPerFileStats</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the option to turn on printing of i/o statistics at the end of each file. warning: this is not supported for all drivers.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optRemoveSubmitDir</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for overwriting the submission directory.  if you set this to a non-zero value it will remove any existing submit-directory before tryingto create a new one. You can also use -f/&#8211;force as well in xAH_run.py.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optBatchSharedFileSystem=False</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>enable to signify whether your batch driver is running on a shared filesystem</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optBatchWait=False</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>submit using the submit() command. This causes the code to wait until all jobs are finished and then merge all of the outputs automatically</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optBatchShellInit=</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>extra code to execute on each batch node before starting EventLoop</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd>
+<dt><strong>prooflite</strong></dt>
+<dd><p class="first">Run your jobs using ProofLite</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="nl">usage</span><span class="p">:</span> <span class="n">xAH_run</span><span class="p">.</span><span class="n">py</span> <span class="o">--</span><span class="n">files</span> <span class="p">...</span> <span class="n">file</span> <span class="p">[</span><span class="n">file</span> <span class="p">...]</span>
+                  <span class="o">--</span><span class="n">config</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file</span><span class="p">.</span><span class="n">json</span>
+                  <span class="p">[</span><span class="n">options</span><span class="p">]</span>
+                  <span class="n">prooflite</span> <span class="p">[</span><span class="n">prooflite</span> <span class="n">options</span><span class="p">]</span>
+</pre></div>
+</div>
+<dl class="last docutils">
+<dt>Options:</dt>
+<dd><table class="first last docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optSubmitFlags</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for supplying extra submit parameters to batch systems</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optEventsPerWorker</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for selecting the number of events per batch job.  (only BatchDriver and derived drivers). warning: this option will be ignored unless you have called SH::scanNEvents first.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optFilesPerWorker</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for selecting the number of files per batch job.  (only BatchDriver and derived drivers).</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optDisableMetrics</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the option to turn off collection of performance data</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optPrintPerFileStats</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the option to turn on printing of i/o statistics at the end of each file. warning: this is not supported for all drivers.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optRemoveSubmitDir</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for overwriting the submission directory.  if you set this to a non-zero value it will remove any existing submit-directory before tryingto create a new one. You can also use -f/&#8211;force as well in xAH_run.py.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optBatchSharedFileSystem=False</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>enable to signify whether your batch driver is running on a shared filesystem</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optBatchWait=False</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>submit using the submit() command. This causes the code to wait until all jobs are finished and then merge all of the outputs automatically</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optBatchShellInit=</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>extra code to execute on each batch node before starting EventLoop</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--optPerfTree</span></kbd></td>
+<td>the option to turn on the performance tree in PROOF.  if this is set to 1, it will write out the tree</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optBackgroundProcess</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the option to do processing in a background process in PROOF</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd>
+<dt><strong>prun</strong></dt>
+<dd><p class="first">Run your jobs on the grid using prun. Use prun &#8211;help for descriptions of the options.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="nl">usage</span><span class="p">:</span> <span class="n">xAH_run</span><span class="p">.</span><span class="n">py</span> <span class="o">--</span><span class="n">files</span> <span class="p">...</span> <span class="n">file</span> <span class="p">[</span><span class="n">file</span> <span class="p">...]</span>
+                  <span class="o">--</span><span class="n">config</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file</span><span class="p">.</span><span class="n">json</span>
+                  <span class="p">[</span><span class="n">options</span><span class="p">]</span>
+                  <span class="n">prun</span> <span class="p">[</span><span class="n">prun</span> <span class="n">options</span><span class="p">]</span>
+</pre></div>
+</div>
+<dl class="last docutils">
+<dt>Options:</dt>
+<dd><table class="first last docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optSubmitFlags</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for supplying extra submit parameters to batch systems</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optEventsPerWorker</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for selecting the number of events per batch job.  (only BatchDriver and derived drivers). warning: this option will be ignored unless you have called SH::scanNEvents first.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optFilesPerWorker</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for selecting the number of files per batch job.  (only BatchDriver and derived drivers).</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optDisableMetrics</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the option to turn off collection of performance data</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optPrintPerFileStats</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the option to turn on printing of i/o statistics at the end of each file. warning: this is not supported for all drivers.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optRemoveSubmitDir</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for overwriting the submission directory.  if you set this to a non-zero value it will remove any existing submit-directory before tryingto create a new one. You can also use -f/&#8211;force as well in xAH_run.py.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optBatchSharedFileSystem=False</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>enable to signify whether your batch driver is running on a shared filesystem</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optBatchWait=False</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>submit using the submit() command. This causes the code to wait until all jobs are finished and then merge all of the outputs automatically</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optBatchShellInit=</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>extra code to execute on each batch node before starting EventLoop</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optGridDestSE</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>Undocumented</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--optGridSite</span></kbd></td>
+<td>Undocumented</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--optGridCloud</span></kbd></td>
+<td>Undocumented</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optGridExcludedSite</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>Undocumented</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optGridNGBPerJob=2</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>Undocumented</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optGridMemory</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>Undocumented</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optGridMaxCpuCount</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>Undocumented</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optGridNFiles</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>Undocumented</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optGridNFilesPerJob</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>Undocumented</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--optGridNJobs</span></kbd></td>
+<td>Undocumented</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optGridMaxFileSize</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>Undocumented</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optGridMaxNFilesPerJob</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>Undocumented</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optGridUseChirpServer</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>Undocumented</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optGridExpress</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>Undocumented</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optGridNoSubmit</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>Undocumented</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optGridMergeOutput</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>Undocumented</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--optTmpDir</span></kbd></td>
+<td>Undocumented</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--optRootVer</span></kbd></td>
+<td>Undocumented</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--optCmtConfig</span></kbd></td>
+<td>Undocumented</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optGridDisableAutoRetry</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>Undocumented</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--optOfficial</span></kbd></td>
+<td>Undocumented</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--optVoms</span></kbd></td>
+<td>Undocumented</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optGridOutputSampleName=user.%nickname%.%in:name[2]%.%in:name[3]%.%in:name[6]%.%in:name[7]%_xAH</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>Define output grid sample name</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--singleTask=False</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>Submit all input datasets under a single task.</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd>
+<dt><strong>condor</strong></dt>
+<dd><p class="first">Flock your jobs to condor</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="nl">usage</span><span class="p">:</span> <span class="n">xAH_run</span><span class="p">.</span><span class="n">py</span> <span class="o">--</span><span class="n">files</span> <span class="p">...</span> <span class="n">file</span> <span class="p">[</span><span class="n">file</span> <span class="p">...]</span>
+                  <span class="o">--</span><span class="n">config</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file</span><span class="p">.</span><span class="n">json</span>
+                  <span class="p">[</span><span class="n">options</span><span class="p">]</span>
+                  <span class="n">condor</span> <span class="p">[</span><span class="n">condor</span> <span class="n">options</span><span class="p">]</span>
+</pre></div>
+</div>
+<dl class="last docutils">
+<dt>Options:</dt>
+<dd><table class="first last docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optSubmitFlags</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for supplying extra submit parameters to batch systems</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optEventsPerWorker</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for selecting the number of events per batch job.  (only BatchDriver and derived drivers). warning: this option will be ignored unless you have called SH::scanNEvents first.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optFilesPerWorker</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for selecting the number of files per batch job.  (only BatchDriver and derived drivers).</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optDisableMetrics</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the option to turn off collection of performance data</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optPrintPerFileStats</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the option to turn on printing of i/o statistics at the end of each file. warning: this is not supported for all drivers.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optRemoveSubmitDir</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for overwriting the submission directory.  if you set this to a non-zero value it will remove any existing submit-directory before tryingto create a new one. You can also use -f/&#8211;force as well in xAH_run.py.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optBatchSharedFileSystem=False</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>enable to signify whether your batch driver is running on a shared filesystem</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optBatchWait=False</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>submit using the submit() command. This causes the code to wait until all jobs are finished and then merge all of the outputs automatically</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optBatchShellInit=</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>extra code to execute on each batch node before starting EventLoop</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optCondorConf=stream_output = true</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for supplying extra parameters for condor systems</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd>
+<dt><strong>lsf</strong></dt>
+<dd><p class="first">Flock your jobs to lsf</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="nl">usage</span><span class="p">:</span> <span class="n">xAH_run</span><span class="p">.</span><span class="n">py</span> <span class="o">--</span><span class="n">files</span> <span class="p">...</span> <span class="n">file</span> <span class="p">[</span><span class="n">file</span> <span class="p">...]</span>
+                  <span class="o">--</span><span class="n">config</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file</span><span class="p">.</span><span class="n">json</span>
+                  <span class="p">[</span><span class="n">options</span><span class="p">]</span>
+                  <span class="n">lsf</span> <span class="p">[</span><span class="n">lsf</span> <span class="n">options</span><span class="p">]</span>
+</pre></div>
+</div>
+<dl class="last docutils">
+<dt>Options:</dt>
+<dd><table class="first last docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optSubmitFlags</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for supplying extra submit parameters to batch systems</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optEventsPerWorker</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for selecting the number of events per batch job.  (only BatchDriver and derived drivers). warning: this option will be ignored unless you have called SH::scanNEvents first.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optFilesPerWorker</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for selecting the number of files per batch job.  (only BatchDriver and derived drivers).</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optDisableMetrics</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the option to turn off collection of performance data</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optPrintPerFileStats</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the option to turn on printing of i/o statistics at the end of each file. warning: this is not supported for all drivers.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optRemoveSubmitDir</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for overwriting the submission directory.  if you set this to a non-zero value it will remove any existing submit-directory before tryingto create a new one. You can also use -f/&#8211;force as well in xAH_run.py.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optBatchSharedFileSystem=False</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>enable to signify whether your batch driver is running on a shared filesystem</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optBatchWait=False</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>submit using the submit() command. This causes the code to wait until all jobs are finished and then merge all of the outputs automatically</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optBatchShellInit=</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>extra code to execute on each batch node before starting EventLoop</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optResetShell=False</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the option to reset the shell on the worker nodes</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd>
+<dt><strong>slurm</strong></dt>
+<dd><p class="first">Flock your jobs to SLURM</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="nl">usage</span><span class="p">:</span> <span class="n">xAH_run</span><span class="p">.</span><span class="n">py</span> <span class="o">--</span><span class="n">files</span> <span class="p">...</span> <span class="n">file</span> <span class="p">[</span><span class="n">file</span> <span class="p">...]</span>
+                  <span class="o">--</span><span class="n">config</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file</span><span class="p">.</span><span class="n">json</span>
+                  <span class="p">[</span><span class="n">options</span><span class="p">]</span>
+                  <span class="n">slurm</span> <span class="p">[</span><span class="n">slurm</span> <span class="n">options</span><span class="p">]</span>
+</pre></div>
+</div>
+<dl class="last docutils">
+<dt>Options:</dt>
+<dd><table class="first last docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optSubmitFlags</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for supplying extra submit parameters to batch systems</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optEventsPerWorker</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for selecting the number of events per batch job.  (only BatchDriver and derived drivers). warning: this option will be ignored unless you have called SH::scanNEvents first.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optFilesPerWorker</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for selecting the number of files per batch job.  (only BatchDriver and derived drivers).</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optDisableMetrics</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the option to turn off collection of performance data</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optPrintPerFileStats</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the option to turn on printing of i/o statistics at the end of each file. warning: this is not supported for all drivers.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optRemoveSubmitDir</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for overwriting the submission directory.  if you set this to a non-zero value it will remove any existing submit-directory before tryingto create a new one. You can also use -f/&#8211;force as well in xAH_run.py.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optBatchSharedFileSystem=False</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>enable to signify whether your batch driver is running on a shared filesystem</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optBatchWait=False</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>submit using the submit() command. This causes the code to wait until all jobs are finished and then merge all of the outputs automatically</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optBatchShellInit=</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>extra code to execute on each batch node before starting EventLoop</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optSlurmAccount=atlas</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the account to use</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optSlurmPartition=shared-chos</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the partition to use</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optSlurmRunTime=24:00:00</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the maximum runtime</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optSlurmMemory=1800</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the maximum memory usage of the job (MB)</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optSlurmConstrain=</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the extra constrains on the nodes</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optSlurmExtraConfigLines=</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the extra config lines to pass to SLURM</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optSlurmWrapperExec=</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the wrapper around the run script</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd>
+<dt><strong>local</strong></dt>
+<dd><p class="first">Run using the LocalDriver</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="nl">usage</span><span class="p">:</span> <span class="n">xAH_run</span><span class="p">.</span><span class="n">py</span> <span class="o">--</span><span class="n">files</span> <span class="p">...</span> <span class="n">file</span> <span class="p">[</span><span class="n">file</span> <span class="p">...]</span>
+                  <span class="o">--</span><span class="n">config</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file</span><span class="p">.</span><span class="n">json</span>
+                  <span class="p">[</span><span class="n">options</span><span class="p">]</span>
+                  <span class="n">local</span> <span class="p">[</span><span class="n">local</span> <span class="n">options</span><span class="p">]</span>
+</pre></div>
+</div>
+<dl class="last docutils">
+<dt>Options:</dt>
+<dd><table class="first last docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optSubmitFlags</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for supplying extra submit parameters to batch systems</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optEventsPerWorker</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for selecting the number of events per batch job.  (only BatchDriver and derived drivers). warning: this option will be ignored unless you have called SH::scanNEvents first.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optFilesPerWorker</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for selecting the number of files per batch job.  (only BatchDriver and derived drivers).</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optDisableMetrics</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the option to turn off collection of performance data</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optPrintPerFileStats</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the option to turn on printing of i/o statistics at the end of each file. warning: this is not supported for all drivers.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optRemoveSubmitDir</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>the name of the option for overwriting the submission directory.  if you set this to a non-zero value it will remove any existing submit-directory before tryingto create a new one. You can also use -f/&#8211;force as well in xAH_run.py.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optBatchSharedFileSystem=False</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>enable to signify whether your batch driver is running on a shared filesystem</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optBatchWait=False</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>submit using the submit() command. This causes the code to wait until all jobs are finished and then merge all of the outputs automatically</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--optBatchShellInit=</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>extra code to execute on each batch node before starting EventLoop</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Algorithms.html" class="btn btn-neutral float-right" title="Algorithms" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Installing.html" class="btn btn-neutral" title="Installing" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015-2017, ATLAS Collaboration.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'01-00-00-46-g45a2bda',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

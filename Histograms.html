@@ -1,0 +1,562 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Histograms &mdash; xAODAnaHelpers 01-00-00-46-g45a2bda documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="xAODAnaHelpers 01-00-00-46-g45a2bda documentation" href="index.html"/>
+        <link rel="up" title="API Reference" href="API.html"/>
+        <link rel="next" title="ClusterHists" href="ClusterHists.html"/>
+        <link rel="prev" title="Truth" href="TruthSelector.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> xAODAnaHelpers
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                01.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UsingUs.html">xAH_run.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Algorithms.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQs.html">xAH FAQ</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="API.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Getters.html">Getting Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Calibrators.html">Calibrating Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Correctors.html">Efficiency Correcting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Selectors.html">Selecting Objects</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Histograms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#histogrammanager">HistogramManager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ClusterHists.html">ClusterHists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="JetHists.html">JetHists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MetHists.html">MetHists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MuonHists.html">MuonHists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TrackHists.html">TrackHists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="VtxHists.html">VtxHists</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#algorithms">Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ClusterHistsAlgo.html">ClusterHistsAlgo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="JetHistsAlgo.html">JetHistsAlgo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MetHistsAlgo.html">MetHistsAlgo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="MuonHistsAlgo.html">MuonHistsAlgo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TrackHistsAlgo.html">TrackHistsAlgo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ToolsUsed.html">Tools Used</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Outputs.html">Producing Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Utilities.html">Utilities</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">xAODAnaHelpers</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="API.html">API Reference</a> &raquo;</li>
+      
+    <li>Histograms</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/Histograms.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="histograms">
+<h1>Histograms<a class="headerlink" href="#histograms" title="Permalink to this headline">¶</a></h1>
+<p>There are three generic levels to include when building up an analysis
+that involves plotting: * HistogramManager * JetHists, ElectronHists,
+MuonHists, etc... * JetHistsAlgo, ElectronHistsAlgo, MuonHistsAlgo,
+etc...</p>
+<p>In order: <em>HistogramManager</em> should rarely be changed. This manages the
+histograms for you in <em>EventLoop</em> algorithms by initializing histograms
+and adding it to the worker. <em>JetHists</em>, etc are plotting classes to
+pre-define the set of plots you want to use for a given set of objects
+&#8211; as well as how to plot them. Finally, <em>JetHistsAlgo</em>, etc... are
+<em>EventLoop</em> algorithms that you would include in your jobs and run to
+actually apply those plots.</p>
+<div class="section" id="histogrammanager">
+<h2>HistogramManager<a class="headerlink" href="#histogrammanager" title="Permalink to this headline">¶</a></h2>
+<p>This is the base class from which all histogram management classes are made for Muons, Jets, Electrons, etcetera. It is meant to be flexible enough for someone to use it to create their own set of histograms to produce for an algorithm from scratch using the class.</p>
+<p>In particular, the <code class="docutils literal"><span class="pre">book()</span></code> functions are overloaded for good reason - they all do the same thing except the number of arguments supplied tells us what kind of histogram you want to make: 1D, 2D, or 3D. All histograms take in a <code class="docutils literal"><span class="pre">name</span></code> and a <code class="docutils literal"><span class="pre">title</span></code> which get concatenated to provide the <code class="docutils literal"><span class="pre">stored</span> <span class="pre">name</span></code> of the histogram <code class="docutils literal"><span class="pre">(name+title)</span></code>. If you wish to use TDirectoryFiles automagically, append a forward-slash to the end of the <code class="docutils literal"><span class="pre">name</span></code>, such as <code class="docutils literal"><span class="pre">&quot;AntiKt10/&quot;</span></code>. The <code class="docutils literal"><span class="pre">book()</span></code> function will create the histogram, set up the title, the labels, append it to <code class="docutils literal"><span class="pre">m_allHists</span></code>, and returns a pointer to the newly created histogram.  The last argument is <code class="docutils literal"><span class="pre">sumw2</span></code> which tells the function whether to enable <code class="docutils literal"><span class="pre">sumw2()</span></code> for the histogram or not, this defaults to <code class="docutils literal"><span class="pre">true</span></code>. The order of the arguments are listed in the table.</p>
+<dl class="class">
+<dt id="_CPPv216HistogramManager">
+<span id="HistogramManager"></span><span class="target" id="xAHclass_histogram_manager"></span><em class="property">class </em><code class="descclassname"></code><code class="descname">HistogramManager</code><a class="headerlink" href="#_CPPv216HistogramManager" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is used by any class extending to pre-define a set of histograms to book by default. </p>
+<p><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The expectation is that the user does not directly use this class but rather inherits from it.</p>
+</div>
+<p>We expect the user to create a new group of histograms, such as for jets:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="k">class</span> <span class="nc">JetHists</span> <span class="o">:</span> <span class="k">public</span> <span class="n">HistogramManager</span>
+<span class="p">{</span>
+  <span class="k">public</span><span class="o">:</span>
+    <span class="n">JetHists</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">name</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">detailStr</span><span class="p">);</span>
+    <span class="k">virtual</span> <span class="o">~</span><span class="n">JetHists</span><span class="p">()</span> <span class="p">;</span>
+
+    <span class="kt">bool</span> <span class="n">m_debug</span><span class="p">;</span>
+    <span class="n">StatusCode</span> <span class="nf">initialize</span><span class="p">();</span>
+    <span class="n">StatusCode</span> <span class="nf">execute</span><span class="p">(</span> <span class="k">const</span> <span class="n">xAOD</span><span class="o">::</span><span class="n">JetContainer</span><span class="o">*</span> <span class="n">jets</span><span class="p">,</span> <span class="kt">float</span> <span class="n">eventWeight</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pvLoc</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+    <span class="n">StatusCode</span> <span class="nf">execute</span><span class="p">(</span> <span class="k">const</span> <span class="n">xAOD</span><span class="o">::</span><span class="n">Jet</span><span class="o">*</span> <span class="n">jet</span><span class="p">,</span> <span class="kt">float</span> <span class="n">eventWeight</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pvLoc</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="p">);</span>
+    <span class="k">using</span> <span class="n">HistogramManager</span><span class="o">::</span><span class="n">book</span><span class="p">;</span> <span class="c1">// make other overloaded version of book() to show up in subclass</span>
+    <span class="k">using</span> <span class="n">HistogramManager</span><span class="o">::</span><span class="n">execute</span><span class="p">;</span> <span class="c1">// overload</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>The above example is taken from our implementation in <a class="reference internal" href="JetHists.html#_CPPv28JetHists" title="JetHists"><code class="xref cpp cpp-class docutils literal"><span class="pre">JetHists</span></code></a>.</p>
+ </p>
+<p>Subclassed by <a class="reference internal" href="ClusterHists.html#xAHclass_cluster_hists"><span class="std std-ref">ClusterHists</span></a>, IParticleHists, <a class="reference internal" href="MetHists.html#xAHclass_met_hists"><span class="std std-ref">MetHists</span></a>, <a class="reference internal" href="TrackHists.html#xAHclass_track_hists"><span class="std std-ref">TrackHists</span></a>, TracksInJetHists, <a class="reference internal" href="VtxHists.html#xAHclass_vtx_hists"><span class="std std-ref">VtxHists</span></a></p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager16HistogramManagerENSt6stringENSt6stringE">
+<span id="HistogramManager::HistogramManager__ss.ss"></span><span class="target" id="xAHclass_histogram_manager_1a2931dd88870d353e825f37ac60d89833"></span><code class="descname">HistogramManager</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>detailStr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager16HistogramManagerENSt6stringENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initialization. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">name</span></code>: The top-level path in which all histograms are stored under (think of <code class="docutils literal"><span class="pre">TDirectory</span></code>) </li>
+<li><code class="docutils literal"><span class="pre">detailStr</span></code>: Specify the various details of which to plot. For example, jets might want <code class="docutils literal"><span class="pre">&quot;kinematic</span> <span class="pre">substructure&quot;</span></code>. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManagerD0Ev">
+<span id="HistogramManager::~HistogramManager"></span><span class="target" id="xAHclass_histogram_manager_1a5e26ee0d53cc86c819d1082735d4c70c"></span><code class="descname">~HistogramManager</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManagerD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor, allows the user to delete histograms that are not being recorded. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager10initializeEv">
+<span id="HistogramManager::initialize"></span><span class="target" id="xAHclass_histogram_manager_1a29f919cf1c02bc99f969097a8736bcf5"></span><em class="property">virtual</em> StatusCode <code class="descname">initialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager10initializeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initialize and book all histograms. </p>
+<p><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This should call the overloaded functions <a class="reference internal" href="ClusterHists.html#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEidd" title="HistogramManager::book"><code class="xref cpp cpp-func docutils literal"><span class="pre">HistogramManager::book()</span></code></a> to create the histograms so that the user can call <cite>hists-&gt;record(wk())</cite> to record all histograms to the EventLoop worker.</p>
+</div>
+<p>Example implementation:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">StatusCode</span> <span class="n">JetHists</span><span class="o">::</span><span class="n">initialize</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">m_jetPt</span>          <span class="o">=</span> <span class="n">book</span><span class="p">(</span><span class="n">m_name</span><span class="p">,</span> <span class="s">&quot;jetPt&quot;</span><span class="p">,</span>  <span class="s">&quot;jet p_{T} [GeV]&quot;</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">3000.</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">StatusCode</span><span class="o">::</span><span class="n">SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager7executeEv">
+<span id="HistogramManager::execute"></span><span class="target" id="xAHclass_histogram_manager_1a16aae08500a74ab0adc8decf8f08b87a"></span><em class="property">virtual</em> StatusCode <code class="descname">execute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager7executeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Execute by filling in the histograms. </p>
+<p><p>Example implementation:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">StatusCode</span> <span class="n">JetHists</span><span class="o">::</span><span class="n">execute</span><span class="p">(</span> <span class="k">const</span> <span class="n">xAOD</span><span class="o">::</span><span class="n">JetContainer</span><span class="o">*</span> <span class="n">jets</span><span class="p">,</span> <span class="kt">float</span> <span class="n">eventWeight</span> <span class="p">){</span>
+  <span class="k">for</span><span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">jet</span><span class="p">:</span> <span class="o">*</span><span class="n">jets</span><span class="p">)</span>
+    <span class="n">m_jetPt</span><span class="o">-&gt;</span><span class="n">Fill</span><span class="p">(</span> <span class="n">jet</span><span class="o">-&gt;</span><span class="n">pt</span><span class="p">()</span><span class="o">/</span><span class="mf">1.e3</span><span class="p">,</span> <span class="n">eventWeight</span> <span class="p">);</span>
+  <span class="k">return</span> <span class="n">StatusCode</span><span class="o">::</span><span class="n">SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager8finalizeEv">
+<span id="HistogramManager::finalize"></span><span class="target" id="xAHclass_histogram_manager_1a145c2c9d90da364be2db03218f2c8de0"></span><em class="property">virtual</em> StatusCode <code class="descname">finalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager8finalizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Finalize anything that needs to be finalized. </p>
+<p><div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This should rarely be used. There is not a good use case for this functionality but it needs to exist in the off-chance that a user comes along and needs it for their histogram class.</p>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEidd">
+<span id="HistogramManager::book__ss.ss.ss.i.double.double"></span><span class="target" id="xAHclass_histogram_manager_1a8a575b6ba72efa0ae63d6ad9c79c8e9f"></span>TH1F *<code class="descname">book</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>title</em>, std::string <em>xlabel</em>, int <em>xbins</em>, double <em>xlow</em>, double <em>xhigh</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEidd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>record a histogram and call various functions </p>
+<p><dl class="docutils">
+<dt><strong>Note</strong></dt>
+<dd>This is an overloaded function. It will build the right histogram given the correct number of input arguments. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">name</span></code>: name of histogram, access it in ROOT file like <code class="docutils literal"><span class="pre">h_jetPt-&gt;Draw()</span></code> </li>
+<li><code class="docutils literal"><span class="pre">title</span></code>: usually pointless,put a description of the histogram in here </li>
+<li><code class="docutils literal"><span class="pre">xlabel</span></code>: label to put on the x-axis </li>
+<li><code class="docutils literal"><span class="pre">xbins</span></code>: number of xbins to use </li>
+<li><code class="docutils literal"><span class="pre">xlow</span></code>: lower bound on xbins </li>
+<li><code class="docutils literal"><span class="pre">xhigh</span></code>: upper bound on xbins </li>
+<li><code class="docutils literal"><span class="pre">xbinsArr</span></code>: variable xbins, test math <span class="math">\((x_1,y_1)\)</span> and <span class="math">\((x_2,y_2)\)</span> </li>
+<li><code class="docutils literal"><span class="pre">ylabel</span></code>: label to put on the y-axis </li>
+<li><code class="docutils literal"><span class="pre">ylow</span></code>: lower bound on ybins </li>
+<li><code class="docutils literal"><span class="pre">yhigh</span></code>: upper bound on ybins </li>
+<li><code class="docutils literal"><span class="pre">ybinsArr</span></code>: variable ybins </li>
+<li><code class="docutils literal"><span class="pre">zlabel</span></code>: label to put on the z-axix </li>
+<li><code class="docutils literal"><span class="pre">zlow</span></code>: lower bound on zbins </li>
+<li><code class="docutils literal"><span class="pre">zhigh</span></code>: upper bound on zbins </li>
+<li><code class="docutils literal"><span class="pre">zbinsArr</span></code>: variable zbins </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiddNSt6stringEidd">
+<span id="HistogramManager::book__ss.ss.ss.i.double.double.ss.i.double.double"></span><span class="target" id="xAHclass_histogram_manager_1a47b36830027708435451f9f2ba2259bf"></span>TH2F *<code class="descname">book</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>title</em>, std::string <em>xlabel</em>, int <em>xbins</em>, double <em>xlow</em>, double <em>xhigh</em>, std::string <em>xyabel</em>, int <em>ybins</em>, double <em>ylow</em>, double <em>yhigh</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiddNSt6stringEidd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiddNSt6stringEiddNSt6stringEidd">
+<span id="HistogramManager::book__ss.ss.ss.i.double.double.ss.i.double.double.ss.i.double.double"></span><span class="target" id="xAHclass_histogram_manager_1a5cef6f46702188b413decea34774d1f8"></span>TH3F *<code class="descname">book</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>title</em>, std::string <em>xlabel</em>, int <em>xbins</em>, double <em>xlow</em>, double <em>xhigh</em>, std::string <em>ylabel</em>, int <em>ybins</em>, double <em>ylow</em>, double <em>yhigh</em>, std::string <em>zlabel</em>, int <em>zbins</em>, double <em>zlow</em>, double <em>zhigh</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiddNSt6stringEiddNSt6stringEidd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiPK8Double_t">
+<span id="HistogramManager::book__ss.ss.ss.i.Double_tCP"></span><span class="target" id="xAHclass_histogram_manager_1ad068dacbb610f7a44b01b08d3bd195f5"></span>TH1F *<code class="descname">book</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>title</em>, std::string <em>xlabel</em>, int <em>xbins</em>, <em class="property">const</em> Double_t *<em>xbinsArr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiPK8Double_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiPK8Double_tNSt6stringEidd">
+<span id="HistogramManager::book__ss.ss.ss.i.Double_tCP.ss.i.double.double"></span><span class="target" id="xAHclass_histogram_manager_1ae6777f38110ecdfc13ce28076c689f03"></span>TH2F *<code class="descname">book</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>title</em>, std::string <em>xlabel</em>, int <em>xbins</em>, <em class="property">const</em> Double_t *<em>xbinsArr</em>, std::string <em>ylabel</em>, int <em>ybins</em>, double <em>ylow</em>, double <em>yhigh</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiPK8Double_tNSt6stringEidd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiddNSt6stringEiPK8Double_t">
+<span id="HistogramManager::book__ss.ss.ss.i.double.double.ss.i.Double_tCP"></span><span class="target" id="xAHclass_histogram_manager_1a029c5c5d8deb4a628ca92002903b0a97"></span>TH2F *<code class="descname">book</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>title</em>, std::string <em>xyabel</em>, int <em>xbins</em>, double <em>xlow</em>, double <em>xhigh</em>, std::string <em>ylabel</em>, int <em>ybins</em>, <em class="property">const</em> Double_t *<em>ybinsArr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiddNSt6stringEiPK8Double_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiPK8Double_tNSt6stringEiPK8Double_t">
+<span id="HistogramManager::book__ss.ss.ss.i.Double_tCP.ss.i.Double_tCP"></span><span class="target" id="xAHclass_histogram_manager_1a7d218dc5bfa0caa10d0bcd6494550d42"></span>TH2F *<code class="descname">book</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>title</em>, std::string <em>xyabel</em>, int <em>xbins</em>, <em class="property">const</em> Double_t *<em>xbinsArr</em>, std::string <em>ylabel</em>, int <em>ybins</em>, <em class="property">const</em> Double_t *<em>ybinsArr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiPK8Double_tNSt6stringEiPK8Double_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiPK8Double_tNSt6stringEiPK8Double_tNSt6stringEiPK8Double_t">
+<span id="HistogramManager::book__ss.ss.ss.i.Double_tCP.ss.i.Double_tCP.ss.i.Double_tCP"></span><span class="target" id="xAHclass_histogram_manager_1ab2e2e5024c1af849f53803e6e288d40a"></span>TH3F *<code class="descname">book</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>title</em>, std::string <em>xlabel</em>, int <em>xbins</em>, <em class="property">const</em> Double_t *<em>xbinsArr</em>, std::string <em>ylabel</em>, int <em>ybins</em>, <em class="property">const</em> Double_t *<em>ybinsArr</em>, std::string <em>zlabel</em>, int <em>zbins</em>, <em class="property">const</em> Double_t *<em>zbinsArr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiPK8Double_tNSt6stringEiPK8Double_tNSt6stringEiPK8Double_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiddNSt6stringEddNSt6stringE">
+<span id="HistogramManager::book__ss.ss.ss.i.double.double.ss.double.double.ss"></span><span class="target" id="xAHclass_histogram_manager_1a8d34a394c9addf69f502f30aba3db552"></span>TProfile *<code class="descname">book</code><span class="sig-paren">(</span>std::string <em>name</em>, std::string <em>title</em>, std::string <em>xlabel</em>, int <em>xbins</em>, double <em>xlow</em>, double <em>xhigh</em>, std::string <em>ylabel</em>, double <em>ylow</em>, double <em>yhigh</em>, std::string <em>option</em> = &quot;&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager4bookENSt6stringENSt6stringENSt6stringEiddNSt6stringEddNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager6recordEPN2EL6WorkerE">
+<span id="HistogramManager::record__EL::WorkerP"></span><span class="target" id="xAHclass_histogram_manager_1a7577f8aa9cabd145f1254fac6e9677cb"></span>void <code class="descname">record</code><span class="sig-paren">(</span>EL::Worker *<em>wk</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager6recordEPN2EL6WorkerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>record all histograms from <a class="reference internal" href="VtxHists.html#xAHclass_histogram_manager_1add5ba646f0ef52925fab48bc1dda3106"><span class="std std-ref">HistogramManager::m_allHists</span></a> to the worker </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK16HistogramManager3msgEv">
+<span id="HistogramManager::msgC"></span><span class="target" id="xAHclass_histogram_manager_1a6db038d6f4595a41f0c1c966aa86e102"></span>MsgStream &amp;<code class="descname">msg</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK16HistogramManager3msgEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the standard message stream for this algorithm </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK16HistogramManager3msgEi">
+<span id="HistogramManager::msg__iC"></span><span class="target" id="xAHclass_histogram_manager_1a5f061ba66b96d55bd40f83a67a6646cb"></span>MsgStream &amp;<code class="descname">msg</code><span class="sig-paren">(</span>int <em>level</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK16HistogramManager3msgEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>allow ANA_MSG_XXXX macros to be used within algorithms for a given level </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv2N16HistogramManager6m_nameE">
+<span id="HistogramManager::m_name__ss"></span><span class="target" id="xAHclass_histogram_manager_1a835c2b444b08e5c81cd7382c8602adc5"></span>std::string <code class="descname">m_name</code><a class="headerlink" href="#_CPPv2N16HistogramManager6m_nameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>generically the main name assigned to all histograms </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16HistogramManager11m_detailStrE">
+<span id="HistogramManager::m_detailStr__ss"></span><span class="target" id="xAHclass_histogram_manager_1a92eb26b65e47978a7754144863f84d92"></span>std::string <code class="descname">m_detailStr</code><a class="headerlink" href="#_CPPv2N16HistogramManager11m_detailStrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>a detail level in the form of a string </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16HistogramManager10m_allHistsE">
+<span id="HistogramManager::m_allHists__std::vector:TH1P:"></span><span class="target" id="xAHclass_histogram_manager_1add5ba646f0ef52925fab48bc1dda3106"></span>std::vector&lt;TH1 *&gt; <code class="descname">m_allHists</code><a class="headerlink" href="#_CPPv2N16HistogramManager10m_allHistsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>a container holding all generated histograms </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N16HistogramManager5m_msgE">
+<span id="HistogramManager::m_msg__MsgStream"></span><span class="target" id="xAHclass_histogram_manager_1ac775c3a482f6848f51583c548b8765cc"></span>MsgStream <code class="descname">m_msg</code><a class="headerlink" href="#_CPPv2N16HistogramManager5m_msgE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>hold the MsgStream object </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Private Functions</p>
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager5Sumw2EP3TH1b">
+<span id="HistogramManager::Sumw2__TH1P.b"></span><span class="target" id="xAHclass_histogram_manager_1a96e9497d56061e16f6445a5852b14f05"></span>void <code class="descname">Sumw2</code><span class="sig-paren">(</span>TH1 *<em>hist</em>, bool <em>flag</em> = true<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager5Sumw2EP3TH1b" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Turn on Sumw2 for the histogram. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">hist</span></code>: The histogram to modify </li>
+<li><code class="docutils literal"><span class="pre">flag</span></code>: Pass in whether to turn on Sumw2 or not </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager6recordEP3TH1">
+<span id="HistogramManager::record__TH1P"></span><span class="target" id="xAHclass_histogram_manager_1a3ddd3b266a586d1c04f07a7acf572a1c"></span>void <code class="descname">record</code><span class="sig-paren">(</span>TH1 *<em>hist</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager6recordEP3TH1" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Push the new histogram to <a class="reference internal" href="VtxHists.html#xAHclass_histogram_manager_1add5ba646f0ef52925fab48bc1dda3106"><span class="std std-ref">HistogramManager::m_allHists</span></a>. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager8SetLabelEP3TH1NSt6stringE">
+<span id="HistogramManager::SetLabel__TH1P.ss"></span><span class="target" id="xAHclass_histogram_manager_1a02b75adc7cbcc8647afde8502b920ec8"></span>void <code class="descname">SetLabel</code><span class="sig-paren">(</span>TH1 *<em>hist</em>, std::string <em>xlabel</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager8SetLabelEP3TH1NSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the labels on a histogram. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">hist</span></code>: The histogram to set the labels on </li>
+<li><code class="docutils literal"><span class="pre">xlabel</span></code>: The xlabel to set </li>
+<li><code class="docutils literal"><span class="pre">ylabel</span></code>: The ylabel to set </li>
+<li><code class="docutils literal"><span class="pre">zlabel</span></code>: The zlabel to set </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager8SetLabelEP3TH1NSt6stringENSt6stringE">
+<span id="HistogramManager::SetLabel__TH1P.ss.ss"></span><span class="target" id="xAHclass_histogram_manager_1ad16583185bc165796c24087f8e9b0a87"></span>void <code class="descname">SetLabel</code><span class="sig-paren">(</span>TH1 *<em>hist</em>, std::string <em>xlabel</em>, std::string <em>ylabel</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager8SetLabelEP3TH1NSt6stringENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N16HistogramManager8SetLabelEP3TH1NSt6stringENSt6stringENSt6stringE">
+<span id="HistogramManager::SetLabel__TH1P.ss.ss.ss"></span><span class="target" id="xAHclass_histogram_manager_1ad35ee7809bb3ddad0670a3716d5ce34e"></span>void <code class="descname">SetLabel</code><span class="sig-paren">(</span>TH1 *<em>hist</em>, std::string <em>xlabel</em>, std::string <em>ylabel</em>, std::string <em>zlabel</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N16HistogramManager8SetLabelEP3TH1NSt6stringENSt6stringENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+<p>This is a class that predefines all the histograms, defines the <em>execute</em> function which fills in the histograms for you, given an object or a collection of objects, and handles a lot of other logic.  This class extends <em>HistogramManager</em>.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ClusterHists.html">ClusterHists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JetHists.html">JetHists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MetHists.html">MetHists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MuonHists.html">MuonHists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TrackHists.html">TrackHists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VtxHists.html">VtxHists</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="algorithms">
+<h2>Algorithms<a class="headerlink" href="#algorithms" title="Permalink to this headline">¶</a></h2>
+<p>This is an EL Algorithm that incorporates the correspondingly-named class.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ClusterHistsAlgo.html">ClusterHistsAlgo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JetHistsAlgo.html">JetHistsAlgo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MetHistsAlgo.html">MetHistsAlgo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MuonHistsAlgo.html">MuonHistsAlgo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TrackHistsAlgo.html">TrackHistsAlgo</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ClusterHists.html" class="btn btn-neutral float-right" title="ClusterHists" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="TruthSelector.html" class="btn btn-neutral" title="Truth" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015-2017, ATLAS Collaboration.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'01-00-00-46-g45a2bda',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

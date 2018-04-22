@@ -1,0 +1,984 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Event &mdash; xAODAnaHelpers 01-00-00-46-g45a2bda documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="xAODAnaHelpers 01-00-00-46-g45a2bda documentation" href="index.html"/>
+        <link rel="up" title="Selecting Objects" href="Selectors.html"/>
+        <link rel="next" title="Overlap Removal" href="OverlapRemover.html"/>
+        <link rel="prev" title="Selecting Objects" href="Selectors.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> xAODAnaHelpers
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                01.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UsingUs.html">xAH_run.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Algorithms.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQs.html">xAH FAQ</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="API.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Getters.html">Getting Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Calibrators.html">Calibrating Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Correctors.html">Efficiency Correcting</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="Selectors.html">Selecting Objects</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OverlapRemover.html">Overlap Removal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ElectronSelector.html"><span class="math">\(e\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="JetSelector.html"><span class="math">\(j\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="MuonSelector.html"><span class="math">\(\mu\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhotonSelector.html"><span class="math">\(\gamma\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="TauSelector.html"><span class="math">\(\tau\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="TrackSelector.html">Tracks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TruthSelector.html">Truth</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Histograms.html">Histograms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ToolsUsed.html">Tools Used</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Outputs.html">Producing Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Utilities.html">Utilities</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">xAODAnaHelpers</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="API.html">API Reference</a> &raquo;</li>
+      
+          <li><a href="Selectors.html">Selecting Objects</a> &raquo;</li>
+      
+    <li>Event</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/BasicEventSelection.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="event">
+<h1>Event<a class="headerlink" href="#event" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="_CPPv219BasicEventSelection">
+<span id="BasicEventSelection"></span><span class="target" id="xAHclass_basic_event_selection"></span><em class="property">class </em><code class="descclassname"></code><code class="descname">BasicEventSelection</code><a class="headerlink" href="#_CPPv219BasicEventSelection" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>This algorithm performs the very basic event selection. This should be the first algo in the algo chain. It can create weighted and unweighted cutflow objects to be picked up downstream by other xAH algos, and your own. The selection applied in data only is:</p>
+<blockquote>
+<div><ul class="simple">
+<li>GRL (can be turned off)</li>
+<li>LAr Error</li>
+<li>Tile Error</li>
+<li>Core Flag</li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For MC only, the pileup reweight can also be applied.</p>
+</div>
+<p>In both data and simulation (MC), the following cuts are applied</p>
+<blockquote>
+<div><ul class="simple">
+<li>the highest sum <span class="math">\(p_{T}^2\)</span> primary vertex has 2 or more tracks (see <a class="reference internal" href="#_CPPv2N19BasicEventSelection23m_applyPrimaryVertexCutE" title="BasicEventSelection::m_applyPrimaryVertexCut"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_applyPrimaryVertexCut</span></code></a>)</li>
+<li>trigger requirements (see <a class="reference internal" href="#_CPPv2N19BasicEventSelection17m_applyTriggerCutE" title="BasicEventSelection::m_applyTriggerCut"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_applyTriggerCut</span></code></a>)</li>
+</ul>
+</div></blockquote>
+<p>For derivations, the metadata can be accessed and added to the cutflow for normalization. The parameters to control the trigger are described in this header file. If one wants to write out some of the trigger information into a tree using <a class="reference internal" href="HelpTreeBase.html#_CPPv212HelpTreeBase" title="HelpTreeBase"><code class="xref cpp cpp-class docutils literal"><span class="pre">HelpTreeBase</span></code></a>, flags must be set here.</p>
+ </p>
+<p>Inherits from <a class="reference internal" href="xAHAlgorithm.html#xAHclassx_a_h_1_1_algorithm"><span class="std std-ref">xAH::Algorithm</span></a></p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N19BasicEventSelection19BasicEventSelectionEv">
+<span id="BasicEventSelection::BasicEventSelection"></span><span class="target" id="xAHclass_basic_event_selection_1a105648b6930097f9999956e84c9af903"></span><code class="descname">BasicEventSelection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N19BasicEventSelection19BasicEventSelectionEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N19BasicEventSelection8setupJobERN2EL3JobE">
+<span id="BasicEventSelection::setupJob__EL::JobR"></span><span class="target" id="xAHclass_basic_event_selection_1a7980714cb54a09db2cb34e3b0c8dfe54"></span>EL::StatusCode <code class="descname">setupJob</code><span class="sig-paren">(</span>EL::Job &amp;<em>job</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N19BasicEventSelection8setupJobERN2EL3JobE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N19BasicEventSelection11fileExecuteEv">
+<span id="BasicEventSelection::fileExecute"></span><span class="target" id="xAHclass_basic_event_selection_1a1f843b43ba775d6f6837d09911fa93e9"></span>EL::StatusCode <code class="descname">fileExecute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N19BasicEventSelection11fileExecuteEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N19BasicEventSelection14histInitializeEv">
+<span id="BasicEventSelection::histInitialize"></span><span class="target" id="xAHclass_basic_event_selection_1a396bcec495f0931be97ae326aaa0d2b0"></span>EL::StatusCode <code class="descname">histInitialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N19BasicEventSelection14histInitializeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N19BasicEventSelection11changeInputEb">
+<span id="BasicEventSelection::changeInput__b"></span><span class="target" id="xAHclass_basic_event_selection_1a7ec4e6d5217b52a6f6d955d440f5149c"></span>EL::StatusCode <code class="descname">changeInput</code><span class="sig-paren">(</span>bool <em>firstFile</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N19BasicEventSelection11changeInputEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N19BasicEventSelection10initializeEv">
+<span id="BasicEventSelection::initialize"></span><span class="target" id="xAHclass_basic_event_selection_1a1c43c84fa231c66c47bd6a5706efe252"></span>EL::StatusCode <code class="descname">initialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N19BasicEventSelection10initializeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N19BasicEventSelection7executeEv">
+<span id="BasicEventSelection::execute"></span><span class="target" id="xAHclass_basic_event_selection_1ab2eccd9f30ffc0a95d55a61b308f3e85"></span>EL::StatusCode <code class="descname">execute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N19BasicEventSelection7executeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N19BasicEventSelection11postExecuteEv">
+<span id="BasicEventSelection::postExecute"></span><span class="target" id="xAHclass_basic_event_selection_1a9ee33f34e394cc15425450a33cd1be2c"></span>EL::StatusCode <code class="descname">postExecute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N19BasicEventSelection11postExecuteEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N19BasicEventSelection8finalizeEv">
+<span id="BasicEventSelection::finalize"></span><span class="target" id="xAHclass_basic_event_selection_1a5dea36033a37de211824b0bb3ff7f67f"></span>EL::StatusCode <code class="descname">finalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N19BasicEventSelection8finalizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N19BasicEventSelection12histFinalizeEv">
+<span id="BasicEventSelection::histFinalize"></span><span class="target" id="xAHclass_basic_event_selection_1a3a346f60837487aa958b562328e102de"></span>EL::StatusCode <code class="descname">histFinalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N19BasicEventSelection12histFinalizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm13algInitializeEv">
+<span id="xAH::Algorithm::algInitialize"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ae8fd8541cf785803ec19d9c4f8cfe602"></span>StatusCode <code class="descname">algInitialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm13algInitializeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Run any initializations commmon to all xAH Algorithms (such as registerInstance). Call this inside <code class="docutils literal"><span class="pre">histInitialize</span></code> for best results. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm11algFinalizeEv">
+<span id="xAH::Algorithm::algFinalize"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ad953653631da2d160893153f0b30f919"></span>StatusCode <code class="descname">algFinalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm11algFinalizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Run any finalizations common to all xAH Algorithms (such as unregisterInstance). Call this inside <code class="docutils literal"><span class="pre">histFinalize</span></code> for best results. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm18parseSystValVectorEv">
+<span id="xAH::Algorithm::parseSystValVector"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a4859dee0ea827841c1adbbf56b159257"></span>StatusCode <code class="descname">parseSystValVector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm18parseSystValVectorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Parse string of systematic sigma levels in m_systValVectorString into m_systValVector. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection16m_truthLevelOnlyE">
+<span id="BasicEventSelection::m_truthLevelOnly__b"></span><span class="target" id="xAHclass_basic_event_selection_1a9206f30fe0871a9dac0516f2c5472f3f"></span>bool <code class="descname">m_truthLevelOnly</code> = false<a class="headerlink" href="#_CPPv2N19BasicEventSelection16m_truthLevelOnlyE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Protection when running on truth xAOD. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection13m_applyGRLCutE">
+<span id="BasicEventSelection::m_applyGRLCut__b"></span><span class="target" id="xAHclass_basic_event_selection_1a9b61827f38f926981d904144b9c21e13"></span>bool <code class="descname">m_applyGRLCut</code> = false<a class="headerlink" href="#_CPPv2N19BasicEventSelection13m_applyGRLCutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Apply GRL selection. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection8m_GRLxmlE">
+<span id="BasicEventSelection::m_GRLxml__ss"></span><span class="target" id="xAHclass_basic_event_selection_1a5541abb08f3029f28629e9c3f300660d"></span>std::string <code class="descname">m_GRLxml</code> = &quot;xAODAnaHelpers/data15_13TeV.periodAllYear_HEAD_DQDefects-00-01-02_PHYS_StandardGRL_Atlas_Ready.xml&quot;<a class="headerlink" href="#_CPPv2N19BasicEventSelection8m_GRLxmlE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Path to GRL XML file. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection16m_GRLExcludeListE">
+<span id="BasicEventSelection::m_GRLExcludeList__ss"></span><span class="target" id="xAHclass_basic_event_selection_1a2e2e21ef87cbcb971e795ccebf10c422"></span>std::string <code class="descname">m_GRLExcludeList</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N19BasicEventSelection16m_GRLExcludeListE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Run numbers to skip in GRL. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection13m_cleanPowhegE">
+<span id="BasicEventSelection::m_cleanPowheg__b"></span><span class="target" id="xAHclass_basic_event_selection_1a2165fa182e77a6822279195223433667"></span>bool <code class="descname">m_cleanPowheg</code> = false<a class="headerlink" href="#_CPPv2N19BasicEventSelection13m_cleanPowhegE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Clean Powheg huge weight. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection18m_reweightSherpa22E">
+<span id="BasicEventSelection::m_reweightSherpa22__b"></span><span class="target" id="xAHclass_basic_event_selection_1a6340517b1503f5a88024bd094758c978"></span>bool <code class="descname">m_reweightSherpa22</code> = false<a class="headerlink" href="#_CPPv2N19BasicEventSelection18m_reweightSherpa22E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reweight Sherpa 2.2 Samples. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection17m_doPUreweightingE">
+<span id="BasicEventSelection::m_doPUreweighting__b"></span><span class="target" id="xAHclass_basic_event_selection_1a5bb3195ca373ffa77315233d24277010"></span>bool <code class="descname">m_doPUreweighting</code> = false<a class="headerlink" href="#_CPPv2N19BasicEventSelection17m_doPUreweightingE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Reweight pile-up profile <span class="math">\(\mu\)</span></p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection20m_doPUreweightingSysE">
+<span id="BasicEventSelection::m_doPUreweightingSys__b"></span><span class="target" id="xAHclass_basic_event_selection_1a81e581e66ceeeb17a54e1b248d507791"></span>bool <code class="descname">m_doPUreweightingSys</code> = false<a class="headerlink" href="#_CPPv2N19BasicEventSelection20m_doPUreweightingSysE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection19m_lumiCalcFileNamesE">
+<span id="BasicEventSelection::m_lumiCalcFileNames__ss"></span><span class="target" id="xAHclass_basic_event_selection_1addfa36021f58c377da541885e766efee"></span>std::string <code class="descname">m_lumiCalcFileNames</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N19BasicEventSelection19m_lumiCalcFileNamesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Comma separated list of filenames. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection14m_PRWFileNamesE">
+<span id="BasicEventSelection::m_PRWFileNames__ss"></span><span class="target" id="xAHclass_basic_event_selection_1ab892d7287caf10eba055d63e0d53a554"></span>std::string <code class="descname">m_PRWFileNames</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N19BasicEventSelection14m_PRWFileNamesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Comma separated list of filenames. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection15m_autoconfigPRWE">
+<span id="BasicEventSelection::m_autoconfigPRW__b"></span><span class="target" id="xAHclass_basic_event_selection_1aa3ba30b89fc2084355b4b99216c1068a"></span>bool <code class="descname">m_autoconfigPRW</code> = false<a class="headerlink" href="#_CPPv2N19BasicEventSelection15m_autoconfigPRWE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Automatically configure PRW using config files from SUSYTools instead of using m_PRWFileNames. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection12m_mcCampaignE">
+<span id="BasicEventSelection::m_mcCampaign__ss"></span><span class="target" id="xAHclass_basic_event_selection_1a007a7edfcf45c6101646f8bdc657938f"></span>std::string <code class="descname">m_mcCampaign</code><a class="headerlink" href="#_CPPv2N19BasicEventSelection12m_mcCampaignE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>mc16(acd) to bypass the automatic campaign determination from AMI, several campaigns can be separated by a comma. Only used
+when m_autoconfigPRW is true</p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection14m_periodConfigE">
+<span id="BasicEventSelection::m_periodConfig__ss"></span><span class="target" id="xAHclass_basic_event_selection_1a26c35c7dfc1803be2f91ad8588df6553"></span>std::string <code class="descname">m_periodConfig</code> = &quot;auto&quot;<a class="headerlink" href="#_CPPv2N19BasicEventSelection14m_periodConfigE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Use Period Configuration or auto. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection13m_actualMuMinE">
+<span id="BasicEventSelection::m_actualMuMin__i"></span><span class="target" id="xAHclass_basic_event_selection_1afcb737e2f87342b7c7ef9d4bed6b0c79"></span>int <code class="descname">m_actualMuMin</code> = -1<a class="headerlink" href="#_CPPv2N19BasicEventSelection13m_actualMuMinE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The minimum threshold for <code class="docutils literal"><span class="pre">EventInfo::actualInteractionsPerCrossing()</span></code> </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection13m_actualMuMaxE">
+<span id="BasicEventSelection::m_actualMuMax__i"></span><span class="target" id="xAHclass_basic_event_selection_1a6e10a42cb0a44541189b92d07ab1dd43"></span>int <code class="descname">m_actualMuMax</code> = -1<a class="headerlink" href="#_CPPv2N19BasicEventSelection13m_actualMuMaxE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The maximum threshold for <code class="docutils literal"><span class="pre">EventInfo::actualInteractionsPerCrossing()</span></code> </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection14m_calcBCIDInfoE">
+<span id="BasicEventSelection::m_calcBCIDInfo__b"></span><span class="target" id="xAHclass_basic_event_selection_1ae5eabd61e3ef5100a65cc878cc89dd93"></span>bool <code class="descname">m_calcBCIDInfo</code> = false<a class="headerlink" href="#_CPPv2N19BasicEventSelection14m_calcBCIDInfoE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calculate distance to nearest empty and unpaired BCIDs. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection21m_vertexContainerNameE">
+<span id="BasicEventSelection::m_vertexContainerName__ss"></span><span class="target" id="xAHclass_basic_event_selection_1a7582855ae9653fe1fad408dbc5d8403f"></span>std::string <code class="descname">m_vertexContainerName</code> = &quot;PrimaryVertices&quot;<a class="headerlink" href="#_CPPv2N19BasicEventSelection21m_vertexContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Name of vertex container. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection23m_applyPrimaryVertexCutE">
+<span id="BasicEventSelection::m_applyPrimaryVertexCut__b"></span><span class="target" id="xAHclass_basic_event_selection_1a3fea05e107b5c4bf54fa856fda71f520"></span>bool <code class="descname">m_applyPrimaryVertexCut</code> = false<a class="headerlink" href="#_CPPv2N19BasicEventSelection23m_applyPrimaryVertexCutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Enable to apply a primary vertex cut. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection10m_PVNTrackE">
+<span id="BasicEventSelection::m_PVNTrack__i"></span><span class="target" id="xAHclass_basic_event_selection_1a50e0e736077995e90360603208f61a01"></span>int <code class="descname">m_PVNTrack</code> = 2<a class="headerlink" href="#_CPPv2N19BasicEventSelection10m_PVNTrackE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Minimum number of tracks from <strong>the</strong> primary vertex (Harmonized Cut) </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection23m_applyEventCleaningCutE">
+<span id="BasicEventSelection::m_applyEventCleaningCut__b"></span><span class="target" id="xAHclass_basic_event_selection_1a82af38a4cb8915d1dfa1178c3e33dc59"></span>bool <code class="descname">m_applyEventCleaningCut</code> = false<a class="headerlink" href="#_CPPv2N19BasicEventSelection23m_applyEventCleaningCutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection19m_applyCoreFlagsCutE">
+<span id="BasicEventSelection::m_applyCoreFlagsCut__b"></span><span class="target" id="xAHclass_basic_event_selection_1a3d8cfbc01a1e755a82cec958f1da6608"></span>bool <code class="descname">m_applyCoreFlagsCut</code> = false<a class="headerlink" href="#_CPPv2N19BasicEventSelection19m_applyCoreFlagsCutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection17m_printBranchListE">
+<span id="BasicEventSelection::m_printBranchList__b"></span><span class="target" id="xAHclass_basic_event_selection_1a0f749d808d5178a6e1848ad6b4303cda"></span>bool <code class="descname">m_printBranchList</code> = false<a class="headerlink" href="#_CPPv2N19BasicEventSelection17m_printBranchListE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection18m_triggerSelectionE">
+<span id="BasicEventSelection::m_triggerSelection__ss"></span><span class="target" id="xAHclass_basic_event_selection_1aabd2f574e6802c8c0e89ac26736eb922"></span>std::string <code class="descname">m_triggerSelection</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N19BasicEventSelection18m_triggerSelectionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>RegEx expression to choose triggers to consider to be cut on with <a class="reference internal" href="#_CPPv2N19BasicEventSelection17m_applyTriggerCutE" title="BasicEventSelection::m_applyTriggerCut"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_applyTriggerCut</span></code></a></p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection23m_extraTriggerSelectionE">
+<span id="BasicEventSelection::m_extraTriggerSelection__ss"></span><span class="target" id="xAHclass_basic_event_selection_1ac9ca9f49d2bbdac4403ca2693d632a1a"></span>std::string <code class="descname">m_extraTriggerSelection</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N19BasicEventSelection23m_extraTriggerSelectionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Decisions of triggers which are saved but not cut on. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection17m_applyTriggerCutE">
+<span id="BasicEventSelection::m_applyTriggerCut__b"></span><span class="target" id="xAHclass_basic_event_selection_1a1ece3f28d2eb421f23feb0150481a759"></span>bool <code class="descname">m_applyTriggerCut</code> = false<a class="headerlink" href="#_CPPv2N19BasicEventSelection17m_applyTriggerCutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Skip events in which the trigger string <a class="reference internal" href="#_CPPv2N19BasicEventSelection18m_triggerSelectionE" title="BasicEventSelection::m_triggerSelection"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_triggerSelection</span></code></a> does not fire</p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection20m_storeTrigDecisionsE">
+<span id="BasicEventSelection::m_storeTrigDecisions__b"></span><span class="target" id="xAHclass_basic_event_selection_1aac9ff93438d664d8dec312b2ea717c71"></span>bool <code class="descname">m_storeTrigDecisions</code> = false<a class="headerlink" href="#_CPPv2N19BasicEventSelection20m_storeTrigDecisionsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Save string of fired triggers matching <a class="reference internal" href="#_CPPv2N19BasicEventSelection18m_triggerSelectionE" title="BasicEventSelection::m_triggerSelection"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_triggerSelection</span></code></a></p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection13m_storePassL1E">
+<span id="BasicEventSelection::m_storePassL1__b"></span><span class="target" id="xAHclass_basic_event_selection_1afd1670da5c84029729828e5c57b85d82"></span>bool <code class="descname">m_storePassL1</code> = false<a class="headerlink" href="#_CPPv2N19BasicEventSelection13m_storePassL1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Save if any L1 trigger fired, e.g. <code class="docutils literal"><span class="pre">&quot;L1_.*&quot;</span></code> </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection14m_storePassHLTE">
+<span id="BasicEventSelection::m_storePassHLT__b"></span><span class="target" id="xAHclass_basic_event_selection_1acfa57d8101d24c7ece214ebbcc803b15"></span>bool <code class="descname">m_storePassHLT</code> = false<a class="headerlink" href="#_CPPv2N19BasicEventSelection14m_storePassHLTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Save if any HLT trigger fired, e.g. <code class="docutils literal"><span class="pre">&quot;HLT_.*&quot;</span></code> </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection15m_storeTrigKeysE">
+<span id="BasicEventSelection::m_storeTrigKeys__b"></span><span class="target" id="xAHclass_basic_event_selection_1a34a39e6d93f0f591125d7b39c3d30e94"></span>bool <code class="descname">m_storeTrigKeys</code> = false<a class="headerlink" href="#_CPPv2N19BasicEventSelection15m_storeTrigKeysE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Save master, L1, and HLT key. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection16m_derivationNameE">
+<span id="BasicEventSelection::m_derivationName__ss"></span><span class="target" id="xAHclass_basic_event_selection_1a51d53f630bad93654e178fdcd53e1ea2"></span>std::string <code class="descname">m_derivationName</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N19BasicEventSelection16m_derivationNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The name of the derivation (use this as an override) </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection13m_useMetaDataE">
+<span id="BasicEventSelection::m_useMetaData__b"></span><span class="target" id="xAHclass_basic_event_selection_1a33025734fc8bcc7b2884746880c5302e"></span>bool <code class="descname">m_useMetaData</code> = true<a class="headerlink" href="#_CPPv2N19BasicEventSelection13m_useMetaDataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Retrieve and save information on DAOD selection. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection20m_metaDataStreamNameE">
+<span id="BasicEventSelection::m_metaDataStreamName__ss"></span><span class="target" id="xAHclass_basic_event_selection_1a346731ab5f422774ce8aa521755d6f67"></span>std::string <code class="descname">m_metaDataStreamName</code> = &quot;metadata&quot;<a class="headerlink" href="#_CPPv2N19BasicEventSelection20m_metaDataStreamNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection19m_cutFlowStreamNameE">
+<span id="BasicEventSelection::m_cutFlowStreamName__ss"></span><span class="target" id="xAHclass_basic_event_selection_1a9ce0bac0bcb7057619b9f9a1012acfd1"></span>std::string <code class="descname">m_cutFlowStreamName</code> = &quot;cutflow&quot;<a class="headerlink" href="#_CPPv2N19BasicEventSelection19m_cutFlowStreamNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection22m_duplicatesStreamNameE">
+<span id="BasicEventSelection::m_duplicatesStreamName__ss"></span><span class="target" id="xAHclass_basic_event_selection_1aac1b6baadf5ecd412749bd7304613f57"></span>std::string <code class="descname">m_duplicatesStreamName</code> = &quot;duplicates_tree&quot;<a class="headerlink" href="#_CPPv2N19BasicEventSelection22m_duplicatesStreamNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection21m_checkDuplicatesDataE">
+<span id="BasicEventSelection::m_checkDuplicatesData__b"></span><span class="target" id="xAHclass_basic_event_selection_1a431be2ff46e8ab835eb6e08d636fbe37"></span>bool <code class="descname">m_checkDuplicatesData</code> = false<a class="headerlink" href="#_CPPv2N19BasicEventSelection21m_checkDuplicatesDataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check for duplicated events in data </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection19m_checkDuplicatesMCE">
+<span id="BasicEventSelection::m_checkDuplicatesMC__b"></span><span class="target" id="xAHclass_basic_event_selection_1ace98244dacd7633e42e058cef0e1aa86"></span>bool <code class="descname">m_checkDuplicatesMC</code> = false<a class="headerlink" href="#_CPPv2N19BasicEventSelection19m_checkDuplicatesMCE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check for duplicated events in MC </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm6m_nameE">
+<span id="xAH::Algorithm::m_name__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a2fe89b9cfdbba9b2d5dbd77d78d017ba"></span>std::string <code class="descname">m_name</code> = &quot;UnnamedAlgorithm&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm6m_nameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>All algorithms initialized should have a unique name, to differentiate them at the TObject level. </p>
+<p>Note, <code class="docutils literal"><span class="pre">GetName()</span></code> returns a <code class="docutils literal"><span class="pre">char*</span></code> while this returns a <code class="docutils literal"><span class="pre">std::string</span></code>. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm7m_debugE">
+<span id="xAH::Algorithm::m_debug__b"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a536ad066b37192ae8234da9088ca37cb"></span>bool <code class="descname">m_debug</code> = false<a class="headerlink" href="#_CPPv2N3xAH9Algorithm7m_debugE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>m_debug is being deprecated </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm9m_verboseE">
+<span id="xAH::Algorithm::m_verbose__b"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1aa6f548d723aa93b42dd9915c36c7b9a4"></span>bool <code class="descname">m_verbose</code> = false<a class="headerlink" href="#_CPPv2N3xAH9Algorithm9m_verboseE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>m_verbose is being deprecated </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm10m_msgLevelE">
+<span id="xAH::Algorithm::m_msgLevel__MSG::Level"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a903600b01ce81ba57bd004e32a905254"></span>MSG::Level <code class="descname">m_msgLevel</code> = MSG::INFO<a class="headerlink" href="#_CPPv2N3xAH9Algorithm10m_msgLevelE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>debug level </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm10m_systNameE">
+<span id="xAH::Algorithm::m_systName__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a79e26ab76909dcaeec857fd683289f87"></span>std::string <code class="descname">m_systName</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm10m_systNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If running systematics, the name of the systematic </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm9m_systValE">
+<span id="xAH::Algorithm::m_systVal__float"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a7e34030fb2a71902b0d65797bb90366b"></span>float <code class="descname">m_systVal</code> = 0.0<a class="headerlink" href="#_CPPv2N3xAH9Algorithm9m_systValE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If running systematics, the value to set the systematic to <div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This will set the systematic to the value <span class="math">\(\pm x\)</span>.</p>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm21m_systValVectorStringE">
+<span id="xAH::Algorithm::m_systValVectorString__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ab1386db1ff9f8586e603924d23e3d9ea"></span>std::string <code class="descname">m_systValVectorString</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm21m_systValVectorStringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If running systematics, you can run multiple points and store them in here. A comma separated list of working points should be given to m_systValVectorString, and then parsed by calling parseSystValVector. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm15m_systValVectorE">
+<span id="xAH::Algorithm::m_systValVector__std::vector:float:"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ad033047e9456204a32165a5d3847661d"></span>std::vector&lt;float&gt; <code class="descname">m_systValVector</code><a class="headerlink" href="#_CPPv2N3xAH9Algorithm15m_systValVectorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm24m_eventInfoContainerNameE">
+<span id="xAH::Algorithm::m_eventInfoContainerName__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a3a28d57c78d08c235cbdbfb2db4d8ee0"></span>std::string <code class="descname">m_eventInfoContainerName</code> = &quot;EventInfo&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm24m_eventInfoContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If the xAOD has a different EventInfo container name, set it here </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm6m_isMCE">
+<span id="xAH::Algorithm::m_isMC__i"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a2fe08016f341df4f708872f6a43e70dd"></span>int <code class="descname">m_isMC</code> = -1<a class="headerlink" href="#_CPPv2N3xAH9Algorithm6m_isMCE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>This is an override at the algorithm level to force analyzing MC or not.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="92%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>-1</td>
+<td>Default, use eventInfo object to determine if data or mc</td>
+</tr>
+<tr class="row-odd"><td>0</td>
+<td>Treat the input as data</td>
+</tr>
+<tr class="row-even"><td>1</td>
+<td>Treat the input as MC</td>
+</tr>
+</tbody>
+</table>
+ </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm4isMCEv">
+<span id="xAH::Algorithm::isMC"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ac6974b849cbb6c3ca7f061dfbd79293d"></span>bool <code class="descname">isMC</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm4isMCEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><blockquote>
+<div>Try to determine if we are running over data or MC. The <a class="reference internal" href="BJetEfficiencyCorrector.html#_CPPv2N3xAH9Algorithm6m_isMCE" title="xAH::Algorithm::m_isMC"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_isMC</span></code></a> can be used</div></blockquote>
+<p>to fix the return value. Otherwise the <cite>EventInfo</cite> object is queried.</p>
+<p>An exception is thrown if the type cannot be determined.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="63%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Return Value</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>Data</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>MC</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm16registerInstanceEv">
+<span id="xAH::Algorithm::registerInstance"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ad985e6075dc2794ba53d92663c84da08"></span>void <code class="descname">registerInstance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm16registerInstanceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Register the given instance under the moniker <a class="reference internal" href="BJetEfficiencyCorrector.html#_CPPv2N3xAH9Algorithm11m_classNameE" title="xAH::Algorithm::m_className"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_className</span></code></a></p>
+<p>This will increase the reference count by 1.</p>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm12numInstancesEv">
+<span id="xAH::Algorithm::numInstances"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a668fbd5fb7180046a8a41b496cf5ccbd"></span>int <code class="descname">numInstances</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm12numInstancesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Return number of instances registered under the moniker <a class="reference internal" href="BJetEfficiencyCorrector.html#_CPPv2N3xAH9Algorithm11m_classNameE" title="xAH::Algorithm::m_className"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_className</span></code></a></p>
+<p>This will return the reference count.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If for some reason the instance wasn&#8217;t registered, we spit out a warning.</p>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm18unregisterInstanceEv">
+<span id="xAH::Algorithm::unregisterInstance"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a5db7105c8aba80421821c555bca6ca93"></span>void <code class="descname">unregisterInstance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm18unregisterInstanceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Unregister the given instance under the moniker <a class="reference internal" href="BJetEfficiencyCorrector.html#_CPPv2N3xAH9Algorithm11m_classNameE" title="xAH::Algorithm::m_className"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_className</span></code></a></p>
+<p>This will decrease the reference count by 1.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If for some reason the instance wasn&#8217;t registered, we spit out a warning.</p>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T&gt;</dt>
+<dt id="_CPPv2N3xAH9Algorithm14checkToolStoreERKNSt6stringE">
+<span id="xAH::Algorithm::checkToolStore__ssCR"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a064eba684de39e15a2368064dafee485"></span>StatusCode <code class="descname">checkToolStore</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>tool_name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm14checkToolStoreERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><blockquote>
+<div>Check whether the input CP tool already exists with <em>this</em> name in the asg::ToolStore</div></blockquote>
+<p>Depending on the outcome, the content of the map <a class="reference internal" href="xAHAlgorithm.html#_CPPv2N3xAH9Algorithm17m_toolAlreadyUsedE" title="xAH::Algorithm::m_toolAlreadyUsed"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_toolAlreadyUsed</span></code></a> wll be set accordingly.</p>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm17isToolAlreadyUsedERKNSt6stringE">
+<span id="xAH::Algorithm::isToolAlreadyUsed__ssCR"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1aba740002a03904fa58d6f3762965c733"></span>bool <code class="descname">isToolAlreadyUsed</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>tool_name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm17isToolAlreadyUsedERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Check whether the input CP tool has been already used by any <a class="reference internal" href="xAHAlgorithm.html#_CPPv2N3xAH9AlgorithmE" title="xAH::Algorithm"><code class="xref cpp cpp-class docutils literal"><span class="pre">xAH::Algorithm</span></code></a> in the current job by scanning <a class="reference internal" href="xAHAlgorithm.html#_CPPv2N3xAH9Algorithm17m_toolAlreadyUsedE" title="xAH::Algorithm::m_toolAlreadyUsed"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_toolAlreadyUsed</span></code></a>.</p>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T&gt;</dt>
+<dt id="_CPPv2NK3xAH9Algorithm11setToolNameERN3asg13AnaToolHandleI1TEERKNSt6stringE">
+<span id="xAH::Algorithm::setToolName__asg::AnaToolHandle:T:R.ssCRC"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a21105ba926b929179cd329528e17168a"></span>void <code class="descname">setToolName</code><span class="sig-paren">(</span>__attribute__((unused)) asg::AnaToolHandle&lt;T&gt; &amp;<em>handle</em>, __attribute__((unused)) <em class="property">const</em> std::string &amp;<em>name</em> = &quot;&quot;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK3xAH9Algorithm11setToolNameERN3asg13AnaToolHandleI1TEERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><blockquote>
+<div></div></blockquote>
+<p>Sets the name of a tool. If no name is needed, the tool will use the name of the algorithm plus a unique identifier (<a class="reference internal" href="BJetEfficiencyCorrector.html#_CPPv2NK3xAH9Algorithm10getAddressEv" title="xAH::Algorithm::getAddress"><code class="xref cpp cpp-func docutils literal"><span class="pre">xAH::Algorithm::getAddress()</span></code></a>) appended to ensure the tool is unique and effectively private.</p>
+<p>The tool will not be guaranteed unique if two tools of the same type are created without a name passed in. But this is, at this point, up to the user and a more complex scenario than what this function tries to simplify on its own.</p>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK3xAH9Algorithm10getAddressEv">
+<span id="xAH::Algorithm::getAddressC"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1aefeab6cf73ebfc67aa4e7cf74d762427"></span>std::string <code class="descname">getAddress</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK3xAH9Algorithm10getAddressEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Return a <code class="docutils literal"><span class="pre">std::string</span></code> representation of <code class="docutils literal"><span class="pre">this</span></code> </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm11m_classNameE">
+<span id="xAH::Algorithm::m_className__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1aff1b344c0be87d17890333bb65421c39"></span>std::string <code class="descname">m_className</code> = &quot;Algorithm&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm11m_classNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>The moniker by which all instances are tracked in <a class="reference internal" href="xAHAlgorithm.html#_CPPv2N3xAH9Algorithm18m_instanceRegistryE" title="xAH::Algorithm::m_instanceRegistry"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_instanceRegistry</span></code></a></p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm7m_eventE">
+<span id="xAH::Algorithm::m_event__xAOD::TEventP"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a6c1a280a55c7e0ff39c6f90e2ba9b05b"></span>xAOD::TEvent *<code class="descname">m_event</code> = nullptr<a class="headerlink" href="#_CPPv2N3xAH9Algorithm7m_eventE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The TEvent object </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm7m_storeE">
+<span id="xAH::Algorithm::m_store__xAOD::TStoreP"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a58d778d2d1351cbb863f30fadb1a727c"></span>xAOD::TStore *<code class="descname">m_store</code> = nullptr<a class="headerlink" href="#_CPPv2N3xAH9Algorithm7m_storeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The TStore object </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Private Functions</p>
+<dl class="function">
+<dt id="_CPPv2N19BasicEventSelection25autoconfigurePileupRWToolEv">
+<span id="BasicEventSelection::autoconfigurePileupRWTool"></span><span class="target" id="xAHclass_basic_event_selection_1a05c7d05fbc7712b5f8fa987e7946532a"></span>StatusCode <code class="descname">autoconfigurePileupRWTool</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N19BasicEventSelection25autoconfigurePileupRWToolEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Automatically add the required PRW config file for the DSID being processed to the PRW tool. </p>
+<p>helper functions <p>The PRW config files stored by SUSYTools are added to the m_pileup_tool_handle. If the m_mcCampaign is
+not set, the campaign is determined automatically. If it is set, then all of the campaings listed
+in the setting are added.</p>
+ </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Private Members</p>
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection16m_RunNr_VS_EvtNrE">
+<span id="BasicEventSelection::m_RunNr_VS_EvtNr__std::set:std::pair:uint32_t.uint32_t::"></span><span class="target" id="xAHclass_basic_event_selection_1a86065ac41625a015ad8af142f2dd3025"></span>std::set&lt;std::pair&lt;uint32_t, uint32_t&gt;&gt; <code class="descname">m_RunNr_VS_EvtNr</code><a class="headerlink" href="#_CPPv2N19BasicEventSelection16m_RunNr_VS_EvtNrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection23m_triggerUnprescaleListE">
+<span id="BasicEventSelection::m_triggerUnprescaleList__std::vector:ss:"></span><span class="target" id="xAHclass_basic_event_selection_1ae5c3de5ad8ec124e1c9435dc27218f5d"></span>std::vector&lt;std::string&gt; <code class="descname">m_triggerUnprescaleList</code><a class="headerlink" href="#_CPPv2N19BasicEventSelection23m_triggerUnprescaleListE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection12m_grl_handleE">
+<span id="BasicEventSelection::m_grl_handle__asg::AnaToolHandle:IGoodRunsListSelectionTool:"></span><span class="target" id="xAHclass_basic_event_selection_1aff400c030fd72f6e87a2a9a676f2ea87"></span>asg::AnaToolHandle&lt;IGoodRunsListSelectionTool&gt; <code class="descname">m_grl_handle</code> = {&quot;GoodRunsListSelectionTool&quot;                                      , this}<a class="headerlink" href="#_CPPv2N19BasicEventSelection12m_grl_handleE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection20m_pileup_tool_handleE">
+<span id="BasicEventSelection::m_pileup_tool_handle__asg::AnaToolHandle:CP::IPileupReweightingTool:"></span><span class="target" id="xAHclass_basic_event_selection_1a7b3e03ec17711ff5a8110f3646debf59"></span>asg::AnaToolHandle&lt;CP::IPileupReweightingTool&gt; <code class="descname">m_pileup_tool_handle</code> = {&quot;CP::PileupReweightingTool/Pileup&quot;                                            }<a class="headerlink" href="#_CPPv2N19BasicEventSelection20m_pileup_tool_handleE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection21m_trigConfTool_handleE">
+<span id="BasicEventSelection::m_trigConfTool_handle__asg::AnaToolHandle:TrigConf::ITrigConfigTool:"></span><span class="target" id="xAHclass_basic_event_selection_1aee0750dfc1f80c6aa3ffee3f09fec841"></span>asg::AnaToolHandle&lt;TrigConf::ITrigConfigTool&gt; <code class="descname">m_trigConfTool_handle</code> = {&quot;TrigConf::xAODConfigTool/xAODConfigTool&quot;                        , this}<a class="headerlink" href="#_CPPv2N19BasicEventSelection21m_trigConfTool_handleE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection20m_trigDecTool_handleE">
+<span id="BasicEventSelection::m_trigDecTool_handle__asg::AnaToolHandle:Trig::TrigDecisionTool:"></span><span class="target" id="xAHclass_basic_event_selection_1a1955bc3350c9319156ea4969c1df74ad"></span>asg::AnaToolHandle&lt;Trig::TrigDecisionTool&gt; <code class="descname">m_trigDecTool_handle</code> = {&quot;Trig::TrigDecisionTool/TrigDecisionTool&quot;                                     }<a class="headerlink" href="#_CPPv2N19BasicEventSelection20m_trigDecTool_handleE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection30m_reweightSherpa22_tool_handleE">
+<span id="BasicEventSelection::m_reweightSherpa22_tool_handle__asg::AnaToolHandle:IWeightTool:"></span><span class="target" id="xAHclass_basic_event_selection_1af480d90f85e378e3e8c0e9f35519e92b"></span>asg::AnaToolHandle&lt;IWeightTool&gt; <code class="descname">m_reweightSherpa22_tool_handle</code> = {&quot;PMGTools::PMGSherpa22VJetsWeightTool/PMGSherpa22VJetsWeightTool&quot;, this}<a class="headerlink" href="#_CPPv2N19BasicEventSelection30m_reweightSherpa22_tool_handleE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection14m_eventCounterE">
+<span id="BasicEventSelection::m_eventCounter__i"></span><span class="target" id="xAHclass_basic_event_selection_1a72d4f6906f3a5931eac127a2da869c68"></span>int <code class="descname">m_eventCounter</code><a class="headerlink" href="#_CPPv2N19BasicEventSelection14m_eventCounterE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection16m_histEventCountE">
+<span id="BasicEventSelection::m_histEventCount__TH1DP"></span><span class="target" id="xAHclass_basic_event_selection_1a3525cca6000b549ae1b7d039a0a0beb1"></span>TH1D *<code class="descname">m_histEventCount</code> = nullptr<a class="headerlink" href="#_CPPv2N19BasicEventSelection16m_histEventCountE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection19m_MD_initialNeventsE">
+<span id="BasicEventSelection::m_MD_initialNevents__uint64_t"></span><span class="target" id="xAHclass_basic_event_selection_1ab417a3d1b1c1c7a052f64e969805374a"></span>uint64_t <code class="descname">m_MD_initialNevents</code><a class="headerlink" href="#_CPPv2N19BasicEventSelection19m_MD_initialNeventsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection17m_MD_finalNeventsE">
+<span id="BasicEventSelection::m_MD_finalNevents__uint64_t"></span><span class="target" id="xAHclass_basic_event_selection_1a1c84bcbb4dbaddbf489b8e6da7e0a14e"></span>uint64_t <code class="descname">m_MD_finalNevents</code><a class="headerlink" href="#_CPPv2N19BasicEventSelection17m_MD_finalNeventsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection16m_MD_initialSumWE">
+<span id="BasicEventSelection::m_MD_initialSumW__double"></span><span class="target" id="xAHclass_basic_event_selection_1a1eae049f30be5fb5be73885a6896a99b"></span>double <code class="descname">m_MD_initialSumW</code><a class="headerlink" href="#_CPPv2N19BasicEventSelection16m_MD_initialSumWE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection14m_MD_finalSumWE">
+<span id="BasicEventSelection::m_MD_finalSumW__double"></span><span class="target" id="xAHclass_basic_event_selection_1a6fdb3fc334eb6e64d396cf6f371a933c"></span>double <code class="descname">m_MD_finalSumW</code><a class="headerlink" href="#_CPPv2N19BasicEventSelection14m_MD_finalSumWE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection23m_MD_initialSumWSquaredE">
+<span id="BasicEventSelection::m_MD_initialSumWSquared__double"></span><span class="target" id="xAHclass_basic_event_selection_1af3709209ab767e71617581af24c8e2a2"></span>double <code class="descname">m_MD_initialSumWSquared</code><a class="headerlink" href="#_CPPv2N19BasicEventSelection23m_MD_initialSumWSquaredE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection21m_MD_finalSumWSquaredE">
+<span id="BasicEventSelection::m_MD_finalSumWSquared__double"></span><span class="target" id="xAHclass_basic_event_selection_1a7f8aa6ef46290e2641fc618b129f05de"></span>double <code class="descname">m_MD_finalSumWSquared</code><a class="headerlink" href="#_CPPv2N19BasicEventSelection21m_MD_finalSumWSquaredE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection14m_mcCampaignMDE">
+<span id="BasicEventSelection::m_mcCampaignMD__ss"></span><span class="target" id="xAHclass_basic_event_selection_1af7f8800dd70152a6451912348ee1aa5a"></span>std::string <code class="descname">m_mcCampaignMD</code><a class="headerlink" href="#_CPPv2N19BasicEventSelection14m_mcCampaignMDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection13m_cutflowHistE">
+<span id="BasicEventSelection::m_cutflowHist__TH1DP"></span><span class="target" id="xAHclass_basic_event_selection_1a6a0c7c6393bf51cf7d99d605943c4446"></span>TH1D *<code class="descname">m_cutflowHist</code> = nullptr<a class="headerlink" href="#_CPPv2N19BasicEventSelection13m_cutflowHistE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection14m_cutflowHistWE">
+<span id="BasicEventSelection::m_cutflowHistW__TH1DP"></span><span class="target" id="xAHclass_basic_event_selection_1a9e6e79383d77f16fc1591b3e37094ed2"></span>TH1D *<code class="descname">m_cutflowHistW</code> = nullptr<a class="headerlink" href="#_CPPv2N19BasicEventSelection14m_cutflowHistWE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection13m_cutflow_allE">
+<span id="BasicEventSelection::m_cutflow_all__i"></span><span class="target" id="xAHclass_basic_event_selection_1af9acc982aa5b3db8001046791b8de6e4"></span>int <code class="descname">m_cutflow_all</code><a class="headerlink" href="#_CPPv2N19BasicEventSelection13m_cutflow_allE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection20m_cutflow_duplicatesE">
+<span id="BasicEventSelection::m_cutflow_duplicates__i"></span><span class="target" id="xAHclass_basic_event_selection_1ada3beb039d4f91f574d1587f0df5399d"></span>int <code class="descname">m_cutflow_duplicates</code><a class="headerlink" href="#_CPPv2N19BasicEventSelection20m_cutflow_duplicatesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection13m_cutflow_grlE">
+<span id="BasicEventSelection::m_cutflow_grl__i"></span><span class="target" id="xAHclass_basic_event_selection_1a16690c64f4fc368d966845c4fae78396"></span>int <code class="descname">m_cutflow_grl</code><a class="headerlink" href="#_CPPv2N19BasicEventSelection13m_cutflow_grlE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection13m_cutflow_larE">
+<span id="BasicEventSelection::m_cutflow_lar__i"></span><span class="target" id="xAHclass_basic_event_selection_1a0ab569b918860a57f2c262f60db39dff"></span>int <code class="descname">m_cutflow_lar</code><a class="headerlink" href="#_CPPv2N19BasicEventSelection13m_cutflow_larE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection14m_cutflow_tileE">
+<span id="BasicEventSelection::m_cutflow_tile__i"></span><span class="target" id="xAHclass_basic_event_selection_1a1734f56898654734f0477325dac588f7"></span>int <code class="descname">m_cutflow_tile</code><a class="headerlink" href="#_CPPv2N19BasicEventSelection14m_cutflow_tileE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection13m_cutflow_SCTE">
+<span id="BasicEventSelection::m_cutflow_SCT__i"></span><span class="target" id="xAHclass_basic_event_selection_1ab41ddb9c04907143b5171bea64308fd2"></span>int <code class="descname">m_cutflow_SCT</code><a class="headerlink" href="#_CPPv2N19BasicEventSelection13m_cutflow_SCTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection14m_cutflow_coreE">
+<span id="BasicEventSelection::m_cutflow_core__i"></span><span class="target" id="xAHclass_basic_event_selection_1ac260794ed73912ffdeb0474b1f478f92"></span>int <code class="descname">m_cutflow_core</code><a class="headerlink" href="#_CPPv2N19BasicEventSelection14m_cutflow_coreE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection13m_cutflow_npvE">
+<span id="BasicEventSelection::m_cutflow_npv__i"></span><span class="target" id="xAHclass_basic_event_selection_1a8a81e66d43ba6c3cf060e60cb4776c5e"></span>int <code class="descname">m_cutflow_npv</code><a class="headerlink" href="#_CPPv2N19BasicEventSelection13m_cutflow_npvE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection17m_cutflow_triggerE">
+<span id="BasicEventSelection::m_cutflow_trigger__i"></span><span class="target" id="xAHclass_basic_event_selection_1a6364f2fdda9314420205524d0025fa4c"></span>int <code class="descname">m_cutflow_trigger</code><a class="headerlink" href="#_CPPv2N19BasicEventSelection17m_cutflow_triggerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection18m_el_cutflowHist_1E">
+<span id="BasicEventSelection::m_el_cutflowHist_1__TH1DP"></span><span class="target" id="xAHclass_basic_event_selection_1a40dfce733b42020b372ea1d11f8109ff"></span>TH1D *<code class="descname">m_el_cutflowHist_1</code> = nullptr<a class="headerlink" href="#_CPPv2N19BasicEventSelection18m_el_cutflowHist_1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection18m_el_cutflowHist_2E">
+<span id="BasicEventSelection::m_el_cutflowHist_2__TH1DP"></span><span class="target" id="xAHclass_basic_event_selection_1aedb4fa60ef3ba11d0bb64887be16f6aa"></span>TH1D *<code class="descname">m_el_cutflowHist_2</code> = nullptr<a class="headerlink" href="#_CPPv2N19BasicEventSelection18m_el_cutflowHist_2E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection18m_mu_cutflowHist_1E">
+<span id="BasicEventSelection::m_mu_cutflowHist_1__TH1DP"></span><span class="target" id="xAHclass_basic_event_selection_1a2b3115d48907fbbe2be0da872c598f1b"></span>TH1D *<code class="descname">m_mu_cutflowHist_1</code> = nullptr<a class="headerlink" href="#_CPPv2N19BasicEventSelection18m_mu_cutflowHist_1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection18m_mu_cutflowHist_2E">
+<span id="BasicEventSelection::m_mu_cutflowHist_2__TH1DP"></span><span class="target" id="xAHclass_basic_event_selection_1a0adaeeb4a401e19586b9e32b6d652330"></span>TH1D *<code class="descname">m_mu_cutflowHist_2</code> = nullptr<a class="headerlink" href="#_CPPv2N19BasicEventSelection18m_mu_cutflowHist_2E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection18m_ph_cutflowHist_1E">
+<span id="BasicEventSelection::m_ph_cutflowHist_1__TH1DP"></span><span class="target" id="xAHclass_basic_event_selection_1a2d42ecd41e0caddc66aea6e8e8398453"></span>TH1D *<code class="descname">m_ph_cutflowHist_1</code> = nullptr<a class="headerlink" href="#_CPPv2N19BasicEventSelection18m_ph_cutflowHist_1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection19m_tau_cutflowHist_1E">
+<span id="BasicEventSelection::m_tau_cutflowHist_1__TH1DP"></span><span class="target" id="xAHclass_basic_event_selection_1a781832e199360752e316d789eaeb2b49"></span>TH1D *<code class="descname">m_tau_cutflowHist_1</code> = nullptr<a class="headerlink" href="#_CPPv2N19BasicEventSelection19m_tau_cutflowHist_1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection19m_tau_cutflowHist_2E">
+<span id="BasicEventSelection::m_tau_cutflowHist_2__TH1DP"></span><span class="target" id="xAHclass_basic_event_selection_1abac776bf8fbb2ac591a6879e2a93a4ae"></span>TH1D *<code class="descname">m_tau_cutflowHist_2</code> = nullptr<a class="headerlink" href="#_CPPv2N19BasicEventSelection19m_tau_cutflowHist_2E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection19m_jet_cutflowHist_1E">
+<span id="BasicEventSelection::m_jet_cutflowHist_1__TH1DP"></span><span class="target" id="xAHclass_basic_event_selection_1a26ec47366a3c03f74c1c167446e9ae63"></span>TH1D *<code class="descname">m_jet_cutflowHist_1</code> = nullptr<a class="headerlink" href="#_CPPv2N19BasicEventSelection19m_jet_cutflowHist_1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection19m_trk_cutflowHist_1E">
+<span id="BasicEventSelection::m_trk_cutflowHist_1__TH1DP"></span><span class="target" id="xAHclass_basic_event_selection_1a28c76fb9add991435a13ef87bbbc38db"></span>TH1D *<code class="descname">m_trk_cutflowHist_1</code> = nullptr<a class="headerlink" href="#_CPPv2N19BasicEventSelection19m_trk_cutflowHist_1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection21m_truth_cutflowHist_1E">
+<span id="BasicEventSelection::m_truth_cutflowHist_1__TH1DP"></span><span class="target" id="xAHclass_basic_event_selection_1a91d2b3c9ec1f8d0ff9d2c24513274207"></span>TH1D *<code class="descname">m_truth_cutflowHist_1</code> = nullptr<a class="headerlink" href="#_CPPv2N19BasicEventSelection21m_truth_cutflowHist_1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection16m_duplicatesTreeE">
+<span id="BasicEventSelection::m_duplicatesTree__TTreeP"></span><span class="target" id="xAHclass_basic_event_selection_1ab411dd013f260e85083408061815f385"></span>TTree *<code class="descname">m_duplicatesTree</code> = nullptr<a class="headerlink" href="#_CPPv2N19BasicEventSelection16m_duplicatesTreeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>TTree for duplicates bookeeping </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection15m_duplRunNumberE">
+<span id="BasicEventSelection::m_duplRunNumber__i"></span><span class="target" id="xAHclass_basic_event_selection_1a052908233a04670969c79828d659e239"></span>int <code class="descname">m_duplRunNumber</code><a class="headerlink" href="#_CPPv2N19BasicEventSelection15m_duplRunNumberE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N19BasicEventSelection17m_duplEventNumberE">
+<span id="BasicEventSelection::m_duplEventNumber__l-i"></span><span class="target" id="xAHclass_basic_event_selection_1a7e15499f9cb5629934507e6eb86bcf05"></span>long int <code class="descname">m_duplEventNumber</code><a class="headerlink" href="#_CPPv2N19BasicEventSelection17m_duplEventNumberE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="OverlapRemover.html" class="btn btn-neutral float-right" title="Overlap Removal" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Selectors.html" class="btn btn-neutral" title="Selecting Objects" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015-2017, ATLAS Collaboration.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'01-00-00-46-g45a2bda',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

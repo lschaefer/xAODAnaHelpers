@@ -1,0 +1,793 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tree Maker Algorithm &mdash; xAODAnaHelpers 01-00-00-46-g45a2bda documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="xAODAnaHelpers 01-00-00-46-g45a2bda documentation" href="index.html"/>
+        <link rel="up" title="Producing Outputs" href="Outputs.html"/>
+        <link rel="next" title="Mini-xAOD" href="MinixAOD.html"/>
+        <link rel="prev" title="Tree Maker Base Class" href="HelpTreeBase.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> xAODAnaHelpers
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                01.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UsingUs.html">xAH_run.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Algorithms.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQs.html">xAH FAQ</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="API.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Getters.html">Getting Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Calibrators.html">Calibrating Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Correctors.html">Efficiency Correcting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Selectors.html">Selecting Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Histograms.html">Histograms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ToolsUsed.html">Tools Used</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="Outputs.html">Producing Outputs</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="Outputs.html#ttree-outputs">TTree Outputs</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="HelpTreeBase.html">Tree Maker Base Class</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Tree Maker Algorithm</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Outputs.html#xaod-outputs">xAOD Outputs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Utilities.html">Utilities</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">xAODAnaHelpers</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="API.html">API Reference</a> &raquo;</li>
+      
+          <li><a href="Outputs.html">Producing Outputs</a> &raquo;</li>
+      
+    <li>Tree Maker Algorithm</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/TreeAlgo.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tree-maker-algorithm">
+<h1>Tree Maker Algorithm<a class="headerlink" href="#tree-maker-algorithm" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="_CPPv28TreeAlgo">
+<span id="TreeAlgo"></span><span class="target" id="xAHclass_tree_algo"></span><em class="property">class </em><code class="descclassname"></code><code class="descname">TreeAlgo</code><a class="headerlink" href="#_CPPv28TreeAlgo" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Inherits from <a class="reference internal" href="xAHAlgorithm.html#xAHclassx_a_h_1_1_algorithm"><span class="std std-ref">xAH::Algorithm</span></a></p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N8TreeAlgo8TreeAlgoEv">
+<span id="TreeAlgo::TreeAlgo"></span><span class="target" id="xAHclass_tree_algo_1a41617f066c2e2d760e89b60e007b0573"></span><code class="descname">TreeAlgo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8TreeAlgo8TreeAlgoEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8TreeAlgo8setupJobERN2EL3JobE">
+<span id="TreeAlgo::setupJob__EL::JobR"></span><span class="target" id="xAHclass_tree_algo_1ae1e2a2de7ea0fa25f77de1f8e7ebf689"></span>EL::StatusCode <code class="descname">setupJob</code><span class="sig-paren">(</span>EL::Job &amp;<em>job</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8TreeAlgo8setupJobERN2EL3JobE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8TreeAlgo11fileExecuteEv">
+<span id="TreeAlgo::fileExecute"></span><span class="target" id="xAHclass_tree_algo_1a1069f349fc15bb358d8aa4d5dac0074b"></span>EL::StatusCode <code class="descname">fileExecute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8TreeAlgo11fileExecuteEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8TreeAlgo14histInitializeEv">
+<span id="TreeAlgo::histInitialize"></span><span class="target" id="xAHclass_tree_algo_1adde23cb1c3486a80f7edcb32f31e74ab"></span>EL::StatusCode <code class="descname">histInitialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8TreeAlgo14histInitializeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8TreeAlgo11changeInputEb">
+<span id="TreeAlgo::changeInput__b"></span><span class="target" id="xAHclass_tree_algo_1ac6cc884213f5eeb892d8ebc55970809e"></span>EL::StatusCode <code class="descname">changeInput</code><span class="sig-paren">(</span>bool <em>firstFile</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8TreeAlgo11changeInputEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8TreeAlgo10initializeEv">
+<span id="TreeAlgo::initialize"></span><span class="target" id="xAHclass_tree_algo_1ae58948006f1467769553daa6c075d951"></span>EL::StatusCode <code class="descname">initialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8TreeAlgo10initializeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8TreeAlgo7executeEv">
+<span id="TreeAlgo::execute"></span><span class="target" id="xAHclass_tree_algo_1aba56893d50195dddb21e1496cdae0041"></span>EL::StatusCode <code class="descname">execute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8TreeAlgo7executeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8TreeAlgo11postExecuteEv">
+<span id="TreeAlgo::postExecute"></span><span class="target" id="xAHclass_tree_algo_1aa8e12f984e3c473e0e46c5ebb9d420dd"></span>EL::StatusCode <code class="descname">postExecute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8TreeAlgo11postExecuteEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8TreeAlgo8finalizeEv">
+<span id="TreeAlgo::finalize"></span><span class="target" id="xAHclass_tree_algo_1ac434f9f5b43904b39cd0ea61915bf8b8"></span>EL::StatusCode <code class="descname">finalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8TreeAlgo8finalizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8TreeAlgo12histFinalizeEv">
+<span id="TreeAlgo::histFinalize"></span><span class="target" id="xAHclass_tree_algo_1aa515114b546de28810dbcbff50eed240"></span>EL::StatusCode <code class="descname">histFinalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8TreeAlgo12histFinalizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N8TreeAlgo10createTreeEPN4xAOD6TEventEP5TTreeP5TFileKfbPN4xAOD6TStoreE">
+<span id="TreeAlgo::createTree__xAOD::TEventP.TTreeP.TFileP.floatC.b.xAOD::TStoreP"></span><span class="target" id="xAHclass_tree_algo_1aabe4edf15121069d80da96f1acdc12ce"></span><a class="reference internal" href="HelpTreeBase.html#_CPPv212HelpTreeBase" title="HelpTreeBase">HelpTreeBase</a> *<code class="descname">createTree</code><span class="sig-paren">(</span>xAOD::TEvent *<em>event</em>, TTree *<em>tree</em>, TFile *<em>file</em>, <em class="property">const</em> float <em>units</em>, bool <em>debug</em>, xAOD::TStore *<em>store</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N8TreeAlgo10createTreeEPN4xAOD6TEventEP5TTreeP5TFileKfbPN4xAOD6TStoreE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm13algInitializeEv">
+<span id="xAH::Algorithm::algInitialize"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ae8fd8541cf785803ec19d9c4f8cfe602"></span>StatusCode <code class="descname">algInitialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm13algInitializeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Run any initializations commmon to all xAH Algorithms (such as registerInstance). Call this inside <code class="docutils literal"><span class="pre">histInitialize</span></code> for best results. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm11algFinalizeEv">
+<span id="xAH::Algorithm::algFinalize"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ad953653631da2d160893153f0b30f919"></span>StatusCode <code class="descname">algFinalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm11algFinalizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Run any finalizations common to all xAH Algorithms (such as unregisterInstance). Call this inside <code class="docutils literal"><span class="pre">histFinalize</span></code> for best results. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm18parseSystValVectorEv">
+<span id="xAH::Algorithm::parseSystValVector"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a4859dee0ea827841c1adbbf56b159257"></span>StatusCode <code class="descname">parseSystValVector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm18parseSystValVectorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Parse string of systematic sigma levels in m_systValVectorString into m_systValVector. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo12m_outHistDirE">
+<span id="TreeAlgo::m_outHistDir__b"></span><span class="target" id="xAHclass_tree_algo_1a88a47044b748374e57862107133213d8"></span>bool <code class="descname">m_outHistDir</code> = false<a class="headerlink" href="#_CPPv2N8TreeAlgo12m_outHistDirE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo14m_evtDetailStrE">
+<span id="TreeAlgo::m_evtDetailStr__ss"></span><span class="target" id="xAHclass_tree_algo_1aee653c0f2d4e5a65f1165b4c1954b667"></span>std::string <code class="descname">m_evtDetailStr</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo14m_evtDetailStrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo15m_trigDetailStrE">
+<span id="TreeAlgo::m_trigDetailStr__ss"></span><span class="target" id="xAHclass_tree_algo_1ac7abc245c63caecd48619abf565784f1"></span>std::string <code class="descname">m_trigDetailStr</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo15m_trigDetailStrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo13m_muDetailStrE">
+<span id="TreeAlgo::m_muDetailStr__ss"></span><span class="target" id="xAHclass_tree_algo_1ad7aa8c1ee8e59845fe6e90af0787b20c"></span>std::string <code class="descname">m_muDetailStr</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo13m_muDetailStrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo13m_elDetailStrE">
+<span id="TreeAlgo::m_elDetailStr__ss"></span><span class="target" id="xAHclass_tree_algo_1a276a91ee5d9fa99ccc01992e679fdf7a"></span>std::string <code class="descname">m_elDetailStr</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo13m_elDetailStrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo14m_jetDetailStrE">
+<span id="TreeAlgo::m_jetDetailStr__ss"></span><span class="target" id="xAHclass_tree_algo_1abeb16c39bacbe3a709006c17da27c535"></span>std::string <code class="descname">m_jetDetailStr</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo14m_jetDetailStrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo18m_trigJetDetailStrE">
+<span id="TreeAlgo::m_trigJetDetailStr__ss"></span><span class="target" id="xAHclass_tree_algo_1a149865e7f13b90b2fe90a9db6085ba23"></span>std::string <code class="descname">m_trigJetDetailStr</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo18m_trigJetDetailStrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo19m_truthJetDetailStrE">
+<span id="TreeAlgo::m_truthJetDetailStr__ss"></span><span class="target" id="xAHclass_tree_algo_1a4c45c7d8f64b619dfe6b8afb49c8ee3d"></span>std::string <code class="descname">m_truthJetDetailStr</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo19m_truthJetDetailStrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo17m_fatJetDetailStrE">
+<span id="TreeAlgo::m_fatJetDetailStr__ss"></span><span class="target" id="xAHclass_tree_algo_1a5f6e06cc9685995fb974edd1f477f0d2"></span>std::string <code class="descname">m_fatJetDetailStr</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo17m_fatJetDetailStrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo22m_truthFatJetDetailStrE">
+<span id="TreeAlgo::m_truthFatJetDetailStr__ss"></span><span class="target" id="xAHclass_tree_algo_1acad94ebd5b9cbd4c3a7846c81f2203f4"></span>std::string <code class="descname">m_truthFatJetDetailStr</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo22m_truthFatJetDetailStrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo14m_tauDetailStrE">
+<span id="TreeAlgo::m_tauDetailStr__ss"></span><span class="target" id="xAHclass_tree_algo_1a537b8252e98919d40c4958641a5266d0"></span>std::string <code class="descname">m_tauDetailStr</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo14m_tauDetailStrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo14m_METDetailStrE">
+<span id="TreeAlgo::m_METDetailStr__ss"></span><span class="target" id="xAHclass_tree_algo_1ab7cc1cfce886287633e9eb6a2ee0dd7d"></span>std::string <code class="descname">m_METDetailStr</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo14m_METDetailStrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo23m_METReferenceDetailStrE">
+<span id="TreeAlgo::m_METReferenceDetailStr__ss"></span><span class="target" id="xAHclass_tree_algo_1a119467dcc43d4d7be2be32906b02a36a"></span>std::string <code class="descname">m_METReferenceDetailStr</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo23m_METReferenceDetailStrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo17m_photonDetailStrE">
+<span id="TreeAlgo::m_photonDetailStr__ss"></span><span class="target" id="xAHclass_tree_algo_1ad866432808698f8008f5c2dcc0631871"></span>std::string <code class="descname">m_photonDetailStr</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo17m_photonDetailStrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo25m_truthParticlesDetailStrE">
+<span id="TreeAlgo::m_truthParticlesDetailStr__ss"></span><span class="target" id="xAHclass_tree_algo_1a45def8cddd996be57332f72bfabb619e"></span>std::string <code class="descname">m_truthParticlesDetailStr</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo25m_truthParticlesDetailStrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo25m_trackParticlesDetailStrE">
+<span id="TreeAlgo::m_trackParticlesDetailStr__ss"></span><span class="target" id="xAHclass_tree_algo_1a9820018692c74f407cef36733a7af2e9"></span>std::string <code class="descname">m_trackParticlesDetailStr</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo25m_trackParticlesDetailStrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo18m_evtContainerNameE">
+<span id="TreeAlgo::m_evtContainerName__ss"></span><span class="target" id="xAHclass_tree_algo_1a1818d4653a6ba7bc4ca498dcf34f2dde"></span>std::string <code class="descname">m_evtContainerName</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo18m_evtContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo17m_muContainerNameE">
+<span id="TreeAlgo::m_muContainerName__ss"></span><span class="target" id="xAHclass_tree_algo_1a1cd33a9eedc79f7cd6f1f1d9505273d6"></span>std::string <code class="descname">m_muContainerName</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo17m_muContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo17m_elContainerNameE">
+<span id="TreeAlgo::m_elContainerName__ss"></span><span class="target" id="xAHclass_tree_algo_1aba5d0a70a19fd3573a3507e1d6ced93d"></span>std::string <code class="descname">m_elContainerName</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo17m_elContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo18m_jetContainerNameE">
+<span id="TreeAlgo::m_jetContainerName__ss"></span><span class="target" id="xAHclass_tree_algo_1ab9ab872d630a15105b80aadb81a36fab"></span>std::string <code class="descname">m_jetContainerName</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo18m_jetContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo15m_jetBranchNameE">
+<span id="TreeAlgo::m_jetBranchName__ss"></span><span class="target" id="xAHclass_tree_algo_1a3b4332dc7ca98d336ab70ec9b10a6783"></span>std::string <code class="descname">m_jetBranchName</code> = &quot;jet&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo15m_jetBranchNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo23m_truthJetContainerNameE">
+<span id="TreeAlgo::m_truthJetContainerName__ss"></span><span class="target" id="xAHclass_tree_algo_1a9b2b893be2a6201bb37fdceb8fce9b87"></span>std::string <code class="descname">m_truthJetContainerName</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo23m_truthJetContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo20m_truthJetBranchNameE">
+<span id="TreeAlgo::m_truthJetBranchName__ss"></span><span class="target" id="xAHclass_tree_algo_1a9a0853db98e05790827355f8676d43db"></span>std::string <code class="descname">m_truthJetBranchName</code> = &quot;truthJet&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo20m_truthJetBranchNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo22m_trigJetContainerNameE">
+<span id="TreeAlgo::m_trigJetContainerName__ss"></span><span class="target" id="xAHclass_tree_algo_1a8cf5b4e9554a1a162bd596b210d1871f"></span>std::string <code class="descname">m_trigJetContainerName</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo22m_trigJetContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo19m_trigJetBranchNameE">
+<span id="TreeAlgo::m_trigJetBranchName__ss"></span><span class="target" id="xAHclass_tree_algo_1aff3f0264b676faf69b1b8d8f9417c6ff"></span>std::string <code class="descname">m_trigJetBranchName</code> = &quot;trigJet&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo19m_trigJetBranchNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo21m_fatJetContainerNameE">
+<span id="TreeAlgo::m_fatJetContainerName__ss"></span><span class="target" id="xAHclass_tree_algo_1abbf60ec05f9f63ba63d8de2eddc1168f"></span>std::string <code class="descname">m_fatJetContainerName</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo21m_fatJetContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo26m_truthFatJetContainerNameE">
+<span id="TreeAlgo::m_truthFatJetContainerName__ss"></span><span class="target" id="xAHclass_tree_algo_1af01fcfe8f7f6566d7229f00c1d48ec9f"></span>std::string <code class="descname">m_truthFatJetContainerName</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo26m_truthFatJetContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo18m_tauContainerNameE">
+<span id="TreeAlgo::m_tauContainerName__ss"></span><span class="target" id="xAHclass_tree_algo_1a720de9dc5a947ef5582d3f033a82895f"></span>std::string <code class="descname">m_tauContainerName</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo18m_tauContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo18m_METContainerNameE">
+<span id="TreeAlgo::m_METContainerName__ss"></span><span class="target" id="xAHclass_tree_algo_1a7f38decf46049cdcb65d0fd9fba2d4c8"></span>std::string <code class="descname">m_METContainerName</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo18m_METContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo27m_METReferenceContainerNameE">
+<span id="TreeAlgo::m_METReferenceContainerName__ss"></span><span class="target" id="xAHclass_tree_algo_1ac37fd5aec9c61f8c0ca12ed9ce765609"></span>std::string <code class="descname">m_METReferenceContainerName</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo27m_METReferenceContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo21m_photonContainerNameE">
+<span id="TreeAlgo::m_photonContainerName__ss"></span><span class="target" id="xAHclass_tree_algo_1ad21bcf33c923139826fb768515f10de8"></span>std::string <code class="descname">m_photonContainerName</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo21m_photonContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo29m_truthParticlesContainerNameE">
+<span id="TreeAlgo::m_truthParticlesContainerName__ss"></span><span class="target" id="xAHclass_tree_algo_1a3aba01f70199b0ec4f10481c0c150b5c"></span>std::string <code class="descname">m_truthParticlesContainerName</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo29m_truthParticlesContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo29m_trackParticlesContainerNameE">
+<span id="TreeAlgo::m_trackParticlesContainerName__ss"></span><span class="target" id="xAHclass_tree_algo_1a921d32be4a1cda77082a401105e88541"></span>std::string <code class="descname">m_trackParticlesContainerName</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo29m_trackParticlesContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo20m_l1JetContainerNameE">
+<span id="TreeAlgo::m_l1JetContainerName__ss"></span><span class="target" id="xAHclass_tree_algo_1a1c961fdfbd0756264f012d3c3be56dd0"></span>std::string <code class="descname">m_l1JetContainerName</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo20m_l1JetContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo12m_sortL1JetsE">
+<span id="TreeAlgo::m_sortL1Jets__b"></span><span class="target" id="xAHclass_tree_algo_1aa317a7edc711a415f110588a74b27573"></span>bool <code class="descname">m_sortL1Jets</code> = false<a class="headerlink" href="#_CPPv2N8TreeAlgo12m_sortL1JetsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo12m_retrievePVE">
+<span id="TreeAlgo::m_retrievePV__b"></span><span class="target" id="xAHclass_tree_algo_1a933f3863901bfb19abe026e1f1d0b9fb"></span>bool <code class="descname">m_retrievePV</code> = true<a class="headerlink" href="#_CPPv2N8TreeAlgo12m_retrievePVE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo12m_muSystsVecE">
+<span id="TreeAlgo::m_muSystsVec__ss"></span><span class="target" id="xAHclass_tree_algo_1aa77a94978512608b554529ef8a5adf17"></span>std::string <code class="descname">m_muSystsVec</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo12m_muSystsVecE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo12m_elSystsVecE">
+<span id="TreeAlgo::m_elSystsVec__ss"></span><span class="target" id="xAHclass_tree_algo_1a33fc21635c9531442bf3ef97868cdc16"></span>std::string <code class="descname">m_elSystsVec</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo12m_elSystsVecE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo13m_jetSystsVecE">
+<span id="TreeAlgo::m_jetSystsVec__ss"></span><span class="target" id="xAHclass_tree_algo_1ab58879636d1091695b53b928e4177081"></span>std::string <code class="descname">m_jetSystsVec</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo13m_jetSystsVecE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo16m_photonSystsVecE">
+<span id="TreeAlgo::m_photonSystsVec__ss"></span><span class="target" id="xAHclass_tree_algo_1aaf9c6a95ccac26bc6c81b3b66841247c"></span>std::string <code class="descname">m_photonSystsVec</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo16m_photonSystsVecE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo16m_fatJetSystsVecE">
+<span id="TreeAlgo::m_fatJetSystsVec__ss"></span><span class="target" id="xAHclass_tree_algo_1ae75484ccff1c39644edaf426e08c31b3"></span>std::string <code class="descname">m_fatJetSystsVec</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo16m_fatJetSystsVecE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo13m_metSystsVecE">
+<span id="TreeAlgo::m_metSystsVec__ss"></span><span class="target" id="xAHclass_tree_algo_1a17630b06715246158ce9a1c08ef22740"></span>std::string <code class="descname">m_metSystsVec</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N8TreeAlgo13m_metSystsVecE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo7m_unitsE">
+<span id="TreeAlgo::m_units__float"></span><span class="target" id="xAHclass_tree_algo_1adf5f4cfe29d3caa7118c4b25192e4a37"></span>float <code class="descname">m_units</code> = 1e3<a class="headerlink" href="#_CPPv2N8TreeAlgo7m_unitsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>unit conversion from MeV, default is GeV </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm6m_nameE">
+<span id="xAH::Algorithm::m_name__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a2fe89b9cfdbba9b2d5dbd77d78d017ba"></span>std::string <code class="descname">m_name</code> = &quot;UnnamedAlgorithm&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm6m_nameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>All algorithms initialized should have a unique name, to differentiate them at the TObject level. </p>
+<p>Note, <code class="docutils literal"><span class="pre">GetName()</span></code> returns a <code class="docutils literal"><span class="pre">char*</span></code> while this returns a <code class="docutils literal"><span class="pre">std::string</span></code>. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm7m_debugE">
+<span id="xAH::Algorithm::m_debug__b"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a536ad066b37192ae8234da9088ca37cb"></span>bool <code class="descname">m_debug</code> = false<a class="headerlink" href="#_CPPv2N3xAH9Algorithm7m_debugE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>m_debug is being deprecated </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm9m_verboseE">
+<span id="xAH::Algorithm::m_verbose__b"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1aa6f548d723aa93b42dd9915c36c7b9a4"></span>bool <code class="descname">m_verbose</code> = false<a class="headerlink" href="#_CPPv2N3xAH9Algorithm9m_verboseE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>m_verbose is being deprecated </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm10m_msgLevelE">
+<span id="xAH::Algorithm::m_msgLevel__MSG::Level"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a903600b01ce81ba57bd004e32a905254"></span>MSG::Level <code class="descname">m_msgLevel</code> = MSG::INFO<a class="headerlink" href="#_CPPv2N3xAH9Algorithm10m_msgLevelE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>debug level </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm10m_systNameE">
+<span id="xAH::Algorithm::m_systName__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a79e26ab76909dcaeec857fd683289f87"></span>std::string <code class="descname">m_systName</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm10m_systNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If running systematics, the name of the systematic </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm9m_systValE">
+<span id="xAH::Algorithm::m_systVal__float"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a7e34030fb2a71902b0d65797bb90366b"></span>float <code class="descname">m_systVal</code> = 0.0<a class="headerlink" href="#_CPPv2N3xAH9Algorithm9m_systValE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If running systematics, the value to set the systematic to <div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This will set the systematic to the value <span class="math">\(\pm x\)</span>.</p>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm21m_systValVectorStringE">
+<span id="xAH::Algorithm::m_systValVectorString__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ab1386db1ff9f8586e603924d23e3d9ea"></span>std::string <code class="descname">m_systValVectorString</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm21m_systValVectorStringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If running systematics, you can run multiple points and store them in here. A comma separated list of working points should be given to m_systValVectorString, and then parsed by calling parseSystValVector. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm15m_systValVectorE">
+<span id="xAH::Algorithm::m_systValVector__std::vector:float:"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ad033047e9456204a32165a5d3847661d"></span>std::vector&lt;float&gt; <code class="descname">m_systValVector</code><a class="headerlink" href="#_CPPv2N3xAH9Algorithm15m_systValVectorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm24m_eventInfoContainerNameE">
+<span id="xAH::Algorithm::m_eventInfoContainerName__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a3a28d57c78d08c235cbdbfb2db4d8ee0"></span>std::string <code class="descname">m_eventInfoContainerName</code> = &quot;EventInfo&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm24m_eventInfoContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If the xAOD has a different EventInfo container name, set it here </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm6m_isMCE">
+<span id="xAH::Algorithm::m_isMC__i"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a2fe08016f341df4f708872f6a43e70dd"></span>int <code class="descname">m_isMC</code> = -1<a class="headerlink" href="#_CPPv2N3xAH9Algorithm6m_isMCE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>This is an override at the algorithm level to force analyzing MC or not.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="92%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>-1</td>
+<td>Default, use eventInfo object to determine if data or mc</td>
+</tr>
+<tr class="row-odd"><td>0</td>
+<td>Treat the input as data</td>
+</tr>
+<tr class="row-even"><td>1</td>
+<td>Treat the input as MC</td>
+</tr>
+</tbody>
+</table>
+ </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm4isMCEv">
+<span id="xAH::Algorithm::isMC"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ac6974b849cbb6c3ca7f061dfbd79293d"></span>bool <code class="descname">isMC</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm4isMCEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><blockquote>
+<div>Try to determine if we are running over data or MC. The <a class="reference internal" href="BJetEfficiencyCorrector.html#_CPPv2N3xAH9Algorithm6m_isMCE" title="xAH::Algorithm::m_isMC"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_isMC</span></code></a> can be used</div></blockquote>
+<p>to fix the return value. Otherwise the <cite>EventInfo</cite> object is queried.</p>
+<p>An exception is thrown if the type cannot be determined.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="63%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Return Value</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>Data</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>MC</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm16registerInstanceEv">
+<span id="xAH::Algorithm::registerInstance"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ad985e6075dc2794ba53d92663c84da08"></span>void <code class="descname">registerInstance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm16registerInstanceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Register the given instance under the moniker <a class="reference internal" href="BJetEfficiencyCorrector.html#_CPPv2N3xAH9Algorithm11m_classNameE" title="xAH::Algorithm::m_className"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_className</span></code></a></p>
+<p>This will increase the reference count by 1.</p>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm12numInstancesEv">
+<span id="xAH::Algorithm::numInstances"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a668fbd5fb7180046a8a41b496cf5ccbd"></span>int <code class="descname">numInstances</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm12numInstancesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Return number of instances registered under the moniker <a class="reference internal" href="BJetEfficiencyCorrector.html#_CPPv2N3xAH9Algorithm11m_classNameE" title="xAH::Algorithm::m_className"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_className</span></code></a></p>
+<p>This will return the reference count.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If for some reason the instance wasn&#8217;t registered, we spit out a warning.</p>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm18unregisterInstanceEv">
+<span id="xAH::Algorithm::unregisterInstance"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a5db7105c8aba80421821c555bca6ca93"></span>void <code class="descname">unregisterInstance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm18unregisterInstanceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Unregister the given instance under the moniker <a class="reference internal" href="BJetEfficiencyCorrector.html#_CPPv2N3xAH9Algorithm11m_classNameE" title="xAH::Algorithm::m_className"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_className</span></code></a></p>
+<p>This will decrease the reference count by 1.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If for some reason the instance wasn&#8217;t registered, we spit out a warning.</p>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T&gt;</dt>
+<dt id="_CPPv2N3xAH9Algorithm14checkToolStoreERKNSt6stringE">
+<span id="xAH::Algorithm::checkToolStore__ssCR"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a064eba684de39e15a2368064dafee485"></span>StatusCode <code class="descname">checkToolStore</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>tool_name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm14checkToolStoreERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><blockquote>
+<div>Check whether the input CP tool already exists with <em>this</em> name in the asg::ToolStore</div></blockquote>
+<p>Depending on the outcome, the content of the map <a class="reference internal" href="xAHAlgorithm.html#_CPPv2N3xAH9Algorithm17m_toolAlreadyUsedE" title="xAH::Algorithm::m_toolAlreadyUsed"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_toolAlreadyUsed</span></code></a> wll be set accordingly.</p>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm17isToolAlreadyUsedERKNSt6stringE">
+<span id="xAH::Algorithm::isToolAlreadyUsed__ssCR"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1aba740002a03904fa58d6f3762965c733"></span>bool <code class="descname">isToolAlreadyUsed</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>tool_name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm17isToolAlreadyUsedERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Check whether the input CP tool has been already used by any <a class="reference internal" href="xAHAlgorithm.html#_CPPv2N3xAH9AlgorithmE" title="xAH::Algorithm"><code class="xref cpp cpp-class docutils literal"><span class="pre">xAH::Algorithm</span></code></a> in the current job by scanning <a class="reference internal" href="xAHAlgorithm.html#_CPPv2N3xAH9Algorithm17m_toolAlreadyUsedE" title="xAH::Algorithm::m_toolAlreadyUsed"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_toolAlreadyUsed</span></code></a>.</p>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T&gt;</dt>
+<dt id="_CPPv2NK3xAH9Algorithm11setToolNameERN3asg13AnaToolHandleI1TEERKNSt6stringE">
+<span id="xAH::Algorithm::setToolName__asg::AnaToolHandle:T:R.ssCRC"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a21105ba926b929179cd329528e17168a"></span>void <code class="descname">setToolName</code><span class="sig-paren">(</span>__attribute__((unused)) asg::AnaToolHandle&lt;T&gt; &amp;<em>handle</em>, __attribute__((unused)) <em class="property">const</em> std::string &amp;<em>name</em> = &quot;&quot;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK3xAH9Algorithm11setToolNameERN3asg13AnaToolHandleI1TEERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><blockquote>
+<div></div></blockquote>
+<p>Sets the name of a tool. If no name is needed, the tool will use the name of the algorithm plus a unique identifier (<a class="reference internal" href="BJetEfficiencyCorrector.html#_CPPv2NK3xAH9Algorithm10getAddressEv" title="xAH::Algorithm::getAddress"><code class="xref cpp cpp-func docutils literal"><span class="pre">xAH::Algorithm::getAddress()</span></code></a>) appended to ensure the tool is unique and effectively private.</p>
+<p>The tool will not be guaranteed unique if two tools of the same type are created without a name passed in. But this is, at this point, up to the user and a more complex scenario than what this function tries to simplify on its own.</p>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK3xAH9Algorithm10getAddressEv">
+<span id="xAH::Algorithm::getAddressC"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1aefeab6cf73ebfc67aa4e7cf74d762427"></span>std::string <code class="descname">getAddress</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK3xAH9Algorithm10getAddressEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Return a <code class="docutils literal"><span class="pre">std::string</span></code> representation of <code class="docutils literal"><span class="pre">this</span></code> </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo12m_jetDetailsE">
+<span id="TreeAlgo::m_jetDetails__std::vector:ss:"></span><span class="target" id="xAHclass_tree_algo_1aeb06fe7205afd921654bf57bb087d43a"></span>std::vector&lt;std::string&gt; <code class="descname">m_jetDetails</code><a class="headerlink" href="#_CPPv2N8TreeAlgo12m_jetDetailsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo16m_trigJetDetailsE">
+<span id="TreeAlgo::m_trigJetDetails__std::vector:ss:"></span><span class="target" id="xAHclass_tree_algo_1ad10e6311a674006ae77b8e4a4f70ba2b"></span>std::vector&lt;std::string&gt; <code class="descname">m_trigJetDetails</code><a class="headerlink" href="#_CPPv2N8TreeAlgo16m_trigJetDetailsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo15m_jetContainersE">
+<span id="TreeAlgo::m_jetContainers__std::vector:ss:"></span><span class="target" id="xAHclass_tree_algo_1a3c1100a9f96ca130bdb86a4a001e5a9e"></span>std::vector&lt;std::string&gt; <code class="descname">m_jetContainers</code><a class="headerlink" href="#_CPPv2N8TreeAlgo15m_jetContainersE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo20m_truthJetContainersE">
+<span id="TreeAlgo::m_truthJetContainers__std::vector:ss:"></span><span class="target" id="xAHclass_tree_algo_1aed3d5b80297ceedf6f277f6290ea75e6"></span>std::vector&lt;std::string&gt; <code class="descname">m_truthJetContainers</code><a class="headerlink" href="#_CPPv2N8TreeAlgo20m_truthJetContainersE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo19m_trigJetContainersE">
+<span id="TreeAlgo::m_trigJetContainers__std::vector:ss:"></span><span class="target" id="xAHclass_tree_algo_1ad687ad449df43d33751483d8ec64dbf3"></span>std::vector&lt;std::string&gt; <code class="descname">m_trigJetContainers</code><a class="headerlink" href="#_CPPv2N8TreeAlgo19m_trigJetContainersE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo13m_jetBranchesE">
+<span id="TreeAlgo::m_jetBranches__std::vector:ss:"></span><span class="target" id="xAHclass_tree_algo_1adac6c25160036094aab91fec70cf2d28"></span>std::vector&lt;std::string&gt; <code class="descname">m_jetBranches</code><a class="headerlink" href="#_CPPv2N8TreeAlgo13m_jetBranchesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo18m_truthJetBranchesE">
+<span id="TreeAlgo::m_truthJetBranches__std::vector:ss:"></span><span class="target" id="xAHclass_tree_algo_1a249fd19fe97059535d3f3665493742f0"></span>std::vector&lt;std::string&gt; <code class="descname">m_truthJetBranches</code><a class="headerlink" href="#_CPPv2N8TreeAlgo18m_truthJetBranchesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo17m_trigJetBranchesE">
+<span id="TreeAlgo::m_trigJetBranches__std::vector:ss:"></span><span class="target" id="xAHclass_tree_algo_1a21154f7910d7ebbc231da77be3091d8b"></span>std::vector&lt;std::string&gt; <code class="descname">m_trigJetBranches</code><a class="headerlink" href="#_CPPv2N8TreeAlgo17m_trigJetBranchesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N8TreeAlgo7m_treesE">
+<span id="TreeAlgo::m_trees__std::map:ss.HelpTreeBaseP:"></span><span class="target" id="xAHclass_tree_algo_1aad57ab46d4af901ed08d2e0a0671d2a6"></span>std::map&lt;std::string, <a class="reference internal" href="HelpTreeBase.html#_CPPv212HelpTreeBase" title="HelpTreeBase">HelpTreeBase</a> *&gt; <code class="descname">m_trees</code><a class="headerlink" href="#_CPPv2N8TreeAlgo7m_treesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm11m_classNameE">
+<span id="xAH::Algorithm::m_className__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1aff1b344c0be87d17890333bb65421c39"></span>std::string <code class="descname">m_className</code> = &quot;Algorithm&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm11m_classNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>The moniker by which all instances are tracked in <a class="reference internal" href="xAHAlgorithm.html#_CPPv2N3xAH9Algorithm18m_instanceRegistryE" title="xAH::Algorithm::m_instanceRegistry"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_instanceRegistry</span></code></a></p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm7m_eventE">
+<span id="xAH::Algorithm::m_event__xAOD::TEventP"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a6c1a280a55c7e0ff39c6f90e2ba9b05b"></span>xAOD::TEvent *<code class="descname">m_event</code> = nullptr<a class="headerlink" href="#_CPPv2N3xAH9Algorithm7m_eventE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The TEvent object </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm7m_storeE">
+<span id="xAH::Algorithm::m_store__xAOD::TStoreP"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a58d778d2d1351cbb863f30fadb1a727c"></span>xAOD::TStore *<code class="descname">m_store</code> = nullptr<a class="headerlink" href="#_CPPv2N3xAH9Algorithm7m_storeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The TStore object </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MinixAOD.html" class="btn btn-neutral float-right" title="Mini-xAOD" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="HelpTreeBase.html" class="btn btn-neutral" title="Tree Maker Base Class" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015-2017, ATLAS Collaboration.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'01-00-00-46-g45a2bda',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

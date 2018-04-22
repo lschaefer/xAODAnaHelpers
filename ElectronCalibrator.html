@@ -1,0 +1,642 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>\(e\) &mdash; xAODAnaHelpers 01-00-00-46-g45a2bda documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="xAODAnaHelpers 01-00-00-46-g45a2bda documentation" href="index.html"/>
+        <link rel="up" title="Calibrating Objects" href="Calibrators.html"/>
+        <link rel="next" title="\(j\)" href="JetCalibrator.html"/>
+        <link rel="prev" title="Calibrating Objects" href="Calibrators.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> xAODAnaHelpers
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                01.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UsingUs.html">xAH_run.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Algorithms.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQs.html">xAH FAQ</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="API.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Getters.html">Getting Objects</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="Calibrators.html">Calibrating Objects</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><span class="math">\(e\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="JetCalibrator.html"><span class="math">\(j\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="MuonCalibrator.html"><span class="math">\(\mu\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="TauCalibrator.html"><span class="math">\(\tau\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhotonCalibrator.html"><span class="math">\(\gamma\)</span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Correctors.html">Efficiency Correcting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Selectors.html">Selecting Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Histograms.html">Histograms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ToolsUsed.html">Tools Used</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Outputs.html">Producing Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Utilities.html">Utilities</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">xAODAnaHelpers</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="API.html">API Reference</a> &raquo;</li>
+      
+          <li><a href="Calibrators.html">Calibrating Objects</a> &raquo;</li>
+      
+    <li><span class="math">\(e\)</span></li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/ElectronCalibrator.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="math">\(e\)</span><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="_CPPv218ElectronCalibrator">
+<span id="ElectronCalibrator"></span><span class="target" id="xAHclass_electron_calibrator"></span><em class="property">class </em><code class="descclassname"></code><code class="descname">ElectronCalibrator</code><a class="headerlink" href="#_CPPv218ElectronCalibrator" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>This is the algorithm class used to calibrate electrons.</p>
+<p>In a nutshell, this algorithm performs the following actions:</p>
+<blockquote>
+<div><ul class="simple">
+<li>retrieves an <code class="docutils literal"><span class="pre">xAOD::ElectronContainer</span></code> from either <code class="docutils literal"><span class="pre">TEvent</span></code> or <code class="docutils literal"><span class="pre">TStore</span></code></li>
+<li>makes a shallow copy container and fills it with energy-and-direction calibrated electrons using the <code class="docutils literal"><span class="pre">EgammaCalibrationAndSmearingTool</span></code> in <a class="reference external" href="ToolsUsed.html">Tools Used</a></li>
+<li>saves the shallow copy container to <code class="docutils literal"><span class="pre">TStore</span></code> from where it can be retrieved by algorithms downstream via name lookup</li>
+</ul>
+</div></blockquote>
+ </p>
+<p>Inherits from <a class="reference internal" href="xAHAlgorithm.html#xAHclassx_a_h_1_1_algorithm"><span class="std std-ref">xAH::Algorithm</span></a></p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N18ElectronCalibrator18ElectronCalibratorEv">
+<span id="ElectronCalibrator::ElectronCalibrator"></span><span class="target" id="xAHclass_electron_calibrator_1a686ee61d23f5f4928b12c8f0d71bf7c5"></span><code class="descname">ElectronCalibrator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N18ElectronCalibrator18ElectronCalibratorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N18ElectronCalibrator8setupJobERN2EL3JobE">
+<span id="ElectronCalibrator::setupJob__EL::JobR"></span><span class="target" id="xAHclass_electron_calibrator_1a227d45a69f047360a5e37c1025dd808a"></span>EL::StatusCode <code class="descname">setupJob</code><span class="sig-paren">(</span>EL::Job &amp;<em>job</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N18ElectronCalibrator8setupJobERN2EL3JobE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N18ElectronCalibrator11fileExecuteEv">
+<span id="ElectronCalibrator::fileExecute"></span><span class="target" id="xAHclass_electron_calibrator_1a08039a770aad6adce5cc575dacfa34d6"></span>EL::StatusCode <code class="descname">fileExecute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N18ElectronCalibrator11fileExecuteEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N18ElectronCalibrator14histInitializeEv">
+<span id="ElectronCalibrator::histInitialize"></span><span class="target" id="xAHclass_electron_calibrator_1ad5d4d7862507893b102cef7c11132782"></span>EL::StatusCode <code class="descname">histInitialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N18ElectronCalibrator14histInitializeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N18ElectronCalibrator11changeInputEb">
+<span id="ElectronCalibrator::changeInput__b"></span><span class="target" id="xAHclass_electron_calibrator_1a82c76a5ae04d98c599577e859720d3d8"></span>EL::StatusCode <code class="descname">changeInput</code><span class="sig-paren">(</span>bool <em>firstFile</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N18ElectronCalibrator11changeInputEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N18ElectronCalibrator10initializeEv">
+<span id="ElectronCalibrator::initialize"></span><span class="target" id="xAHclass_electron_calibrator_1a694476166a99f6633f38609ede972143"></span>EL::StatusCode <code class="descname">initialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N18ElectronCalibrator10initializeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N18ElectronCalibrator7executeEv">
+<span id="ElectronCalibrator::execute"></span><span class="target" id="xAHclass_electron_calibrator_1af73917cf04ca3b1c08d48552b44e0e60"></span>EL::StatusCode <code class="descname">execute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N18ElectronCalibrator7executeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N18ElectronCalibrator11postExecuteEv">
+<span id="ElectronCalibrator::postExecute"></span><span class="target" id="xAHclass_electron_calibrator_1ae37b6ef481eb693e82ce99568a9b6f25"></span>EL::StatusCode <code class="descname">postExecute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N18ElectronCalibrator11postExecuteEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N18ElectronCalibrator8finalizeEv">
+<span id="ElectronCalibrator::finalize"></span><span class="target" id="xAHclass_electron_calibrator_1aaf56a99cc29dcd1bbc2341ac39f68b21"></span>EL::StatusCode <code class="descname">finalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N18ElectronCalibrator8finalizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N18ElectronCalibrator12histFinalizeEv">
+<span id="ElectronCalibrator::histFinalize"></span><span class="target" id="xAHclass_electron_calibrator_1aa1b303e6fa72c0937ff1e32aad129665"></span>EL::StatusCode <code class="descname">histFinalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N18ElectronCalibrator12histFinalizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm13algInitializeEv">
+<span id="xAH::Algorithm::algInitialize"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ae8fd8541cf785803ec19d9c4f8cfe602"></span>StatusCode <code class="descname">algInitialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm13algInitializeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Run any initializations commmon to all xAH Algorithms (such as registerInstance). Call this inside <code class="docutils literal"><span class="pre">histInitialize</span></code> for best results. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm11algFinalizeEv">
+<span id="xAH::Algorithm::algFinalize"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ad953653631da2d160893153f0b30f919"></span>StatusCode <code class="descname">algFinalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm11algFinalizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Run any finalizations common to all xAH Algorithms (such as unregisterInstance). Call this inside <code class="docutils literal"><span class="pre">histFinalize</span></code> for best results. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm18parseSystValVectorEv">
+<span id="xAH::Algorithm::parseSystValVector"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a4859dee0ea827841c1adbbf56b159257"></span>StatusCode <code class="descname">parseSystValVector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm18parseSystValVectorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Parse string of systematic sigma levels in m_systValVectorString into m_systValVector. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2N18ElectronCalibrator17m_inContainerNameE">
+<span id="ElectronCalibrator::m_inContainerName__ss"></span><span class="target" id="xAHclass_electron_calibrator_1a6fe08180bc1718cc5085edf7e8c65df5"></span>std::string <code class="descname">m_inContainerName</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N18ElectronCalibrator17m_inContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The name of the input container for this algorithm to read from <code class="docutils literal"><span class="pre">TEvent</span></code> or <code class="docutils literal"><span class="pre">TStore</span></code> </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N18ElectronCalibrator18m_outContainerNameE">
+<span id="ElectronCalibrator::m_outContainerName__ss"></span><span class="target" id="xAHclass_electron_calibrator_1aabcf15ed73c3d2f534550743d14774a4"></span>std::string <code class="descname">m_outContainerName</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N18ElectronCalibrator18m_outContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The name of the nominal output container written by the algorithm to <code class="docutils literal"><span class="pre">TStore</span></code> </p>
+<p>If the algorithm applies systematic variations, for each shallow copy saved to <code class="docutils literal"><span class="pre">TStore</span></code>, the systematic name will be appended to this. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N18ElectronCalibrator6m_sortE">
+<span id="ElectronCalibrator::m_sort__b"></span><span class="target" id="xAHclass_electron_calibrator_1a34bf5749a9a697bbf4fa4be295d319f4"></span>bool <code class="descname">m_sort</code> = true<a class="headerlink" href="#_CPPv2N18ElectronCalibrator6m_sortE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sort the processed container elements by transverse momentum. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N18ElectronCalibrator20m_inputAlgoSystNamesE">
+<span id="ElectronCalibrator::m_inputAlgoSystNames__ss"></span><span class="target" id="xAHclass_electron_calibrator_1ae89b99abc9cf2671a04dd139ff54e9f6"></span>std::string <code class="descname">m_inputAlgoSystNames</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N18ElectronCalibrator20m_inputAlgoSystNamesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The name of the vector containing the names of the systematically-varied containers from the upstream algorithm, which will be processed by this algorithm. </p>
+<p>This vector is retrieved from the <code class="docutils literal"><span class="pre">TStore</span></code>. If left blank, it means there is no upstream algorithm which applies systematics. This is the case when processing straight from the original <code class="docutils literal"><span class="pre">xAOD</span></code> or <code class="docutils literal"><span class="pre">DxAOD</span></code>. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N18ElectronCalibrator21m_outputAlgoSystNamesE">
+<span id="ElectronCalibrator::m_outputAlgoSystNames__ss"></span><span class="target" id="xAHclass_electron_calibrator_1a7e8c42385bb7cd2415357349432a63dd"></span>std::string <code class="descname">m_outputAlgoSystNames</code> = &quot;ElectronCalibrator_Syst&quot;<a class="headerlink" href="#_CPPv2N18ElectronCalibrator21m_outputAlgoSystNamesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The name of the vector containing the names of the systematically-varied containers created by by this algorithm. </p>
+<p><p>If <a class="reference internal" href="BasicEventSelection.html#_CPPv2N3xAH9Algorithm10m_systNameE" title="xAH::Algorithm::m_systName"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_systName</span></code></a> is empty, the vector will contain only an empty string. When running on systematics, this is the string a downstream algorithm needs to process electrons.</p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N18ElectronCalibrator21m_writeSystToMetadataE">
+<span id="ElectronCalibrator::m_writeSystToMetadata__b"></span><span class="target" id="xAHclass_electron_calibrator_1a1f23daab72b469489e13f9cb3d684f65"></span>bool <code class="descname">m_writeSystToMetadata</code> = false<a class="headerlink" href="#_CPPv2N18ElectronCalibrator21m_writeSystToMetadataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write systematics names to metadata. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N18ElectronCalibrator9m_esModelE">
+<span id="ElectronCalibrator::m_esModel__ss"></span><span class="target" id="xAHclass_electron_calibrator_1a548c76ec9afa4e5c378e3df8a4292a15"></span>std::string <code class="descname">m_esModel</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N18ElectronCalibrator9m_esModelE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N18ElectronCalibrator20m_decorrelationModelE">
+<span id="ElectronCalibrator::m_decorrelationModel__ss"></span><span class="target" id="xAHclass_electron_calibrator_1a492bfcd1c3669dd89e631b9e1bd9638a"></span>std::string <code class="descname">m_decorrelationModel</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N18ElectronCalibrator20m_decorrelationModelE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N18ElectronCalibrator9m_setAFIIE">
+<span id="ElectronCalibrator::m_setAFII__b"></span><span class="target" id="xAHclass_electron_calibrator_1a920582ebd956924a95b08958e8bd37f2"></span>bool <code class="descname">m_setAFII</code> = false<a class="headerlink" href="#_CPPv2N18ElectronCalibrator9m_setAFIIE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Force AFII flag in calibration, in case metadata is broken. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N18ElectronCalibrator26m_applyIsolationCorrectionE">
+<span id="ElectronCalibrator::m_applyIsolationCorrection__b"></span><span class="target" id="xAHclass_electron_calibrator_1a4f0620eefa22acbdf74aff67538ccc3a"></span>bool <code class="descname">m_applyIsolationCorrection</code> = false<a class="headerlink" href="#_CPPv2N18ElectronCalibrator26m_applyIsolationCorrectionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Apply isolation correction, not needed by default. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm6m_nameE">
+<span id="xAH::Algorithm::m_name__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a2fe89b9cfdbba9b2d5dbd77d78d017ba"></span>std::string <code class="descname">m_name</code> = &quot;UnnamedAlgorithm&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm6m_nameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>All algorithms initialized should have a unique name, to differentiate them at the TObject level. </p>
+<p>Note, <code class="docutils literal"><span class="pre">GetName()</span></code> returns a <code class="docutils literal"><span class="pre">char*</span></code> while this returns a <code class="docutils literal"><span class="pre">std::string</span></code>. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm7m_debugE">
+<span id="xAH::Algorithm::m_debug__b"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a536ad066b37192ae8234da9088ca37cb"></span>bool <code class="descname">m_debug</code> = false<a class="headerlink" href="#_CPPv2N3xAH9Algorithm7m_debugE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>m_debug is being deprecated </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm9m_verboseE">
+<span id="xAH::Algorithm::m_verbose__b"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1aa6f548d723aa93b42dd9915c36c7b9a4"></span>bool <code class="descname">m_verbose</code> = false<a class="headerlink" href="#_CPPv2N3xAH9Algorithm9m_verboseE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>m_verbose is being deprecated </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm10m_msgLevelE">
+<span id="xAH::Algorithm::m_msgLevel__MSG::Level"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a903600b01ce81ba57bd004e32a905254"></span>MSG::Level <code class="descname">m_msgLevel</code> = MSG::INFO<a class="headerlink" href="#_CPPv2N3xAH9Algorithm10m_msgLevelE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>debug level </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm10m_systNameE">
+<span id="xAH::Algorithm::m_systName__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a79e26ab76909dcaeec857fd683289f87"></span>std::string <code class="descname">m_systName</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm10m_systNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If running systematics, the name of the systematic </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm9m_systValE">
+<span id="xAH::Algorithm::m_systVal__float"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a7e34030fb2a71902b0d65797bb90366b"></span>float <code class="descname">m_systVal</code> = 0.0<a class="headerlink" href="#_CPPv2N3xAH9Algorithm9m_systValE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If running systematics, the value to set the systematic to <div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This will set the systematic to the value <span class="math">\(\pm x\)</span>.</p>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm21m_systValVectorStringE">
+<span id="xAH::Algorithm::m_systValVectorString__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ab1386db1ff9f8586e603924d23e3d9ea"></span>std::string <code class="descname">m_systValVectorString</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm21m_systValVectorStringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If running systematics, you can run multiple points and store them in here. A comma separated list of working points should be given to m_systValVectorString, and then parsed by calling parseSystValVector. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm15m_systValVectorE">
+<span id="xAH::Algorithm::m_systValVector__std::vector:float:"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ad033047e9456204a32165a5d3847661d"></span>std::vector&lt;float&gt; <code class="descname">m_systValVector</code><a class="headerlink" href="#_CPPv2N3xAH9Algorithm15m_systValVectorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm24m_eventInfoContainerNameE">
+<span id="xAH::Algorithm::m_eventInfoContainerName__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a3a28d57c78d08c235cbdbfb2db4d8ee0"></span>std::string <code class="descname">m_eventInfoContainerName</code> = &quot;EventInfo&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm24m_eventInfoContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If the xAOD has a different EventInfo container name, set it here </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm6m_isMCE">
+<span id="xAH::Algorithm::m_isMC__i"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a2fe08016f341df4f708872f6a43e70dd"></span>int <code class="descname">m_isMC</code> = -1<a class="headerlink" href="#_CPPv2N3xAH9Algorithm6m_isMCE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>This is an override at the algorithm level to force analyzing MC or not.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="92%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>-1</td>
+<td>Default, use eventInfo object to determine if data or mc</td>
+</tr>
+<tr class="row-odd"><td>0</td>
+<td>Treat the input as data</td>
+</tr>
+<tr class="row-even"><td>1</td>
+<td>Treat the input as MC</td>
+</tr>
+</tbody>
+</table>
+ </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm4isMCEv">
+<span id="xAH::Algorithm::isMC"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ac6974b849cbb6c3ca7f061dfbd79293d"></span>bool <code class="descname">isMC</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm4isMCEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><blockquote>
+<div>Try to determine if we are running over data or MC. The <a class="reference internal" href="BJetEfficiencyCorrector.html#_CPPv2N3xAH9Algorithm6m_isMCE" title="xAH::Algorithm::m_isMC"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_isMC</span></code></a> can be used</div></blockquote>
+<p>to fix the return value. Otherwise the <cite>EventInfo</cite> object is queried.</p>
+<p>An exception is thrown if the type cannot be determined.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="63%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Return Value</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>Data</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>MC</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm16registerInstanceEv">
+<span id="xAH::Algorithm::registerInstance"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ad985e6075dc2794ba53d92663c84da08"></span>void <code class="descname">registerInstance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm16registerInstanceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Register the given instance under the moniker <a class="reference internal" href="BJetEfficiencyCorrector.html#_CPPv2N3xAH9Algorithm11m_classNameE" title="xAH::Algorithm::m_className"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_className</span></code></a></p>
+<p>This will increase the reference count by 1.</p>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm12numInstancesEv">
+<span id="xAH::Algorithm::numInstances"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a668fbd5fb7180046a8a41b496cf5ccbd"></span>int <code class="descname">numInstances</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm12numInstancesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Return number of instances registered under the moniker <a class="reference internal" href="BJetEfficiencyCorrector.html#_CPPv2N3xAH9Algorithm11m_classNameE" title="xAH::Algorithm::m_className"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_className</span></code></a></p>
+<p>This will return the reference count.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If for some reason the instance wasn&#8217;t registered, we spit out a warning.</p>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm18unregisterInstanceEv">
+<span id="xAH::Algorithm::unregisterInstance"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a5db7105c8aba80421821c555bca6ca93"></span>void <code class="descname">unregisterInstance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm18unregisterInstanceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Unregister the given instance under the moniker <a class="reference internal" href="BJetEfficiencyCorrector.html#_CPPv2N3xAH9Algorithm11m_classNameE" title="xAH::Algorithm::m_className"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_className</span></code></a></p>
+<p>This will decrease the reference count by 1.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If for some reason the instance wasn&#8217;t registered, we spit out a warning.</p>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T&gt;</dt>
+<dt id="_CPPv2N3xAH9Algorithm14checkToolStoreERKNSt6stringE">
+<span id="xAH::Algorithm::checkToolStore__ssCR"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a064eba684de39e15a2368064dafee485"></span>StatusCode <code class="descname">checkToolStore</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>tool_name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm14checkToolStoreERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><blockquote>
+<div>Check whether the input CP tool already exists with <em>this</em> name in the asg::ToolStore</div></blockquote>
+<p>Depending on the outcome, the content of the map <a class="reference internal" href="xAHAlgorithm.html#_CPPv2N3xAH9Algorithm17m_toolAlreadyUsedE" title="xAH::Algorithm::m_toolAlreadyUsed"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_toolAlreadyUsed</span></code></a> wll be set accordingly.</p>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm17isToolAlreadyUsedERKNSt6stringE">
+<span id="xAH::Algorithm::isToolAlreadyUsed__ssCR"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1aba740002a03904fa58d6f3762965c733"></span>bool <code class="descname">isToolAlreadyUsed</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>tool_name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm17isToolAlreadyUsedERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Check whether the input CP tool has been already used by any <a class="reference internal" href="xAHAlgorithm.html#_CPPv2N3xAH9AlgorithmE" title="xAH::Algorithm"><code class="xref cpp cpp-class docutils literal"><span class="pre">xAH::Algorithm</span></code></a> in the current job by scanning <a class="reference internal" href="xAHAlgorithm.html#_CPPv2N3xAH9Algorithm17m_toolAlreadyUsedE" title="xAH::Algorithm::m_toolAlreadyUsed"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_toolAlreadyUsed</span></code></a>.</p>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T&gt;</dt>
+<dt id="_CPPv2NK3xAH9Algorithm11setToolNameERN3asg13AnaToolHandleI1TEERKNSt6stringE">
+<span id="xAH::Algorithm::setToolName__asg::AnaToolHandle:T:R.ssCRC"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a21105ba926b929179cd329528e17168a"></span>void <code class="descname">setToolName</code><span class="sig-paren">(</span>__attribute__((unused)) asg::AnaToolHandle&lt;T&gt; &amp;<em>handle</em>, __attribute__((unused)) <em class="property">const</em> std::string &amp;<em>name</em> = &quot;&quot;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK3xAH9Algorithm11setToolNameERN3asg13AnaToolHandleI1TEERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><blockquote>
+<div></div></blockquote>
+<p>Sets the name of a tool. If no name is needed, the tool will use the name of the algorithm plus a unique identifier (<a class="reference internal" href="BJetEfficiencyCorrector.html#_CPPv2NK3xAH9Algorithm10getAddressEv" title="xAH::Algorithm::getAddress"><code class="xref cpp cpp-func docutils literal"><span class="pre">xAH::Algorithm::getAddress()</span></code></a>) appended to ensure the tool is unique and effectively private.</p>
+<p>The tool will not be guaranteed unique if two tools of the same type are created without a name passed in. But this is, at this point, up to the user and a more complex scenario than what this function tries to simplify on its own.</p>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK3xAH9Algorithm10getAddressEv">
+<span id="xAH::Algorithm::getAddressC"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1aefeab6cf73ebfc67aa4e7cf74d762427"></span>std::string <code class="descname">getAddress</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK3xAH9Algorithm10getAddressEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Return a <code class="docutils literal"><span class="pre">std::string</span></code> representation of <code class="docutils literal"><span class="pre">this</span></code> </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm11m_classNameE">
+<span id="xAH::Algorithm::m_className__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1aff1b344c0be87d17890333bb65421c39"></span>std::string <code class="descname">m_className</code> = &quot;Algorithm&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm11m_classNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>The moniker by which all instances are tracked in <a class="reference internal" href="xAHAlgorithm.html#_CPPv2N3xAH9Algorithm18m_instanceRegistryE" title="xAH::Algorithm::m_instanceRegistry"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_instanceRegistry</span></code></a></p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm7m_eventE">
+<span id="xAH::Algorithm::m_event__xAOD::TEventP"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a6c1a280a55c7e0ff39c6f90e2ba9b05b"></span>xAOD::TEvent *<code class="descname">m_event</code> = nullptr<a class="headerlink" href="#_CPPv2N3xAH9Algorithm7m_eventE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The TEvent object </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm7m_storeE">
+<span id="xAH::Algorithm::m_store__xAOD::TStoreP"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a58d778d2d1351cbb863f30fadb1a727c"></span>xAOD::TStore *<code class="descname">m_store</code> = nullptr<a class="headerlink" href="#_CPPv2N3xAH9Algorithm7m_storeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The TStore object </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Private Members</p>
+<dl class="member">
+<dt id="_CPPv2N18ElectronCalibrator10m_numEventE">
+<span id="ElectronCalibrator::m_numEvent__i"></span><span class="target" id="xAHclass_electron_calibrator_1aa297049c774f5ef26d813bc2864a3a1a"></span>int <code class="descname">m_numEvent</code><a class="headerlink" href="#_CPPv2N18ElectronCalibrator10m_numEventE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N18ElectronCalibrator11m_numObjectE">
+<span id="ElectronCalibrator::m_numObject__i"></span><span class="target" id="xAHclass_electron_calibrator_1ae5b0c2283a15fcf9c9e3e09b127cf4ff"></span>int <code class="descname">m_numObject</code><a class="headerlink" href="#_CPPv2N18ElectronCalibrator11m_numObjectE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N18ElectronCalibrator21m_outAuxContainerNameE">
+<span id="ElectronCalibrator::m_outAuxContainerName__ss"></span><span class="target" id="xAHclass_electron_calibrator_1a1a1ba5e37abd75fda05ff53166d4f422"></span>std::string <code class="descname">m_outAuxContainerName</code><a class="headerlink" href="#_CPPv2N18ElectronCalibrator21m_outAuxContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N18ElectronCalibrator20m_outSCContainerNameE">
+<span id="ElectronCalibrator::m_outSCContainerName__ss"></span><span class="target" id="xAHclass_electron_calibrator_1a03edaa99e6849bd0a72eb8437b0859c4"></span>std::string <code class="descname">m_outSCContainerName</code><a class="headerlink" href="#_CPPv2N18ElectronCalibrator20m_outSCContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N18ElectronCalibrator23m_outSCAuxContainerNameE">
+<span id="ElectronCalibrator::m_outSCAuxContainerName__ss"></span><span class="target" id="xAHclass_electron_calibrator_1a00d20ed56ce0aa659c956dc2ee0a23f2"></span>std::string <code class="descname">m_outSCAuxContainerName</code><a class="headerlink" href="#_CPPv2N18ElectronCalibrator23m_outSCAuxContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N18ElectronCalibrator10m_systListE">
+<span id="ElectronCalibrator::m_systList__std::vector:CP::SystematicSet:"></span><span class="target" id="xAHclass_electron_calibrator_1a90de19c1faa17c4392ebc136695e30bb"></span>std::vector&lt;CP::SystematicSet&gt; <code class="descname">m_systList</code><a class="headerlink" href="#_CPPv2N18ElectronCalibrator10m_systListE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N18ElectronCalibrator34m_EgammaCalibrationAndSmearingToolE">
+<span id="ElectronCalibrator::m_EgammaCalibrationAndSmearingTool__CP::EgammaCalibrationAndSmearingToolP"></span><span class="target" id="xAHclass_electron_calibrator_1a1c075db00cc8678eea02ce4953887212"></span>CP::EgammaCalibrationAndSmearingTool *<code class="descname">m_EgammaCalibrationAndSmearingTool</code> = nullptr<a class="headerlink" href="#_CPPv2N18ElectronCalibrator34m_EgammaCalibrationAndSmearingToolE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N18ElectronCalibrator25m_IsolationCorrectionToolE">
+<span id="ElectronCalibrator::m_IsolationCorrectionTool__CP::IsolationCorrectionToolP"></span><span class="target" id="xAHclass_electron_calibrator_1ad68d57e7856451166948313aeb84d742"></span>CP::IsolationCorrectionTool *<code class="descname">m_IsolationCorrectionTool</code> = nullptr<a class="headerlink" href="#_CPPv2N18ElectronCalibrator25m_IsolationCorrectionToolE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>apply leakage correction to calo based isolation variables for electrons </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="JetCalibrator.html" class="btn btn-neutral float-right" title="\(j\)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Calibrators.html" class="btn btn-neutral" title="Calibrating Objects" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015-2017, ATLAS Collaboration.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'01-00-00-46-g45a2bda',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

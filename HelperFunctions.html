@@ -1,0 +1,681 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Helper Functions &mdash; xAODAnaHelpers 01-00-00-46-g45a2bda documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="xAODAnaHelpers 01-00-00-46-g45a2bda documentation" href="index.html"/>
+        <link rel="up" title="Utilities" href="Utilities.html"/>
+        <link rel="next" title="MET Constructor" href="METConstructor.html"/>
+        <link rel="prev" title="Helper Classes" href="HelperClasses.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> xAODAnaHelpers
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                01.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UsingUs.html">xAH_run.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Algorithms.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQs.html">xAH FAQ</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="API.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Getters.html">Getting Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Calibrators.html">Calibrating Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Correctors.html">Efficiency Correcting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Selectors.html">Selecting Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Histograms.html">Histograms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ToolsUsed.html">Tools Used</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Outputs.html">Producing Outputs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="Utilities.html">Utilities</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="DebugTool.html">Debug Tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HelperClasses.html">Helper Classes</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Helper Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="METConstructor.html">MET Constructor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticlePIDManager.html">Particle PID Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="xAHAlgorithm.html">xAH::Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MessagePrinterAlgo.html">MessagePrinterAlgo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">xAODAnaHelpers</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="API.html">API Reference</a> &raquo;</li>
+      
+          <li><a href="Utilities.html">Utilities</a> &raquo;</li>
+      
+    <li>Helper Functions</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/HelperFunctions.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="helper-functions">
+<h1>Helper Functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="_CPPv215HelperFunctions">
+<span id="HelperFunctions"></span><span class="target" id="xAHnamespace_helper_functions"></span><em class="property">namespace </em><code class="descclassname"></code><code class="descname">HelperFunctions</code><a class="headerlink" href="#_CPPv215HelperFunctions" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions3msgEN3MSG5LevelE">
+<span id="HelperFunctions::msg__MSG::Level"></span><span class="target" id="xAHnamespace_helper_functions_1ab00349947498d616e0b3d04e6e65a48b"></span>MsgStream &amp;<code class="descname">msg</code><span class="sig-paren">(</span>MSG::Level <em>lvl</em> = MSG::INFO<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions3msgEN3MSG5LevelE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Static object that provides athena-based message logging functionality </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions26passPrimaryVertexSelectionEPKN4xAOD15VertexContainerEi">
+<span id="HelperFunctions::passPrimaryVertexSelection__xAOD::VertexContainerCP.i"></span><span class="target" id="xAHnamespace_helper_functions_1a38808edafa2a87dd71a95ce044b26c8a"></span>bool <code class="descname">passPrimaryVertexSelection</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::VertexContainer *<em>vertexContainer</em>, int <em>Ntracks</em> = 2<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions26passPrimaryVertexSelectionEPKN4xAOD15VertexContainerEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions20countPrimaryVerticesEPKN4xAOD15VertexContainerEi">
+<span id="HelperFunctions::countPrimaryVertices__xAOD::VertexContainerCP.i"></span><span class="target" id="xAHnamespace_helper_functions_1ac23ed9b29fdee0b17cc0eb310d2267be"></span>int <code class="descname">countPrimaryVertices</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::VertexContainer *<em>vertexContainer</em>, int <em>Ntracks</em> = 2<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions20countPrimaryVerticesEPKN4xAOD15VertexContainerEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions16getPrimaryVertexEPKN4xAOD15VertexContainerER9MsgStream">
+<span id="HelperFunctions::getPrimaryVertex__xAOD::VertexContainerCP.MsgStreamR"></span><span class="target" id="xAHnamespace_helper_functions_1aeecd02ebac678e1a0ef05bf039ef8d23"></span><em class="property">const</em> xAOD::Vertex *<code class="descname">getPrimaryVertex</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::VertexContainer *<em>vertexContainer</em>, MsgStream &amp;<em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions16getPrimaryVertexEPKN4xAOD15VertexContainerER9MsgStream" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions16getPrimaryVertexEPKN4xAOD15VertexContainerE">
+<span id="HelperFunctions::getPrimaryVertex__xAOD::VertexContainerCP"></span><span class="target" id="xAHnamespace_helper_functions_1a19e8f32d8b8ff888d3abd1b1467b37b2"></span><em class="property">const</em> xAOD::Vertex *<code class="descname">getPrimaryVertex</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::VertexContainer *<em>vertexContainer</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions16getPrimaryVertexEPKN4xAOD15VertexContainerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions17getPrimaryVertexZEPKN4xAOD6VertexE">
+<span id="HelperFunctions::getPrimaryVertexZ__xAOD::VertexCP"></span><span class="target" id="xAHnamespace_helper_functions_1a19a48086de5cb95e8fd8b59437bb3e51"></span>float <code class="descname">getPrimaryVertexZ</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::Vertex *<em>pvx</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions17getPrimaryVertexZEPKN4xAOD6VertexE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions24getPrimaryVertexLocationEPKN4xAOD15VertexContainerER9MsgStream">
+<span id="HelperFunctions::getPrimaryVertexLocation__xAOD::VertexContainerCP.MsgStreamR"></span><span class="target" id="xAHnamespace_helper_functions_1a29eb23766a065088be97d39e08313ed2"></span>int <code class="descname">getPrimaryVertexLocation</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::VertexContainer *<em>vertexContainer</em>, MsgStream &amp;<em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions24getPrimaryVertexLocationEPKN4xAOD15VertexContainerER9MsgStream" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions24getPrimaryVertexLocationEPKN4xAOD15VertexContainerE">
+<span id="HelperFunctions::getPrimaryVertexLocation__xAOD::VertexContainerCP"></span><span class="target" id="xAHnamespace_helper_functions_1afa033a806a096a28e641ab6e87cfaa49"></span>int <code class="descname">getPrimaryVertexLocation</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::VertexContainer *<em>vertexContainer</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions24getPrimaryVertexLocationEPKN4xAOD15VertexContainerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions27applyPrimaryVertexSelectionEPKN4xAOD12JetContainerEPKN4xAOD15VertexContainerE">
+<span id="HelperFunctions::applyPrimaryVertexSelection__xAOD::JetContainerCP.xAOD::VertexContainerCP"></span><span class="target" id="xAHnamespace_helper_functions_1a94ac546915235e4db2abbf535a422e0b"></span>bool <code class="descname">applyPrimaryVertexSelection</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::JetContainer *<em>jets</em>, <em class="property">const</em> xAOD::VertexContainer *<em>vertices</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions27applyPrimaryVertexSelectionEPKN4xAOD12JetContainerEPKN4xAOD15VertexContainerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions17GetBTagMV2c20_CutEi">
+<span id="HelperFunctions::GetBTagMV2c20_Cut__i"></span><span class="target" id="xAHnamespace_helper_functions_1af252b6bd8f154900cdf16da4e21bcf05"></span>float <code class="descname">GetBTagMV2c20_Cut</code><span class="sig-paren">(</span>int <em>efficiency</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions17GetBTagMV2c20_CutEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions20GetBTagMV2c20_CutStrEi">
+<span id="HelperFunctions::GetBTagMV2c20_CutStr__i"></span><span class="target" id="xAHnamespace_helper_functions_1a930cfbd33683635c0e8644055496ef61"></span>std::string <code class="descname">GetBTagMV2c20_CutStr</code><span class="sig-paren">(</span>int <em>efficiency</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions20GetBTagMV2c20_CutStrEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions13replaceStringENSt6stringERKNSt6stringERKNSt6stringE">
+<span id="HelperFunctions::replaceString__ss.ssCR.ssCR"></span><span class="target" id="xAHnamespace_helper_functions_1a992cda5144a7e52104bb5318516b34db"></span>std::string <code class="descname">replaceString</code><span class="sig-paren">(</span>std::string <em>subjet</em>, <em class="property">const</em> std::string &amp;<em>search</em>, <em class="property">const</em> std::string &amp;<em>replace</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions13replaceStringENSt6stringERKNSt6stringERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions11SplitStringER7TStringKc">
+<span id="HelperFunctions::SplitString__TStringR.cC"></span><span class="target" id="xAHnamespace_helper_functions_1ae904f33e494d27475518d8b493882401"></span>std::vector&lt;TString&gt; <code class="descname">SplitString</code><span class="sig-paren">(</span>TString &amp;<em>orig</em>, <em class="property">const</em> char <em>separator</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions11SplitStringER7TStringKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions4dPhiEff">
+<span id="HelperFunctions::dPhi__float.float"></span><span class="target" id="xAHnamespace_helper_functions_1a319afb86dee2164b9b32c88eafa3cc60"></span>float <code class="descname">dPhi</code><span class="sig-paren">(</span>float <em>phi1</em>, float <em>phi2</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions4dPhiEff" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions9has_exactEKNSt6stringEKNSt6stringE">
+<span id="HelperFunctions::has_exact__ssC.ssC"></span><span class="target" id="xAHnamespace_helper_functions_1af3dea72893935c231be452587f10a168"></span>bool <code class="descname">has_exact</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>input</em>, <em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions9has_exactEKNSt6stringEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions10string_posERKNSt6stringERKNSt6stringEj">
+<span id="HelperFunctions::string_pos__ssCR.ssCR.unsigned-i"></span><span class="target" id="xAHnamespace_helper_functions_1aeab0c88a505cba6ae562e17e0cc61e76"></span>std::size_t <code class="descname">string_pos</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>haystack</em>, <em class="property">const</em> std::string &amp;<em>needle</em>, unsigned int <em>N</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions10string_posERKNSt6stringERKNSt6stringEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Function which returns the position of the n-th occurence of a character in a string searching backwards. Returns -1 if no occurencies are found.</p>
+<p>Source: <a class="reference external" href="http://stackoverflow.com/questions/18972258/index-of-nth-occurrence-of-the-string">http://stackoverflow.com/questions/18972258/index-of-nth-occurrence-of-the-string</a> </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions8parse_wpERKNSt6stringERKNSt6stringER9MsgStream">
+<span id="HelperFunctions::parse_wp__ssCR.ssCR.MsgStreamR"></span><span class="target" id="xAHnamespace_helper_functions_1affbee3cab0eb581931e0b08c27c72aea"></span>std::string <code class="descname">parse_wp</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>type</em>, <em class="property">const</em> std::string &amp;<em>config_name</em>, MsgStream &amp;<em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions8parse_wpERKNSt6stringERKNSt6stringER9MsgStream" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Function which returns the WP for ISO/ID from a config file. Returns empty string if no WP is found. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions8parse_wpERKNSt6stringERKNSt6stringE">
+<span id="HelperFunctions::parse_wp__ssCR.ssCR"></span><span class="target" id="xAHnamespace_helper_functions_1ae27d4df4fa2f69986806c3e8f476bccb"></span>std::string <code class="descname">parse_wp</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>type</em>, <em class="property">const</em> std::string &amp;<em>config_name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions8parse_wpERKNSt6stringERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions19isAvailableMetaDataEP5TTree">
+<span id="HelperFunctions::isAvailableMetaData__TTreeP"></span><span class="target" id="xAHnamespace_helper_functions_1a9d2d6ca9634e3b6929f2beeb50cfb191"></span>StatusCode <code class="descname">isAvailableMetaData</code><span class="sig-paren">(</span>TTree *<em>metaData</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions19isAvailableMetaDataEP5TTree" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions17isFilePrimaryxAODEP5TFile">
+<span id="HelperFunctions::isFilePrimaryxAOD__TFileP"></span><span class="target" id="xAHnamespace_helper_functions_1aeb895bb0c3b770f1a02795070f6da9b2"></span>bool <code class="descname">isFilePrimaryxAOD</code><span class="sig-paren">(</span>TFile *<em>inputFile</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions17isFilePrimaryxAODEP5TFile" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions15jetReclusteringEPKN4xAOD12JetContainerEddN7fastjet12JetAlgorithmE">
+<span id="HelperFunctions::jetReclustering__xAOD::JetContainerCP.double.double.fastjet::JetAlgorithm"></span><span class="target" id="xAHnamespace_helper_functions_1a5437b30c676b54e252ae390cbbec3bb3"></span>std::vector&lt;TLorentzVector&gt; <code class="descname">jetReclustering</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::JetContainer *<em>jets</em>, double <em>radius</em> = 1.0, double <em>fcut</em> = 0.05, fastjet::JetAlgorithm <em>rc_alg</em> = fastjet::antikt_algorithm<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions15jetReclusteringEPKN4xAOD12JetContainerEddN7fastjet12JetAlgorithmE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions11jetTrimmingEPKN4xAOD12JetContainerEddN7fastjet12JetAlgorithmE">
+<span id="HelperFunctions::jetTrimming__xAOD::JetContainerCP.double.double.fastjet::JetAlgorithm"></span><span class="target" id="xAHnamespace_helper_functions_1a8fd4a07174e89be5ab74ba978d025dd4"></span>std::vector&lt;TLorentzVector&gt; <code class="descname">jetTrimming</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::JetContainer *<em>jets</em>, double <em>radius</em> = 0.3, double <em>fcut</em> = 0.05, fastjet::JetAlgorithm <em>s_alg</em> = fastjet::kt_algorithm<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions11jetTrimmingEPKN4xAOD12JetContainerEddN7fastjet12JetAlgorithmE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions11jetTrimmingEPKN4xAOD3JetEddN7fastjet12JetAlgorithmE">
+<span id="HelperFunctions::jetTrimming__xAOD::JetCP.double.double.fastjet::JetAlgorithm"></span><span class="target" id="xAHnamespace_helper_functions_1af0a25209eb124af0d0473582cf684452"></span>TLorentzVector <code class="descname">jetTrimming</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::Jet *<em>jet</em>, double <em>radius</em> = 0.3, double <em>fcut</em> = 0.05, fastjet::JetAlgorithm <em>s_alg</em> = fastjet::kt_algorithm<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions11jetTrimmingEPKN4xAOD3JetEddN7fastjet12JetAlgorithmE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions7sort_ptEPKN4xAOD9IParticleEPKN4xAOD9IParticleE">
+<span id="HelperFunctions::sort_pt__xAOD::IParticleCP.xAOD::IParticleCP"></span><span class="target" id="xAHnamespace_helper_functions_1a52b31b859c3b03af3013fe097942032b"></span>bool <code class="descname">sort_pt</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::IParticle *<em>partA</em>, <em class="property">const</em> xAOD::IParticle *<em>partB</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions7sort_ptEPKN4xAOD9IParticleEPKN4xAOD9IParticleE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions20getListofSystematicsEKN2CP13SystematicSetENSt6stringEfR9MsgStream">
+<span id="HelperFunctions::getListofSystematics__CP::SystematicSetC.ss.float.MsgStreamR"></span><span class="target" id="xAHnamespace_helper_functions_1a788799896902f44f9a0af9f7484c3260"></span>std::vector&lt;CP::SystematicSet&gt; <code class="descname">getListofSystematics</code><span class="sig-paren">(</span><em class="property">const</em> CP::SystematicSet <em>inSysts</em>, std::string <em>systNames</em>, float <em>systVal</em>, MsgStream &amp;<em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions20getListofSystematicsEKN2CP13SystematicSetENSt6stringEfR9MsgStream" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a list of systematics. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">inSysts</span></code>: systematics set retrieved from the tool </li>
+<li><code class="docutils literal"><span class="pre">systNames</span></code>: comma separated list of wanted systematics names, use &#8220;Nominal&#8221; for nominal and &#8220;All&#8221; for all systematics </li>
+<li><code class="docutils literal"><span class="pre">systVal</span></code>: continuous systematics sigma value </li>
+<li><code class="docutils literal"><span class="pre">msg</span></code>: the MsgStream object with appropriate level for debugging </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions24writeSystematicsListHistERKNSt6vectorIN2CP13SystematicSetEEENSt6stringEP5TFile">
+<span id="HelperFunctions::writeSystematicsListHist__std::vector:CP::SystematicSet:CR.ss.TFileP"></span><span class="target" id="xAHnamespace_helper_functions_1ab32fb263453e63a5184a50eaf04e4e03"></span>void <code class="descname">writeSystematicsListHist</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;CP::SystematicSet&gt; &amp;<em>systs</em>, std::string <em>histName</em>, TFile *<em>file</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions24writeSystematicsListHistERKNSt6vectorIN2CP13SystematicSetEEENSt6stringEP5TFile" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T&gt;</dt>
+<dt id="_CPPv2N15HelperFunctions9type_nameEb">
+<span id="HelperFunctions::type_name__b"></span><span class="target" id="xAHnamespace_helper_functions_1a6020536eb90eeeedd98ce363c9c06be2"></span>std::string <code class="descname">type_name</code><span class="sig-paren">(</span>bool <em>useXAOD</em> = true<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions9type_nameEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T1, <em class="property">typename</em> T2&gt;</dt>
+<dt id="_CPPv2N15HelperFunctions14makeSubsetContERP2T1RP2T2R9MsgStreamRKNSt6stringEN13HelperClasses8ToolNameE">
+<span id="HelperFunctions::makeSubsetCont__T1PR.T2PR.MsgStreamR.ssCR.HelperClasses::ToolName"></span><span class="target" id="xAHnamespace_helper_functions_1aa430a3cb38614638c5e005824d71f691"></span>StatusCode <code class="descname">makeSubsetCont</code><span class="sig-paren">(</span>T1 *&amp;<em>intCont</em>, T2 *&amp;<em>outCont</em>, MsgStream &amp;<em>msg</em>, <em class="property">const</em> std::string &amp;<em>flagSelect</em> = &quot;&quot;, <a class="reference internal" href="HelperClasses.html#_CPPv213HelperClasses" title="HelperClasses">HelperClasses</a>::<a class="reference internal" href="HelperClasses.html#_CPPv2N13HelperClasses8ToolNameE" title="HelperClasses::ToolName">ToolName</a> <em>tool_name</em> = HelperClasses::ToolName::DEFAULT<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions14makeSubsetContERP2T1RP2T2R9MsgStreamRKNSt6stringEN13HelperClasses8ToolNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Function to copy a subset of a generic input xAOD container into a generic output xAOD container. </p>
+<p><dl class="docutils">
+<dt><strong>Author</strong></dt>
+<dd>Marco Milesi (<a class="reference external" href="mailto:marco&#46;milesi&#37;&#52;&#48;cern&#46;ch">marco<span>&#46;</span>milesi<span>&#64;</span>cern<span>&#46;</span>ch</a>) If the optional parameters aren&#8217;t specified, the function will just make a full copy of the input container into the output one.</dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">intCont</span></code>: input container </li>
+<li><code class="docutils literal"><span class="pre">outCont</span></code>: output container </li>
+<li><code class="docutils literal"><span class="pre">flagSelect</span></code>: (optional) the name of the decoration for objects passing a certain selection (e.g. &#8220;passSel&#8221;, &#8220;overlaps&#8221; ...). When explicitly specified, it must not be empty. </li>
+<li><code class="docutils literal"><span class="pre">tool_name</span></code>: (optional) an enum specifying the tool type which is calling this function (definition in <code class="docutils literal"><span class="pre">HelperClasses::ToolName</span></code>) </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T1, <em class="property">typename</em> T2&gt;</dt>
+<dt id="_CPPv2N15HelperFunctions14makeSubsetContERP2T1RP2T2RKNSt6stringEN13HelperClasses8ToolNameE">
+<span id="HelperFunctions::makeSubsetCont__T1PR.T2PR.ssCR.HelperClasses::ToolName"></span><span class="target" id="xAHnamespace_helper_functions_1a783583d94ca3d2158e871a29fc18b710"></span>StatusCode <code class="descname">makeSubsetCont</code><span class="sig-paren">(</span>T1 *&amp;<em>intCont</em>, T2 *&amp;<em>outCont</em>, <em class="property">const</em> std::string &amp;<em>flagSelect</em> = &quot;&quot;, <a class="reference internal" href="HelperClasses.html#_CPPv213HelperClasses" title="HelperClasses">HelperClasses</a>::<a class="reference internal" href="HelperClasses.html#_CPPv2N13HelperClasses8ToolNameE" title="HelperClasses::ToolName">ToolName</a> <em>tool_name</em> = HelperClasses::ToolName::DEFAULT<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions14makeSubsetContERP2T1RP2T2RKNSt6stringEN13HelperClasses8ToolNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T&gt;</dt>
+<dt id="_CPPv2N15HelperFunctions8retrieveERP1TNSt6stringEPN4xAOD6TEventEPN4xAOD6TStoreER9MsgStream">
+<span id="HelperFunctions::retrieve__TPR.ss.xAOD::TEventP.xAOD::TStoreP.MsgStreamR"></span><span class="target" id="xAHnamespace_helper_functions_1aed76887c1f4b8f894729c8e6ba0c0f8d"></span>StatusCode <code class="descname">retrieve</code><span class="sig-paren">(</span>T *&amp;<em>cont</em>, std::string <em>name</em>, xAOD::TEvent *<em>event</em>, xAOD::TStore *<em>store</em>, MsgStream &amp;<em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions8retrieveERP1TNSt6stringEPN4xAOD6TEventEPN4xAOD6TStoreER9MsgStream" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Retrieve an arbitrary object from TStore / TEvent. </p>
+<p><p>This tries to make your life simple by providing a one-stop container retrieval shop for all types.</p>
+<p>Example Usage:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="k">const</span> <span class="n">xAOD</span><span class="o">::</span><span class="n">JetContainer</span><span class="o">*</span> <span class="n">jets</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="c1">// look for &quot;AntiKt10LCTopoJets&quot; in both TEvent and TStore</span>
+<span class="n">ANA_CHECK</span><span class="p">(</span> <span class="n">HelperFunctions</span><span class="o">::</span><span class="n">retrieve</span><span class="p">(</span><span class="n">jets</span><span class="p">,</span> <span class="s">&quot;AntiKt10LCTopoJets&quot;</span><span class="p">,</span> <span class="n">m_event</span><span class="p">,</span> <span class="n">m_store</span><span class="p">)</span> <span class="p">);</span>
+<span class="c1">// look for &quot;AntiKt10LCTopoJets&quot; in only TStore</span>
+<span class="n">ANA_CHECK</span><span class="p">(</span> <span class="n">HelperFunctions</span><span class="o">::</span><span class="n">retrieve</span><span class="p">(</span><span class="n">jets</span><span class="p">,</span> <span class="s">&quot;AntiKt10LCTopoJets&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">m_store</span><span class="p">)</span> <span class="p">);</span>
+<span class="c1">// look for &quot;AntiKt10LCTopoJets&quot; in only TEvent, enable verbose output</span>
+<span class="n">ANA_CHECK</span><span class="p">(</span> <span class="n">HelperFunctions</span><span class="o">::</span><span class="n">retrieve</span><span class="p">(</span><span class="n">jets</span><span class="p">,</span> <span class="s">&quot;AntiKt10LCTopoJets&quot;</span><span class="p">,</span> <span class="n">m_event</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">msg</span><span class="p">())</span> <span class="p">);</span>
+</pre></div>
+</div>
+<p>Checking Order:</p>
+<ul class="simple">
+<li>start by checking TStore<ul>
+<li>check if store contains &#8216;xAOD::JetContainer&#8217; named &#8216;name&#8217;<ul>
+<li>attempt to retrieve from store</li>
+<li>return if failure</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>next check TEvent<ul>
+<li>check if event contains &#8216;xAOD::JetContainer&#8217; named &#8216;name&#8217;<ul>
+<li>attempt to retrieve from event</li>
+<li>return if failure</li>
+</ul>
+</li>
+<li>return FAILURE</li>
+</ul>
+</li>
+<li>return SUCCESS (should never reach this last line)</li>
+</ul>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">cont</span></code>: pass in a pointer to the object to store the retrieved container in </li>
+<li><code class="docutils literal"><span class="pre">name</span></code>: the name of the object to look up </li>
+<li><code class="docutils literal"><span class="pre">event</span></code>: the TEvent, usually wk()-&gt;xaodEvent(). Set to 0 to not search TEvent. </li>
+<li><code class="docutils literal"><span class="pre">store</span></code>: the TStore, usually wk()-&gt;xaodStore(). Set to 0 to not search TStore. </li>
+<li><code class="docutils literal"><span class="pre">msg</span></code>: the MsgStream object with appropriate level for debugging</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T&gt;</dt>
+<dt id="_CPPv2N15HelperFunctions8retrieveERP1TNSt6stringEPN4xAOD6TEventEPN4xAOD6TStoreE">
+<span id="HelperFunctions::retrieve__TPR.ss.xAOD::TEventP.xAOD::TStoreP"></span><span class="target" id="xAHnamespace_helper_functions_1a6225f38edb7c6e24883f02a9af321fc0"></span>StatusCode <code class="descname">retrieve</code><span class="sig-paren">(</span>T *&amp;<em>cont</em>, std::string <em>name</em>, xAOD::TEvent *<em>event</em>, xAOD::TStore *<em>store</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions8retrieveERP1TNSt6stringEPN4xAOD6TEventEPN4xAOD6TStoreE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T&gt;</dt>
+<dt>
+<span class="target" id="xAHnamespace_helper_functions_1a325eebda668a8961986946daa7608444"></span><code class="descname">StatusCode HelperFunctions::__attribute__((deprecated(&quot;retrieve&lt;T&gt;(..., bool) is deprecated. See https://github.com/UCATLAS/xAODAnaHelpers/pull/882&quot;)))</code></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T&gt;</dt>
+<dt id="_CPPv2N15HelperFunctions11isAvailableENSt6stringEPN4xAOD6TEventEPN4xAOD6TStoreER9MsgStream">
+<span id="HelperFunctions::isAvailable__ss.xAOD::TEventP.xAOD::TStoreP.MsgStreamR"></span><span class="target" id="xAHnamespace_helper_functions_1a4b78db55935cb09090b65c1fa49960a8"></span>bool <code class="descname">isAvailable</code><span class="sig-paren">(</span>std::string <em>name</em>, xAOD::TEvent *<em>event</em>, xAOD::TStore *<em>store</em>, MsgStream &amp;<em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions11isAvailableENSt6stringEPN4xAOD6TEventEPN4xAOD6TStoreER9MsgStream" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Return true if an arbitrary object from TStore / TEvent is available. </p>
+<p><p>This tries to make your life simple by providing a one-stop container check shop for all types</p>
+<p>Example Usage:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="k">const</span> <span class="n">xAOD</span><span class="o">::</span><span class="n">JetContainer</span><span class="o">*</span> <span class="n">jets</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="c1">// look for &quot;AntiKt10LCTopoJets&quot; in both TEvent and TStore</span>
+<span class="n">HelperFunctions</span><span class="o">::</span><span class="n">isAvailable</span><span class="o">&lt;</span><span class="n">xAOD</span><span class="o">::</span><span class="n">JetContainer</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;AntiKt10LCTopoJets&quot;</span><span class="p">,</span> <span class="n">m_event</span><span class="p">,</span> <span class="n">m_store</span><span class="p">)</span>
+<span class="c1">// look for &quot;AntiKt10LCTopoJets&quot; in only TStore</span>
+<span class="n">HelperFunctions</span><span class="o">::</span><span class="n">isAvailable</span><span class="o">&lt;</span><span class="n">xAOD</span><span class="o">::</span><span class="n">JetContainer</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;AntiKt10LCTopoJets&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">m_store</span><span class="p">)</span>
+<span class="c1">// look for &quot;AntiKt10LCTopoJets&quot; in only TEvent, enable verbose output</span>
+<span class="n">HelperFunctions</span><span class="o">::</span><span class="n">isAvailable</span><span class="o">&lt;</span><span class="n">xAOD</span><span class="o">::</span><span class="n">JetContainer</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;AntiKt10LCTopoJets&quot;</span><span class="p">,</span> <span class="n">m_event</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">MSG</span><span class="o">::</span><span class="n">VERBOSE</span><span class="p">)</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">name</span></code>: the name of the object to look up </li>
+<li><code class="docutils literal"><span class="pre">event</span></code>: the TEvent, usually wk()-&gt;xaodEvent(). Set to 0 to not search TEvent. </li>
+<li><code class="docutils literal"><span class="pre">store</span></code>: the TStore, usually wk()-&gt;xaodStore(). Set to 0 to not search TStore. </li>
+<li><code class="docutils literal"><span class="pre">msg</span></code>: the MsgStream object with appropriate level for debugging</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T&gt;</dt>
+<dt id="_CPPv2N15HelperFunctions11isAvailableENSt6stringEPN4xAOD6TEventEPN4xAOD6TStoreE">
+<span id="HelperFunctions::isAvailable__ss.xAOD::TEventP.xAOD::TStoreP"></span><span class="target" id="xAHnamespace_helper_functions_1a2e3b3541d075e2955f2a1c48d992305f"></span>bool <code class="descname">isAvailable</code><span class="sig-paren">(</span>std::string <em>name</em>, xAOD::TEvent *<em>event</em>, xAOD::TStore *<em>store</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions11isAvailableENSt6stringEPN4xAOD6TEventEPN4xAOD6TStoreE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">class</em> T&gt;</dt>
+<dt id="_CPPv2N15HelperFunctions7getLinkEPKN4xAOD9IParticleENSt6stringE">
+<span id="HelperFunctions::getLink__xAOD::IParticleCP.ss"></span><span class="target" id="xAHnamespace_helper_functions_1a72cf60ff96a7bb04b0d461f148d98906"></span><em class="property">const</em> T *<code class="descname">getLink</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::IParticle *<em>particle</em>, std::string <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions7getLinkEPKN4xAOD9IParticleENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Access to element link to object of type T stored in auxdata. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T&gt;</dt>
+<dt id="_CPPv2N15HelperFunctions17sort_container_ptEP1T">
+<span id="HelperFunctions::sort_container_pt__TP"></span><span class="target" id="xAHnamespace_helper_functions_1aba416f74ba2087ef467491061a3c306f"></span>T <code class="descname">sort_container_pt</code><span class="sig-paren">(</span>T *<em>inCont</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions17sort_container_ptEP1T" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T&gt;</dt>
+<dt id="_CPPv2N15HelperFunctions17sort_container_ptEPK1T">
+<span id="HelperFunctions::sort_container_pt__TCP"></span><span class="target" id="xAHnamespace_helper_functions_1a420ad300c0fd46eeb86b9ff2ebbf316d"></span><em class="property">const</em> T <code class="descname">sort_container_pt</code><span class="sig-paren">(</span><em class="property">const</em> T *<em>inCont</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions17sort_container_ptEPK1T" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions19found_non_dummy_sysEPNSt6vectorINSt6stringEEE">
+<span id="HelperFunctions::found_non_dummy_sys__std::vector:ss:P"></span><span class="target" id="xAHnamespace_helper_functions_1a69a6c97e0580d6424ff8a831d5108742"></span>bool <code class="descname">found_non_dummy_sys</code><span class="sig-paren">(</span>std::vector&lt;std::string&gt; *<em>sys_list</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions19found_non_dummy_sysEPNSt6vectorINSt6stringEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T1, <em class="property">typename</em> T2, <em class="property">typename</em> T3&gt;</dt>
+<dt id="_CPPv2N15HelperFunctions12makeDeepCopyEPN4xAOD6TStoreENSt6stringEPK2T1">
+<span id="HelperFunctions::makeDeepCopy__xAOD::TStoreP.ss.T1CP"></span><span class="target" id="xAHnamespace_helper_functions_1a161ca4f506284ce22a257bf6b702e832"></span>StatusCode <code class="descname">makeDeepCopy</code><span class="sig-paren">(</span>xAOD::TStore *<em>m_store</em>, std::string <em>containerName</em>, <em class="property">const</em> T1 *<em>cont</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions12makeDeepCopyEPN4xAOD6TStoreENSt6stringEPK2T1" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Make a deep copy of a container and put it in the TStore. </p>
+<p><p>This is a very powerful templating function. The point is to remove the triviality of making deep copies by specifying all that is needed. The best way is to demonstrate via example:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="k">const</span> <span class="n">xAOD</span><span class="o">::</span><span class="n">JetContainer</span><span class="o">*</span> <span class="n">selected_jets</span><span class="p">(</span><span class="k">nullptr</span><span class="p">);</span>
+<span class="n">ANA_CHECK</span><span class="p">(</span> <span class="n">m_event</span><span class="o">-&gt;</span><span class="n">retrieve</span><span class="p">(</span> <span class="n">selected_jets</span><span class="p">,</span> <span class="s">&quot;SelectedJets&quot;</span> <span class="p">));</span>
+<span class="n">ANA_CHECK</span><span class="p">(</span> <span class="p">(</span><span class="n">HelperFunctions</span><span class="o">::</span><span class="n">makeDeepCopy</span><span class="o">&lt;</span><span class="n">xAOD</span><span class="o">::</span><span class="n">JetContainer</span><span class="p">,</span> <span class="n">xAOD</span><span class="o">::</span><span class="n">JetAuxContainer</span><span class="p">,</span> <span class="n">xAOD</span><span class="o">::</span><span class="n">Jet</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_store</span><span class="p">,</span> <span class="s">&quot;BaselineJets&quot;</span><span class="p">,</span> <span class="n">selected_jets</span><span class="p">)));</span>
+</pre></div>
+</div>
+ <dl class="docutils">
+<dt><strong>Template Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">T1</span></code>: The type of the container you&#8217;re going to deep copy into </li>
+<li><code class="docutils literal"><span class="pre">T2</span></code>: The type of the aux container you&#8217;re going to deep copy into </li>
+<li><code class="docutils literal"><span class="pre">T3</span></code>: The type of the object inside the container you&#8217;re going to deep copy </li>
+</ul>
+</dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">m_store</span></code>: A pointer to the TStore object </li>
+<li><code class="docutils literal"><span class="pre">containerName</span></code>: The name of the container to create as output in the TStore </li>
+<li><code class="docutils literal"><span class="pre">cont</span></code>: The container to deep copy, it should be a container of pointers (IParticleContainer or ConstDataVector)</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T1, <em class="property">typename</em> T2&gt;</dt>
+<dt id="_CPPv2N15HelperFunctions12recordOutputEPN4xAOD6TEventEPN4xAOD6TStoreENSt6stringE">
+<span id="HelperFunctions::recordOutput__xAOD::TEventP.xAOD::TStoreP.ss"></span><span class="target" id="xAHnamespace_helper_functions_1af11e7a82f6bef2be5d7403daca2df17c"></span>StatusCode <code class="descname">recordOutput</code><span class="sig-paren">(</span>xAOD::TEvent *<em>m_event</em>, xAOD::TStore *<em>m_store</em>, std::string <em>containerName</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions12recordOutputEPN4xAOD6TEventEPN4xAOD6TStoreENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy a container from the TStore to be recorded in the TEvent (eg: to an output) </p>
+<p><p>If you have a container in the TStore, this function will record it into the output for you without an issue. As an example:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">ANA_CHECK</span><span class="p">(</span> <span class="n">HelperFunctions</span><span class="o">::</span><span class="n">recordOutput</span><span class="o">&lt;</span><span class="n">xAOD</span><span class="o">::</span><span class="n">JetContainer</span><span class="p">,</span> <span class="n">xAOD</span><span class="o">::</span><span class="n">JetAuxContainer</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m_event</span><span class="p">,</span> <span class="n">m_store</span><span class="p">,</span> <span class="s">&quot;BaselineJets&quot;</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>where we build off the previous example of making a deep copy (see <a class="reference internal" href="#_CPPv2N15HelperFunctions12makeDeepCopyEPN4xAOD6TStoreENSt6stringEPK2T1" title="HelperFunctions::makeDeepCopy"><code class="xref cpp cpp-func docutils literal"><span class="pre">HelperFunctions::makeDeepCopy()</span></code></a>).</p>
+ <dl class="docutils">
+<dt><strong>Template Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">T1</span></code>: The type of the container you&#8217;re going to record </li>
+<li><code class="docutils literal"><span class="pre">T2</span></code>: The type of the aux container you&#8217;re going to record </li>
+</ul>
+</dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">m_event</span></code>: A pointer to the TEvent object </li>
+<li><code class="docutils literal"><span class="pre">m_store</span></code>: A pointer to the TStore object </li>
+<li><code class="docutils literal"><span class="pre">containerName</span></code>: The name of the container in the TStore to record to TEvent</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T_BR&gt;</dt>
+<dt id="_CPPv2N15HelperFunctions13connectBranchENSt6stringEP5TTreeRKNSt6stringEPPNSt6vectorI4T_BREE">
+<span id="HelperFunctions::connectBranch__ss.TTreeP.ssCR.std::vector:T_BR:PP"></span><span class="target" id="xAHnamespace_helper_functions_1a5df23cc3d031c8bd0fb11c52222c2971"></span>void <code class="descname">connectBranch</code><span class="sig-paren">(</span>std::string <em>name</em>, TTree *<em>tree</em>, <em class="property">const</em> std::string &amp;<em>branch</em>, std::vector&lt;T_BR&gt; **<em>variable</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions13connectBranchENSt6stringEP5TTreeRKNSt6stringEPPNSt6vectorI4T_BREE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T&gt;</dt>
+<dt id="_CPPv2N15HelperFunctions17remove_duplicatesERNSt6vectorI1TEE">
+<span id="HelperFunctions::remove_duplicates__std::vector:T:R"></span><span class="target" id="xAHnamespace_helper_functions_1acd29a66702c5e2aeb4ed9db6a3011aab"></span>void <code class="descname">remove_duplicates</code><span class="sig-paren">(</span>std::vector&lt;T&gt; &amp;<em>vec</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions17remove_duplicatesERNSt6vectorI1TEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Variables</p>
+<dl class="member">
+<dt>
+<span class="target" id="xAHnamespace_helper_functions_1ac0e18a5859fc56bb2e7ca76a337f3397"></span><code class="descname">StatusCode std::string HelperFunctions::name</code></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt>
+<span class="target" id="xAHnamespace_helper_functions_1a75f893874a63f2a37a14690bf2150c7f"></span><code class="descname">StatusCode std::string xAOD::TEvent* HelperFunctions::event</code></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt>
+<span class="target" id="xAHnamespace_helper_functions_1a90e6aca89891c117c31683c211617e1d"></span><code class="descname">StatusCode std::string xAOD::TEvent xAOD::TStore* HelperFunctions::store</code></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt>
+<span class="target" id="xAHnamespace_helper_functions_1adb6e2b141fa0263967cf4b3a874bbeac"></span><code class="descname">StatusCode std::string xAOD::TEvent xAOD::TStore bool HelperFunctions::debug</code> = { return retrieve&lt;T&gt;(cont, name, event, store, msg())</dt>
+<dd></dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv2N15HelperFunctions7pt_sortE">
+<span id="HelperFunctions::pt_sort"></span><span class="target" id="xAHstruct_helper_functions_1_1pt__sort"></span><em class="property">struct </em><code class="descname">pt_sort</code><a class="headerlink" href="#_CPPv2N15HelperFunctions7pt_sortE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions7pt_sortclERK14TLorentzVectorRK14TLorentzVector">
+<span id="HelperFunctions::pt_sort::call-operator__TLorentzVectorCR.TLorentzVectorCR"></span><span class="target" id="xAHstruct_helper_functions_1_1pt__sort_1ad185b00242ad93b6774946dbd5f91eaa"></span>bool <code class="descname">operator()</code><span class="sig-paren">(</span><em class="property">const</em> TLorentzVector &amp;<em>lhs</em>, <em class="property">const</em> TLorentzVector &amp;<em>rhs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions7pt_sortclERK14TLorentzVectorRK14TLorentzVector" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions7pt_sortclEPK14TLorentzVectorPK14TLorentzVector">
+<span id="HelperFunctions::pt_sort::call-operator__TLorentzVectorCP.TLorentzVectorCP"></span><span class="target" id="xAHstruct_helper_functions_1_1pt__sort_1abcfe879db4df6758f1fb22f28d485293"></span>bool <code class="descname">operator()</code><span class="sig-paren">(</span><em class="property">const</em> TLorentzVector *<em>lhs</em>, <em class="property">const</em> TLorentzVector *<em>rhs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions7pt_sortclEPK14TLorentzVectorPK14TLorentzVector" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions7pt_sortclERKN4xAOD9IParticleERKN4xAOD9IParticleE">
+<span id="HelperFunctions::pt_sort::call-operator__xAOD::IParticleCR.xAOD::IParticleCR"></span><span class="target" id="xAHstruct_helper_functions_1_1pt__sort_1af51500659d94322c754f887823607e61"></span>bool <code class="descname">operator()</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::IParticle &amp;<em>lhs</em>, <em class="property">const</em> xAOD::IParticle &amp;<em>rhs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions7pt_sortclERKN4xAOD9IParticleERKN4xAOD9IParticleE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N15HelperFunctions7pt_sortclEPKN4xAOD9IParticleEPKN4xAOD9IParticleE">
+<span id="HelperFunctions::pt_sort::call-operator__xAOD::IParticleCP.xAOD::IParticleCP"></span><span class="target" id="xAHstruct_helper_functions_1_1pt__sort_1a17608bf57da0b7070f0c38f42185a1a3"></span>bool <code class="descname">operator()</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::IParticle *<em>lhs</em>, <em class="property">const</em> xAOD::IParticle *<em>rhs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N15HelperFunctions7pt_sortclEPKN4xAOD9IParticleEPKN4xAOD9IParticleE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="METConstructor.html" class="btn btn-neutral float-right" title="MET Constructor" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="HelperClasses.html" class="btn btn-neutral" title="Helper Classes" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015-2017, ATLAS Collaboration.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'01-00-00-46-g45a2bda',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

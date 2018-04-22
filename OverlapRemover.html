@@ -1,0 +1,960 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Overlap Removal &mdash; xAODAnaHelpers 01-00-00-46-g45a2bda documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="xAODAnaHelpers 01-00-00-46-g45a2bda documentation" href="index.html"/>
+        <link rel="up" title="Selecting Objects" href="Selectors.html"/>
+        <link rel="next" title="\(e\)" href="ElectronSelector.html"/>
+        <link rel="prev" title="Event" href="BasicEventSelection.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> xAODAnaHelpers
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                01.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UsingUs.html">xAH_run.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Algorithms.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQs.html">xAH FAQ</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="API.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Getters.html">Getting Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Calibrators.html">Calibrating Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Correctors.html">Efficiency Correcting</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="Selectors.html">Selecting Objects</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="BasicEventSelection.html">Event</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Overlap Removal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ElectronSelector.html"><span class="math">\(e\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="JetSelector.html"><span class="math">\(j\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="MuonSelector.html"><span class="math">\(\mu\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="PhotonSelector.html"><span class="math">\(\gamma\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="TauSelector.html"><span class="math">\(\tau\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="TrackSelector.html">Tracks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TruthSelector.html">Truth</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Histograms.html">Histograms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ToolsUsed.html">Tools Used</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Outputs.html">Producing Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Utilities.html">Utilities</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">xAODAnaHelpers</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="API.html">API Reference</a> &raquo;</li>
+      
+          <li><a href="Selectors.html">Selecting Objects</a> &raquo;</li>
+      
+    <li>Overlap Removal</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/OverlapRemover.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="overlap-removal">
+<h1>Overlap Removal<a class="headerlink" href="#overlap-removal" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="_CPPv214OverlapRemover">
+<span id="OverlapRemover"></span><span class="target" id="xAHclass_overlap_remover"></span><em class="property">class </em><code class="descclassname"></code><code class="descname">OverlapRemover</code><a class="headerlink" href="#_CPPv214OverlapRemover" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A wrapper of the overlap removal tool in the ASG <a class="reference external" href="https://svnweb.cern.ch/trac/atlasoff/browser/PhysicsAnalysis/AnalysisCommon/AssociationUtils/trunk/doc/README.rst">AssociationUtils</a> package. </p>
+<p><p>The logic of the OLR belongs to the ASG tool itself, and is described extensively in the <a class="reference external" href="https://cds.cern.ch/record/1700874">Analysis Harmonisation Task Force</a> note.</p>
+<p>If you wish to apply a custom OLR scheme, please contact the author <a class="reference external" href="mailto:marco&#46;milesi&#37;&#52;&#48;cern&#46;ch">marco<span>&#46;</span>milesi<span>&#64;</span>cern<span>&#46;</span>ch</a> for detailed instructions.</p>
+<p>The idea behind this algorithm is to consistently thread together the inputs from upstream xAODAnaHelpers algorithms based on user&#8217;s configuration, handling also the case where systematics on the input physics objects are taken into account. Here follows a usage example.</p>
+<p>Consider the simplified scenario where we care only about <strong>jets</strong> and <strong>electrons</strong>.
+Assuming the typical xAODAnaHelpers analysis configuration through <code class="xref py py-class docutils literal"><span class="pre">xAH_config</span></code>, the analysis workflow could look like the following:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">c</span> <span class="o">=</span> <span class="n">xAH_config</span><span class="p">()</span>
+<span class="c"># ...</span>
+<span class="n">c</span><span class="o">.</span><span class="n">setalg</span><span class="p">(</span><span class="s">&quot;JetSelector&quot;</span><span class="p">,</span> <span class="n">JetSelectorDict</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">setalg</span><span class="p">(</span><span class="s">&quot;ElectronSelector&quot;</span><span class="p">,</span> <span class="n">ElectronSelectorDict</span><span class="p">)</span>
+<span class="c"># ...</span>
+<span class="n">c</span><span class="o">.</span><span class="n">setalg</span><span class="p">(</span><span class="s">&quot;OverlapRemover&quot;</span><span class="p">,</span> <span class="n">OverlapRemoverDict</span><span class="p">)</span>
+<span class="c"># ...</span>
+</pre></div>
+</div>
+<p>where each algorithm has the following I/O systematics configuration (via python dictionaries):</p>
+<div class="highlight-python"><div class="highlight"><pre> <span class="n">JetSelectorDict</span> <span class="o">=</span> <span class="p">{</span>
+     <span class="c"># ...</span>
+     <span class="s">&quot;m_inputAlgo&quot;</span> <span class="p">:</span> <span class="s">&quot;JetCalibrator_Syst&quot;</span><span class="p">,</span>
+     <span class="s">&quot;m_outputAlgo&quot;</span> <span class="p">:</span> <span class="s">&quot;JetSelector_Syst&quot;</span><span class="p">,</span>
+     <span class="c"># ...</span>
+ <span class="p">}</span>
+
+ <span class="n">ElectronSelectorDict</span> <span class="o">=</span> <span class="p">{</span>
+     <span class="c"># ...</span>
+     <span class="s">&quot;m_inputAlgo&quot;</span> <span class="p">:</span> <span class="s">&quot;ElectronCalibrator_Syst&quot;</span><span class="p">,</span>
+     <span class="s">&quot;m_outputAlgo&quot;</span> <span class="p">:</span> <span class="s">&quot;ElectronSelector_Syst&quot;</span><span class="p">,</span>
+     <span class="c"># ...</span>
+<span class="p">}</span>
+
+<span class="n">OverlapRemoverDict</span> <span class="o">=</span> <span class="p">{</span>
+     <span class="c"># ...</span>
+     <span class="s">&quot;m_inputAlgoJets&quot;</span> <span class="p">:</span> <span class="s">&quot;JetSelector_Syst&quot;</span><span class="p">,</span> <span class="c"># leave empty when not considering jet systematics</span>
+     <span class="s">&quot;m_inputAlgoElectrons&quot;</span> <span class="p">:</span> <span class="s">&quot;ElectronSelector_Syst&quot;</span><span class="p">,</span> <span class="c"># leave empty when not considering electron systematics</span>
+     <span class="c"># ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this way the overlap removal algorithm will be able to correctly work out all the combinatorics, generating output <code class="xref cpp cpp-any docutils literal"><span class="pre">xAOD</span></code> containers for jets and electrons for each input systematics combination to be subsequently used downstream according to the user&#8217;s needs. The overlap removal algorithm creates an output systematic list that is a combination of systematics from all input containers.</p>
+ </p>
+<p>Inherits from <a class="reference internal" href="xAHAlgorithm.html#xAHclassx_a_h_1_1_algorithm"><span class="std std-ref">xAH::Algorithm</span></a></p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N14OverlapRemover14OverlapRemoverEv">
+<span id="OverlapRemover::OverlapRemover"></span><span class="target" id="xAHclass_overlap_remover_1a7cbca7bc29e380160287e9069299e848"></span><code class="descname">OverlapRemover</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N14OverlapRemover14OverlapRemoverEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N14OverlapRemover8setupJobERN2EL3JobE">
+<span id="OverlapRemover::setupJob__EL::JobR"></span><span class="target" id="xAHclass_overlap_remover_1acca92d9783dad7d04d0af799ee8a722d"></span>EL::StatusCode <code class="descname">setupJob</code><span class="sig-paren">(</span>EL::Job &amp;<em>job</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N14OverlapRemover8setupJobERN2EL3JobE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N14OverlapRemover11fileExecuteEv">
+<span id="OverlapRemover::fileExecute"></span><span class="target" id="xAHclass_overlap_remover_1a11c4c1d647ff77cf41b3e0a5cfffa64c"></span>EL::StatusCode <code class="descname">fileExecute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N14OverlapRemover11fileExecuteEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N14OverlapRemover14histInitializeEv">
+<span id="OverlapRemover::histInitialize"></span><span class="target" id="xAHclass_overlap_remover_1a1e5cbdf10988076e485a21d93eb34a12"></span>EL::StatusCode <code class="descname">histInitialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N14OverlapRemover14histInitializeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N14OverlapRemover11changeInputEb">
+<span id="OverlapRemover::changeInput__b"></span><span class="target" id="xAHclass_overlap_remover_1a243da816c6344ea9712545853570e216"></span>EL::StatusCode <code class="descname">changeInput</code><span class="sig-paren">(</span>bool <em>firstFile</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N14OverlapRemover11changeInputEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N14OverlapRemover10initializeEv">
+<span id="OverlapRemover::initialize"></span><span class="target" id="xAHclass_overlap_remover_1a76a278641717bc65d1bdf4db3b0e30a3"></span>EL::StatusCode <code class="descname">initialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N14OverlapRemover10initializeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N14OverlapRemover7executeEv">
+<span id="OverlapRemover::execute"></span><span class="target" id="xAHclass_overlap_remover_1aecb55cba813c7faa691853919a5e5400"></span>EL::StatusCode <code class="descname">execute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N14OverlapRemover7executeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N14OverlapRemover11postExecuteEv">
+<span id="OverlapRemover::postExecute"></span><span class="target" id="xAHclass_overlap_remover_1a48e7d24f35aa9e59a94fa9bbab739070"></span>EL::StatusCode <code class="descname">postExecute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N14OverlapRemover11postExecuteEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N14OverlapRemover8finalizeEv">
+<span id="OverlapRemover::finalize"></span><span class="target" id="xAHclass_overlap_remover_1a8ea38380c70930319bfb927805a9bb11"></span>EL::StatusCode <code class="descname">finalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N14OverlapRemover8finalizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N14OverlapRemover12histFinalizeEv">
+<span id="OverlapRemover::histFinalize"></span><span class="target" id="xAHclass_overlap_remover_1aed8b9f2ea7572dbfcae8e21bb34e80fa"></span>EL::StatusCode <code class="descname">histFinalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N14OverlapRemover12histFinalizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N14OverlapRemover17fillObjectCutflowEPKN4xAOD18IParticleContainerERKNSt6stringERKNSt6stringE">
+<span id="OverlapRemover::fillObjectCutflow__xAOD::IParticleContainerCP.ssCR.ssCR"></span><span class="target" id="xAHclass_overlap_remover_1a46ea1541984beab8f6b85b7b3a2a0382"></span>EL::StatusCode <code class="descname">fillObjectCutflow</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::IParticleContainer *<em>objCont</em>, <em class="property">const</em> std::string &amp;<em>overlapFlag</em> = &quot;passOR&quot;, <em class="property">const</em> std::string &amp;<em>selectFlag</em> = &quot;passSel&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N14OverlapRemover17fillObjectCutflowEPKN4xAOD18IParticleContainerERKNSt6stringERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Fill the cutflow histograms. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">objCont</span></code>: The <code class="docutils literal"><span class="pre">xAOD</span></code> container to be considered </li>
+<li><code class="docutils literal"><span class="pre">overlapFlag</span></code>: The string identifying objects not overlapping with another object, to be kept (default is <code class="docutils literal"><span class="pre">&quot;passOR&quot;</span></code>) </li>
+<li><code class="docutils literal"><span class="pre">selectFlag</span></code>: The string identifying selected objects (default is <code class="docutils literal"><span class="pre">&quot;passSel&quot;</span></code>) </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N14OverlapRemover9executeOREPKN4xAOD17ElectronContainerEPKN4xAOD13MuonContainerEPKN4xAOD12JetContainerEPKN4xAOD15PhotonContainerEPKN4xAOD15TauJetContainerE8SystTypePNSt6vectorINSt6stringEEE">
+<span id="OverlapRemover::executeOR__xAOD::ElectronContainerCP.xAOD::MuonContainerCP.xAOD::JetContainerCP.xAOD::PhotonContainerCP.xAOD::TauJetContainerCP.SystType.std::vector:ss:P"></span><span class="target" id="xAHclass_overlap_remover_1adf345aba1458a527837cc17692ea2d1a"></span>EL::StatusCode <code class="descname">executeOR</code><span class="sig-paren">(</span><em class="property">const</em> xAOD::ElectronContainer *<em>inElectrons</em>, <em class="property">const</em> xAOD::MuonContainer *<em>inMuons</em>, <em class="property">const</em> xAOD::JetContainer *<em>inJets</em>, <em class="property">const</em> xAOD::PhotonContainer *<em>inPhotons</em>, <em class="property">const</em> xAOD::TauJetContainer *<em>inTaus</em>, <a class="reference internal" href="#_CPPv2N14OverlapRemover8SystTypeE" title="OverlapRemover::SystType">SystType</a> <em>syst_type</em> = NOMINAL, std::vector&lt;std::string&gt; *<em>sysVec</em> = nullptr<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N14OverlapRemover9executeOREPKN4xAOD17ElectronContainerEPKN4xAOD13MuonContainerEPKN4xAOD12JetContainerEPKN4xAOD15PhotonContainerEPKN4xAOD15TauJetContainerE8SystTypePNSt6vectorINSt6stringEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Function that internally calls the OLR tool for the input containers (and systematics) </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">inElectrons</span></code>: Input <code class="docutils literal"><span class="pre">xAOD</span></code> container for electrons </li>
+<li><code class="docutils literal"><span class="pre">inMuons</span></code>: Input <code class="docutils literal"><span class="pre">xAOD</span></code> container for muons </li>
+<li><code class="docutils literal"><span class="pre">inJets</span></code>: Input <code class="docutils literal"><span class="pre">xAOD</span></code> container for jets </li>
+<li><code class="docutils literal"><span class="pre">inPhotons</span></code>: Input <code class="docutils literal"><span class="pre">xAOD</span></code> container for photons </li>
+<li><code class="docutils literal"><span class="pre">inTaus</span></code>: Input <code class="docutils literal"><span class="pre">xAOD</span></code> container for taus </li>
+<li><code class="docutils literal"><span class="pre">syst_type</span></code>: The type of object for which input systematics should be considered. Default is <code class="docutils literal"><span class="pre">NOMINAL</span></code> </li>
+<li><code class="docutils literal"><span class="pre">sysVec</span></code>: The list of the input systematics for a given object. Must match with the choice of <code class="docutils literal"><span class="pre">syst_type</span></code>. Default is <code class="docutils literal"><span class="pre">nullptr</span></code> </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N14OverlapRemover14setCutFlowHistEv">
+<span id="OverlapRemover::setCutFlowHist"></span><span class="target" id="xAHclass_overlap_remover_1a6bc1b974529f29f69f5cf1af24850fa9"></span>EL::StatusCode <code class="descname">setCutFlowHist</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N14OverlapRemover14setCutFlowHistEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Setup cutflow histograms. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N14OverlapRemover11setCountersEv">
+<span id="OverlapRemover::setCounters"></span><span class="target" id="xAHclass_overlap_remover_1aa630450b2ad45efbbc4810b370f14199"></span>EL::StatusCode <code class="descname">setCounters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N14OverlapRemover11setCountersEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initialise counters for events/objects. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm13algInitializeEv">
+<span id="xAH::Algorithm::algInitialize"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ae8fd8541cf785803ec19d9c4f8cfe602"></span>StatusCode <code class="descname">algInitialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm13algInitializeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Run any initializations commmon to all xAH Algorithms (such as registerInstance). Call this inside <code class="docutils literal"><span class="pre">histInitialize</span></code> for best results. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm11algFinalizeEv">
+<span id="xAH::Algorithm::algFinalize"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ad953653631da2d160893153f0b30f919"></span>StatusCode <code class="descname">algFinalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm11algFinalizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Run any finalizations common to all xAH Algorithms (such as unregisterInstance). Call this inside <code class="docutils literal"><span class="pre">histFinalize</span></code> for best results. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm18parseSystValVectorEv">
+<span id="xAH::Algorithm::parseSystValVector"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a4859dee0ea827841c1adbbf56b159257"></span>StatusCode <code class="descname">parseSystValVector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm18parseSystValVectorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Parse string of systematic sigma levels in m_systValVectorString into m_systValVector. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover12m_useCutFlowE">
+<span id="OverlapRemover::m_useCutFlow__b"></span><span class="target" id="xAHclass_overlap_remover_1a32f014fb0f77f422a5668c0c746a59e2"></span>bool <code class="descname">m_useCutFlow</code> = true<a class="headerlink" href="#_CPPv2N14OverlapRemover12m_useCutFlowE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Fill the cutflow histogram(s) for object counting. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover25m_decorateSelectedObjectsE">
+<span id="OverlapRemover::m_decorateSelectedObjects__b"></span><span class="target" id="xAHclass_overlap_remover_1aae5fdb956920ee50bb049b117ec74c30"></span>bool <code class="descname">m_decorateSelectedObjects</code><a class="headerlink" href="#_CPPv2N14OverlapRemover25m_decorateSelectedObjectsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Decorate selected objects (the default decoration string is <code class="docutils literal"><span class="pre">passSel</span></code>) </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover26m_createSelectedContainersE">
+<span id="OverlapRemover::m_createSelectedContainers__b"></span><span class="target" id="xAHclass_overlap_remover_1a8c4494e9e36d0bb5e4b1ad7b37deaaa5"></span>bool <code class="descname">m_createSelectedContainers</code><a class="headerlink" href="#_CPPv2N14OverlapRemover26m_createSelectedContainersE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Make a copy of input container(s) with selected objects (using <code class="xref cpp cpp-any docutils literal"><span class="pre">SG::VIEW_ELEMENTS</span></code> to be light weight)</p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover13m_useSelectedE">
+<span id="OverlapRemover::m_useSelected__b"></span><span class="target" id="xAHclass_overlap_remover_1a75f8fa7dccdaa4dff0a3dd9f01088ed5"></span>bool <code class="descname">m_useSelected</code> = false<a class="headerlink" href="#_CPPv2N14OverlapRemover13m_useSelectedE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>In the OLR, consider only objects passing a (pre)selection. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover8m_bTagWPE">
+<span id="OverlapRemover::m_bTagWP__ss"></span><span class="target" id="xAHclass_overlap_remover_1a226ec8d3cc71acbd83ccc8e18ae02071"></span>std::string <code class="descname">m_bTagWP</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N14OverlapRemover8m_bTagWPE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Use b-tagging decision, set previously with the given decoration name, to remove electrons and muons. </p>
+<p><dl class="docutils">
+<dt><strong>Note</strong></dt>
+<dd>This is automatically set by <a class="reference internal" href="BJetEfficiencyCorrector.html#xAHclass_b_jet_efficiency_corrector"><span class="std std-ref">BJetEfficiencyCorrector</span></a> </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover20m_linkOverlapObjectsE">
+<span id="OverlapRemover::m_linkOverlapObjects__b"></span><span class="target" id="xAHclass_overlap_remover_1a26661efb5eac9bb27e108f2a224aa7f6"></span>bool <code class="descname">m_linkOverlapObjects</code> = true<a class="headerlink" href="#_CPPv2N14OverlapRemover20m_linkOverlapObjectsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a link between overlapped objects. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover19m_useBoostedLeptonsE">
+<span id="OverlapRemover::m_useBoostedLeptons__b"></span><span class="target" id="xAHclass_overlap_remover_1a0d9ca2c5fac6909c4f1a4a2c6cda8189"></span>bool <code class="descname">m_useBoostedLeptons</code> = false<a class="headerlink" href="#_CPPv2N14OverlapRemover19m_useBoostedLeptonsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Use boosted object working point. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover12m_doEleEleORE">
+<span id="OverlapRemover::m_doEleEleOR__b"></span><span class="target" id="xAHclass_overlap_remover_1ae88179c7b37635b46f84882f141e3fef"></span>bool <code class="descname">m_doEleEleOR</code> = false<a class="headerlink" href="#_CPPv2N14OverlapRemover12m_doEleEleORE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Do overlap removal between electrons (HSG2 prescription) </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover21m_outputAlgoSystNamesE">
+<span id="OverlapRemover::m_outputAlgoSystNames__ss"></span><span class="target" id="xAHclass_overlap_remover_1ad0cad0863b120f1ed82ff8c68fa477b1"></span>std::string <code class="descname">m_outputAlgoSystNames</code> = &quot;ORAlgo_Syst&quot;<a class="headerlink" href="#_CPPv2N14OverlapRemover21m_outputAlgoSystNamesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Output systematics list container name. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover27m_inContainerName_ElectronsE">
+<span id="OverlapRemover::m_inContainerName_Electrons__ss"></span><span class="target" id="xAHclass_overlap_remover_1ae23b66db75b0464a7b6ec534d2bc1ccb"></span>std::string <code class="descname">m_inContainerName_Electrons</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N14OverlapRemover27m_inContainerName_ElectronsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Input container name. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover28m_outContainerName_ElectronsE">
+<span id="OverlapRemover::m_outContainerName_Electrons__ss"></span><span class="target" id="xAHclass_overlap_remover_1a7c7c70f840a640c8ee537c9ca1c05f4b"></span>std::string <code class="descname">m_outContainerName_Electrons</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N14OverlapRemover28m_outContainerName_ElectronsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Output container name. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover20m_inputAlgoElectronsE">
+<span id="OverlapRemover::m_inputAlgoElectrons__ss"></span><span class="target" id="xAHclass_overlap_remover_1a164cce45ee455e5b8d4fcdff8a80c787"></span>std::string <code class="descname">m_inputAlgoElectrons</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N14OverlapRemover20m_inputAlgoElectronsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Name of the <code class="xref cpp cpp-type docutils literal"><span class="pre">std::vector</span></code> of systematics coming from the upstream algorithm</p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover23m_inContainerName_MuonsE">
+<span id="OverlapRemover::m_inContainerName_Muons__ss"></span><span class="target" id="xAHclass_overlap_remover_1a4ef3e118bf78631e6e0ad3337881ea81"></span>std::string <code class="descname">m_inContainerName_Muons</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N14OverlapRemover23m_inContainerName_MuonsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover24m_outContainerName_MuonsE">
+<span id="OverlapRemover::m_outContainerName_Muons__ss"></span><span class="target" id="xAHclass_overlap_remover_1aaaf10d4046d47e1da00eafea9b45354f"></span>std::string <code class="descname">m_outContainerName_Muons</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N14OverlapRemover24m_outContainerName_MuonsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover16m_inputAlgoMuonsE">
+<span id="OverlapRemover::m_inputAlgoMuons__ss"></span><span class="target" id="xAHclass_overlap_remover_1afd18da2cf4367e3fca0496098eb8a967"></span>std::string <code class="descname">m_inputAlgoMuons</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N14OverlapRemover16m_inputAlgoMuonsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover22m_inContainerName_JetsE">
+<span id="OverlapRemover::m_inContainerName_Jets__ss"></span><span class="target" id="xAHclass_overlap_remover_1a014f7c2da8bcf3081cde4b693765564e"></span>std::string <code class="descname">m_inContainerName_Jets</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N14OverlapRemover22m_inContainerName_JetsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover23m_outContainerName_JetsE">
+<span id="OverlapRemover::m_outContainerName_Jets__ss"></span><span class="target" id="xAHclass_overlap_remover_1ad3f3defbd208bb23dfb22c94fd88df93"></span>std::string <code class="descname">m_outContainerName_Jets</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N14OverlapRemover23m_outContainerName_JetsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover15m_inputAlgoJetsE">
+<span id="OverlapRemover::m_inputAlgoJets__ss"></span><span class="target" id="xAHclass_overlap_remover_1a629f099de4f333202a2664ddaa664ee8"></span>std::string <code class="descname">m_inputAlgoJets</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N14OverlapRemover15m_inputAlgoJetsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover25m_inContainerName_PhotonsE">
+<span id="OverlapRemover::m_inContainerName_Photons__ss"></span><span class="target" id="xAHclass_overlap_remover_1aff5cfcb03184533f466bc6b81f9da972"></span>std::string <code class="descname">m_inContainerName_Photons</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N14OverlapRemover25m_inContainerName_PhotonsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover26m_outContainerName_PhotonsE">
+<span id="OverlapRemover::m_outContainerName_Photons__ss"></span><span class="target" id="xAHclass_overlap_remover_1afb01c39065d4150d63dce395330d992f"></span>std::string <code class="descname">m_outContainerName_Photons</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N14OverlapRemover26m_outContainerName_PhotonsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover18m_inputAlgoPhotonsE">
+<span id="OverlapRemover::m_inputAlgoPhotons__ss"></span><span class="target" id="xAHclass_overlap_remover_1a1ca6d4b5da441dd5c04029a99860a4bd"></span>std::string <code class="descname">m_inputAlgoPhotons</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N14OverlapRemover18m_inputAlgoPhotonsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover22m_inContainerName_TausE">
+<span id="OverlapRemover::m_inContainerName_Taus__ss"></span><span class="target" id="xAHclass_overlap_remover_1ac1456fdc6ce35c3c698502f572c4e570"></span>std::string <code class="descname">m_inContainerName_Taus</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N14OverlapRemover22m_inContainerName_TausE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover23m_outContainerName_TausE">
+<span id="OverlapRemover::m_outContainerName_Taus__ss"></span><span class="target" id="xAHclass_overlap_remover_1a76312113301b30b0b6e4dd8c78530867"></span>std::string <code class="descname">m_outContainerName_Taus</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N14OverlapRemover23m_outContainerName_TausE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover15m_inputAlgoTausE">
+<span id="OverlapRemover::m_inputAlgoTaus__ss"></span><span class="target" id="xAHclass_overlap_remover_1a4a08f9e8f352168571a86ae45202dcf5"></span>std::string <code class="descname">m_inputAlgoTaus</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N14OverlapRemover15m_inputAlgoTausE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm6m_nameE">
+<span id="xAH::Algorithm::m_name__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a2fe89b9cfdbba9b2d5dbd77d78d017ba"></span>std::string <code class="descname">m_name</code> = &quot;UnnamedAlgorithm&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm6m_nameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>All algorithms initialized should have a unique name, to differentiate them at the TObject level. </p>
+<p>Note, <code class="docutils literal"><span class="pre">GetName()</span></code> returns a <code class="docutils literal"><span class="pre">char*</span></code> while this returns a <code class="docutils literal"><span class="pre">std::string</span></code>. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm7m_debugE">
+<span id="xAH::Algorithm::m_debug__b"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a536ad066b37192ae8234da9088ca37cb"></span>bool <code class="descname">m_debug</code> = false<a class="headerlink" href="#_CPPv2N3xAH9Algorithm7m_debugE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>m_debug is being deprecated </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm9m_verboseE">
+<span id="xAH::Algorithm::m_verbose__b"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1aa6f548d723aa93b42dd9915c36c7b9a4"></span>bool <code class="descname">m_verbose</code> = false<a class="headerlink" href="#_CPPv2N3xAH9Algorithm9m_verboseE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>m_verbose is being deprecated </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm10m_msgLevelE">
+<span id="xAH::Algorithm::m_msgLevel__MSG::Level"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a903600b01ce81ba57bd004e32a905254"></span>MSG::Level <code class="descname">m_msgLevel</code> = MSG::INFO<a class="headerlink" href="#_CPPv2N3xAH9Algorithm10m_msgLevelE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>debug level </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm10m_systNameE">
+<span id="xAH::Algorithm::m_systName__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a79e26ab76909dcaeec857fd683289f87"></span>std::string <code class="descname">m_systName</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm10m_systNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If running systematics, the name of the systematic </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm9m_systValE">
+<span id="xAH::Algorithm::m_systVal__float"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a7e34030fb2a71902b0d65797bb90366b"></span>float <code class="descname">m_systVal</code> = 0.0<a class="headerlink" href="#_CPPv2N3xAH9Algorithm9m_systValE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If running systematics, the value to set the systematic to <div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This will set the systematic to the value <span class="math">\(\pm x\)</span>.</p>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm21m_systValVectorStringE">
+<span id="xAH::Algorithm::m_systValVectorString__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ab1386db1ff9f8586e603924d23e3d9ea"></span>std::string <code class="descname">m_systValVectorString</code> = &quot;&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm21m_systValVectorStringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If running systematics, you can run multiple points and store them in here. A comma separated list of working points should be given to m_systValVectorString, and then parsed by calling parseSystValVector. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm15m_systValVectorE">
+<span id="xAH::Algorithm::m_systValVector__std::vector:float:"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ad033047e9456204a32165a5d3847661d"></span>std::vector&lt;float&gt; <code class="descname">m_systValVector</code><a class="headerlink" href="#_CPPv2N3xAH9Algorithm15m_systValVectorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm24m_eventInfoContainerNameE">
+<span id="xAH::Algorithm::m_eventInfoContainerName__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a3a28d57c78d08c235cbdbfb2db4d8ee0"></span>std::string <code class="descname">m_eventInfoContainerName</code> = &quot;EventInfo&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm24m_eventInfoContainerNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If the xAOD has a different EventInfo container name, set it here </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm6m_isMCE">
+<span id="xAH::Algorithm::m_isMC__i"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a2fe08016f341df4f708872f6a43e70dd"></span>int <code class="descname">m_isMC</code> = -1<a class="headerlink" href="#_CPPv2N3xAH9Algorithm6m_isMCE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>This is an override at the algorithm level to force analyzing MC or not.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="92%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>-1</td>
+<td>Default, use eventInfo object to determine if data or mc</td>
+</tr>
+<tr class="row-odd"><td>0</td>
+<td>Treat the input as data</td>
+</tr>
+<tr class="row-even"><td>1</td>
+<td>Treat the input as MC</td>
+</tr>
+</tbody>
+</table>
+ </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Types</p>
+<dl class="type">
+<dt id="_CPPv2N14OverlapRemover8SystTypeE">
+<span id="OverlapRemover::SystType"></span><span class="target" id="xAHclass_overlap_remover_1a3394a4efb64411b7b32e9fa7715b6920"></span><em class="property">enum </em><code class="descname">SystType</code><a class="headerlink" href="#_CPPv2N14OverlapRemover8SystTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An enum encoding systematics according to the various objects. </p>
+<p><em>Values:</em></p>
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover7NOMINALE">
+<span id="OverlapRemover::NOMINAL"></span><span class="target" id="xAHclass_overlap_remover_1a3394a4efb64411b7b32e9fa7715b6920a54212379eb331de4ca2b06be03a77992"></span><code class="descname">NOMINAL</code> = 0<a class="headerlink" href="#_CPPv2N14OverlapRemover7NOMINALE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover6ELSYSTE">
+<span id="OverlapRemover::ELSYST"></span><span class="target" id="xAHclass_overlap_remover_1a3394a4efb64411b7b32e9fa7715b6920a7eae898fb82ea5124f121d115f16940d"></span><code class="descname">ELSYST</code> = 1<a class="headerlink" href="#_CPPv2N14OverlapRemover6ELSYSTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover6MUSYSTE">
+<span id="OverlapRemover::MUSYST"></span><span class="target" id="xAHclass_overlap_remover_1a3394a4efb64411b7b32e9fa7715b6920a29c19c507b2e235217694930b5c9e4ee"></span><code class="descname">MUSYST</code> = 2<a class="headerlink" href="#_CPPv2N14OverlapRemover6MUSYSTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover7JETSYSTE">
+<span id="OverlapRemover::JETSYST"></span><span class="target" id="xAHclass_overlap_remover_1a3394a4efb64411b7b32e9fa7715b6920a47945829d161bc096b54b9c3dda21f1d"></span><code class="descname">JETSYST</code> = 3<a class="headerlink" href="#_CPPv2N14OverlapRemover7JETSYSTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover6PHSYSTE">
+<span id="OverlapRemover::PHSYST"></span><span class="target" id="xAHclass_overlap_remover_1a3394a4efb64411b7b32e9fa7715b6920a7b7c6c19f452853225cff6f6314869d3"></span><code class="descname">PHSYST</code> = 4<a class="headerlink" href="#_CPPv2N14OverlapRemover6PHSYSTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover7TAUSYSTE">
+<span id="OverlapRemover::TAUSYST"></span><span class="target" id="xAHclass_overlap_remover_1a3394a4efb64411b7b32e9fa7715b6920a7c4214cfd772ae1b07da3d1712718291"></span><code class="descname">TAUSYST</code> = 5<a class="headerlink" href="#_CPPv2N14OverlapRemover7TAUSYSTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm4isMCEv">
+<span id="xAH::Algorithm::isMC"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ac6974b849cbb6c3ca7f061dfbd79293d"></span>bool <code class="descname">isMC</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm4isMCEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><blockquote>
+<div>Try to determine if we are running over data or MC. The <a class="reference internal" href="BJetEfficiencyCorrector.html#_CPPv2N3xAH9Algorithm6m_isMCE" title="xAH::Algorithm::m_isMC"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_isMC</span></code></a> can be used</div></blockquote>
+<p>to fix the return value. Otherwise the <cite>EventInfo</cite> object is queried.</p>
+<p>An exception is thrown if the type cannot be determined.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="63%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Return Value</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>Data</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>MC</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm16registerInstanceEv">
+<span id="xAH::Algorithm::registerInstance"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1ad985e6075dc2794ba53d92663c84da08"></span>void <code class="descname">registerInstance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm16registerInstanceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Register the given instance under the moniker <a class="reference internal" href="BJetEfficiencyCorrector.html#_CPPv2N3xAH9Algorithm11m_classNameE" title="xAH::Algorithm::m_className"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_className</span></code></a></p>
+<p>This will increase the reference count by 1.</p>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm12numInstancesEv">
+<span id="xAH::Algorithm::numInstances"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a668fbd5fb7180046a8a41b496cf5ccbd"></span>int <code class="descname">numInstances</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm12numInstancesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Return number of instances registered under the moniker <a class="reference internal" href="BJetEfficiencyCorrector.html#_CPPv2N3xAH9Algorithm11m_classNameE" title="xAH::Algorithm::m_className"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_className</span></code></a></p>
+<p>This will return the reference count.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If for some reason the instance wasn&#8217;t registered, we spit out a warning.</p>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm18unregisterInstanceEv">
+<span id="xAH::Algorithm::unregisterInstance"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a5db7105c8aba80421821c555bca6ca93"></span>void <code class="descname">unregisterInstance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm18unregisterInstanceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Unregister the given instance under the moniker <a class="reference internal" href="BJetEfficiencyCorrector.html#_CPPv2N3xAH9Algorithm11m_classNameE" title="xAH::Algorithm::m_className"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_className</span></code></a></p>
+<p>This will decrease the reference count by 1.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If for some reason the instance wasn&#8217;t registered, we spit out a warning.</p>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T&gt;</dt>
+<dt id="_CPPv2N3xAH9Algorithm14checkToolStoreERKNSt6stringE">
+<span id="xAH::Algorithm::checkToolStore__ssCR"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a064eba684de39e15a2368064dafee485"></span>StatusCode <code class="descname">checkToolStore</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>tool_name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm14checkToolStoreERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><blockquote>
+<div>Check whether the input CP tool already exists with <em>this</em> name in the asg::ToolStore</div></blockquote>
+<p>Depending on the outcome, the content of the map <a class="reference internal" href="xAHAlgorithm.html#_CPPv2N3xAH9Algorithm17m_toolAlreadyUsedE" title="xAH::Algorithm::m_toolAlreadyUsed"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_toolAlreadyUsed</span></code></a> wll be set accordingly.</p>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3xAH9Algorithm17isToolAlreadyUsedERKNSt6stringE">
+<span id="xAH::Algorithm::isToolAlreadyUsed__ssCR"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1aba740002a03904fa58d6f3762965c733"></span>bool <code class="descname">isToolAlreadyUsed</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>tool_name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3xAH9Algorithm17isToolAlreadyUsedERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Check whether the input CP tool has been already used by any <a class="reference internal" href="xAHAlgorithm.html#_CPPv2N3xAH9AlgorithmE" title="xAH::Algorithm"><code class="xref cpp cpp-class docutils literal"><span class="pre">xAH::Algorithm</span></code></a> in the current job by scanning <a class="reference internal" href="xAHAlgorithm.html#_CPPv2N3xAH9Algorithm17m_toolAlreadyUsedE" title="xAH::Algorithm::m_toolAlreadyUsed"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_toolAlreadyUsed</span></code></a>.</p>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<em class="property">template </em>&lt;<em class="property">typename</em> T&gt;</dt>
+<dt id="_CPPv2NK3xAH9Algorithm11setToolNameERN3asg13AnaToolHandleI1TEERKNSt6stringE">
+<span id="xAH::Algorithm::setToolName__asg::AnaToolHandle:T:R.ssCRC"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a21105ba926b929179cd329528e17168a"></span>void <code class="descname">setToolName</code><span class="sig-paren">(</span>__attribute__((unused)) asg::AnaToolHandle&lt;T&gt; &amp;<em>handle</em>, __attribute__((unused)) <em class="property">const</em> std::string &amp;<em>name</em> = &quot;&quot;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK3xAH9Algorithm11setToolNameERN3asg13AnaToolHandleI1TEERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><blockquote>
+<div></div></blockquote>
+<p>Sets the name of a tool. If no name is needed, the tool will use the name of the algorithm plus a unique identifier (<a class="reference internal" href="BJetEfficiencyCorrector.html#_CPPv2NK3xAH9Algorithm10getAddressEv" title="xAH::Algorithm::getAddress"><code class="xref cpp cpp-func docutils literal"><span class="pre">xAH::Algorithm::getAddress()</span></code></a>) appended to ensure the tool is unique and effectively private.</p>
+<p>The tool will not be guaranteed unique if two tools of the same type are created without a name passed in. But this is, at this point, up to the user and a more complex scenario than what this function tries to simplify on its own.</p>
+ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2NK3xAH9Algorithm10getAddressEv">
+<span id="xAH::Algorithm::getAddressC"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1aefeab6cf73ebfc67aa4e7cf74d762427"></span>std::string <code class="descname">getAddress</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv2NK3xAH9Algorithm10getAddressEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Return a <code class="docutils literal"><span class="pre">std::string</span></code> representation of <code class="docutils literal"><span class="pre">this</span></code> </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover10m_numEventE">
+<span id="OverlapRemover::m_numEvent__i"></span><span class="target" id="xAHclass_overlap_remover_1a2aac119784e1a47a08ef8ce5cc61e5cf"></span>int <code class="descname">m_numEvent</code><a class="headerlink" href="#_CPPv2N14OverlapRemover10m_numEventE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A counter for the number of processed events. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover11m_numObjectE">
+<span id="OverlapRemover::m_numObject__i"></span><span class="target" id="xAHclass_overlap_remover_1a470204f0732d33d707877161b343c624"></span>int <code class="descname">m_numObject</code><a class="headerlink" href="#_CPPv2N14OverlapRemover11m_numObjectE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A counter for the number of processed objects. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover14m_numEventPassE">
+<span id="OverlapRemover::m_numEventPass__i"></span><span class="target" id="xAHclass_overlap_remover_1a2e21ad83dff065a4667cb5ccb27badc4"></span>int <code class="descname">m_numEventPass</code><a class="headerlink" href="#_CPPv2N14OverlapRemover14m_numEventPassE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A counter for the number of passed events. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover20m_weightNumEventPassE">
+<span id="OverlapRemover::m_weightNumEventPass__i"></span><span class="target" id="xAHclass_overlap_remover_1ab45ea6c53039730f01427cf675b0f104"></span>int <code class="descname">m_weightNumEventPass</code><a class="headerlink" href="#_CPPv2N14OverlapRemover20m_weightNumEventPassE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A counter for the number of passed <em>weighted</em> events. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover15m_numObjectPassE">
+<span id="OverlapRemover::m_numObjectPass__i"></span><span class="target" id="xAHclass_overlap_remover_1a28bd5d4c0fe5ba44750d9aa04b2987ea"></span>int <code class="descname">m_numObjectPass</code><a class="headerlink" href="#_CPPv2N14OverlapRemover15m_numObjectPassE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A counter for the number of passed objects. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover22m_vecOutContainerNamesE">
+<span id="OverlapRemover::m_vecOutContainerNames__std::vector:ss:P"></span><span class="target" id="xAHclass_overlap_remover_1aff2c35edba116a9f1ff579b736f1d379"></span>std::vector&lt;std::string&gt; *<code class="descname">m_vecOutContainerNames</code><a class="headerlink" href="#_CPPv2N14OverlapRemover22m_vecOutContainerNamesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Container to be filled by executeOR with combined systematics. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover14m_useElectronsE">
+<span id="OverlapRemover::m_useElectrons__b"></span><span class="target" id="xAHclass_overlap_remover_1a6ffdb72c676bed74f19e028ca2326bce"></span>bool <code class="descname">m_useElectrons</code> = false<a class="headerlink" href="#_CPPv2N14OverlapRemover14m_useElectronsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Consider electrons in the OLR. </p>
+<p><p>This is set to <code class="docutils literal"><span class="pre">false</span></code> if <code class="xref cpp cpp-member docutils literal"><span class="pre">m_inContainerName_Electrons</span></code> is set as an empty string.
+Electrons (unlike jets) are considered &#8220;optional&#8221; objetcs in the OLR.</p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover10m_useMuonsE">
+<span id="OverlapRemover::m_useMuons__b"></span><span class="target" id="xAHclass_overlap_remover_1a7d6c46e81ac35fbc42624174096c5575"></span>bool <code class="descname">m_useMuons</code> = false<a class="headerlink" href="#_CPPv2N14OverlapRemover10m_useMuonsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Consider muons in the OLR. </p>
+<p><p>This is set to <code class="docutils literal"><span class="pre">false</span></code> if <code class="xref cpp cpp-member docutils literal"><span class="pre">m_inContainerName_Muons</span></code> is set as an empty string.
+Muons (unlike jets) are considered &#8220;optional&#8221; objects in the OLR.</p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover12m_usePhotonsE">
+<span id="OverlapRemover::m_usePhotons__b"></span><span class="target" id="xAHclass_overlap_remover_1a64c1c93d70607fdfb513ce7fa67cfcb8"></span>bool <code class="descname">m_usePhotons</code> = false<a class="headerlink" href="#_CPPv2N14OverlapRemover12m_usePhotonsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Consider photons in the OLR. </p>
+<p><p>This is set to <code class="docutils literal"><span class="pre">false</span></code> if <code class="xref cpp cpp-member docutils literal"><span class="pre">m_inContainerName_Photons</span></code> is set as an empty string.
+Photons (unlike jets) are considered &#8220;optional&#8221; objects in the OLR.</p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover9m_useTausE">
+<span id="OverlapRemover::m_useTaus__b"></span><span class="target" id="xAHclass_overlap_remover_1ae3e7d8148d5784f1d6a6717f63684ac6"></span>bool <code class="descname">m_useTaus</code> = false<a class="headerlink" href="#_CPPv2N14OverlapRemover9m_useTausE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Consider taus in the OLR. </p>
+<p><p>This is set to <code class="docutils literal"><span class="pre">false</span></code> if <code class="xref cpp cpp-member docutils literal"><span class="pre">m_inContainerName_Taus</span></code> is set as an empty string.
+Taus (unlike jets) are considered &#8220;optional&#8221; objects in the OLR.</p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover31m_outAuxContainerName_ElectronsE">
+<span id="OverlapRemover::m_outAuxContainerName_Electrons__ss"></span><span class="target" id="xAHclass_overlap_remover_1a10785cead847eb96591458d183285abf"></span>std::string <code class="descname">m_outAuxContainerName_Electrons</code><a class="headerlink" href="#_CPPv2N14OverlapRemover31m_outAuxContainerName_ElectronsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Output auxiliary container name. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover27m_outAuxContainerName_MuonsE">
+<span id="OverlapRemover::m_outAuxContainerName_Muons__ss"></span><span class="target" id="xAHclass_overlap_remover_1a3787c2102fa6aa3160ed41aa4bf7bc19"></span>std::string <code class="descname">m_outAuxContainerName_Muons</code><a class="headerlink" href="#_CPPv2N14OverlapRemover27m_outAuxContainerName_MuonsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Output auxiliary container name. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover26m_outAuxContainerName_JetsE">
+<span id="OverlapRemover::m_outAuxContainerName_Jets__ss"></span><span class="target" id="xAHclass_overlap_remover_1a5c5703bbdd1f8a307c9b3a125c36e687"></span>std::string <code class="descname">m_outAuxContainerName_Jets</code><a class="headerlink" href="#_CPPv2N14OverlapRemover26m_outAuxContainerName_JetsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Output auxiliary container name. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover29m_outAuxContainerName_PhotonsE">
+<span id="OverlapRemover::m_outAuxContainerName_Photons__ss"></span><span class="target" id="xAHclass_overlap_remover_1a43a8d81794b97a5ef7bf0f51cfb20f49"></span>std::string <code class="descname">m_outAuxContainerName_Photons</code><a class="headerlink" href="#_CPPv2N14OverlapRemover29m_outAuxContainerName_PhotonsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Output auxiliary container name. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover26m_outAuxContainerName_TausE">
+<span id="OverlapRemover::m_outAuxContainerName_Taus__ss"></span><span class="target" id="xAHclass_overlap_remover_1a091f7aaa2591a8a89d00fb009930bd28"></span>std::string <code class="descname">m_outAuxContainerName_Taus</code><a class="headerlink" href="#_CPPv2N14OverlapRemover26m_outAuxContainerName_TausE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Output auxiliary container name. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover11m_ORToolboxE">
+<span id="OverlapRemover::m_ORToolbox__ORUtils::ToolBox"></span><span class="target" id="xAHclass_overlap_remover_1a2b6545d78be76c9e5b88f2c6cc17e53b"></span>ORUtils::ToolBox <code class="descname">m_ORToolbox</code><a class="headerlink" href="#_CPPv2N14OverlapRemover11m_ORToolboxE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pointer to the CP Tool which performs the actual OLR. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover18m_el_cutflowHist_1E">
+<span id="OverlapRemover::m_el_cutflowHist_1__TH1DP"></span><span class="target" id="xAHclass_overlap_remover_1a357c8ffb66f559d4f5703e5a2069128f"></span>TH1D *<code class="descname">m_el_cutflowHist_1</code> = nullptr<a class="headerlink" href="#_CPPv2N14OverlapRemover18m_el_cutflowHist_1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pointer to the histogram for the electron cutflow. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover18m_mu_cutflowHist_1E">
+<span id="OverlapRemover::m_mu_cutflowHist_1__TH1DP"></span><span class="target" id="xAHclass_overlap_remover_1ab7ed7fa0d51bc424018d5b1f57e4df8f"></span>TH1D *<code class="descname">m_mu_cutflowHist_1</code> = nullptr<a class="headerlink" href="#_CPPv2N14OverlapRemover18m_mu_cutflowHist_1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pointer to the histogram for the muon cutflow. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover19m_jet_cutflowHist_1E">
+<span id="OverlapRemover::m_jet_cutflowHist_1__TH1DP"></span><span class="target" id="xAHclass_overlap_remover_1a7068f0b7baedb8f69c00920e866bc7b7"></span>TH1D *<code class="descname">m_jet_cutflowHist_1</code> = nullptr<a class="headerlink" href="#_CPPv2N14OverlapRemover19m_jet_cutflowHist_1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pointer to the histogram for the jet cutflow. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover18m_ph_cutflowHist_1E">
+<span id="OverlapRemover::m_ph_cutflowHist_1__TH1DP"></span><span class="target" id="xAHclass_overlap_remover_1ab1cd9f3f9c59b7137dfafd6a914dd4b5"></span>TH1D *<code class="descname">m_ph_cutflowHist_1</code> = nullptr<a class="headerlink" href="#_CPPv2N14OverlapRemover18m_ph_cutflowHist_1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pointer to the histogram for the photon cutflow. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover19m_tau_cutflowHist_1E">
+<span id="OverlapRemover::m_tau_cutflowHist_1__TH1DP"></span><span class="target" id="xAHclass_overlap_remover_1a7d718ae67f5baec5d61326a8358da105"></span>TH1D *<code class="descname">m_tau_cutflowHist_1</code> = nullptr<a class="headerlink" href="#_CPPv2N14OverlapRemover19m_tau_cutflowHist_1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pointer to the histogram for the tau cutflow. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover19m_el_cutflow_OR_cutE">
+<span id="OverlapRemover::m_el_cutflow_OR_cut__i"></span><span class="target" id="xAHclass_overlap_remover_1ae09425b1469115e0aa07ee057b237bfb"></span>int <code class="descname">m_el_cutflow_OR_cut</code><a class="headerlink" href="#_CPPv2N14OverlapRemover19m_el_cutflow_OR_cutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover19m_mu_cutflow_OR_cutE">
+<span id="OverlapRemover::m_mu_cutflow_OR_cut__i"></span><span class="target" id="xAHclass_overlap_remover_1a71a5667afa41496e190932a7c0b20dce"></span>int <code class="descname">m_mu_cutflow_OR_cut</code><a class="headerlink" href="#_CPPv2N14OverlapRemover19m_mu_cutflow_OR_cutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover20m_jet_cutflow_OR_cutE">
+<span id="OverlapRemover::m_jet_cutflow_OR_cut__i"></span><span class="target" id="xAHclass_overlap_remover_1abfe9a2457856bb2e4e54a6a4db4f2562"></span>int <code class="descname">m_jet_cutflow_OR_cut</code><a class="headerlink" href="#_CPPv2N14OverlapRemover20m_jet_cutflow_OR_cutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover19m_ph_cutflow_OR_cutE">
+<span id="OverlapRemover::m_ph_cutflow_OR_cut__i"></span><span class="target" id="xAHclass_overlap_remover_1ac07671ac0f19e5d6d3d0760aa55ea233"></span>int <code class="descname">m_ph_cutflow_OR_cut</code><a class="headerlink" href="#_CPPv2N14OverlapRemover19m_ph_cutflow_OR_cutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N14OverlapRemover20m_tau_cutflow_OR_cutE">
+<span id="OverlapRemover::m_tau_cutflow_OR_cut__i"></span><span class="target" id="xAHclass_overlap_remover_1aec0680016c69980ccdf84afef13c0ec3"></span>int <code class="descname">m_tau_cutflow_OR_cut</code><a class="headerlink" href="#_CPPv2N14OverlapRemover20m_tau_cutflow_OR_cutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm11m_classNameE">
+<span id="xAH::Algorithm::m_className__ss"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1aff1b344c0be87d17890333bb65421c39"></span>std::string <code class="descname">m_className</code> = &quot;Algorithm&quot;<a class="headerlink" href="#_CPPv2N3xAH9Algorithm11m_classNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>The moniker by which all instances are tracked in <a class="reference internal" href="xAHAlgorithm.html#_CPPv2N3xAH9Algorithm18m_instanceRegistryE" title="xAH::Algorithm::m_instanceRegistry"><code class="xref cpp cpp-member docutils literal"><span class="pre">xAH::Algorithm::m_instanceRegistry</span></code></a></p>
+ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm7m_eventE">
+<span id="xAH::Algorithm::m_event__xAOD::TEventP"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a6c1a280a55c7e0ff39c6f90e2ba9b05b"></span>xAOD::TEvent *<code class="descname">m_event</code> = nullptr<a class="headerlink" href="#_CPPv2N3xAH9Algorithm7m_eventE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The TEvent object </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3xAH9Algorithm7m_storeE">
+<span id="xAH::Algorithm::m_store__xAOD::TStoreP"></span><span class="target" id="xAHclassx_a_h_1_1_algorithm_1a58d778d2d1351cbb863f30fadb1a727c"></span>xAOD::TStore *<code class="descname">m_store</code> = nullptr<a class="headerlink" href="#_CPPv2N3xAH9Algorithm7m_storeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The TStore object </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ElectronSelector.html" class="btn btn-neutral float-right" title="\(e\)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="BasicEventSelection.html" class="btn btn-neutral" title="Event" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015-2017, ATLAS Collaboration.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'01-00-00-46-g45a2bda',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

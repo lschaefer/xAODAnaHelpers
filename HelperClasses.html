@@ -1,0 +1,2062 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Helper Classes &mdash; xAODAnaHelpers 01-00-00-46-g45a2bda documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="xAODAnaHelpers 01-00-00-46-g45a2bda documentation" href="index.html"/>
+        <link rel="up" title="Utilities" href="Utilities.html"/>
+        <link rel="next" title="Helper Functions" href="HelperFunctions.html"/>
+        <link rel="prev" title="Debug Tool" href="DebugTool.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> xAODAnaHelpers
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                01.00.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UsingUs.html">xAH_run.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Algorithms.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQs.html">xAH FAQ</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="API.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Getters.html">Getting Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Calibrators.html">Calibrating Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Correctors.html">Efficiency Correcting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Selectors.html">Selecting Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Histograms.html">Histograms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ToolsUsed.html">Tools Used</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Outputs.html">Producing Outputs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="Utilities.html">Utilities</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="DebugTool.html">Debug Tool</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Helper Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HelperFunctions.html">Helper Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="METConstructor.html">MET Constructor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ParticlePIDManager.html">Particle PID Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="xAHAlgorithm.html">xAH::Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MessagePrinterAlgo.html">MessagePrinterAlgo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">xAODAnaHelpers</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="API.html">API Reference</a> &raquo;</li>
+      
+          <li><a href="Utilities.html">Utilities</a> &raquo;</li>
+      
+    <li>Helper Classes</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/HelperClasses.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="helper-classes">
+<h1>Helper Classes<a class="headerlink" href="#helper-classes" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="_CPPv213HelperClasses">
+<span id="HelperClasses"></span><span class="target" id="xAHnamespace_helper_classes"></span><em class="property">namespace </em><code class="descclassname"></code><code class="descname">HelperClasses</code><a class="headerlink" href="#_CPPv213HelperClasses" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Enums</p>
+<dl class="type">
+<dt id="_CPPv2N13HelperClasses13ContainerTypeE">
+<span id="HelperClasses::ContainerType"></span><span class="target" id="xAHnamespace_helper_classes_1ae759666962f41b8b383e887f415d41bf"></span><em class="property">enum </em><code class="descname">ContainerType</code><a class="headerlink" href="#_CPPv2N13HelperClasses13ContainerTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="member">
+<dt id="_CPPv2N13HelperClasses7UNKNOWNE">
+<span id="HelperClasses::UNKNOWN"></span><span class="target" id="xAHnamespace_helper_classes_1ae759666962f41b8b383e887f415d41bfa696b031073e74bf2cb98e5ef201d4aa3"></span><code class="descname">UNKNOWN</code> = 0<a class="headerlink" href="#_CPPv2N13HelperClasses7UNKNOWNE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N13HelperClasses7CONSTDVE">
+<span id="HelperClasses::CONSTDV"></span><span class="target" id="xAHnamespace_helper_classes_1ae759666962f41b8b383e887f415d41bfaf37af313057d6b5ff1cce6a55938affb"></span><code class="descname">CONSTDV</code> = 1<a class="headerlink" href="#_CPPv2N13HelperClasses7CONSTDVE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N13HelperClasses9CONSTCONTE">
+<span id="HelperClasses::CONSTCONT"></span><span class="target" id="xAHnamespace_helper_classes_1ae759666962f41b8b383e887f415d41bfa33bdfe579c95c20e08cd1766450a4020"></span><code class="descname">CONSTCONT</code> = 2<a class="headerlink" href="#_CPPv2N13HelperClasses9CONSTCONTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="_CPPv2N13HelperClasses8ToolNameE">
+<span id="HelperClasses::ToolName"></span><span class="target" id="xAHnamespace_helper_classes_1a85a25b6b5010e93ba473724e97c97baf"></span><em class="property">enum </em><code class="descname">ToolName</code><a class="headerlink" href="#_CPPv2N13HelperClasses8ToolNameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="member">
+<dt id="_CPPv2N13HelperClasses12MUONSELECTORE">
+<span id="HelperClasses::MUONSELECTOR"></span><span class="target" id="xAHnamespace_helper_classes_1a85a25b6b5010e93ba473724e97c97bafabdfe7c1ab9f02d0a3cfcc0f349dbf49c"></span><code class="descname">MUONSELECTOR</code><a class="headerlink" href="#_CPPv2N13HelperClasses12MUONSELECTORE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N13HelperClasses16ELECTRONSELECTORE">
+<span id="HelperClasses::ELECTRONSELECTOR"></span><span class="target" id="xAHnamespace_helper_classes_1a85a25b6b5010e93ba473724e97c97bafa34b967e8641b7e34aebc97a29527b712"></span><code class="descname">ELECTRONSELECTOR</code><a class="headerlink" href="#_CPPv2N13HelperClasses16ELECTRONSELECTORE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N13HelperClasses14PHOTONSELECTORE">
+<span id="HelperClasses::PHOTONSELECTOR"></span><span class="target" id="xAHnamespace_helper_classes_1a85a25b6b5010e93ba473724e97c97bafa972b36725d5319099a84ad4a1ef86e8b"></span><code class="descname">PHOTONSELECTOR</code><a class="headerlink" href="#_CPPv2N13HelperClasses14PHOTONSELECTORE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N13HelperClasses11JETSELECTORE">
+<span id="HelperClasses::JETSELECTOR"></span><span class="target" id="xAHnamespace_helper_classes_1a85a25b6b5010e93ba473724e97c97bafad0150ac3210a498dae8ee88210f7f173"></span><code class="descname">JETSELECTOR</code><a class="headerlink" href="#_CPPv2N13HelperClasses11JETSELECTORE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N13HelperClasses12BJETSELECTORE">
+<span id="HelperClasses::BJETSELECTOR"></span><span class="target" id="xAHnamespace_helper_classes_1a85a25b6b5010e93ba473724e97c97bafa8871453335e07ac7701ffb5efa53f249"></span><code class="descname">BJETSELECTOR</code><a class="headerlink" href="#_CPPv2N13HelperClasses12BJETSELECTORE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N13HelperClasses10CALIBRATORE">
+<span id="HelperClasses::CALIBRATOR"></span><span class="target" id="xAHnamespace_helper_classes_1a85a25b6b5010e93ba473724e97c97bafafa94033c5fe3b795374b88fc4069e39b"></span><code class="descname">CALIBRATOR</code><a class="headerlink" href="#_CPPv2N13HelperClasses10CALIBRATORE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N13HelperClasses9CORRECTORE">
+<span id="HelperClasses::CORRECTOR"></span><span class="target" id="xAHnamespace_helper_classes_1a85a25b6b5010e93ba473724e97c97bafaf9107ca0ee7a6cf147bb16268c79e5c5"></span><code class="descname">CORRECTOR</code><a class="headerlink" href="#_CPPv2N13HelperClasses9CORRECTORE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N13HelperClasses8SELECTORE">
+<span id="HelperClasses::SELECTOR"></span><span class="target" id="xAHnamespace_helper_classes_1a85a25b6b5010e93ba473724e97c97bafa0306d365caace98e8f301b031565521b"></span><code class="descname">SELECTOR</code><a class="headerlink" href="#_CPPv2N13HelperClasses8SELECTORE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N13HelperClasses7DEFAULTE">
+<span id="HelperClasses::DEFAULT"></span><span class="target" id="xAHnamespace_helper_classes_1a85a25b6b5010e93ba473724e97c97bafa5b39c8b553c821e7cddc6da64b5bd2ee"></span><code class="descname">DEFAULT</code><a class="headerlink" href="#_CPPv2N13HelperClasses7DEFAULTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<dl class="class">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_enum_parser"></span><em class="property">template </em>&lt;<em class="property">typename</em> T&gt;</dt>
+<dt id="_CPPv2N13HelperClasses10EnumParserE">
+<span id="HelperClasses::EnumParser"></span><em class="property">class </em><code class="descname">EnumParser</code><a class="headerlink" href="#_CPPv2N13HelperClasses10EnumParserE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;HelperClasses.h&gt;</em><p>template enum parser. Copied from: <a class="reference external" href="http://stackoverflow.com/a/726681">http://stackoverflow.com/a/726681</a> </p>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N13HelperClasses10InfoSwitchE">
+<span id="HelperClasses::InfoSwitch"></span><span class="target" id="xAHclass_helper_classes_1_1_info_switch"></span><em class="property">class </em><code class="descname">InfoSwitch</code><a class="headerlink" href="#_CPPv2N13HelperClasses10InfoSwitchE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;HelperClasses.h&gt;</em><p>A struct that is used for parsing configuration strings and assigning booleans to various properties. Currently used in plotting code. </p>
+<p><p>Strings are used to turn on and off histograms and branches in the tree The following structs hold the bools used to control the content and also have the string which is necessary to turn a set on.
+See the derived members for more information about what is supported. Each derived member should provide a table of parameters, patterns, and type of matching scheme used. The pattern will use standard PCRE-syntax when appropriate.</p>
+<p>We support two major matching schemes:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Exact</dt>
+<dd>If a variable is matched exactly to a string, then a boolean is set to True or False based on whether an exact match exists or not.</dd>
+<dt>Partial</dt>
+<dd>If a variable is partially matched to a string, then there is some specific pattern we are extracting that will succeed the partial match that determines what the variable will be set to (usually not a bool).</dd>
+</dl>
+</div></blockquote>
+ </p>
+<p>Subclassed by <a class="reference internal" href="#xAHclass_helper_classes_1_1_event_info_switch"><span class="std std-ref">HelperClasses::EventInfoSwitch</span></a>, <a class="reference internal" href="#xAHclass_helper_classes_1_1_i_particle_info_switch"><span class="std std-ref">HelperClasses::IParticleInfoSwitch</span></a>, <a class="reference internal" href="#xAHclass_helper_classes_1_1_m_e_t_info_switch"><span class="std std-ref">HelperClasses::METInfoSwitch</span></a>, <a class="reference internal" href="#xAHclass_helper_classes_1_1_track_info_switch"><span class="std std-ref">HelperClasses::TrackInfoSwitch</span></a>, <a class="reference internal" href="#xAHclass_helper_classes_1_1_trigger_info_switch"><span class="std std-ref">HelperClasses::TriggerInfoSwitch</span></a></p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N13HelperClasses10InfoSwitch10InfoSwitchEKNSt6stringE">
+<span id="HelperClasses::InfoSwitch::InfoSwitch__ssC"></span><span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a93dc63f941d3d776f11f3787165b6422"></span><code class="descname">InfoSwitch</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>configStr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N13HelperClasses10InfoSwitch10InfoSwitchEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. Take in input string, create vector of tokens. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">configStr</span></code>: The configuration string to split up. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N13HelperClasses10InfoSwitch9has_exactEKNSt6stringE">
+<span id="HelperClasses::InfoSwitch::has_exact__ssC"></span><span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a3c2a2fc1463538c2fa698425a6cc9bc3"></span>bool <code class="descname">has_exact</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N13HelperClasses10InfoSwitch9has_exactEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Search for an exact match in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a>.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N13HelperClasses10InfoSwitch9has_matchEKNSt6stringE">
+<span id="HelperClasses::InfoSwitch::has_match__ssC"></span><span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a78024e43942a516f9dc106c58b031022"></span>bool <code class="descname">has_match</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N13HelperClasses10InfoSwitch9has_matchEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Search for a partial match in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch11m_configStrE" title="HelperClasses::InfoSwitch::m_configStr"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configStr</span></code></a>.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N13HelperClasses10InfoSwitch17get_working_pointEKNSt6stringE">
+<span id="HelperClasses::InfoSwitch::get_working_point__ssC"></span><span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a633da21ca71aa731e21b70ddd4d887f0"></span>std::string <code class="descname">get_working_point</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N13HelperClasses10InfoSwitch17get_working_pointEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Search for a single flag in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a> and parse out the working point.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N13HelperClasses10InfoSwitch18get_working_pointsEKNSt6stringE">
+<span id="HelperClasses::InfoSwitch::get_working_points__ssC"></span><span class="target" id="xAHclass_helper_classes_1_1_info_switch_1ac362f2cef4bf6a681bb1413f07370e53"></span>std::vector&lt;std::string&gt; <code class="descname">get_working_points</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N13HelperClasses10InfoSwitch18get_working_pointsEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Search for multiple flags in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a> and parse out the working points.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv2N13HelperClasses10InfoSwitch11m_configStrE">
+<span id="HelperClasses::InfoSwitch::m_configStr__ssC"></span><span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a1af7a2697ed6f1094b3a9f31fec82025"></span><em class="property">const</em> std::string <code class="descname">m_configStr</code><a class="headerlink" href="#_CPPv2N13HelperClasses10InfoSwitch11m_configStrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The input configuration string from which we split up into tokens. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE">
+<span id="HelperClasses::InfoSwitch::m_configDetails__std::set:ss:"></span><span class="target" id="xAHclass_helper_classes_1_1_info_switch_1ae0f3ce703ff23b7ebdde647189e425e5"></span>std::set&lt;std::string&gt; <code class="descname">m_configDetails</code><a class="headerlink" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The vector of tokens from which we search through for finding matches. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N13HelperClasses15EventInfoSwitchE">
+<span id="HelperClasses::EventInfoSwitch"></span><span class="target" id="xAHclass_helper_classes_1_1_event_info_switch"></span><em class="property">class </em><code class="descname">EventInfoSwitch</code><a class="headerlink" href="#_CPPv2N13HelperClasses15EventInfoSwitchE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;HelperClasses.h&gt;</em><p><p>The <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitchE" title="HelperClasses::InfoSwitch"><code class="xref cpp cpp-class docutils literal"><span class="pre">HelperClasses::InfoSwitch</span></code></a> struct for Event Information.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="43%" />
+<col width="38%" />
+<col width="19%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Pattern</th>
+<th class="head">Match</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>m_eventCleaning</td>
+<td>eventCleaning</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_bcidInfo</td>
+<td>bcidInfo</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_pileup</td>
+<td>pileup</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_pileupsys</td>
+<td>pileupsys</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_shapeEM</td>
+<td>shapeEM</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_shapeLC</td>
+<td>shapeLC</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_truth</td>
+<td>truth</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_caloClus</td>
+<td>caloClusters</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_weightsSys</td>
+<td>weightsSys</td>
+<td>exact</td>
+</tr>
+</tbody>
+</table>
+ </p>
+<p>Inherits from <a class="reference internal" href="#xAHclass_helper_classes_1_1_info_switch"><span class="std std-ref">HelperClasses::InfoSwitch</span></a></p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N13HelperClasses10InfoSwitch9has_exactEKNSt6stringE">
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a3c2a2fc1463538c2fa698425a6cc9bc3"></span>bool <code class="descname">has_exact</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N13HelperClasses10InfoSwitch9has_exactEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Search for an exact match in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a>.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N13HelperClasses10InfoSwitch9has_matchEKNSt6stringE">
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a78024e43942a516f9dc106c58b031022"></span>bool <code class="descname">has_match</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N13HelperClasses10InfoSwitch9has_matchEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Search for a partial match in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch11m_configStrE" title="HelperClasses::InfoSwitch::m_configStr"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configStr</span></code></a>.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N13HelperClasses10InfoSwitch17get_working_pointEKNSt6stringE">
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a633da21ca71aa731e21b70ddd4d887f0"></span>std::string <code class="descname">get_working_point</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N13HelperClasses10InfoSwitch17get_working_pointEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Search for a single flag in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a> and parse out the working point.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N13HelperClasses10InfoSwitch18get_working_pointsEKNSt6stringE">
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1ac362f2cef4bf6a681bb1413f07370e53"></span>std::vector&lt;std::string&gt; <code class="descname">get_working_points</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N13HelperClasses10InfoSwitch18get_working_pointsEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Search for multiple flags in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a> and parse out the working points.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv2N13HelperClasses10InfoSwitch11m_configStrE">
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a1af7a2697ed6f1094b3a9f31fec82025"></span><em class="property">const</em> std::string <code class="descname">m_configStr</code><a class="headerlink" href="#_CPPv2N13HelperClasses10InfoSwitch11m_configStrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The input configuration string from which we split up into tokens. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE">
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1ae0f3ce703ff23b7ebdde647189e425e5"></span>std::set&lt;std::string&gt; <code class="descname">m_configDetails</code><a class="headerlink" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The vector of tokens from which we search through for finding matches. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N13HelperClasses17TriggerInfoSwitchE">
+<span id="HelperClasses::TriggerInfoSwitch"></span><span class="target" id="xAHclass_helper_classes_1_1_trigger_info_switch"></span><em class="property">class </em><code class="descname">TriggerInfoSwitch</code><a class="headerlink" href="#_CPPv2N13HelperClasses17TriggerInfoSwitchE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;HelperClasses.h&gt;</em><p><p>The <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitchE" title="HelperClasses::InfoSwitch"><code class="xref cpp cpp-class docutils literal"><span class="pre">HelperClasses::InfoSwitch</span></code></a> struct for Trigger Information.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="43%" />
+<col width="38%" />
+<col width="19%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Pattern</th>
+<th class="head">Match</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>m_basic</td>
+<td>basic</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_menuKeys</td>
+<td>menuKeys</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_passTriggers</td>
+<td>passTriggers</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_passTrigBits</td>
+<td>passTrigBits</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_prescales</td>
+<td>prescales</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_prescalesLumi</td>
+<td>prescalesLumi</td>
+<td>exact</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><code class="docutils literal"><span class="pre">m_prescales</span></code> contains information from the <code class="docutils literal"><span class="pre">TrigDecisionTool</span></code> for every trigger used in event selection and event trigger-matching. <code class="docutils literal"><span class="pre">m_prescalesLumi</span></code> contains information retrieved from the pile-up reweighting tool based on the actual luminosities of triggers.</p>
+</div>
+ </p>
+<p>Inherits from <a class="reference internal" href="#xAHclass_helper_classes_1_1_info_switch"><span class="std std-ref">HelperClasses::InfoSwitch</span></a></p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a3c2a2fc1463538c2fa698425a6cc9bc3"></span>bool <code class="descname">has_exact</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for an exact match in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a>.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a78024e43942a516f9dc106c58b031022"></span>bool <code class="descname">has_match</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for a partial match in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch11m_configStrE" title="HelperClasses::InfoSwitch::m_configStr"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configStr</span></code></a>.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a633da21ca71aa731e21b70ddd4d887f0"></span>std::string <code class="descname">get_working_point</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for a single flag in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a> and parse out the working point.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1ac362f2cef4bf6a681bb1413f07370e53"></span>std::vector&lt;std::string&gt; <code class="descname">get_working_points</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for multiple flags in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a> and parse out the working points.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a1af7a2697ed6f1094b3a9f31fec82025"></span><em class="property">const</em> std::string <code class="descname">m_configStr</code><br /></dt>
+<dd><p>The input configuration string from which we split up into tokens. </p>
+</dd></dl>
+
+<dl class="member">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1ae0f3ce703ff23b7ebdde647189e425e5"></span>std::set&lt;std::string&gt; <code class="descname">m_configDetails</code><br /></dt>
+<dd><p>The vector of tokens from which we search through for finding matches. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N13HelperClasses19IParticleInfoSwitchE">
+<span id="HelperClasses::IParticleInfoSwitch"></span><span class="target" id="xAHclass_helper_classes_1_1_i_particle_info_switch"></span><em class="property">class </em><code class="descname">IParticleInfoSwitch</code><a class="headerlink" href="#_CPPv2N13HelperClasses19IParticleInfoSwitchE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;HelperClasses.h&gt;</em><p><p>The <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitchE" title="HelperClasses::InfoSwitch"><code class="xref cpp cpp-class docutils literal"><span class="pre">HelperClasses::InfoSwitch</span></code></a> struct for IParticle Information.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="36%" />
+<col width="21%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Pattern</th>
+<th class="head">Match</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>m_kinematic</td>
+<td>kinematic</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_numLeading</td>
+<td>NLeading</td>
+<td>partial</td>
+</tr>
+<tr class="row-even"><td>m_useTheS</td>
+<td>useTheS</td>
+<td>exact</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p><code class="docutils literal"><span class="pre">m_numLeading</span></code> requires a number <code class="docutils literal"><span class="pre">XX</span></code> to follow it, defining the number of leading partiles and associate it with that variable.</p>
+<p>For example:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">m_configStr</span> <span class="o">=</span> <span class="s">&quot;... NLeading4 ...&quot;</span>
+</pre></div>
+</div>
+<p class="last">will define <code class="docutils literal"><span class="pre">int</span> <span class="pre">m_numLeading</span> <span class="pre">=</span> <span class="pre">4</span></code>.</p>
+</div>
+ </p>
+<p>Inherits from <a class="reference internal" href="#xAHclass_helper_classes_1_1_info_switch"><span class="std std-ref">HelperClasses::InfoSwitch</span></a></p>
+<p>Subclassed by <a class="reference internal" href="#xAHclass_helper_classes_1_1_electron_info_switch"><span class="std std-ref">HelperClasses::ElectronInfoSwitch</span></a>, <a class="reference internal" href="#xAHclass_helper_classes_1_1_jet_info_switch"><span class="std std-ref">HelperClasses::JetInfoSwitch</span></a>, <a class="reference internal" href="#xAHclass_helper_classes_1_1_muon_info_switch"><span class="std std-ref">HelperClasses::MuonInfoSwitch</span></a>, <a class="reference internal" href="#xAHclass_helper_classes_1_1_photon_info_switch"><span class="std std-ref">HelperClasses::PhotonInfoSwitch</span></a>, <a class="reference internal" href="#xAHclass_helper_classes_1_1_tau_info_switch"><span class="std std-ref">HelperClasses::TauInfoSwitch</span></a>, <a class="reference internal" href="#xAHclass_helper_classes_1_1_truth_info_switch"><span class="std std-ref">HelperClasses::TruthInfoSwitch</span></a></p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a3c2a2fc1463538c2fa698425a6cc9bc3"></span>bool <code class="descname">has_exact</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for an exact match in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a>.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a78024e43942a516f9dc106c58b031022"></span>bool <code class="descname">has_match</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for a partial match in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch11m_configStrE" title="HelperClasses::InfoSwitch::m_configStr"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configStr</span></code></a>.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a633da21ca71aa731e21b70ddd4d887f0"></span>std::string <code class="descname">get_working_point</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for a single flag in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a> and parse out the working point.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1ac362f2cef4bf6a681bb1413f07370e53"></span>std::vector&lt;std::string&gt; <code class="descname">get_working_points</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for multiple flags in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a> and parse out the working points.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a1af7a2697ed6f1094b3a9f31fec82025"></span><em class="property">const</em> std::string <code class="descname">m_configStr</code><br /></dt>
+<dd><p>The input configuration string from which we split up into tokens. </p>
+</dd></dl>
+
+<dl class="member">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1ae0f3ce703ff23b7ebdde647189e425e5"></span>std::set&lt;std::string&gt; <code class="descname">m_configDetails</code><br /></dt>
+<dd><p>The vector of tokens from which we search through for finding matches. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N13HelperClasses14MuonInfoSwitchE">
+<span id="HelperClasses::MuonInfoSwitch"></span><span class="target" id="xAHclass_helper_classes_1_1_muon_info_switch"></span><em class="property">class </em><code class="descname">MuonInfoSwitch</code><a class="headerlink" href="#_CPPv2N13HelperClasses14MuonInfoSwitchE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;HelperClasses.h&gt;</em><p><p>The <a class="reference internal" href="#_CPPv2N13HelperClasses19IParticleInfoSwitchE" title="HelperClasses::IParticleInfoSwitch"><code class="xref cpp cpp-class docutils literal"><span class="pre">HelperClasses::IParticleInfoSwitch</span></code></a> class for Muon Information.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="45%" />
+<col width="41%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Pattern</th>
+<th class="head">Match</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>m_trigger</td>
+<td>trigger</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_isolation</td>
+<td>isolation</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_isolationKinematics</td>
+<td>isolationKinematics</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_quality</td>
+<td>quality</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_trackparams</td>
+<td>trackparams</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_trackhitcont</td>
+<td>trackhitcont</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_effSF</td>
+<td>effSF</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_energyLoss</td>
+<td>energyLoss</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_recoWPs[XYZ]</td>
+<td>RECO_XYZ</td>
+<td>pattern</td>
+</tr>
+<tr class="row-odd"><td>m_isolWPs[&#8220;&#8221;]</td>
+<td><a href="#id1"><span class="problematic" id="id2">ISOL_</span></a></td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_isolWPs[&#8220;&#8221;]</td>
+<td>ISOL_NONE</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_isolWPs[XYZ]</td>
+<td>ISOL_XYZ</td>
+<td>pattern</td>
+</tr>
+<tr class="row-even"><td>m_trigWPs[XYZ]</td>
+<td>TRIG_XYZ</td>
+<td>pattern</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p><code class="docutils literal"><span class="pre">quality</span></code>, <code class="docutils literal"><span class="pre">isolation</span></code> and <code class="docutils literal"><span class="pre">effSF</span></code> switches do not enable any additional output by themselves. They require additional working point pattern using <code class="docutils literal"><span class="pre">RECO_XYZ</span></code> for quality working points and scale factors, <code class="docutils literal"><span class="pre">ISOL_XYZ</span></code> for isolation working points and scale factors, and <code class="docutils literal"><span class="pre">TRIG_XYZ</span></code> for trigger scale factors. <code class="docutils literal"><span class="pre">XYZ</span></code> in the pattern should be replaced using the working point name, for example:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">m_configStr</span> <span class="o">=</span> <span class="s">&quot;... RECO_Medium ...&quot;</span>
+</pre></div>
+</div>
+<p>will define the <code class="docutils literal"><span class="pre">Medium</span></code> quality working point and the accompanying scale factors.</p>
+<p>Isolation supports <code class="docutils literal"><span class="pre">NONE</span></code> or empty option which will enable scale factors without additional isolation requirements, for example:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">m_configStr</span> <span class="o">=</span> <span class="s">&quot;... ISOL_NONE ISOL_Loose ...&quot;</span>
+</pre></div>
+</div>
+<p class="last">will define the <code class="docutils literal"><span class="pre">Loose</span></code> isolation working point status branch, and scale factors without isolation requirements and using the <code class="docutils literal"><span class="pre">Loose</span></code> WP.</p>
+</div>
+ </p>
+<p>Inherits from <a class="reference internal" href="#xAHclass_helper_classes_1_1_i_particle_info_switch"><span class="std std-ref">HelperClasses::IParticleInfoSwitch</span></a></p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a3c2a2fc1463538c2fa698425a6cc9bc3"></span>bool <code class="descname">has_exact</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for an exact match in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a>.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a78024e43942a516f9dc106c58b031022"></span>bool <code class="descname">has_match</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for a partial match in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch11m_configStrE" title="HelperClasses::InfoSwitch::m_configStr"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configStr</span></code></a>.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a633da21ca71aa731e21b70ddd4d887f0"></span>std::string <code class="descname">get_working_point</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for a single flag in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a> and parse out the working point.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1ac362f2cef4bf6a681bb1413f07370e53"></span>std::vector&lt;std::string&gt; <code class="descname">get_working_points</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for multiple flags in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a> and parse out the working points.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a1af7a2697ed6f1094b3a9f31fec82025"></span><em class="property">const</em> std::string <code class="descname">m_configStr</code><br /></dt>
+<dd><p>The input configuration string from which we split up into tokens. </p>
+</dd></dl>
+
+<dl class="member">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1ae0f3ce703ff23b7ebdde647189e425e5"></span>std::set&lt;std::string&gt; <code class="descname">m_configDetails</code><br /></dt>
+<dd><p>The vector of tokens from which we search through for finding matches. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N13HelperClasses18ElectronInfoSwitchE">
+<span id="HelperClasses::ElectronInfoSwitch"></span><span class="target" id="xAHclass_helper_classes_1_1_electron_info_switch"></span><em class="property">class </em><code class="descname">ElectronInfoSwitch</code><a class="headerlink" href="#_CPPv2N13HelperClasses18ElectronInfoSwitchE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;HelperClasses.h&gt;</em><p><p>The <a class="reference internal" href="#_CPPv2N13HelperClasses19IParticleInfoSwitchE" title="HelperClasses::IParticleInfoSwitch"><code class="xref cpp cpp-class docutils literal"><span class="pre">HelperClasses::IParticleInfoSwitch</span></code></a> class for Electron Information.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="45%" />
+<col width="40%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Pattern</th>
+<th class="head">Match</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>m_trigger</td>
+<td>trigger</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_isolation</td>
+<td>isolation</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_isolationKinematics</td>
+<td>isolationKinematics</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_PID</td>
+<td>PID</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_trackparams</td>
+<td>trackparams</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_trackhitcont</td>
+<td>trackhitcont</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_effSF</td>
+<td>effSF</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_PIDWPs[XYZ]</td>
+<td>PID_XYZ</td>
+<td>pattern</td>
+</tr>
+<tr class="row-even"><td>m_PIDSFWPs[XYZ]</td>
+<td>PIDSF_XYZ</td>
+<td>pattern</td>
+</tr>
+<tr class="row-odd"><td>m_isolWPs[&#8220;&#8221;]</td>
+<td><a href="#id3"><span class="problematic" id="id4">ISOL_</span></a></td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_isolWPs[&#8220;&#8221;]</td>
+<td>ISOL_NONE</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_isolWPs[XYZ]</td>
+<td>ISOL_XYZ</td>
+<td>pattern</td>
+</tr>
+<tr class="row-even"><td>m_trigWPs[XYZ]</td>
+<td>TRIG_XYZ</td>
+<td>pattern</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p><code class="docutils literal"><span class="pre">PID</span></code>, <code class="docutils literal"><span class="pre">isolation</span></code> and <code class="docutils literal"><span class="pre">effSF</span></code> switches do not enable any additional output by themselves. They require additional working point pattern using <code class="docutils literal"><span class="pre">PID_XYZ</span></code> for PID working points, <code class="docutils literal"><span class="pre">PIDSF_XYZ</span></code> for PID scale factors, <code class="docutils literal"><span class="pre">ISOL_XYZ</span></code> for isolation working points and scale factors, and <code class="docutils literal"><span class="pre">TRIG_XYZ</span></code> for trigger scale factors. <code class="docutils literal"><span class="pre">XYZ</span></code> in the pattern should be replaced using the working point name, for example:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">m_configStr</span> <span class="o">=</span> <span class="s">&quot;... PID_LHMedium PIDSF_MediumLLH ...&quot;</span>
+</pre></div>
+</div>
+<p>will define the <code class="docutils literal"><span class="pre">LHMedium</span></code> PID working point and the accompanying scale factors. Note that not all PID working points have scale factors available.</p>
+<p>Isolation supports <code class="docutils literal"><span class="pre">NONE</span></code> or empty option which will enable scale factors without additional isolation requirements, for example:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">m_configStr</span> <span class="o">=</span> <span class="s">&quot;... ISOL_NONE ISOL_Loose ...&quot;</span>
+</pre></div>
+</div>
+<p class="last">will define the <code class="docutils literal"><span class="pre">Loose</span></code> isolation working point status branch, and scale factors without isolation requirements and using the <code class="docutils literal"><span class="pre">Loose</span></code> WP.</p>
+</div>
+ </p>
+<p>Inherits from <a class="reference internal" href="#xAHclass_helper_classes_1_1_i_particle_info_switch"><span class="std std-ref">HelperClasses::IParticleInfoSwitch</span></a></p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a3c2a2fc1463538c2fa698425a6cc9bc3"></span>bool <code class="descname">has_exact</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for an exact match in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a>.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a78024e43942a516f9dc106c58b031022"></span>bool <code class="descname">has_match</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for a partial match in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch11m_configStrE" title="HelperClasses::InfoSwitch::m_configStr"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configStr</span></code></a>.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a633da21ca71aa731e21b70ddd4d887f0"></span>std::string <code class="descname">get_working_point</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for a single flag in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a> and parse out the working point.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1ac362f2cef4bf6a681bb1413f07370e53"></span>std::vector&lt;std::string&gt; <code class="descname">get_working_points</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for multiple flags in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a> and parse out the working points.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a1af7a2697ed6f1094b3a9f31fec82025"></span><em class="property">const</em> std::string <code class="descname">m_configStr</code><br /></dt>
+<dd><p>The input configuration string from which we split up into tokens. </p>
+</dd></dl>
+
+<dl class="member">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1ae0f3ce703ff23b7ebdde647189e425e5"></span>std::set&lt;std::string&gt; <code class="descname">m_configDetails</code><br /></dt>
+<dd><p>The vector of tokens from which we search through for finding matches. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N13HelperClasses16PhotonInfoSwitchE">
+<span id="HelperClasses::PhotonInfoSwitch"></span><span class="target" id="xAHclass_helper_classes_1_1_photon_info_switch"></span><em class="property">class </em><code class="descname">PhotonInfoSwitch</code><a class="headerlink" href="#_CPPv2N13HelperClasses16PhotonInfoSwitchE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;HelperClasses.h&gt;</em><p><p>The <a class="reference internal" href="#_CPPv2N13HelperClasses19IParticleInfoSwitchE" title="HelperClasses::IParticleInfoSwitch"><code class="xref cpp cpp-class docutils literal"><span class="pre">HelperClasses::IParticleInfoSwitch</span></code></a> class for Photon Information.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="36%" />
+<col width="21%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Pattern</th>
+<th class="head">Match</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>m_isolation</td>
+<td>isolation</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_PID</td>
+<td>PID</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_purity</td>
+<td>purity</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_effSF</td>
+<td>effSF</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_trigger</td>
+<td>trigger</td>
+<td>exact</td>
+</tr>
+</tbody>
+</table>
+ </p>
+<p>Inherits from <a class="reference internal" href="#xAHclass_helper_classes_1_1_i_particle_info_switch"><span class="std std-ref">HelperClasses::IParticleInfoSwitch</span></a></p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a3c2a2fc1463538c2fa698425a6cc9bc3"></span>bool <code class="descname">has_exact</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for an exact match in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a>.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a78024e43942a516f9dc106c58b031022"></span>bool <code class="descname">has_match</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for a partial match in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch11m_configStrE" title="HelperClasses::InfoSwitch::m_configStr"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configStr</span></code></a>.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a633da21ca71aa731e21b70ddd4d887f0"></span>std::string <code class="descname">get_working_point</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for a single flag in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a> and parse out the working point.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1ac362f2cef4bf6a681bb1413f07370e53"></span>std::vector&lt;std::string&gt; <code class="descname">get_working_points</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for multiple flags in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a> and parse out the working points.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a1af7a2697ed6f1094b3a9f31fec82025"></span><em class="property">const</em> std::string <code class="descname">m_configStr</code><br /></dt>
+<dd><p>The input configuration string from which we split up into tokens. </p>
+</dd></dl>
+
+<dl class="member">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1ae0f3ce703ff23b7ebdde647189e425e5"></span>std::set&lt;std::string&gt; <code class="descname">m_configDetails</code><br /></dt>
+<dd><p>The vector of tokens from which we search through for finding matches. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N13HelperClasses13JetInfoSwitchE">
+<span id="HelperClasses::JetInfoSwitch"></span><span class="target" id="xAHclass_helper_classes_1_1_jet_info_switch"></span><em class="property">class </em><code class="descname">JetInfoSwitch</code><a class="headerlink" href="#_CPPv2N13HelperClasses13JetInfoSwitchE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;HelperClasses.h&gt;</em><p><p>The <a class="reference internal" href="#_CPPv2N13HelperClasses19IParticleInfoSwitchE" title="HelperClasses::IParticleInfoSwitch"><code class="xref cpp cpp-class docutils literal"><span class="pre">HelperClasses::IParticleInfoSwitch</span></code></a> class for Jet Information.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="43%" />
+<col width="38%" />
+<col width="19%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Pattern</th>
+<th class="head">Match</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>m_kinematic</td>
+<td>kinematic</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_trigger</td>
+<td>trigger</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_substructure</td>
+<td>substructure</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_bosonCount</td>
+<td>bosonCount</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_VTags</td>
+<td>VTags</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_rapidity</td>
+<td>rapidity</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_clean</td>
+<td>clean</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_cleanLight</td>
+<td>cleanLight</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_cleanNoSumm</td>
+<td>cleanNoSumm</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_energy</td>
+<td>energy</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_energyLight</td>
+<td>energyLight</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_scales</td>
+<td>scales</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_constscaleEta</td>
+<td>constscaleEta</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_detectorEta</td>
+<td>detectorEta</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_resolution</td>
+<td>resolution</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_truth</td>
+<td>truth</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_truthDetails</td>
+<td>truth_details</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_layer</td>
+<td>layer</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_trackPV</td>
+<td>trackPV</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_trackAll</td>
+<td>trackAll</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_jvt</td>
+<td>JVT</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_sfJVTName</td>
+<td>sfJVT</td>
+<td>partial</td>
+</tr>
+<tr class="row-even"><td>m_sffJVTName</td>
+<td>sffJVT</td>
+<td>partial</td>
+</tr>
+<tr class="row-odd"><td>m_allTrack</td>
+<td>allTrack</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_allTrackPVSel</td>
+<td>allTrackPVSel</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_allTrackDetail</td>
+<td>allTrackDetail</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_constituent</td>
+<td>constituent</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_constituentAll</td>
+<td>constituentAll</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_flavorTag</td>
+<td>flavorTag</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_flavorTagHLT</td>
+<td>flavorTagHLT</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_sfFTagFix</td>
+<td>sfFTagFix</td>
+<td>partial</td>
+</tr>
+<tr class="row-odd"><td>m_sfFTagFlt</td>
+<td>sfFTagFlt</td>
+<td>partial</td>
+</tr>
+<tr class="row-even"><td>m_sfFTagHyb</td>
+<td>sfFTagHyb</td>
+<td>partial</td>
+</tr>
+<tr class="row-odd"><td>m_jetBTag</td>
+<td>jetBTag</td>
+<td>partial</td>
+</tr>
+<tr class="row-even"><td>m_area</td>
+<td>area</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_JVC</td>
+<td>JVC</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_tracksInJet</td>
+<td>tracksInJet</td>
+<td>partial</td>
+</tr>
+<tr class="row-odd"><td>m_trackJetName</td>
+<td>trackJetName</td>
+<td>partial</td>
+</tr>
+<tr class="row-even"><td>m_hltVtxComp</td>
+<td>hltVtxComp</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_onlineBS</td>
+<td>onlineBS</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_onlineBSTool</td>
+<td>onlineBSTool</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_charge</td>
+<td>charge</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_vsLumiBlock</td>
+<td>vsLumiBlock</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_vsActualMu</td>
+<td>vsActualMu</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_lumiB_runN</td>
+<td>lumiB_runN</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_byAverageMu</td>
+<td>byAverageMu</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_byEta</td>
+<td>byEta</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_etaPhiMap</td>
+<td>etaPhiMap</td>
+<td>exact</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p><code class="docutils literal"><span class="pre">sfJVT</span></code> requires a working point after it, for example:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">m_configStr</span> <span class="o">=</span> <span class="s">&quot;... sfJVTMedium ...&quot;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">sfFTagFix</span></code>, <code class="docutils literal"><span class="pre">sfFTagFlt</span></code> and <code class="docutils literal"><span class="pre">sfFTagHyb</span></code> require a string of numbers pairwise <code class="docutils literal"><span class="pre">AABB..MM..YYZZ</span></code> succeeding it. This will create a vector of numbers (AA, BB, CC, ..., ZZ) associated with that variable. For example:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">m_configStr</span> <span class="o">=</span> <span class="s">&quot;... sfFTagFix010203 ...&quot;</span>
+</pre></div>
+</div>
+<p>will define <code class="docutils literal"><span class="pre">std::vector&lt;int&gt;</span> <span class="pre">m_sfFTagFix</span> <span class="pre">=</span> <span class="pre">{1,2,3}</span></code>. THIS OPTION IS DEPRICATED!</p>
+<p><code class="docutils literal"><span class="pre">jetBTag</span></code> expects the format <code class="docutils literal"><span class="pre">jetBTag_tagger_type_AABB..MM..YY.ZZ</span></code>. This will create a vector of working points (AA, BB, CC, ..., ZZ) associated with that tagger. Several entries can be given. For example:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">m_configStr</span> <span class="o">=</span> <span class="s">&quot;... jetBTag_MV2c10_HybBEff_60707785 ...&quot;</span>
+</pre></div>
+</div>
+<p class="last">will define <code class="docutils literal"><span class="pre">std::map&lt;std::vector&lt;std::pair&lt;std::string,uint&gt;&gt;&gt;</span> <span class="pre">m_jetBTag[&quot;MV2c10&quot;]</span> <span class="pre">=</span> <span class="pre">{std::make_pair(&quot;HybBEff&quot;,60),</span> <span class="pre">std::make_pair(&quot;HybBEff&quot;,70)</span> <span class="pre">,std::make_pair(&quot;HybBEff&quot;,77),</span> <span class="pre">std::make_pair(&quot;HybBEff&quot;,85)}</span></code>.</p>
+</div>
+<p><code class="docutils literal"><span class="pre">trackJetName</span></code> expects one or more track jet container names separated by an underscore. For example, the string <code class="docutils literal"><span class="pre">trackJetName_GhostAntiKt2TrackJet_GhostVR30Rmax4Rmin02TrackJet</span></code> will set the attriubte <code class="docutils literal"><span class="pre">m_trackJetNames</span></code>
+to <code class="docutils literal"><span class="pre">{&quot;GhostAntiKt2TrackJet&quot;,</span> <span class="pre">&quot;GhostVR30Rmax4Rmin02TrackJet&quot;}</span></code>.</p>
+ </p>
+<p>Inherits from <a class="reference internal" href="#xAHclass_helper_classes_1_1_i_particle_info_switch"><span class="std std-ref">HelperClasses::IParticleInfoSwitch</span></a></p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a3c2a2fc1463538c2fa698425a6cc9bc3"></span>bool <code class="descname">has_exact</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for an exact match in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a>.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a78024e43942a516f9dc106c58b031022"></span>bool <code class="descname">has_match</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for a partial match in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch11m_configStrE" title="HelperClasses::InfoSwitch::m_configStr"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configStr</span></code></a>.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a633da21ca71aa731e21b70ddd4d887f0"></span>std::string <code class="descname">get_working_point</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for a single flag in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a> and parse out the working point.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1ac362f2cef4bf6a681bb1413f07370e53"></span>std::vector&lt;std::string&gt; <code class="descname">get_working_points</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for multiple flags in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a> and parse out the working points.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a1af7a2697ed6f1094b3a9f31fec82025"></span><em class="property">const</em> std::string <code class="descname">m_configStr</code><br /></dt>
+<dd><p>The input configuration string from which we split up into tokens. </p>
+</dd></dl>
+
+<dl class="member">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1ae0f3ce703ff23b7ebdde647189e425e5"></span>std::set&lt;std::string&gt; <code class="descname">m_configDetails</code><br /></dt>
+<dd><p>The vector of tokens from which we search through for finding matches. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N13HelperClasses15TruthInfoSwitchE">
+<span id="HelperClasses::TruthInfoSwitch"></span><span class="target" id="xAHclass_helper_classes_1_1_truth_info_switch"></span><em class="property">class </em><code class="descname">TruthInfoSwitch</code><a class="headerlink" href="#_CPPv2N13HelperClasses15TruthInfoSwitchE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;HelperClasses.h&gt;</em><p><p>The <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitchE" title="HelperClasses::InfoSwitch"><code class="xref cpp cpp-class docutils literal"><span class="pre">HelperClasses::InfoSwitch</span></code></a> struct for Truth Information.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="43%" />
+<col width="38%" />
+<col width="19%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Pattern</th>
+<th class="head">Match</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>m_kinematic</td>
+<td>kinematic</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_type</td>
+<td>type</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_bVtx</td>
+<td>bVtx</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_parents</td>
+<td>parents</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_children</td>
+<td>children</td>
+<td>exact</td>
+</tr>
+</tbody>
+</table>
+ </p>
+<p>Inherits from <a class="reference internal" href="#xAHclass_helper_classes_1_1_i_particle_info_switch"><span class="std std-ref">HelperClasses::IParticleInfoSwitch</span></a></p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a3c2a2fc1463538c2fa698425a6cc9bc3"></span>bool <code class="descname">has_exact</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for an exact match in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a>.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a78024e43942a516f9dc106c58b031022"></span>bool <code class="descname">has_match</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for a partial match in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch11m_configStrE" title="HelperClasses::InfoSwitch::m_configStr"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configStr</span></code></a>.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a633da21ca71aa731e21b70ddd4d887f0"></span>std::string <code class="descname">get_working_point</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for a single flag in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a> and parse out the working point.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1ac362f2cef4bf6a681bb1413f07370e53"></span>std::vector&lt;std::string&gt; <code class="descname">get_working_points</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for multiple flags in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a> and parse out the working points.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a1af7a2697ed6f1094b3a9f31fec82025"></span><em class="property">const</em> std::string <code class="descname">m_configStr</code><br /></dt>
+<dd><p>The input configuration string from which we split up into tokens. </p>
+</dd></dl>
+
+<dl class="member">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1ae0f3ce703ff23b7ebdde647189e425e5"></span>std::set&lt;std::string&gt; <code class="descname">m_configDetails</code><br /></dt>
+<dd><p>The vector of tokens from which we search through for finding matches. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N13HelperClasses15TrackInfoSwitchE">
+<span id="HelperClasses::TrackInfoSwitch"></span><span class="target" id="xAHclass_helper_classes_1_1_track_info_switch"></span><em class="property">class </em><code class="descname">TrackInfoSwitch</code><a class="headerlink" href="#_CPPv2N13HelperClasses15TrackInfoSwitchE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;HelperClasses.h&gt;</em><p><p>The <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitchE" title="HelperClasses::InfoSwitch"><code class="xref cpp cpp-class docutils literal"><span class="pre">HelperClasses::InfoSwitch</span></code></a> struct for Track Information.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="43%" />
+<col width="38%" />
+<col width="19%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Pattern</th>
+<th class="head">Match</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>m_kinematic</td>
+<td>kinematic</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_fitpars</td>
+<td>fitpars</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_numbers</td>
+<td>numbers</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_vertex</td>
+<td>vertex</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_useTheS</td>
+<td>useTheS</td>
+<td>exact</td>
+</tr>
+</tbody>
+</table>
+ </p>
+<p>Inherits from <a class="reference internal" href="#xAHclass_helper_classes_1_1_info_switch"><span class="std std-ref">HelperClasses::InfoSwitch</span></a></p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a3c2a2fc1463538c2fa698425a6cc9bc3"></span>bool <code class="descname">has_exact</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for an exact match in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a>.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a78024e43942a516f9dc106c58b031022"></span>bool <code class="descname">has_match</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for a partial match in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch11m_configStrE" title="HelperClasses::InfoSwitch::m_configStr"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configStr</span></code></a>.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a633da21ca71aa731e21b70ddd4d887f0"></span>std::string <code class="descname">get_working_point</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for a single flag in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a> and parse out the working point.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1ac362f2cef4bf6a681bb1413f07370e53"></span>std::vector&lt;std::string&gt; <code class="descname">get_working_points</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for multiple flags in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a> and parse out the working points.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a1af7a2697ed6f1094b3a9f31fec82025"></span><em class="property">const</em> std::string <code class="descname">m_configStr</code><br /></dt>
+<dd><p>The input configuration string from which we split up into tokens. </p>
+</dd></dl>
+
+<dl class="member">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1ae0f3ce703ff23b7ebdde647189e425e5"></span>std::set&lt;std::string&gt; <code class="descname">m_configDetails</code><br /></dt>
+<dd><p>The vector of tokens from which we search through for finding matches. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N13HelperClasses13TauInfoSwitchE">
+<span id="HelperClasses::TauInfoSwitch"></span><span class="target" id="xAHclass_helper_classes_1_1_tau_info_switch"></span><em class="property">class </em><code class="descname">TauInfoSwitch</code><a class="headerlink" href="#_CPPv2N13HelperClasses13TauInfoSwitchE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;HelperClasses.h&gt;</em><p><p>The <a class="reference internal" href="#_CPPv2N13HelperClasses19IParticleInfoSwitchE" title="HelperClasses::IParticleInfoSwitch"><code class="xref cpp cpp-class docutils literal"><span class="pre">HelperClasses::IParticleInfoSwitch</span></code></a> struct for Tau Information.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="43%" />
+<col width="38%" />
+<col width="19%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Pattern</th>
+<th class="head">Match</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>m_trigger</td>
+<td>trigger</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_JetID</td>
+<td>JetID</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_trackparams</td>
+<td>trackparams</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_trackhitcont</td>
+<td>trackhitcont</td>
+<td>exact</td>
+</tr>
+</tbody>
+</table>
+ </p>
+<p>Inherits from <a class="reference internal" href="#xAHclass_helper_classes_1_1_i_particle_info_switch"><span class="std std-ref">HelperClasses::IParticleInfoSwitch</span></a></p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a3c2a2fc1463538c2fa698425a6cc9bc3"></span>bool <code class="descname">has_exact</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for an exact match in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a>.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a78024e43942a516f9dc106c58b031022"></span>bool <code class="descname">has_match</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for a partial match in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch11m_configStrE" title="HelperClasses::InfoSwitch::m_configStr"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configStr</span></code></a>.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a633da21ca71aa731e21b70ddd4d887f0"></span>std::string <code class="descname">get_working_point</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for a single flag in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a> and parse out the working point.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1ac362f2cef4bf6a681bb1413f07370e53"></span>std::vector&lt;std::string&gt; <code class="descname">get_working_points</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for multiple flags in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a> and parse out the working points.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a1af7a2697ed6f1094b3a9f31fec82025"></span><em class="property">const</em> std::string <code class="descname">m_configStr</code><br /></dt>
+<dd><p>The input configuration string from which we split up into tokens. </p>
+</dd></dl>
+
+<dl class="member">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1ae0f3ce703ff23b7ebdde647189e425e5"></span>std::set&lt;std::string&gt; <code class="descname">m_configDetails</code><br /></dt>
+<dd><p>The vector of tokens from which we search through for finding matches. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv2N13HelperClasses13METInfoSwitchE">
+<span id="HelperClasses::METInfoSwitch"></span><span class="target" id="xAHclass_helper_classes_1_1_m_e_t_info_switch"></span><em class="property">class </em><code class="descname">METInfoSwitch</code><a class="headerlink" href="#_CPPv2N13HelperClasses13METInfoSwitchE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;HelperClasses.h&gt;</em><p><p>The <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitchE" title="HelperClasses::InfoSwitch"><code class="xref cpp cpp-class docutils literal"><span class="pre">HelperClasses::InfoSwitch</span></code></a> struct for Missing <span class="math">\(\text{E}_{\text{T}}\)</span> Information.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="41%" />
+<col width="45%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Pattern</th>
+<th class="head">Match</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>m_metClus</td>
+<td>metClus</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_metTrk</td>
+<td>metTrk</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_sigClus</td>
+<td>sigClus|all</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_sigTrk</td>
+<td>sigTrk|all</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_sigResolutionClus</td>
+<td>sigResolutionClus|all</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_sigResolutionTrk</td>
+<td>sigResolutionTrk|all</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_refEle</td>
+<td>refEle|all</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_refGamma</td>
+<td>refGamma|all</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_refTau</td>
+<td>refTau|all</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_refMuons</td>
+<td>refMuons|all</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_refJet</td>
+<td>refJet|all</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_refJetTrk</td>
+<td>refJetTrk</td>
+<td>exact</td>
+</tr>
+<tr class="row-even"><td>m_softClus</td>
+<td>softClus|all</td>
+<td>exact</td>
+</tr>
+<tr class="row-odd"><td>m_softTrk</td>
+<td>softTrk|all</td>
+<td>exact</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For all except <code class="xref cpp cpp-member docutils literal"><span class="pre">m_refJetTrk</span></code>, you can pass in the string <code class="docutils literal"><span class="pre">&quot;all&quot;</span></code> to enable all information. You can force only calocluster- or track-based MET using <code class="xref cpp cpp-member docutils literal"><span class="pre">m_metClus</span></code> or <code class="xref cpp cpp-member docutils literal"><span class="pre">m_metTrk</span></code>.</p>
+</div>
+ </p>
+<p>Inherits from <a class="reference internal" href="#xAHclass_helper_classes_1_1_info_switch"><span class="std std-ref">HelperClasses::InfoSwitch</span></a></p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a3c2a2fc1463538c2fa698425a6cc9bc3"></span>bool <code class="descname">has_exact</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for an exact match in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a>.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a78024e43942a516f9dc106c58b031022"></span>bool <code class="descname">has_match</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for a partial match in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch11m_configStrE" title="HelperClasses::InfoSwitch::m_configStr"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configStr</span></code></a>.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a633da21ca71aa731e21b70ddd4d887f0"></span>std::string <code class="descname">get_working_point</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for a single flag in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a> and parse out the working point.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1ac362f2cef4bf6a681bb1413f07370e53"></span>std::vector&lt;std::string&gt; <code class="descname">get_working_points</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>flag</em><span class="sig-paren">)</span><br /></dt>
+<dd><p><p>Search for multiple flags in <a class="reference internal" href="#_CPPv2N13HelperClasses10InfoSwitch15m_configDetailsE" title="HelperClasses::InfoSwitch::m_configDetails"><code class="xref cpp cpp-member docutils literal"><span class="pre">m_configDetails</span></code></a> and parse out the working points.</p>
+ <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">flag</span></code>: The string we search for. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1a1af7a2697ed6f1094b3a9f31fec82025"></span><em class="property">const</em> std::string <code class="descname">m_configStr</code><br /></dt>
+<dd><p>The input configuration string from which we split up into tokens. </p>
+</dd></dl>
+
+<dl class="member">
+<dt>
+<span class="target" id="xAHclass_helper_classes_1_1_info_switch_1ae0f3ce703ff23b7ebdde647189e425e5"></span>std::set&lt;std::string&gt; <code class="descname">m_configDetails</code><br /></dt>
+<dd><p>The vector of tokens from which we search through for finding matches. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="HelperFunctions.html" class="btn btn-neutral float-right" title="Helper Functions" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="DebugTool.html" class="btn btn-neutral" title="Debug Tool" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015-2017, ATLAS Collaboration.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'01-00-00-46-g45a2bda',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
